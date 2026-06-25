@@ -112,9 +112,9 @@ const [showCredits, setShowCredits] = useState(false);
           <Link
   href="/whoru"
   className="
-   w-full
-max-w-[420px]
-h-72
+    w-full
+    max-w-[340px]
+    h-56
     bg-white/85
     hover:bg-white
     transition-all
@@ -130,7 +130,7 @@ h-72
   "
 >
 
-  <div className="text-5xl mb-4">
+  <div className="text-3xl md:text-5xl mb-4">
     🤔
   </div>
 
