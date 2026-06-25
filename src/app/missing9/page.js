@@ -674,6 +674,7 @@ md:text-sm text-zinc-100 font-semibold">
   <div
     className="
       relative
+      mx-auto
       w-full
       min-w-[700px]
       max-w-[900px]

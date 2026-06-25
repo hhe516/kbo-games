@@ -1,7 +1,22 @@
 import pandas as pd
 import json
 import os
+# --------------------------------
+# players.json
+# --------------------------------
 
+with open(
+    os.path.join(
+        BASE_DIR,
+        "..",
+        "public",
+        "data",
+        "players.json"
+    ),
+    encoding="utf-8"
+) as f:
+
+    players = json.load(f)
 # --------------------------------
 # 경로
 # --------------------------------
@@ -73,6 +88,21 @@ df["PlayerID"] = (
     + df["Birthdate"]
 )
 
+# --------------------------------
+# 포지션 맵
+# --------------------------------
+
+position_map = {}
+
+for p in players:
+
+    key = (
+        p["name"]
+        + "_"
+        + p["birth"]
+    )
+
+    position_map[key] = p["position"]
 # --------------------------------
 # 통산 WAR 계산
 # --------------------------------
@@ -153,11 +183,12 @@ for pid, group in df.groupby("PlayerID"):
 
     career_paths.append({
 
-        "id": pid,
-        "name": group.iloc[0]["Name"],
-        "career": career
+    "id": pid,
+    "name": group.iloc[0]["Name"],
+    "position": position_map.get(pid, ""),
+    "career": career
 
-    })
+})
 
 # --------------------------------
 # 해외 커리어 덮어쓰기
