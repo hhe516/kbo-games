@@ -1,0 +1,2440 @@
+[
+  {
+    "title": "2008 베이징 올림픽 결승",
+    "category": "국제대회",
+      "team": "대한민국",
+  "opponent": "쿠바",
+    "lineup": [
+      { "position": "CF", "name": "이종욱", "throws": "", "bats": "" },
+      { "position": "2B", "name": "고영민", "throws": "", "bats": "" },
+      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
+      { "position": "1B", "name": "이승엽", "throws": "", "bats": "" },
+      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
+      { "position": "RF", "name": "이용규", "throws": "", "bats": "" },
+      { "position": "3B", "name": "김동주", "throws": "", "bats": "" },
+      { "position": "SS", "name": "박진만", "throws": "", "bats": "" },
+      { "position": "C", "name": "강민호", "throws": "", "bats": "" },
+      { "position": "P", "name": "류현진", "throws": "", "bats": "" }
+    ]
+  },
+
+  {
+    "title": "2009 WBC 결승",
+    "category": "국제대회",
+      "team": "대한민국",
+  "opponent": "일본",
+    "lineup": [
+      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
+      { "position": "2B", "name": "고영민", "throws": "", "bats": "" },
+      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
+      { "position": "RF", "name": "추신수", "throws": "", "bats": "" },
+      { "position": "1B", "name": "김태균", "throws": "", "bats": "" },
+      { "position": "DH", "name": "이진영", "throws": "", "bats": "" },
+      { "position": "3B", "name": "이범호", "throws": "", "bats": "" },
+      { "position": "SS", "name": "박기혁", "throws": "", "bats": "" },
+      { "position": "C", "name": "박경완", "throws": "", "bats": "" },
+      { "position": "P", "name": "봉중근", "throws": "", "bats": "" }
+    ]
+  },
+
+  {
+    "title": "2015 프리미어12 준결승",
+    "category": "국제대회",
+      "team": "대한민국",
+  "opponent": "일본",
+    "lineup": [
+      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
+      { "position": "2B", "name": "정근우", "throws": "", "bats": "" },
+      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
+      { "position": "1B", "name": "박병호", "throws": "", "bats": "" },
+      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
+      { "position": "RF", "name": "민병헌", "throws": "", "bats": "" },
+      { "position": "3B", "name": "황재균", "throws": "", "bats": "" },
+      { "position": "SS", "name": "김재호", "throws": "", "bats": "" },
+      { "position": "C", "name": "양의지", "throws": "", "bats": "" },
+      { "position": "P", "name": "이대은", "throws": "", "bats": "" }
+    ]
+  },
+
+  {
+    "title": "2015 프리미어12 결승",
+    "category": "국제대회",
+      "team": "대한민국",
+  "opponent": "미국",
+    "lineup": [
+      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
+      { "position": "2B", "name": "정근우", "throws": "", "bats": "" },
+      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
+      { "position": "1B", "name": "박병호", "throws": "", "bats": "" },
+      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
+      { "position": "RF", "name": "손아섭", "throws": "", "bats": "" },
+      { "position": "3B", "name": "황재균", "throws": "", "bats": "" },
+      { "position": "SS", "name": "김재호", "throws": "", "bats": "" },
+      { "position": "C", "name": "양의지", "throws": "", "bats": "" },
+      { "position": "P", "name": "김광현", "throws": "", "bats": "" }
+    ]
+  },
+
+  {
+    "title": "2010 광저우 아시안게임 결승",
+    "category": "국제대회",
+    "team": "대한민국",
+  "opponent": "대만",
+    "lineup": [
+      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
+      { "position": "2B", "name": "정근우", "throws": "", "bats": "" },
+      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
+      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
+      { "position": "1B", "name": "김태균", "throws": "", "bats": "" },
+      { "position": "RF", "name": "추신수", "throws": "", "bats": "" },
+      { "position": "3B", "name": "강정호", "throws": "", "bats": "" },
+      { "position": "SS", "name": "손시헌", "throws": "", "bats": "" },
+      { "position": "C", "name": "박경완", "throws": "", "bats": "" },
+      { "position": "P", "name": "류현진", "throws": "", "bats": "" }
+    ]
+  },
+
+  {
+    "title": "2014 인천 아시안게임 결승 vs 대만",
+    "category": "국제대회",
+    "lineup": [
+      { "position": "CF", "name": "나성범", "throws": "", "bats": "" },
+      { "position": "2B", "name": "오재원", "throws": "", "bats": "" },
+      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
+      { "position": "1B", "name": "박병호", "throws": "", "bats": "" },
+      { "position": "DH", "name": "손아섭", "throws": "", "bats": "" },
+      { "position": "RF", "name": "민병헌", "throws": "", "bats": "" },
+      { "position": "3B", "name": "김민성", "throws": "", "bats": "" },
+      { "position": "SS", "name": "강정호", "throws": "", "bats": "" },
+      { "position": "C", "name": "강민호", "throws": "", "bats": "" },
+      { "position": "P", "name": "김광현", "throws": "", "bats": "" }
+    ]
+  },
+  {
+  "title": "2020 도쿄올림픽 준결승",
+  "category": "국제대회",
+    "team": "대한민국",
+  "opponent": "일본",
+  "lineup": [
+    {"position":"P","name":"고영표"},
+    {"position":"C","name":"양의지"},
+    {"position":"1B","name":"오재일"},
+    {"position":"2B","name":"황재균"},
+    {"position":"3B","name":"허경민"},
+    {"position":"SS","name":"오지환"},
+    {"position":"LF","name":"김현수"},
+    {"position":"CF","name":"박해민"},
+    {"position":"RF","name":"이정후"},
+    {"position":"DH","name":"강백호"}
+  ]
+},
+{
+  "title": "2017 WBC 1라운드",
+  "category": "국제대회",
+    "team": "대한민국",
+  "opponent": "네덜란드",
+  "lineup": [
+    {"position":"P","name":"우규민"},
+    {"position":"C","name":"김태군"},
+    {"position":"1B","name":"이대호"},
+    {"position":"2B","name":"서건창"},
+    {"position":"3B","name":"박석민"},
+    {"position":"SS","name":"김하성"},
+    {"position":"LF","name":"민병헌"},
+    {"position":"CF","name":"이용규"},
+    {"position":"RF","name":"손아섭"},
+    {"position":"DH","name":"김태균"}
+  ]
+},
+{
+  "title": "2011 한국시리즈 4차전",
+  "category": "한국시리즈",
+    "team": "삼성",
+  "opponent": "SK",
+  "lineup": [
+    {"position":"P","name":"윤성환"},
+    {"position":"C","name":"진갑용"},
+    {"position":"1B","name":"채태인"},
+    {"position":"2B","name":"신명철"},
+    {"position":"3B","name":"조동찬"},
+    {"position":"SS","name":"김상수"},
+    {"position":"LF","name":"최형우"},
+    {"position":"CF","name":"배영섭"},
+    {"position":"RF","name":"강봉규"},
+    {"position":"DH","name":"박석민"}
+  ]
+},
+{
+  "title": "2008 한국시리즈 5차전",
+  "category": "한국시리즈",
+      "team": "두산",
+  "opponent": "SK",
+  "lineup": [
+    {"position":"P","name":"김선우"},
+    {"position":"C","name":"최승환"},
+    {"position":"1B","name":"최준석"},
+    {"position":"2B","name":"고영민"},
+    {"position":"3B","name":"김동주"},
+    {"position":"SS","name":"김재호"},
+    {"position":"LF","name":"김현수"},
+    {"position":"CF","name":"이종욱"},
+    {"position":"RF","name":"유재웅"},
+    {"position":"DH","name":"홍성흔"}
+  ]
+},
+{
+  "title": "2014 한국시리즈 5차전",
+  "category": "한국시리즈",
+  "team": "삼성",
+  "opponent": "넥센",
+  "lineup": [
+    {"position":"P","name":"밴덴헐크"},
+    {"position":"C","name":"이지영"},
+    {"position":"1B","name":"채태인"},
+    {"position":"2B","name":"나바로"},
+    {"position":"3B","name":"박석민"},
+    {"position":"SS","name":"김상수"},
+    {"position":"LF","name":"최형우"},
+    {"position":"CF","name":"박해민"},
+    {"position":"RF","name":"박한이"},
+    {"position":"DH","name":"이승엽"}
+  ]
+},
+{
+  "title": "2015 한국시리즈 5차전",
+  "category": "한국시리즈",
+  "team": "두산",
+  "opponent": "삼성",
+  "lineup": [
+    {"position":"P","name":"유희관"},
+    {"position":"C","name":"양의지"},
+    {"position":"1B","name":"고영민"},
+    {"position":"2B","name":"오재원"},
+    {"position":"3B","name":"허경민"},
+    {"position":"SS","name":"김재호"},
+    {"position":"LF","name":"김현수"},
+    {"position":"CF","name":"민병헌"},
+    {"position":"RF","name":"박건우"},
+    {"position":"DH","name":"정수빈"}
+  ]
+},
+{
+  "title": "2018 한국시리즈 6차전",
+  "category": "한국시리즈",
+  "team": "SK",
+  "opponent": "두산",
+  "lineup": [
+    {"position":"P","name":"켈리"},
+    {"position":"C","name":"이재원"},
+    {"position":"1B","name":"로맥"},
+    {"position":"2B","name":"강승호"},
+    {"position":"3B","name":"최정"},
+    {"position":"SS","name":"김성현"},
+    {"position":"LF","name":"정의윤"},
+    {"position":"CF","name":"김강민"},
+    {"position":"RF","name":"한동민"},
+    {"position":"DH","name":"박정권"}
+  ]
+},
+{
+  "title": "2019 한국시리즈 4차전",
+  "category": "한국시리즈",
+  "team": "키움",
+  "opponent": "두산",
+  "lineup": [
+    {"position":"P","name":"최원태"},
+    {"position":"C","name":"이지영"},
+    {"position":"1B","name":"박병호"},
+    {"position":"2B","name":"김혜성"},
+    {"position":"3B","name":"송성문"},
+    {"position":"SS","name":"김하성"},
+    {"position":"LF","name":"박정음"},
+    {"position":"CF","name":"이정후"},
+    {"position":"RF","name":"샌즈"},
+    {"position":"DH","name":"서건창"}
+  ]
+},
+{
+  "title": "2020 한국시리즈 6차전",
+  "category": "한국시리즈",
+  "team": "NC",
+  "opponent": "두산",
+  "lineup": [
+    {"position":"P","name":"루친스키"},
+    {"position":"C","name":"양의지"},
+    {"position":"1B","name":"강진성"},
+    {"position":"2B","name":"박민우"},
+    {"position":"3B","name":"박석민"},
+    {"position":"SS","name":"노진혁"},
+    {"position":"LF","name":"권희동"},
+    {"position":"CF","name":"알테어"},
+    {"position":"RF","name":"나성범"},
+    {"position":"DH","name":"이명기"}
+  ]
+},
+{
+  "title": "2017 한국시리즈 1차전",
+  "category": "한국시리즈",
+  "team": "KIA",
+  "opponent": "두산",
+  "lineup": [
+    {"position":"P","name":"헥터"},
+    {"position":"C","name":"김민식"},
+    {"position":"1B","name":"김주찬"},
+    {"position":"2B","name":"안치홍"},
+    {"position":"3B","name":"이범호"},
+    {"position":"SS","name":"김선빈"},
+    {"position":"LF","name":"최형우"},
+    {"position":"CF","name":"버나디나"},
+    {"position":"RF","name":"이명기"},
+    {"position":"DH","name":"나지완"}
+  ]
+},
+{
+  "title": "2021 한국시리즈 4차전",
+  "category": "한국시리즈",
+  "team": "KT",
+  "opponent": "두산",
+  "lineup": [
+    {"position":"P","name":"배제성"},
+    {"position":"C","name":"장성우"},
+    {"position":"1B","name":"강백호"},
+    {"position":"2B","name":"신본기"},
+    {"position":"3B","name":"황재균"},
+    {"position":"SS","name":"심우준"},
+    {"position":"LF","name":"조용호"},
+    {"position":"CF","name":"배정대"},
+    {"position":"RF","name":"호잉"},
+    {"position":"DH","name":"유한준"}
+  ]
+},
+{
+  "title": "2023 한국시리즈 5차전",
+  "category": "한국시리즈",
+  "team": "LG",
+  "opponent": "KT",
+  "lineup": [
+    {"position":"P","name":"켈리"},
+    {"position":"C","name":"박동원"},
+    {"position":"1B","name":"오스틴"},
+    {"position":"2B","name":"신민재"},
+    {"position":"3B","name":"문보경"},
+    {"position":"SS","name":"오지환"},
+    {"position":"LF","name":"문성주"},
+    {"position":"CF","name":"박해민"},
+    {"position":"RF","name":"홍창기"},
+    {"position":"DH","name":"김현수"}
+  ]
+},
+{
+  "title": "2022 준플레이오프 5차전",
+  "category": "포스트시즌",
+  "team": "키움",
+  "opponent": "KT",
+  "lineup": [
+    {"position":"P","name":"안우진"},
+    {"position":"C","name":"이지영"},
+    {"position":"1B","name":"전병우"},
+    {"position":"2B","name":"김혜성"},
+    {"position":"3B","name":"송성문"},
+    {"position":"SS","name":"김휘집"},
+    {"position":"LF","name":"김준완"},
+    {"position":"CF","name":"이정후"},
+    {"position":"RF","name":"푸이그"},
+    {"position":"DH","name":"이용규"}
+  ]
+},{
+  "title": "2021 플레이오프 2차전",
+  "category": "포스트시즌",
+  "team": "두산",
+  "opponent": "삼성",
+  "lineup": [
+    {"position":"P","name":"김민규"},
+    {"position":"C","name":"박세혁"},
+    {"position":"1B","name":"양석환"},
+    {"position":"2B","name":"강승호"},
+    {"position":"3B","name":"허경민"},
+    {"position":"SS","name":"김재호"},
+    {"position":"LF","name":"김재환"},
+    {"position":"CF","name":"정수빈"},
+    {"position":"RF","name":"박건우"},
+    {"position":"DH","name":"페르난데스"}
+  ]
+},
+{
+  "title": "2018 준플레이오프 1차전",
+  "category": "포스트시즌",
+  "team": "한화",
+  "opponent": "넥센",
+  "lineup": [
+    {"position":"P","name":"헤일"},
+    {"position":"C","name":"최재훈"},
+    {"position":"1B","name":"정근우"},
+    {"position":"2B","name":"정은원"},
+    {"position":"3B","name":"김회성"},
+    {"position":"SS","name":"하주석"},
+    {"position":"LF","name":"최진행"},
+    {"position":"CF","name":"이용규"},
+    {"position":"RF","name":"호잉"},
+    {"position":"DH","name":"이성열"}
+  ]
+},
+{
+  "title": "2022 한국시리즈 6차전",
+  "category": "한국시리즈",
+  "team": "SSG",
+  "opponent": "키움",
+  "lineup": [
+    {"position":"P","name":"폰트"},
+    {"position":"C","name":"이재원"},
+    {"position":"1B","name":"최주환"},
+    {"position":"2B","name":"김성현"},
+    {"position":"3B","name":"최정"},
+    {"position":"SS","name":"박성한"},
+    {"position":"LF","name":"라가레스"},
+    {"position":"CF","name":"최지훈"},
+    {"position":"RF","name":"한유섬"},
+    {"position":"DH","name":"추신수"}
+  ]
+},
+{
+  "title": "2010 준플레이오프 5차전",
+  "category": "포스트시즌",
+  "team": "롯데",
+  "opponent": "두산",
+  "lineup": [
+    {"position":"P","name":"송승준"},
+    {"position":"C","name":"강민호"},
+    {"position":"1B","name":"김주찬"},
+    {"position":"2B","name":"조성환"},
+    {"position":"3B","name":"이대호"},
+    {"position":"SS","name":"황재균"},
+    {"position":"LF","name":"손아섭"},
+    {"position":"CF","name":"전준우"},
+    {"position":"RF","name":"가르시아"},
+    {"position":"DH","name":"홍성흔"}
+  ]
+},
+{
+  "title": "2009 한국시리즈 7차전",
+  "category": "한국시리즈",
+  "team": "KIA",
+  "opponent": "SK",
+  "lineup": [
+    {"position":"P","name":"구톰슨"},
+    {"position":"C","name":"김상훈"},
+    {"position":"1B","name":"최희섭"},
+    {"position":"2B","name":"안치홍"},
+    {"position":"3B","name":"김상현"},
+    {"position":"SS","name":"이현곤"},
+    {"position":"LF","name":"김원섭"},
+    {"position":"CF","name":"이용규"},
+    {"position":"RF","name":"이종범"},
+    {"position":"DH","name":"나지완"}
+  ]
+},
+{
+  "title": "2023 플레이오프 5차전",
+  "category": "포스트시즌",
+  "team": "KT",
+  "opponent": "NC",
+  "lineup": [
+    {"position":"P","name":"벤자민"},
+    {"position":"C","name":"장성우"},
+    {"position":"1B","name":"박병호"},
+    {"position":"2B","name":"오윤석"},
+    {"position":"3B","name":"황재균"},
+    {"position":"SS","name":"김상수"},
+    {"position":"LF","name":"알포드"},
+    {"position":"CF","name":"배정대"},
+    {"position":"RF","name":"조용호"},
+    {"position":"DH","name":"문상철"}
+  ]
+},
+{
+  "title": "2013 플레이오프 1차전",
+  "category": "포스트시즌",
+  "team": "LG",
+  "opponent": "두산",
+  "lineup": [
+    {"position":"P","name":"류제국"},
+    {"position":"C","name":"윤요섭"},
+    {"position":"1B","name":"김용의"},
+    {"position":"2B","name":"손주인"},
+    {"position":"3B","name":"정성훈"},
+    {"position":"SS","name":"오지환"},
+    {"position":"LF","name":"이병규"},
+    {"position":"CF","name":"박용택"},
+    {"position":"RF","name":"이진영"},
+    {"position":"DH","name":"이병규"}
+  ]
+},
+  {
+    "title": "2005 삼성 베스트",
+    "team": "삼성",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "배영수"
+      },
+      {
+        "position": "C",
+        "name": "진갑용"
+      },
+      {
+        "position": "1B",
+        "name": "김한수"
+      },
+      {
+        "position": "2B",
+        "name": "박종호"
+      },
+      {
+        "position": "SS",
+        "name": "박진만"
+      },
+      {
+        "position": "3B",
+        "name": "조동찬"
+      },
+      {
+        "position": "OF1",
+        "name": "심정수"
+      },
+      {
+        "position": "OF2",
+        "name": "박한이"
+      },
+      {
+        "position": "OF3",
+        "name": "강동우"
+      },
+      {
+        "position": "DH",
+        "name": "양준혁"
+      }
+    ]
+  },
+  {
+    "title": "2011 삼성 베스트",
+    "team": "삼성",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "차우찬"
+      },
+      {
+        "position": "C",
+        "name": "진갑용"
+      },
+      {
+        "position": "1B",
+        "name": "조영훈"
+      },
+      {
+        "position": "2B",
+        "name": "강명구"
+      },
+      {
+        "position": "SS",
+        "name": "김상수"
+      },
+      {
+        "position": "3B",
+        "name": "박석민"
+      },
+      {
+        "position": "OF1",
+        "name": "최형우"
+      },
+      {
+        "position": "OF2",
+        "name": "박한이"
+      },
+      {
+        "position": "OF3",
+        "name": "배영섭"
+      },
+      {
+        "position": "DH",
+        "name": "가코"
+      }
+    ]
+  },
+  {
+    "title": "2012 삼성 베스트",
+    "team": "삼성",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "배영수"
+      },
+      {
+        "position": "C",
+        "name": "진갑용"
+      },
+      {
+        "position": "1B",
+        "name": "이승엽"
+      },
+      {
+        "position": "2B",
+        "name": "손주인"
+      },
+      {
+        "position": "SS",
+        "name": "김상수"
+      },
+      {
+        "position": "3B",
+        "name": "박석민"
+      },
+      {
+        "position": "OF1",
+        "name": "박한이"
+      },
+      {
+        "position": "OF2",
+        "name": "최형우"
+      },
+      {
+        "position": "OF3",
+        "name": "배영섭"
+      },
+      {
+        "position": "DH",
+        "name": "조동찬"
+      }
+    ]
+  },
+  {
+    "title": "2013 삼성 베스트",
+    "team": "삼성",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "윤성환"
+      },
+      {
+        "position": "C",
+        "name": "이지영"
+      },
+      {
+        "position": "1B",
+        "name": "채태인"
+      },
+      {
+        "position": "2B",
+        "name": "김태완"
+      },
+      {
+        "position": "SS",
+        "name": "김상수"
+      },
+      {
+        "position": "3B",
+        "name": "박석민"
+      },
+      {
+        "position": "OF1",
+        "name": "최형우"
+      },
+      {
+        "position": "OF2",
+        "name": "박한이"
+      },
+      {
+        "position": "OF3",
+        "name": "정형식"
+      },
+      {
+        "position": "DH",
+        "name": "이승엽"
+      }
+    ]
+  },
+  {
+    "title": "2014 삼성 베스트",
+    "team": "삼성",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "윤성환"
+      },
+      {
+        "position": "C",
+        "name": "이지영"
+      },
+      {
+        "position": "1B",
+        "name": "채태인"
+      },
+      {
+        "position": "2B",
+        "name": "나바로"
+      },
+      {
+        "position": "SS",
+        "name": "김상수"
+      },
+      {
+        "position": "3B",
+        "name": "박석민"
+      },
+      {
+        "position": "OF1",
+        "name": "최형우"
+      },
+      {
+        "position": "OF2",
+        "name": "박한이"
+      },
+      {
+        "position": "OF3",
+        "name": "박해민"
+      },
+      {
+        "position": "DH",
+        "name": "이승엽"
+      }
+    ]
+  },
+  {
+    "title": "2008 두산 베스트",
+    "team": "두산",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "랜들"
+      },
+      {
+        "position": "C",
+        "name": "최승환"
+      },
+      {
+        "position": "1B",
+        "name": "안경현"
+      },
+      {
+        "position": "2B",
+        "name": "고영민"
+      },
+      {
+        "position": "SS",
+        "name": "이대수"
+      },
+      {
+        "position": "3B",
+        "name": "김동주"
+      },
+      {
+        "position": "OF1",
+        "name": "김현수"
+      },
+      {
+        "position": "OF2",
+        "name": "이종욱"
+      },
+      {
+        "position": "OF3",
+        "name": "유재웅"
+      },
+      {
+        "position": "DH",
+        "name": "홍성흔"
+      }
+    ]
+  },
+  {
+    "title": "2015 두산 베스트",
+    "team": "두산",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "유희관"
+      },
+      {
+        "position": "C",
+        "name": "양의지"
+      },
+      {
+        "position": "1B",
+        "name": "오재일"
+      },
+      {
+        "position": "2B",
+        "name": "오재원"
+      },
+      {
+        "position": "SS",
+        "name": "김재호"
+      },
+      {
+        "position": "3B",
+        "name": "허경민"
+      },
+      {
+        "position": "OF1",
+        "name": "김현수"
+      },
+      {
+        "position": "OF2",
+        "name": "민병헌"
+      },
+      {
+        "position": "OF3",
+        "name": "정수빈"
+      },
+      {
+        "position": "DH",
+        "name": "홍성흔"
+      }
+    ]
+  },
+  {
+    "title": "2016 두산 베스트",
+    "team": "두산",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "보우덴"
+      },
+      {
+        "position": "C",
+        "name": "양의지"
+      },
+      {
+        "position": "1B",
+        "name": "오재일"
+      },
+      {
+        "position": "2B",
+        "name": "오재원"
+      },
+      {
+        "position": "SS",
+        "name": "김재호"
+      },
+      {
+        "position": "3B",
+        "name": "허경민"
+      },
+      {
+        "position": "OF1",
+        "name": "김재환"
+      },
+      {
+        "position": "OF2",
+        "name": "박건우"
+      },
+      {
+        "position": "OF3",
+        "name": "민병헌"
+      },
+      {
+        "position": "DH",
+        "name": "홍성흔"
+      }
+    ]
+  },
+  {
+    "title": "2018 두산 베스트",
+    "team": "두산",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "후랭코프"
+      },
+      {
+        "position": "C",
+        "name": "양의지"
+      },
+      {
+        "position": "1B",
+        "name": "오재일"
+      },
+      {
+        "position": "2B",
+        "name": "최주환"
+      },
+      {
+        "position": "SS",
+        "name": "김재호"
+      },
+      {
+        "position": "3B",
+        "name": "허경민"
+      },
+      {
+        "position": "OF1",
+        "name": "김재환"
+      },
+      {
+        "position": "OF2",
+        "name": "박건우"
+      },
+      {
+        "position": "OF3",
+        "name": "정수빈"
+      },
+      {
+        "position": "DH",
+        "name": "오재원"
+      }
+    ]
+  },
+  {
+    "title": "2019 두산 베스트",
+    "team": "두산",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "린드블럼"
+      },
+      {
+        "position": "C",
+        "name": "박세혁"
+      },
+      {
+        "position": "1B",
+        "name": "오재일"
+      },
+      {
+        "position": "2B",
+        "name": "최주환"
+      },
+      {
+        "position": "SS",
+        "name": "김재호"
+      },
+      {
+        "position": "3B",
+        "name": "허경민"
+      },
+      {
+        "position": "OF1",
+        "name": "박건우"
+      },
+      {
+        "position": "OF2",
+        "name": "김재환"
+      },
+      {
+        "position": "OF3",
+        "name": "정수빈"
+      },
+      {
+        "position": "DH",
+        "name": "페르난데스"
+      }
+    ]
+  },
+  {
+    "title": "2013 LG 베스트",
+    "team": "LG",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "리즈"
+      },
+      {
+        "position": "C",
+        "name": "현재윤"
+      },
+      {
+        "position": "1B",
+        "name": "최승준"
+      },
+      {
+        "position": "2B",
+        "name": "손주인"
+      },
+      {
+        "position": "SS",
+        "name": "오지환"
+      },
+      {
+        "position": "3B",
+        "name": "정성훈"
+      },
+      {
+        "position": "OF1",
+        "name": "이진영"
+      },
+      {
+        "position": "OF2",
+        "name": "박용택"
+      },
+      {
+        "position": "OF3",
+        "name": "김용의"
+      },
+      {
+        "position": "DH",
+        "name": "이병규"
+      }
+    ]
+  },
+  {
+    "title": "2016 LG 베스트",
+    "team": "LG",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "소사"
+      },
+      {
+        "position": "C",
+        "name": "유강남"
+      },
+      {
+        "position": "1B",
+        "name": "정성훈"
+      },
+      {
+        "position": "2B",
+        "name": "손주인"
+      },
+      {
+        "position": "SS",
+        "name": "오지환"
+      },
+      {
+        "position": "3B",
+        "name": "히메네스"
+      },
+      {
+        "position": "OF1",
+        "name": "채은성"
+      },
+      {
+        "position": "OF2",
+        "name": "문선재"
+      },
+      {
+        "position": "OF3",
+        "name": "김용의"
+      },
+      {
+        "position": "DH",
+        "name": "박용택"
+      }
+    ]
+  },
+  {
+    "title": "2022 LG 베스트",
+    "team": "LG",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "플럿코"
+      },
+      {
+        "position": "C",
+        "name": "유강남"
+      },
+      {
+        "position": "1B",
+        "name": "채은성"
+      },
+      {
+        "position": "2B",
+        "name": "송찬의"
+      },
+      {
+        "position": "SS",
+        "name": "오지환"
+      },
+      {
+        "position": "3B",
+        "name": "문보경"
+      },
+      {
+        "position": "OF1",
+        "name": "김현수"
+      },
+      {
+        "position": "OF2",
+        "name": "박해민"
+      },
+      {
+        "position": "OF3",
+        "name": "홍창기"
+      },
+      {
+        "position": "DH",
+        "name": "문성주"
+      }
+    ]
+  },
+  {
+    "title": "2023 LG 베스트",
+    "team": "LG",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "켈리"
+      },
+      {
+        "position": "C",
+        "name": "박동원"
+      },
+      {
+        "position": "1B",
+        "name": "오스틴"
+      },
+      {
+        "position": "2B",
+        "name": "김민성"
+      },
+      {
+        "position": "SS",
+        "name": "오지환"
+      },
+      {
+        "position": "3B",
+        "name": "문보경"
+      },
+      {
+        "position": "OF1",
+        "name": "홍창기"
+      },
+      {
+        "position": "OF2",
+        "name": "문성주"
+      },
+      {
+        "position": "OF3",
+        "name": "박해민"
+      },
+      {
+        "position": "DH",
+        "name": "김현수"
+      }
+    ]
+  },
+  {
+    "title": "2008 롯데 베스트",
+    "team": "롯데",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "손민한"
+      },
+      {
+        "position": "C",
+        "name": "강민호"
+      },
+      {
+        "position": "1B",
+        "name": "박종윤"
+      },
+      {
+        "position": "2B",
+        "name": "조성환"
+      },
+      {
+        "position": "SS",
+        "name": "박기혁"
+      },
+      {
+        "position": "3B",
+        "name": "이대호"
+      },
+      {
+        "position": "OF1",
+        "name": "가르시아"
+      },
+      {
+        "position": "OF2",
+        "name": "김주찬"
+      },
+      {
+        "position": "OF3",
+        "name": "정수근"
+      },
+      {
+        "position": "DH",
+        "name": "정보명"
+      }
+    ]
+  },
+  {
+    "title": "2010 롯데 베스트",
+    "team": "롯데",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "송승준"
+      },
+      {
+        "position": "C",
+        "name": "강민호"
+      },
+      {
+        "position": "1B",
+        "name": "박종윤"
+      },
+      {
+        "position": "2B",
+        "name": "조성환"
+      },
+      {
+        "position": "SS",
+        "name": "문규현"
+      },
+      {
+        "position": "3B",
+        "name": "이대호"
+      },
+      {
+        "position": "OF1",
+        "name": "손아섭"
+      },
+      {
+        "position": "OF2",
+        "name": "가르시아"
+      },
+      {
+        "position": "OF3",
+        "name": "전준우"
+      },
+      {
+        "position": "DH",
+        "name": "홍성흔"
+      }
+    ]
+  },
+  {
+    "title": "2011 롯데 베스트",
+    "team": "롯데",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "송승준"
+      },
+      {
+        "position": "C",
+        "name": "강민호"
+      },
+      {
+        "position": "1B",
+        "name": "이대호"
+      },
+      {
+        "position": "2B",
+        "name": "정훈"
+      },
+      {
+        "position": "SS",
+        "name": "문규현"
+      },
+      {
+        "position": "3B",
+        "name": "황재균"
+      },
+      {
+        "position": "OF1",
+        "name": "손아섭"
+      },
+      {
+        "position": "OF2",
+        "name": "전준우"
+      },
+      {
+        "position": "OF3",
+        "name": "김주찬"
+      },
+      {
+        "position": "DH",
+        "name": "홍성흔"
+      }
+    ]
+  },
+  {
+    "title": "2017 롯데 베스트",
+    "team": "롯데",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "레일리"
+      },
+      {
+        "position": "C",
+        "name": "강민호"
+      },
+      {
+        "position": "1B",
+        "name": "이대호"
+      },
+      {
+        "position": "2B",
+        "name": "번즈"
+      },
+      {
+        "position": "SS",
+        "name": "신본기"
+      },
+      {
+        "position": "3B",
+        "name": "황진수"
+      },
+      {
+        "position": "OF1",
+        "name": "손아섭"
+      },
+      {
+        "position": "OF2",
+        "name": "전준우"
+      },
+      {
+        "position": "OF3",
+        "name": "김문호"
+      },
+      {
+        "position": "DH",
+        "name": "최준석"
+      }
+    ]
+  },
+  {
+    "title": "2009 KIA 베스트",
+    "team": "KIA",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "로페즈"
+      },
+      {
+        "position": "C",
+        "name": "김상훈"
+      },
+      {
+        "position": "1B",
+        "name": "최희섭"
+      },
+      {
+        "position": "2B",
+        "name": "안치홍"
+      },
+      {
+        "position": "SS",
+        "name": "김선빈"
+      },
+      {
+        "position": "3B",
+        "name": "김상현"
+      },
+      {
+        "position": "OF1",
+        "name": "김원섭"
+      },
+      {
+        "position": "OF2",
+        "name": "나지완"
+      },
+      {
+        "position": "OF3",
+        "name": "이종범"
+      },
+      {
+        "position": "DH",
+        "name": "홍세완"
+      }
+    ]
+  },
+  {
+    "title": "2011 KIA 베스트",
+    "team": "KIA",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "윤석민"
+      },
+      {
+        "position": "C",
+        "name": "차일목"
+      },
+      {
+        "position": "1B",
+        "name": "최희섭"
+      },
+      {
+        "position": "2B",
+        "name": "안치홍"
+      },
+      {
+        "position": "SS",
+        "name": "김선빈"
+      },
+      {
+        "position": "3B",
+        "name": "이범호"
+      },
+      {
+        "position": "OF1",
+        "name": "이용규"
+      },
+      {
+        "position": "OF2",
+        "name": "나지완"
+      },
+      {
+        "position": "OF3",
+        "name": "김원섭"
+      },
+      {
+        "position": "DH",
+        "name": "이현곤"
+      }
+    ]
+  },
+  {
+    "title": "2017 KIA 베스트",
+    "team": "KIA",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "양현종"
+      },
+      {
+        "position": "C",
+        "name": "한승택"
+      },
+      {
+        "position": "1B",
+        "name": "김주찬"
+      },
+      {
+        "position": "2B",
+        "name": "안치홍"
+      },
+      {
+        "position": "SS",
+        "name": "김선빈"
+      },
+      {
+        "position": "3B",
+        "name": "이범호"
+      },
+      {
+        "position": "OF1",
+        "name": "최형우"
+      },
+      {
+        "position": "OF2",
+        "name": "버나디나"
+      },
+      {
+        "position": "OF3",
+        "name": "이명기"
+      },
+      {
+        "position": "DH",
+        "name": "나지완"
+      }
+    ]
+  },
+  {
+    "title": "2024 KIA 베스트",
+    "team": "KIA",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "양현종"
+      },
+      {
+        "position": "C",
+        "name": "한준수"
+      },
+      {
+        "position": "1B",
+        "name": "서건창"
+      },
+      {
+        "position": "2B",
+        "name": "김선빈"
+      },
+      {
+        "position": "SS",
+        "name": "박찬호"
+      },
+      {
+        "position": "3B",
+        "name": "김도영"
+      },
+      {
+        "position": "OF1",
+        "name": "소크라테스"
+      },
+      {
+        "position": "OF2",
+        "name": "최원준"
+      },
+      {
+        "position": "OF3",
+        "name": "나성범"
+      },
+      {
+        "position": "DH",
+        "name": "최형우"
+      }
+    ]
+  },
+  {
+    "title": "2008 SK 베스트",
+    "team": "SK",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "김광현"
+      },
+      {
+        "position": "C",
+        "name": "박경완"
+      },
+      {
+        "position": "1B",
+        "name": "박정권"
+      },
+      {
+        "position": "2B",
+        "name": "정근우"
+      },
+      {
+        "position": "SS",
+        "name": "김성현"
+      },
+      {
+        "position": "3B",
+        "name": "최정"
+      },
+      {
+        "position": "OF1",
+        "name": "박재홍"
+      },
+      {
+        "position": "OF2",
+        "name": "이진영"
+      },
+      {
+        "position": "OF3",
+        "name": "박재상"
+      },
+      {
+        "position": "DH",
+        "name": "김재현"
+      }
+    ]
+  },
+  {
+    "title": "2010 SK 베스트",
+    "team": "SK",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "김광현"
+      },
+      {
+        "position": "C",
+        "name": "박경완"
+      },
+      {
+        "position": "1B",
+        "name": "박정권"
+      },
+      {
+        "position": "2B",
+        "name": "정근우"
+      },
+      {
+        "position": "SS",
+        "name": "나주환"
+      },
+      {
+        "position": "3B",
+        "name": "최정"
+      },
+      {
+        "position": "OF1",
+        "name": "김강민"
+      },
+      {
+        "position": "OF2",
+        "name": "박재상"
+      },
+      {
+        "position": "OF3",
+        "name": "조동화"
+      },
+      {
+        "position": "DH",
+        "name": "김재현"
+      }
+    ]
+  },
+  {
+    "title": "2011 SK 베스트",
+    "team": "SK",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "글로버"
+      },
+      {
+        "position": "C",
+        "name": "정상호"
+      },
+      {
+        "position": "1B",
+        "name": "이호준"
+      },
+      {
+        "position": "2B",
+        "name": "정근우"
+      },
+      {
+        "position": "SS",
+        "name": "박진만"
+      },
+      {
+        "position": "3B",
+        "name": "최정"
+      },
+      {
+        "position": "OF1",
+        "name": "안치용"
+      },
+      {
+        "position": "OF2",
+        "name": "김강민"
+      },
+      {
+        "position": "OF3",
+        "name": "임훈"
+      },
+      {
+        "position": "DH",
+        "name": "박재홍"
+      }
+    ]
+  },
+  {
+    "title": "2022 SSG 베스트",
+    "team": "SSG",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "폰트"
+      },
+      {
+        "position": "C",
+        "name": "김민식"
+      },
+      {
+        "position": "1B",
+        "name": "전의산"
+      },
+      {
+        "position": "2B",
+        "name": "안상현"
+      },
+      {
+        "position": "SS",
+        "name": "박성한"
+      },
+      {
+        "position": "3B",
+        "name": "최정"
+      },
+      {
+        "position": "OF1",
+        "name": "최지훈"
+      },
+      {
+        "position": "OF2",
+        "name": "한유섬"
+      },
+      {
+        "position": "OF3",
+        "name": "김강민"
+      },
+      {
+        "position": "DH",
+        "name": "추신수"
+      }
+    ]
+  },
+  {
+    "title": "2008 우리 베스트",
+    "team": "우리",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "마일영"
+      },
+      {
+        "position": "C",
+        "name": "김동수"
+      },
+      {
+        "position": "1B",
+        "name": "이숭용"
+      },
+      {
+        "position": "2B",
+        "name": "김일경"
+      },
+      {
+        "position": "SS",
+        "name": "강정호"
+      },
+      {
+        "position": "3B",
+        "name": "정성훈"
+      },
+      {
+        "position": "OF1",
+        "name": "이택근"
+      },
+      {
+        "position": "OF2",
+        "name": "브룸바"
+      },
+      {
+        "position": "OF3",
+        "name": "전준호"
+      },
+      {
+        "position": "DH",
+        "name": "송지만"
+      }
+    ]
+  },
+  {
+    "title": "2014 넥센 베스트",
+    "team": "넥센",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "밴헤켄"
+      },
+      {
+        "position": "C",
+        "name": "박동원"
+      },
+      {
+        "position": "1B",
+        "name": "박병호"
+      },
+      {
+        "position": "2B",
+        "name": "서건창"
+      },
+      {
+        "position": "SS",
+        "name": "강정호"
+      },
+      {
+        "position": "3B",
+        "name": "김민성"
+      },
+      {
+        "position": "OF1",
+        "name": "이택근"
+      },
+      {
+        "position": "OF2",
+        "name": "유한준"
+      },
+      {
+        "position": "OF3",
+        "name": "로티노"
+      },
+      {
+        "position": "DH",
+        "name": "이성열"
+      }
+    ]
+  },
+  {
+    "title": "2016 넥센 베스트",
+    "team": "넥센",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "신재영"
+      },
+      {
+        "position": "C",
+        "name": "박동원"
+      },
+      {
+        "position": "1B",
+        "name": "채태인"
+      },
+      {
+        "position": "2B",
+        "name": "서건창"
+      },
+      {
+        "position": "SS",
+        "name": "김하성"
+      },
+      {
+        "position": "3B",
+        "name": "김민성"
+      },
+      {
+        "position": "OF1",
+        "name": "대니돈"
+      },
+      {
+        "position": "OF2",
+        "name": "고종욱"
+      },
+      {
+        "position": "OF3",
+        "name": "박정음"
+      },
+      {
+        "position": "DH",
+        "name": "윤석민"
+      }
+    ]
+  },
+  {
+    "title": "2018 넥센 베스트",
+    "team": "넥센",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "브리검"
+      },
+      {
+        "position": "C",
+        "name": "박동원"
+      },
+      {
+        "position": "1B",
+        "name": "박병호"
+      },
+      {
+        "position": "2B",
+        "name": "김혜성"
+      },
+      {
+        "position": "SS",
+        "name": "김하성"
+      },
+      {
+        "position": "3B",
+        "name": "송성문"
+      },
+      {
+        "position": "OF1",
+        "name": "이정후"
+      },
+      {
+        "position": "OF2",
+        "name": "임병욱"
+      },
+      {
+        "position": "OF3",
+        "name": "샌즈"
+      },
+      {
+        "position": "DH",
+        "name": "김태완"
+      }
+    ]
+  },
+  {
+    "title": "2019 키움 베스트",
+    "team": "키움",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "요키시"
+      },
+      {
+        "position": "C",
+        "name": "박동원"
+      },
+      {
+        "position": "1B",
+        "name": "박병호"
+      },
+      {
+        "position": "2B",
+        "name": "김혜성"
+      },
+      {
+        "position": "SS",
+        "name": "김하성"
+      },
+      {
+        "position": "3B",
+        "name": "김웅빈"
+      },
+      {
+        "position": "OF1",
+        "name": "샌즈"
+      },
+      {
+        "position": "OF2",
+        "name": "이정후"
+      },
+      {
+        "position": "OF3",
+        "name": "김규민"
+      },
+      {
+        "position": "DH",
+        "name": "서건창"
+      }
+    ]
+  },
+  {
+    "title": "2015 NC 베스트",
+    "team": "NC",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "해커"
+      },
+      {
+        "position": "C",
+        "name": "김태군"
+      },
+      {
+        "position": "1B",
+        "name": "테임즈"
+      },
+      {
+        "position": "2B",
+        "name": "박민우"
+      },
+      {
+        "position": "SS",
+        "name": "손시헌"
+      },
+      {
+        "position": "3B",
+        "name": "모창민"
+      },
+      {
+        "position": "OF1",
+        "name": "나성범"
+      },
+      {
+        "position": "OF2",
+        "name": "김종호"
+      },
+      {
+        "position": "OF3",
+        "name": "이종욱"
+      },
+      {
+        "position": "DH",
+        "name": "이호준"
+      }
+    ]
+  },
+  {
+    "title": "2016 NC 베스트",
+    "team": "NC",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "스튜어트"
+      },
+      {
+        "position": "C",
+        "name": "박세웅"
+      },
+      {
+        "position": "1B",
+        "name": "테임즈"
+      },
+      {
+        "position": "2B",
+        "name": "박민우"
+      },
+      {
+        "position": "SS",
+        "name": "손시헌"
+      },
+      {
+        "position": "3B",
+        "name": "박석민"
+      },
+      {
+        "position": "OF1",
+        "name": "나성범"
+      },
+      {
+        "position": "OF2",
+        "name": "이종욱"
+      },
+      {
+        "position": "OF3",
+        "name": "김성욱"
+      },
+      {
+        "position": "DH",
+        "name": "이호준"
+      }
+    ]
+  },
+  {
+    "title": "2020 NC 베스트",
+    "team": "NC",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "루친스키"
+      },
+      {
+        "position": "C",
+        "name": "양의지"
+      },
+      {
+        "position": "1B",
+        "name": "강진성"
+      },
+      {
+        "position": "2B",
+        "name": "박민우"
+      },
+      {
+        "position": "SS",
+        "name": "노진혁"
+      },
+      {
+        "position": "3B",
+        "name": "박석민"
+      },
+      {
+        "position": "OF1",
+        "name": "알테어"
+      },
+      {
+        "position": "OF2",
+        "name": "권희동"
+      },
+      {
+        "position": "OF3",
+        "name": "이명기"
+      },
+      {
+        "position": "DH",
+        "name": "나성범"
+      }
+    ]
+  },
+  {
+    "title": "2023 NC 베스트",
+    "team": "NC",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "페디"
+      },
+      {
+        "position": "C",
+        "name": "박세혁"
+      },
+      {
+        "position": "1B",
+        "name": "윤형준"
+      },
+      {
+        "position": "2B",
+        "name": "박민우"
+      },
+      {
+        "position": "SS",
+        "name": "김주원"
+      },
+      {
+        "position": "3B",
+        "name": "서호철"
+      },
+      {
+        "position": "OF1",
+        "name": "박건우"
+      },
+      {
+        "position": "OF2",
+        "name": "마틴"
+      },
+      {
+        "position": "OF3",
+        "name": "권희동"
+      },
+      {
+        "position": "DH",
+        "name": "손아섭"
+      }
+    ]
+  },
+  {
+    "title": "2020 KT 베스트",
+    "team": "KT",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "데스파이네"
+      },
+      {
+        "position": "C",
+        "name": "장성우"
+      },
+      {
+        "position": "1B",
+        "name": "강백호"
+      },
+      {
+        "position": "2B",
+        "name": "박경수"
+      },
+      {
+        "position": "SS",
+        "name": "심우준"
+      },
+      {
+        "position": "3B",
+        "name": "황재균"
+      },
+      {
+        "position": "OF1",
+        "name": "로하스"
+      },
+      {
+        "position": "OF2",
+        "name": "배정대"
+      },
+      {
+        "position": "OF3",
+        "name": "조용호"
+      },
+      {
+        "position": "DH",
+        "name": "유한준"
+      }
+    ]
+  },
+  {
+    "title": "2021 KT 베스트",
+    "team": "KT",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "데스파이네"
+      },
+      {
+        "position": "C",
+        "name": "장성우"
+      },
+      {
+        "position": "1B",
+        "name": "강백호"
+      },
+      {
+        "position": "2B",
+        "name": "오윤석"
+      },
+      {
+        "position": "SS",
+        "name": "심우준"
+      },
+      {
+        "position": "3B",
+        "name": "황재균"
+      },
+      {
+        "position": "OF1",
+        "name": "배정대"
+      },
+      {
+        "position": "OF2",
+        "name": "유한준"
+      },
+      {
+        "position": "OF3",
+        "name": "김민혁"
+      },
+      {
+        "position": "DH",
+        "name": "송민섭"
+      }
+    ]
+  },
+  {
+    "title": "2023 KT 베스트",
+    "team": "KT",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "벤자민"
+      },
+      {
+        "position": "C",
+        "name": "장성우"
+      },
+      {
+        "position": "1B",
+        "name": "박병호"
+      },
+      {
+        "position": "2B",
+        "name": "이호연"
+      },
+      {
+        "position": "SS",
+        "name": "김상수"
+      },
+      {
+        "position": "3B",
+        "name": "황재균"
+      },
+      {
+        "position": "OF1",
+        "name": "알포드"
+      },
+      {
+        "position": "OF2",
+        "name": "김민혁"
+      },
+      {
+        "position": "OF3",
+        "name": "배정대"
+      },
+      {
+        "position": "DH",
+        "name": "문상철"
+      }
+    ]
+  },
+  {
+    "title": "2006 한화 베스트",
+    "team": "한화",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "문동환"
+      },
+      {
+        "position": "C",
+        "name": "신경현"
+      },
+      {
+        "position": "1B",
+        "name": "김태균"
+      },
+      {
+        "position": "2B",
+        "name": "클리어"
+      },
+      {
+        "position": "SS",
+        "name": "김민재"
+      },
+      {
+        "position": "3B",
+        "name": "이범호"
+      },
+      {
+        "position": "OF1",
+        "name": "데이비스"
+      },
+      {
+        "position": "OF2",
+        "name": "조원우"
+      },
+      {
+        "position": "OF3",
+        "name": "고동진"
+      },
+      {
+        "position": "DH",
+        "name": "이도형"
+      }
+    ]
+  },
+  {
+    "title": "2007 한화 베스트",
+    "team": "한화",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "류현진"
+      },
+      {
+        "position": "C",
+        "name": "신경현"
+      },
+      {
+        "position": "1B",
+        "name": "김태균"
+      },
+      {
+        "position": "2B",
+        "name": "한상훈"
+      },
+      {
+        "position": "SS",
+        "name": "김민재"
+      },
+      {
+        "position": "3B",
+        "name": "이범호"
+      },
+      {
+        "position": "OF1",
+        "name": "조원우"
+      },
+      {
+        "position": "OF2",
+        "name": "고동진"
+      },
+      {
+        "position": "OF3",
+        "name": "이영우"
+      },
+      {
+        "position": "DH",
+        "name": "크루즈"
+      }
+    ]
+  },
+  {
+    "title": "2018 한화 베스트",
+    "team": "한화",
+    "opponent": "-",
+    "category": "시즌 베스트",
+    "lineup": [
+      {
+        "position": "P",
+        "name": "샘슨"
+      },
+      {
+        "position": "C",
+        "name": "최재훈"
+      },
+      {
+        "position": "1B",
+        "name": "김회성"
+      },
+      {
+        "position": "2B",
+        "name": "정근우"
+      },
+      {
+        "position": "SS",
+        "name": "강경학"
+      },
+      {
+        "position": "3B",
+        "name": "송광민"
+      },
+      {
+        "position": "OF1",
+        "name": "호잉"
+      },
+      {
+        "position": "OF2",
+        "name": "이용규"
+      },
+      {
+        "position": "OF3",
+        "name": "박준혁"
+      },
+      {
+        "position": "DH",
+        "name": "이성열"
+      }
+    ]
+  }
+]

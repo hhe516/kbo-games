@@ -1,0 +1,67 @@
+{
+  "title": "2008 베이징 올림픽 결승",
+  "difficulty": "medium",
+  "category": "포스트시즌",
+  "lineup": [
+    {
+      "position": "CF",
+      "name": "이종욱",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "RF",
+      "name": "이용규",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "LF",
+      "name": "김현수",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "1B",
+      "name": "이승엽",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "3B",
+      "name": "김동주",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "DH",
+      "name": "이대호",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "2B",
+      "name": "고영민",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "C",
+      "name": "강민호",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "SS",
+      "name": "박진만",
+      "throws": "",
+      "bats": ""
+    },
+    {
+      "position": "P",
+      "name": "류현진",
+      "throws": "",
+      "bats": ""
+    }
+  ]
+}
