@@ -390,8 +390,7 @@ text-lg rounded-xl font-bold"
 
       return (
 
-        <div className="bg-green-400 border border-green-500 p-2
-md:p-3 rounded-xl text-center font-bold shadow-sm">
+        <div className="bg-green-400 border border-green-500 p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-sm">
 
           {age} =
 
@@ -406,7 +405,7 @@ md:p-3 rounded-xl text-center font-bold shadow-sm">
       return (
 
         <div className="bg-yellow-300 border border-yellow-400 p-2
-md:p-3 rounded-xl text-center font-bold shadow-sm">
+md:p-3 rounded-xl text-center font-bold text-black shadow-sm">
 
           {age} ↑
 
@@ -838,8 +837,18 @@ md:w-80 overflow-hidden shadow-2xl z-50">
 
                     }}
 
-                    className="p-2
-md:p-3 hover:bg-gray-100 transition-all cursor-pointer border-b border-gray-200 text-sm"
+                    className="
+p-3
+md:p-3
+hover:bg-gray-100
+transition-all
+cursor-pointer
+border-b
+border-gray-200
+text-base
+text-black
+font-semibold
+"
                   >
 
                     {samePlayers.length > 1 ? (
@@ -921,18 +930,14 @@ md:p-3 hover:bg-gray-100 transition-all cursor-pointer border-b border-gray-200 
                 }`}
               >
 
-                <div className="bg-white/95 border border-gray-300 p-2
-md:p-3 rounded-xl text-center font-bold shadow-md">
+                <div className="bg-white/95 border border-gray-300 p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md">
 
                   {guess.player.name}
 
                 </div>
 
                 <div
-                  className={`${getColor(
-                    guess.team
-                  )} border p-2
-md:p-3 rounded-xl text-center font-bold shadow-md`}
+                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
                 >
 
                   {guess.player.team}
@@ -940,10 +945,7 @@ md:p-3 rounded-xl text-center font-bold shadow-md`}
                 </div>
 
                 <div
-                  className={`${getColor(
-                    guess.position
-                  )} border p-2
-md:p-3 rounded-xl text-center font-bold shadow-md`}
+                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
                 >
 
                   {guess.player.position}
@@ -956,10 +958,7 @@ md:p-3 rounded-xl text-center font-bold shadow-md`}
                 )}
 
                 <div
-                  className={`${getColor(
-                    guess.throws
-                  )} border p-2
-md:p-3 rounded-xl text-center font-bold shadow-md`}
+                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
                 >
 
                   {guess.player.throws}
@@ -967,10 +966,7 @@ md:p-3 rounded-xl text-center font-bold shadow-md`}
                 </div>
 
                 <div
-                  className={`${getColor(
-                    guess.nationality
-                  )} border p-2
-md:p-3 rounded-xl text-center font-bold shadow-md`}
+                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
                 >
 
                   {guess.player.nationality}

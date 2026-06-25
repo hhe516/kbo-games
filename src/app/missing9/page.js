@@ -97,7 +97,8 @@ function RuleModal({ hideRule, setHideRule, setShowRule }) {
             </div>
           </div>
 
-          <div className="text-sm text-zinc-500">
+          <div className="text-xs
+md:text-sm text-zinc-500">
             ※ SK·SSG는 같은 팀으로 취급됩니다.
             <br />
             ※ 우리·넥센·키움은 같은 팀으로 취급됩니다.
@@ -105,7 +106,8 @@ function RuleModal({ hideRule, setHideRule, setShowRule }) {
 
         </div>
 
-        <label className="flex items-center gap-2 mt-6 text-sm">
+        <label className="flex items-center gap-2 mt-6 text-xs
+md:text-sm">
           <input
             type="checkbox"
             checked={hideRule}
@@ -222,7 +224,15 @@ if (selectedTeam === null) {
 <div className="relative z-10 flex flex-col items-center">
   
 
-  <h1 className="text-7xl font-black mb-12 drop-shadow-lg">
+  <h1 className="
+text-4xl
+md:text-7xl
+font-black
+mb-8
+md:mb-12
+text-center
+drop-shadow-lg
+">
     Missing9
   </h1>
 
@@ -250,8 +260,9 @@ if (selectedTeam === null) {
           setCurrentGameIndex(0);
         }}
         className="
-          w-24
-          h-12
+          w-full
+h-12
+md:w-24
           bg-white
           text-black
           hover:bg-zinc-200
@@ -514,7 +525,16 @@ const batHand = hand.slice(2);
     />
   )}
 {/* 헤더 */}
-<div className="flex items-center gap-4 mb-2">
+<div
+className="
+flex
+flex-col
+md:flex-row
+items-center
+gap-3
+mb-4
+"
+>
 
   <button
     onClick={goToPrev}
@@ -531,18 +551,24 @@ const batHand = hand.slice(2);
     resetGame();
   }}
   className="
-    fixed
-    top-16
-    left-40
-    z-50
-    bg-sky-600
-    hover:bg-indigo-700
-    px-4
-    py-2
-    rounded-xl
-    font-bold
-    shadow-lg
-  "
+md:fixed
+md:top-16
+md:left-40
+
+bg-sky-600
+hover:bg-sky-500
+
+px-4
+py-2
+
+rounded-xl
+
+font-bold
+shadow-lg
+
+w-full
+md:w-auto
+"
 >
   팀 선택
 </button>
@@ -552,7 +578,8 @@ const batHand = hand.slice(2);
     {currentGameIndex + 1}. {game.title}
   </div>
 
-  <div className="text-sm font-bold text-sky-300 mt-1">
+  <div className="text-xs
+md:text-sm font-bold text-sky-300 mt-1">
     {game.team} 라인업 맞추기
   </div>
 
@@ -568,19 +595,26 @@ const batHand = hand.slice(2);
   <button
   onClick={() => setShowRule(true)}
   className="
-    fixed
-    top-16
-    right-10
-    z-50
-    bg-white
-    text-black
-    hover:bg-zinc-200
-    px-4
-    py-2
-    rounded-xl
-    font-bold
-    shadow-lg
-  "
+md:fixed
+md:top-16
+md:right-10
+
+bg-white
+text-black
+
+hover:bg-zinc-200
+
+px-4
+py-2
+
+rounded-xl
+
+font-bold
+shadow-lg
+
+w-full
+md:w-auto
+"
 >
   📖 규칙
 </button>
@@ -588,7 +622,8 @@ const batHand = hand.slice(2);
         <button
           onClick={goToNext}
           disabled={currentGameIndex === filteredGames.length - 1}
-          className="bg-zinc-800 hover:bg-zinc-700 disabled:opacity-25 disabled:cursor-not-allowed px-4 py-2 rounded-xl font-bold transition-colors text-sm"
+          className="bg-zinc-800 hover:bg-zinc-700 disabled:opacity-25 disabled:cursor-not-allowed px-4 py-2 rounded-xl font-bold transition-colors text-xs
+md:text-sm"
         >
           다음 →
         </button>
@@ -599,34 +634,42 @@ const batHand = hand.slice(2);
         <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded-full">
           {game.category}
         </span>
-        <span className="text-sm text-zinc-100 font-semibold">
+        <span className="text-xs
+md:text-sm text-zinc-100 font-semibold">
           {solvedCount} / {totalPlayers} 정답
         </span>
       </div>
+<div className="md:hidden text-center text-xs text-zinc-300 mb-2">
 
+← 좌우로 밀어서 야구장 보기 →
+
+</div>
       {/* 야구장 */}
-      <div
 
-        className="
-relative
-w-full
-max-w-[900px]
-aspect-[9/7]
-rounded-3xl
-overflow-hidden
-border
-border-white/20
-bg-black/20
-backdrop-blur-sm
-shadow-2xl
-"
-       style={{
-  backgroundImage: "url('/baseball_field.png')",
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-}}
-      >
+<div className="w-full overflow-x-auto pb-4">
+
+  <div
+    className="
+      relative
+      w-full
+      min-w-[700px]
+      max-w-[900px]
+      aspect-[9/7]
+      rounded-3xl
+      overflow-hidden
+      border
+      border-white/20
+      bg-black/20
+      backdrop-blur-sm
+      shadow-2xl
+    "
+    style={{
+      backgroundImage: "url('/baseball_field.png')",
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+    }}
+  >
         {/* 딤 오버레이 */}
         <div className="absolute inset-0 bg-black/15" />
 
@@ -645,7 +688,9 @@ shadow-2xl
             >
               <div
                 className={`
-                  rounded-2xl px-3 py-2 w-[80px] md:w-[110px] min-h-[95px] text-center
+                  rounded-2xl px-3 py-2 w-[70px]
+md:w-[110px] min-h-[85px]
+md:min-h-[95px] text-center
                   backdrop-blur-md transition-all duration-300
                   ${isSolved
                     ? "bg-emerald-900/60 border border-emerald-500/50 shadow-emerald-500/20 shadow-lg"
@@ -662,7 +707,8 @@ shadow-2xl
 
                 {isSolved || showAnswers || failed[position] ? (
                   <div
-  className={`font-black text-sm ${
+  className={`font-black text-xs
+md:text-sm ${
     isSolved
       ? "text-emerald-400"
       : failed[position]
@@ -686,7 +732,8 @@ shadow-2xl
                         if (e.key === "Enter") checkAnswer(position);
                       }}
                       className={`
-                        w-full text-center rounded-lg px-2 py-1 outline-none text-sm transition-colors
+                        w-full text-center rounded-lg px-2 py-1 outline-none text-xs
+md:text-sm transition-colors
                         ${isWrong
                           ? "bg-red-900/40 text-red-200"
                           : "bg-zinc-700 text-white border border-zinc-500 focus:bg-zinc-600"
@@ -695,7 +742,8 @@ shadow-2xl
                       placeholder="???"
                     />
                     {hint.length > 0 && (
-  <div className="text-[12px] text-yellow-300 mt-1 leading-normal">
+  <div className="text-[10px]
+md:text-[12px] text-yellow-300 mt-1 leading-normal">
     {hint.map((h, idx) => (
       <div key={idx}>
         {h}
@@ -710,8 +758,8 @@ shadow-2xl
           );
         })}
       </div>
-
-      {/* CLEAR 연출 */}
+</div>
+        {/* CLEAR 연출 */}
       {isClear && (
         <div className="mt-8 text-center animate-bounce">
           <div className="text-5xl font-black text-emerald-400 drop-shadow-lg">
@@ -719,7 +767,8 @@ shadow-2xl
             
           </div>
           
-          <div className="mt-2 text-zinc-400 text-sm">
+          <div className="mt-2 text-zinc-400 text-xs
+md:text-sm">
             모든 선수를 맞췄습니다!
           </div>
         </div>
