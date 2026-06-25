@@ -606,8 +606,9 @@ const batHand = hand.slice(2);
 
         className="
 relative
-w-[900px]
-h-[700px]
+w-full
+max-w-[900px]
+aspect-[9/7]
 rounded-3xl
 overflow-hidden
 border
@@ -641,7 +642,7 @@ shadow-2xl
             >
               <div
                 className={`
-                  rounded-2xl px-3 py-2 w-[110px] min-h-[95px] text-center
+                  rounded-2xl px-3 py-2 w-[80px] md:w-[110px] min-h-[95px] text-center
                   backdrop-blur-md transition-all duration-300
                   ${isSolved
                     ? "bg-emerald-900/60 border border-emerald-500/50 shadow-emerald-500/20 shadow-lg"
