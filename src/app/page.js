@@ -1,8 +1,87 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
-
+const [showCredits, setShowCredits] = useState(false);
   return (
+    <>
+{showCredits && (
+  <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
+
+    <div className="w-[520px] max-w-[90%] rounded-3xl bg-white text-black p-8 shadow-2xl">
+
+      <h2 className="text-3xl font-black text-center mb-6">
+        ⚾ Credits
+      </h2>
+
+      <div className="space-y-4 text-sm leading-7 text-zinc-700">
+
+        <p>
+          <strong>KBO Games</strong> is an unofficial fan-made baseball quiz website.
+        </p>
+
+        <p>
+          Inspired by the following games from{" "}
+          <a
+            href="https://playfootball.games"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline"
+          >
+            PlayFootball.Games
+          </a>
+        </p>
+
+        <ul className="list-disc ml-6">
+
+          <li>
+            <a
+              href="https://playfootball.games/who-are-ya/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Who Are Ya?
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://playfootball.games/missing-xi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Missing XI
+            </a>
+          </li>
+
+        </ul>
+
+        <p>
+          This website is not affiliated with KBO,
+          PlayFootball.Games or any professional baseball organization.
+        </p>
+
+        <p>
+          Player names, team names and publicly available baseball records
+          are used for educational and fan purposes.
+        </p>
+
+      </div>
+
+      <button
+        onClick={() => setShowCredits(false)}
+        className="mt-8 w-full bg-sky-600 hover:bg-sky-500 text-white py-3 rounded-xl font-bold"
+      >
+        확인
+      </button>
+
+    </div>
+
+  </div>
+)}
 
     <main
       className="min-h-screen bg-cover bg-center flex items-center justify-center p-8"
@@ -87,9 +166,28 @@ export default function Home() {
         </div>
 
       </div>
-
+<button
+  onClick={() => setShowCredits(true)}
+  className="
+    fixed
+    bottom-6
+    right-6
+    z-40
+    bg-white/90
+    hover:bg-white
+    text-black
+    rounded-xl
+    px-4
+    py-2
+    font-bold
+    shadow-xl
+    transition
+  "
+>
+  ⓘ Credits
+</button>
     </main>
-
-  );
+</>
+  );  
 
 }
