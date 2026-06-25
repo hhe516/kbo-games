@@ -103,7 +103,11 @@ md:text-sm text-zinc-500">
             <br />
             ※ 우리·넥센·키움은 같은 팀으로 취급됩니다.
           </div>
-
+<p className="mt-6 text-center text-xs text-zinc-500">
+  최적 환경: PC 및 스마트폰 브라우저
+  <br />
+  일부 태블릿 브라우저에서는 기능이 정상 동작하지 않을 수 있습니다.
+</p>
         </div>
 
         <label className="flex items-center gap-2 mt-6 text-xs

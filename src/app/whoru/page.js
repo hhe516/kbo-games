@@ -1086,7 +1086,11 @@ text-base md:text-lg">
             </div>
 
           </div>
-
+<p className="mt-6 text-center text-xs text-zinc-500">
+  최적 환경: PC 및 스마트폰 브라우저
+  <br />
+  일부 태블릿 브라우저에서는 기능이 정상 동작하지 않을 수 있습니다.
+</p>
           <label className="flex items-center gap-3 mt-8 text-lg">
 
             <input
