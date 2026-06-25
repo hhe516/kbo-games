@@ -136,23 +136,20 @@ lg:p-8
           <Link
   href="/whoru"
   className="
-w-[90vw]
-max-w-[420px]
-h-[210px]
-lg:w-[420px]
-lg:h-[280px]
+w-full
+max-w-[340px]
+h-64
 bg-white/85
 hover:bg-white
 transition-all
-duration-300
 rounded-[32px]
 shadow-2xl
 backdrop-blur-md
 border border-white/40
-flex flex-col
+flex
+flex-col
 items-center
 justify-center
-cursor-pointer
 hover:scale-105
 active:scale-95
 "
@@ -177,23 +174,20 @@ active:scale-95
           <Link
   href="/missing9"
   className="
-w-[90vw]
-max-w-[420px]
-h-[210px]
-lg:w-[420px]
-lg:h-[280px]
+w-full
+max-w-[340px]
+h-64
 bg-white/85
 hover:bg-white
 transition-all
-duration-300
 rounded-[32px]
 shadow-2xl
 backdrop-blur-md
 border border-white/40
-flex flex-col
+flex
+flex-col
 items-center
 justify-center
-cursor-pointer
 hover:scale-105
 active:scale-95
 "
@@ -215,22 +209,23 @@ active:scale-95
 <Link
   href="/careerpath"
   className="
-    w-full
-    max-w-[340px]
-    h-56
-    bg-white/85
-    hover:bg-white
-    transition-all
-    rounded-[32px]
-    shadow-2xl
-    backdrop-blur-md
-    border border-white/40
-    flex flex-col
-    items-center
-    justify-center
-    hover:scale-105
-    active:scale-95
-  "
+w-full
+max-w-[340px]
+h-64
+bg-white/85
+hover:bg-white
+transition-all
+rounded-[32px]
+shadow-2xl
+backdrop-blur-md
+border border-white/40
+flex
+flex-col
+items-center
+justify-center
+hover:scale-105
+active:scale-95
+"
 >
 
   <div className="text-5xl mb-4">
