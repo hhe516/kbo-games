@@ -160,6 +160,18 @@ export default function Missing9() {
   = useState(null);
   const [showRule, setShowRule] = useState(true);
 const [hideRule, setHideRule] = useState(false);
+
+ // 게임 전환 시 상태 초기화
+const resetGame = () => {
+  setSolved({});
+  setInputValues({});
+  setAttempts({});
+  setShowAnswers(false);
+  setWrongFlash({});
+  setFailed({});
+  setFilteredPlayers({});
+setSelectedIndex({});
+};
 const filteredGames =
   selectedTeam === null ||
   selectedTeam === "전체"
@@ -333,19 +345,6 @@ lineup.forEach((player) => {
   const solvedCount = Object.keys(solved).length;
   const isClear = solvedCount === totalPlayers;
 
-
-
-  // 게임 전환 시 상태 초기화
-const resetGame = () => {
-  setSolved({});
-  setInputValues({});
-  setAttempts({});
-  setShowAnswers(false);
-  setWrongFlash({});
-  setFailed({});
-  setFilteredPlayers({});
-setSelectedIndex({});
-};
 
   const goToPrev = () => {
     if (currentGameIndex > 0) {
