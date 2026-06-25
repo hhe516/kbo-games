@@ -210,6 +210,8 @@ active:scale-95
 <div className="text-base lg:text-lg text-gray-500 mt-4 font-semibold">
   라인업 맞추기
 </div>
+
+</Link>
 <Link
   href="/careerpath"
   className="
@@ -244,8 +246,6 @@ active:scale-95
   </div>
 
 </Link>
-</Link>
-
         </div>
 
       </div>
