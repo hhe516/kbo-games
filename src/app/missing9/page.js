@@ -27,7 +27,12 @@ function RuleModal({ hideRule, setHideRule, setShowRule }) {
     <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center">
       <div className="w-[520px] rounded-3xl bg-white text-black p-8 shadow-2xl">
 
-        <h2 className="text-3xl font-black text-center mb-6">
+        <h2 className="
+    text-2xl
+    md:text-3xl
+    font-black
+    text-center
+    break-words>
           ⚾ Missing9
         </h2>
 

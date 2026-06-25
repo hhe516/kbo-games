@@ -97,7 +97,7 @@ const [showCredits, setShowCredits] = useState(false);
 
         {/* 제목 */}
 
-        <h1 className="text-7xl font-black text-white mb-14 drop-shadow-2xl tracking-tight">
+        <h1 className="text-5xl md:text-7xl font-black text-white mb-10 md:mb-14 text-center">
 
           ⚾ KBO GAME HUB
 
@@ -105,14 +105,16 @@ const [showCredits, setShowCredits] = useState(false);
 
         {/* 버튼들 */}
 
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
 
           {/* WHO ARE YA */}
 
           <Link
   href="/whoru"
   className="
-    w-80 h-56
+   w-full
+max-w-[340px]
+h-56
     bg-white/85
     hover:bg-white
     transition-all
@@ -147,7 +149,9 @@ const [showCredits, setShowCredits] = useState(false);
           <Link
   href="/missing9"
   className="
-    w-80 h-56
+    w-full
+    max-w-[340px]
+    h-56
     bg-white/85
     hover:bg-white
     transition-all
@@ -163,7 +167,17 @@ const [showCredits, setShowCredits] = useState(false);
   "
 >
 
-  ...
+  <div className="text-5xl mb-4">
+    🧩
+  </div>
+
+  <div className="text-3xl font-black text-gray-900">
+    MISSING 9
+  </div>
+
+  <div className="text-gray-500 mt-3 font-semibold">
+    라인업 맞추기
+  </div>
 
 </Link>
 

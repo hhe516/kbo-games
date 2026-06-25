@@ -853,142 +853,130 @@ const RuleModal = ({
   setHideRule,
   setShowRule,
 }) => {
-
   return (
+    <div className="fixed inset-0 z-[999] bg-black/70 overflow-y-auto">
 
-    <div className="fixed inset-0 z-[999] bg-black/70 flex items-center justify-center p-4 overflow-y-auto">
+      <div className="min-h-screen flex items-center justify-center p-4">
 
-      <div
-  className="
-    w-full
-    max-w-[720px]
-    rounded-3xl
-    bg-white
-    p-6
-    md:p-10
-    shadow-2xl
-    max-h-[90vh]
-    overflow-y-auto
-  "
->
-
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-8">
-          ⚾ KBO WHO ARE YA
-        </h2>
-
-        <div className="space-y-5 text-gray-800">
-
-          <div>
-
-            <div className="font-black text-xl mb-2">
-              🎯 목표
-            </div>
-
-            <p>
-              숨겨진 KBO 선수를 맞혀보세요.
-            </p>
-
-          </div>
-
-          <div>
-
-            <div className="font-black text-xl mb-2">
-              📝 규칙
-            </div>
-
-            <ul className="list-disc ml-6 space-y-1">
-
-              <li>총 8번의 기회가 있습니다.</li>
-
-              <li>입력할 때마다 정보가 공개됩니다.</li>
-
-              <li>🟩 초록 = 일치</li>
-
-              <li>🟨 노랑 = 나이 높음/낮음</li>
-
-              <li>⬜ 흰색 = 다름</li>
-
-            </ul>
-
-          </div>
-
-          <div>
-
-            <div className="font-black text-xl mb-2">
-              🎮 난이도
-            </div>
-
-            <ul className="list-disc ml-6 space-y-1">
-
-              <li>전체 선수</li>
-
-              <li>통산 WAR 5 이상</li>
-
-              <li>통산 WAR 10 이상</li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-        <label className="flex items-center gap-2 mt-8">
-
-          <input
-
-            type="checkbox"
-
-            checked={hideRule}
-
-            onChange={(e)=>{
-
-              setHideRule(e.target.checked);
-
-            }}
-
-          />
-
-          다음부터 보지 않기
-
-        </label>
-
-        <button
-
-          onClick={() => {
-
-  if (hideRule) {
-    localStorage.setItem("whoareya_rule","true");
-  } else {
-    localStorage.removeItem("whoareya_rule");
-  }
-
-  setShowRule(false);
-
-}}
-
+        <div
           className="
-mt-8
-w-full
-bg-blue-500
-hover:bg-blue-400
-active:bg-blue-600
-text-white
-py-4
-rounded-xl
-font-black
-text-lg
-"
-
+            w-full
+            max-w-2xl
+            bg-white
+            rounded-3xl
+            shadow-2xl
+            p-6
+            md:p-10
+          "
         >
 
-          게임 시작
+          <h2 className="text-2xl md:text-4xl font-black text-center mb-8">
+            ⚾ KBO WHO ARE YA
+          </h2>
 
-        </button>
+          <div className="space-y-7 text-gray-800">
+
+            <div>
+
+              <div className="font-black text-lg md:text-xl mb-2">
+                🎯 목표
+              </div>
+
+              <p className="text-base md:text-lg">
+                숨겨진 KBO 선수를 맞혀보세요.
+              </p>
+
+            </div>
+
+            <div>
+
+              <div className="font-black text-lg md:text-xl mb-2">
+                📝 규칙
+              </div>
+
+              <ul className="list-disc ml-6 space-y-2 text-base md:text-lg">
+
+                <li>총 8번의 기회가 있습니다.</li>
+
+                <li>입력할 때마다 정보가 공개됩니다.</li>
+
+                <li>🟩 초록 = 일치</li>
+
+                <li>🟨 노랑 = 나이가 높거나 낮음</li>
+
+                <li>⬜ 흰색 = 다름</li>
+
+              </ul>
+
+            </div>
+
+            <div>
+
+              <div className="font-black text-lg md:text-xl mb-2">
+                🎮 난이도
+              </div>
+
+              <ul className="list-disc ml-6 space-y-2 text-base md:text-lg">
+
+                <li>전체 선수</li>
+
+                <li>통산 WAR 5 이상</li>
+
+                <li>통산 WAR 10 이상</li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <label className="flex items-center gap-3 mt-8 text-lg">
+
+            <input
+              type="checkbox"
+              checked={hideRule}
+              onChange={(e) => setHideRule(e.target.checked)}
+              className="w-5 h-5"
+            />
+
+            다음부터 보지 않기
+
+          </label>
+
+          <button
+            type="button"
+            onClick={() => {
+
+              if (hideRule) {
+                localStorage.setItem("whoareya_rule", "true");
+              } else {
+                localStorage.removeItem("whoareya_rule");
+              }
+
+              setShowRule(false);
+
+            }}
+            className="
+              mt-8
+              w-full
+              py-4
+              rounded-2xl
+              bg-blue-600
+              hover:bg-blue-500
+              active:bg-blue-700
+              text-white
+              text-xl
+              font-black
+              transition
+            "
+          >
+            게임 시작
+          </button>
+
+        </div>
 
       </div>
 
     </div>
-
   );
-
 };
