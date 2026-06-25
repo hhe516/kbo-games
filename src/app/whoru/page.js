@@ -856,11 +856,23 @@ const RuleModal = ({
 
   return (
 
-    <div className="fixed inset-0 bg-black/70 z-[999] flex items-center justify-center">
+    <div className="fixed inset-0 z-[999] bg-black/70 flex items-center justify-center p-4 overflow-y-auto">
 
-      <div className="w-[720px] rounded-3xl bg-white p-10 shadow-2xl">
+      <div
+  className="
+    w-full
+    max-w-[720px]
+    rounded-3xl
+    bg-white
+    p-6
+    md:p-10
+    shadow-2xl
+    max-h-[90vh]
+    overflow-y-auto
+  "
+>
 
-        <h2 className="text-4xl font-black text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-black text-center mb-8">
           ⚾ KBO WHO ARE YA
         </h2>
 
@@ -954,7 +966,18 @@ const RuleModal = ({
 
 }}
 
-          className="mt-8 w-full bg-blue-500 hover:bg-blue-400 text-white py-3 rounded-xl font-black"
+          className="
+mt-8
+w-full
+bg-blue-500
+hover:bg-blue-400
+active:bg-blue-600
+text-white
+py-4
+rounded-xl
+font-black
+text-lg
+"
 
         >
 

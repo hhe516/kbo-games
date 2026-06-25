@@ -112,7 +112,7 @@ const [showCredits, setShowCredits] = useState(false);
           <Link
   href="/whoru"
   className="
-    w-full max-w-80 h-56
+    w-80 h-56
     bg-white/85
     hover:bg-white
     transition-all
@@ -147,7 +147,7 @@ const [showCredits, setShowCredits] = useState(false);
           <Link
   href="/missing9"
   className="
-    w-full max-w-80 h-56
+    w-80 h-56
     bg-white/85
     hover:bg-white
     transition-all
