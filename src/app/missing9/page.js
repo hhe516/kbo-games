@@ -24,15 +24,10 @@ const POSITION_STYLE = {
 };
 function RuleModal({ hideRule, setHideRule, setShowRule }) {
   return (
-    <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center">
-      <div className="w-[520px] rounded-3xl bg-white text-black p-8 shadow-2xl">
+    <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center p-4 overflow-y-auto">
+      <div className="w-full max-w-[520px] rounded-3xl bg-white text-black p-8 shadow-2xl">
 
-        <h2 className="
-    text-2xl
-    md:text-3xl
-    font-black
-    text-center
-    break-words>
+        <h2 className="text-3xl font-black text-center mb-6">
           ⚾ Missing9
         </h2>
 
@@ -205,6 +200,14 @@ fetch("/data/games.json")
 }, []);
 if (selectedTeam === null) {
   return (
+  <>  
+  {showRule && (
+  <RuleModal
+    hideRule={hideRule}
+    setHideRule={setHideRule}
+    setShowRule={setShowRule}
+  />
+)}
     <div
   className="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden"
   style={{
@@ -217,13 +220,7 @@ if (selectedTeam === null) {
   <div className="absolute inset-0 bg-black/35" />
 
 <div className="relative z-10 flex flex-col items-center">
-  {showRule && (
-  <RuleModal
-    hideRule={hideRule}
-    setHideRule={setHideRule}
-    setShowRule={setShowRule}
-  />
-)}
+  
 
   <h1 className="text-7xl font-black mb-12 drop-shadow-lg">
     Missing9
@@ -272,6 +269,7 @@ if (selectedTeam === null) {
   </div>
 </div>
     </div>
+    </>
   );
 }
 
