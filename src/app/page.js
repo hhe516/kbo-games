@@ -93,7 +93,7 @@ const [showCredits, setShowCredits] = useState(false);
 
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center w-full">
 
         {/* 제목 */}
 
@@ -109,59 +109,63 @@ const [showCredits, setShowCredits] = useState(false);
 
           {/* WHO ARE YA */}
 
-          <Link href="/whoru">
+          <Link
+  href="/whoru"
+  className="
+    w-full max-w-80 h-56
+    bg-white/85
+    hover:bg-white
+    transition-all
+    rounded-[32px]
+    shadow-2xl
+    backdrop-blur-md
+    border border-white/40
+    flex flex-col
+    items-center
+    justify-center
+    hover:scale-105
+    active:scale-95
+  "
+>
 
-            <div className="w-80 h-56 bg-white/85 hover:bg-white transition-all rounded-[32px] shadow-2xl backdrop-blur-md border border-white/40 flex flex-col items-center justify-center cursor-pointer hover:scale-105">
+  <div className="text-5xl mb-4">
+    🤔
+  </div>
 
-              <div className="text-5xl mb-4">
+  <div className="text-3xl font-black text-gray-900">
+    WHO ARE YA
+  </div>
 
-                🤔
+  <div className="text-gray-500 mt-3 font-semibold">
+    선수 맞추기
+  </div>
 
-              </div>
-
-              <div className="text-3xl font-black text-gray-900">
-
-                WHO ARE YA
-
-              </div>
-
-              <div className="text-gray-500 mt-3 font-semibold">
-
-                선수 맞추기
-
-              </div>
-
-            </div>
-
-          </Link>
+</Link>
 
           {/* Missing 9 */}
 
-          <Link href="/missing9">
+          <Link
+  href="/missing9"
+  className="
+    w-full max-w-80 h-56
+    bg-white/85
+    hover:bg-white
+    transition-all
+    rounded-[32px]
+    shadow-2xl
+    backdrop-blur-md
+    border border-white/40
+    flex flex-col
+    items-center
+    justify-center
+    hover:scale-105
+    active:scale-95
+  "
+>
 
-            <div className="w-80 h-56 bg-white/85 hover:bg-white transition-all rounded-[32px] shadow-2xl backdrop-blur-md border border-white/40 flex flex-col items-center justify-center cursor-pointer hover:scale-105">
+  ...
 
-              <div className="text-5xl mb-4">
-
-                🧩
-
-              </div>
-
-              <div className="text-3xl font-black text-gray-900">
-
-                MISSING 9
-
-              </div>
-
-              <div className="text-gray-500 mt-3 font-semibold">
-
-                라인업 맞추기
-
-              </div>
-
-            </div>
-
-          </Link>
+</Link>
 
         </div>
 
