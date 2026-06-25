@@ -418,7 +418,7 @@ md:p-3 rounded-xl text-center font-bold text-black shadow-sm">
     return (
 
       <div className="bg-yellow-300 border border-yellow-400 p-2
-md:p-3 rounded-xl text-center font-bold shadow-sm">
+md:p-3 rounded-xl text-center font-bold text-black shadow-sm">
 
         {age} ↓
 
