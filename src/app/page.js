@@ -91,7 +91,7 @@ const [showCredits, setShowCredits] = useState(false);
       }}
     >
 
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
 
@@ -105,7 +105,7 @@ const [showCredits, setShowCredits] = useState(false);
 
         {/* 버튼들 */}
 
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
 
           {/* WHO ARE YA */}
 
