@@ -9,7 +9,8 @@ const [showCredits, setShowCredits] = useState(false);
 {showCredits && (
   <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
 
-    <div className="w-[520px] max-w-[90%] rounded-3xl bg-white text-black p-8 shadow-2xl">
+    <div className="w-[92vw]
+max-w-[560px] max-w-[90%] rounded-3xl bg-white text-black p-8 shadow-2xl">
 
       <h2 className="text-3xl font-black text-center mb-6">
         ⚾ Credits
@@ -84,7 +85,17 @@ const [showCredits, setShowCredits] = useState(false);
 )}
 
     <main
-      className="min-h-screen bg-cover bg-center flex items-center justify-center p-8"
+      className="
+min-h-screen
+bg-cover
+bg-center
+flex
+items-center
+justify-center
+px-5
+py-10
+lg:p-8
+"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=2070&auto=format&fit=crop')",
@@ -97,7 +108,7 @@ const [showCredits, setShowCredits] = useState(false);
 
         {/* 제목 */}
 
-        <h1 className="text-5xl md:text-7xl font-black text-white mb-10 md:mb-14 text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 md:mb-14 text-center leading-tight">
 
           ⚾ KBO GAME HUB
 
@@ -105,42 +116,57 @@ const [showCredits, setShowCredits] = useState(false);
 
         {/* 버튼들 */}
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full">
+        <div className="
+flex
+flex-col
+lg:flex-row
+items-center
+justify-center
+gap-6
+lg:gap-10
+w-full
+max-w-5xl
+mx-auto
+">
 
           {/* WHO ARE YA */}
 
           <Link
   href="/whoru"
   className="
-    w-full
-    max-w-[340px]
-    h-56
-    bg-white/85
-    hover:bg-white
-    transition-all
-    rounded-[32px]
-    shadow-2xl
-    backdrop-blur-md
-    border border-white/40
-    flex flex-col
-    items-center
-    justify-center
-    hover:scale-105
-    active:scale-95
-  "
+w-[90vw]
+max-w-[420px]
+h-[210px]
+lg:w-[420px]
+lg:h-[280px]
+bg-white/85
+hover:bg-white
+transition-all
+duration-300
+rounded-[32px]
+shadow-2xl
+backdrop-blur-md
+border border-white/40
+flex flex-col
+items-center
+justify-center
+cursor-pointer
+hover:scale-105
+active:scale-95
+"
 >
 
-  <div className="text-3xl md:text-5xl mb-4">
-    🤔
-  </div>
+<div className="text-5xl lg:text-6xl mb-5">
+  🤔
+</div>
 
-  <div className="text-3xl font-black text-gray-900">
-    WHO ARE YA
-  </div>
+<div className="text-2xl lg:text-4xl font-black text-gray-900">
+  WHO ARE YA
+</div>
 
-  <div className="text-gray-500 mt-3 font-semibold">
-    선수 맞추기
-  </div>
+<div className="text-base lg:text-lg text-gray-500 mt-4 font-semibold">
+  선수 맞추기
+</div>
 
 </Link>
 
@@ -149,35 +175,39 @@ const [showCredits, setShowCredits] = useState(false);
           <Link
   href="/missing9"
   className="
-    w-full
-    max-w-[340px]
-    h-56
-    bg-white/85
-    hover:bg-white
-    transition-all
-    rounded-[32px]
-    shadow-2xl
-    backdrop-blur-md
-    border border-white/40
-    flex flex-col
-    items-center
-    justify-center
-    hover:scale-105
-    active:scale-95
-  "
+w-[90vw]
+max-w-[420px]
+h-[210px]
+lg:w-[420px]
+lg:h-[280px]
+bg-white/85
+hover:bg-white
+transition-all
+duration-300
+rounded-[32px]
+shadow-2xl
+backdrop-blur-md
+border border-white/40
+flex flex-col
+items-center
+justify-center
+cursor-pointer
+hover:scale-105
+active:scale-95
+"
 >
 
-  <div className="text-5xl mb-4">
-    🧩
-  </div>
+  <div className="text-5xl lg:text-6xl mb-5">
+  🧩
+</div>
 
-  <div className="text-3xl font-black text-gray-900">
-    MISSING 9
-  </div>
+<div className="text-2xl lg:text-4xl font-black text-gray-900">
+  MISSING 9
+</div>
 
-  <div className="text-gray-500 mt-3 font-semibold">
-    라인업 맞추기
-  </div>
+<div className="text-base lg:text-lg text-gray-500 mt-4 font-semibold">
+  라인업 맞추기
+</div>
 
 </Link>
 
@@ -186,21 +216,23 @@ const [showCredits, setShowCredits] = useState(false);
       </div>
 <button
   onClick={() => setShowCredits(true)}
-  className="
-    fixed
-    bottom-6
-    right-6
-    z-40
-    bg-white/90
-    hover:bg-white
-    text-black
-    rounded-xl
-    px-4
-    py-2
-    font-bold
-    shadow-xl
-    transition
-  "
+ className="
+fixed
+bottom-5
+right-5
+lg:bottom-6
+lg:right-6
+z-40
+bg-white/90
+hover:bg-white
+text-black
+rounded-xl
+px-5
+py-3
+font-bold
+shadow-xl
+transition
+"
 >
   ⓘ Credits
 </button>

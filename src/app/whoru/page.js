@@ -101,7 +101,7 @@ if (difficulty === null) {
       }}
     >
 
-      <div className="bg-white/80 rounded-3xl p-12 text-center">
+      <div className="bg-white/80 rounded-3xl p-6 md:p-12 text-center">
 
         <h1 className="text-5xl font-black mb-10">
 
@@ -113,21 +113,24 @@ if (difficulty === null) {
 
           <button
             onClick={() => setDifficulty("all")}
-            className="bg-blue-500 text-white py-3 rounded-xl font-bold"
+            className="bg-blue-500 text-white py-4
+text-lg rounded-xl font-bold"
           >
           🟦 전체 선수
           </button>
 
           <button
             onClick={() => setDifficulty("war5")}
-            className="bg-green-500 text-white py-3 rounded-xl font-bold"
+            className="bg-green-500 text-white py-4
+text-lg rounded-xl font-bold"
           >
           🟩 통산 WAR 5+
           </button>
 
           <button
             onClick={() => setDifficulty("war10")}
-            className="bg-red-500 text-white py-3 rounded-xl font-bold"
+            className="bg-red-500 text-white py-4
+text-lg rounded-xl font-bold"
           >
           🟥 통산 WAR 10+
           </button>
@@ -387,7 +390,8 @@ if (difficulty === null) {
 
       return (
 
-        <div className="bg-green-400 border border-green-500 p-3 rounded-xl text-center font-bold shadow-sm">
+        <div className="bg-green-400 border border-green-500 p-2
+md:p-3 rounded-xl text-center font-bold shadow-sm">
 
           {age} =
 
@@ -401,7 +405,8 @@ if (difficulty === null) {
 
       return (
 
-        <div className="bg-yellow-300 border border-yellow-400 p-3 rounded-xl text-center font-bold shadow-sm">
+        <div className="bg-yellow-300 border border-yellow-400 p-2
+md:p-3 rounded-xl text-center font-bold shadow-sm">
 
           {age} ↑
 
@@ -413,7 +418,8 @@ if (difficulty === null) {
 
     return (
 
-      <div className="bg-yellow-300 border border-yellow-400 p-3 rounded-xl text-center font-bold shadow-sm">
+      <div className="bg-yellow-300 border border-yellow-400 p-2
+md:p-3 rounded-xl text-center font-bold shadow-sm">
 
         {age} ↓
 
@@ -456,7 +462,16 @@ return (
   )}
 
   <main
-      className="min-h-screen relative overflow-hidden bg-cover bg-center p-6"
+       className="
+    min-h-screen
+    relative
+    overflow-hidden
+    bg-cover
+    bg-center
+    px-3
+    py-4
+    md:p-6
+  "
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=2070&auto=format&fit=crop')",
@@ -467,15 +482,29 @@ return (
 
       <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/50 to-orange-100/65 backdrop-blur-[2px]" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="w-full max-w-6xl mx-auto relative z-10">
 
         {/* 상단 */}
 
-        <div className="bg-white/75 backdrop-blur-md border border-gray-200 rounded-[28px] shadow-2xl p-7 mb-6 relative">
+        <div className="
+bg-white/75
+backdrop-blur-md
+border
+border-gray-200
+rounded-[28px]
+shadow-2xl
+p-4
+md:p-7
+mb-6
+relative
+">
 
           {/* 문제 번호 이동 */}
 
-          <div className="absolute left-7 top-1/2 -translate-y-1/2 flex gap-2 z-20">
+          <div className="hidden md:flex
+absolute
+left-7
+top-1/2 -translate-y-1/2 flex gap-2 z-20">
 
             <input
               type="number"
@@ -514,7 +543,14 @@ return (
 
           <div className="text-center">
 
-            <h1 className="text-4xl font-black tracking-tight text-gray-900 drop-shadow-sm">
+            <h1 className="
+text-3xl
+md:text-4xl
+font-black
+tracking-tight
+text-gray-900
+drop-shadow-sm
+">
 
               ⚾ KBO WHO ARE YA
 
@@ -526,11 +562,53 @@ return (
 
 {difficulty === "war10" && "WAR 10+"}
 
+<div className="md:hidden mt-3 flex justify-center gap-2">
+
+  <input
+    type="number"
+    placeholder="#"
+    value={jumpInput}
+    onChange={(e) => setJumpInput(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === "Enter") {
+        jumpToPlayer();
+      }
+    }}
+    className="
+      w-20
+      p-2
+      rounded-xl
+      border
+      border-gray-300
+      bg-gray-50
+      text-black
+      text-sm
+      outline-none
+    "
+  />
+
+  <button
+    onClick={jumpToPlayer}
+    className="
+      bg-yellow-400
+      hover:bg-yellow-300
+      px-4
+      py-2
+      rounded-xl
+      font-bold
+      text-black
+    "
+  >
+    이동
+  </button>
+
+</div>
+
 </div>
 
             </h1>
 
-            <div className="text-gray-500 mt-2 text-sm font-semibold">
+            <div className="text-gray-500 mt-2 text-xs md:text-sm font-semibold">
 
               PROBLEM #{currentIndex + 1}
 
@@ -541,7 +619,13 @@ return (
 
              {/* 남은 기회 */}
 
-<div className="absolute right-7 top-1/2 -translate-y-1/2 bg-white/80 border border-gray-200 px-5 py-3 rounded-2xl shadow-sm text-center">
+<div className="hidden md:block
+absolute
+right-7
+top-1/2 -translate-y-1/2 bg-white/80 border border-gray-200 w-full
+md:w-auto
+px-5
+py-3 rounded-2xl shadow-sm text-center">
 
   <div className="text-sm text-gray-500 font-semibold">
     남은 기회
@@ -552,13 +636,22 @@ return (
   </div>
 
 </div>
+<div className="md:hidden mt-3 flex justify-center">
 
+  <div className="bg-white rounded-xl px-4 py-2 shadow font-bold">
+
+    남은 기회 : {8 - guesses.length}
+
+  </div>
+
+</div>
 <button
   onClick={() => setShowRule(true)}
   className="
-    absolute
-    right-7
-    top-[110px]
+    hidden md:block
+absolute
+right-7
+top-[110px]
     bg-white
     hover:bg-gray-100
     border
@@ -572,6 +665,25 @@ return (
 >
   📖 규칙
 </button>
+<div className="md:hidden mt-3 flex justify-center">
+
+  <button
+    onClick={() => setShowRule(true)}
+    className="
+      bg-white
+      border
+      border-gray-300
+      rounded-xl
+      px-4
+      py-2
+      shadow
+      font-bold
+    "
+  >
+    📖 규칙
+  </button>
+
+</div>
             </div>
 
 
@@ -579,7 +691,14 @@ return (
 
         <div className="bg-white/75 backdrop-blur-md border border-gray-200 rounded-[28px] shadow-xl p-5 mb-8 relative">
 
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="
+flex
+flex-col
+md:flex-row
+items-center
+justify-center
+gap-3
+">
 
             <input
               type="text"
@@ -624,26 +743,37 @@ return (
 
               }}
 
-              className="p-3 rounded-xl border border-gray-300 bg-gray-50 text-black w-80 text-base outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-200 transition-all shadow-sm"
+              className="p-2
+md:p-3 rounded-xl border border-gray-300 bg-gray-50 text-black w-full
+md:w-80 text-base outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-200 transition-all shadow-sm"
             />
 
             <button
               onClick={handleGuess}
-              className="bg-blue-500 hover:bg-blue-400 text-white transition-all px-5 py-3 rounded-xl font-bold shadow-md"
+              className="bg-blue-500 hover:bg-blue-400 text-white transition-all w-full
+md:w-auto
+px-5
+py-3 rounded-xl font-bold shadow-md"
             >
               입력
             </button>
 
             <button
               onClick={prevPlayer}
-              className="bg-gray-700 hover:bg-gray-600 text-white transition-all px-5 py-3 rounded-xl font-bold shadow-md"
+              className="bg-gray-700 hover:bg-gray-600 text-white transition-all w-full
+md:w-auto
+px-5
+py-3 rounded-xl font-bold shadow-md"
             >
               이전
             </button>
 
             <button
               onClick={nextPlayer}
-              className="bg-gray-700 hover:bg-gray-600 text-white transition-all px-5 py-3 rounded-xl font-bold shadow-md"
+              className="bg-gray-700 hover:bg-gray-600 text-white transition-all w-full
+md:w-auto
+px-5
+py-3 rounded-xl font-bold shadow-md"
             >
               다음
             </button>
@@ -660,7 +790,10 @@ return (
 
   }}
 
-  className="bg-red-500 hover:bg-red-400 text-white transition-all px-5 py-3 rounded-xl font-bold shadow-md"
+  className="bg-red-500 hover:bg-red-400 text-white transition-all w-full
+md:w-auto
+px-5
+py-3 rounded-xl font-bold shadow-md"
 >
 
 난이도 선택
@@ -672,7 +805,14 @@ return (
 
           {suggestions.length > 0 && (
 
-            <div className="absolute top-20 left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-2xl w-80 overflow-hidden shadow-2xl z-50">
+            <div className="absolute
+left-0
+right-0
+top-16
+md:left-1/2
+md:right-auto
+md:-translate-x-1/2 bg-white border border-gray-300 rounded-2xl w-full
+md:w-80 overflow-hidden shadow-2xl z-50">
 
               {suggestions.map((player) => {
 
@@ -698,7 +838,8 @@ return (
 
                     }}
 
-                    className="p-3 hover:bg-gray-100 transition-all cursor-pointer border-b border-gray-200 text-sm"
+                    className="p-2
+md:p-3 hover:bg-gray-100 transition-all cursor-pointer border-b border-gray-200 text-sm"
                   >
 
                     {samePlayers.length > 1 ? (
@@ -752,7 +893,19 @@ return (
 
         {/* 결과 */}
 
-        <div className="flex flex-col gap-3">
+        <div className="md:hidden text-xs text-gray-500 mb-2 text-center">
+← 좌우로 밀어서 결과 보기 →
+</div>
+
+<div
+  className="
+    overflow-x-auto
+    pb-2
+    [-webkit-overflow-scrolling:touch]
+  "
+>
+
+  <div className="flex flex-col gap-3 min-w-[760px]">
 
           {guesses.map((guess, index) => {
 
@@ -768,7 +921,8 @@ return (
                 }`}
               >
 
-                <div className="bg-white/95 border border-gray-300 p-3 rounded-xl text-center font-bold shadow-md">
+                <div className="bg-white/95 border border-gray-300 p-2
+md:p-3 rounded-xl text-center font-bold shadow-md">
 
                   {guess.player.name}
 
@@ -777,7 +931,8 @@ return (
                 <div
                   className={`${getColor(
                     guess.team
-                  )} border p-3 rounded-xl text-center font-bold shadow-md`}
+                  )} border p-2
+md:p-3 rounded-xl text-center font-bold shadow-md`}
                 >
 
                   {guess.player.team}
@@ -787,7 +942,8 @@ return (
                 <div
                   className={`${getColor(
                     guess.position
-                  )} border p-3 rounded-xl text-center font-bold shadow-md`}
+                  )} border p-2
+md:p-3 rounded-xl text-center font-bold shadow-md`}
                 >
 
                   {guess.player.position}
@@ -802,7 +958,8 @@ return (
                 <div
                   className={`${getColor(
                     guess.throws
-                  )} border p-3 rounded-xl text-center font-bold shadow-md`}
+                  )} border p-2
+md:p-3 rounded-xl text-center font-bold shadow-md`}
                 >
 
                   {guess.player.throws}
@@ -812,7 +969,8 @@ return (
                 <div
                   className={`${getColor(
                     guess.nationality
-                  )} border p-3 rounded-xl text-center font-bold shadow-md`}
+                  )} border p-2
+md:p-3 rounded-xl text-center font-bold shadow-md`}
                 >
 
                   {guess.player.nationality}
@@ -826,12 +984,14 @@ return (
           })}
 
         </div>
+        </div>
 
         {/* 정답 */}
 
         {gameOver && (
 
-          <div className="mt-10 text-center text-4xl font-black text-green-600 drop-shadow-lg">
+          <div className="mt-10 text-center text-3xl
+md:text-4xl font-black text-green-600 drop-shadow-lg">
 
             정답: {answer.name}
 
@@ -870,7 +1030,7 @@ const RuleModal = ({
           "
         >
 
-          <h2 className="text-2xl md:text-4xl font-black text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-8">
             ⚾ KBO WHO ARE YA
           </h2>
 
@@ -882,7 +1042,8 @@ const RuleModal = ({
                 🎯 목표
               </div>
 
-              <p className="text-base md:text-lg">
+              <p className="text-xs
+text-base md:text-lg">
                 숨겨진 KBO 선수를 맞혀보세요.
               </p>
 
@@ -956,19 +1117,21 @@ const RuleModal = ({
               setShowRule(false);
 
             }}
-            className="
-              mt-8
-              w-full
-              py-4
-              rounded-2xl
-              bg-blue-600
-              hover:bg-blue-500
-              active:bg-blue-700
-              text-white
-              text-xl
-              font-black
-              transition
-            "
+           className="
+  mt-8
+  w-full
+  py-4
+  md:py-5
+  rounded-2xl
+  bg-blue-600
+  hover:bg-blue-500
+  active:bg-blue-700
+  text-white
+  text-xl
+  font-black
+  transition
+  touch-manipulation
+"
           >
             게임 시작
           </button>
