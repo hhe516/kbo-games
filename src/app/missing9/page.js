@@ -154,6 +154,8 @@ export default function Missing9() {
   const [showAnswers, setShowAnswers] = useState(false);
   const [wrongFlash, setWrongFlash] = useState({});
   const [failed, setFailed] = useState({});
+  const [filteredPlayers, setFilteredPlayers] = useState({});
+  const [selectedIndex, setSelectedIndex] = useState({});
   const [selectedTeam, setSelectedTeam]
   = useState(null);
   const [showRule, setShowRule] = useState(true);
@@ -260,6 +262,7 @@ drop-shadow-lg
       <button
         key={team}
         onClick={() => {
+          resetGame();
           setSelectedTeam(team);
           setCurrentGameIndex(0);
         }}
@@ -340,6 +343,8 @@ const resetGame = () => {
   setShowAnswers(false);
   setWrongFlash({});
   setFailed({});
+  setFilteredPlayers({});
+setSelectedIndex({});
 };
 
   const goToPrev = () => {
@@ -371,7 +376,11 @@ const isSeasonBest =
 
   if (failed[position])
     return;
-
+ // 자동완성 목록 닫기
+  setFilteredPlayers(prev => ({
+    ...prev,
+    [position]: [],
+  }));
   // --------------------
   // 시즌 베스트 외야 처리
   // --------------------
@@ -413,7 +422,10 @@ const isSeasonBest =
         ...prev,
         [position]: "",
       }));
-
+setFilteredPlayers(prev=>({
+  ...prev,
+  [position]:[],
+}));
       return;
 
     }
@@ -429,14 +441,19 @@ const isSeasonBest =
   ) {
 
     setSolved((prev) => ({
-      ...prev,
-      [position]: true,
-    }));
+  ...prev,
+  [position]: true,
+}));
 
-    setInputValues((prev) => ({
-      ...prev,
-      [position]: "",
-    }));
+setInputValues((prev) => ({
+  ...prev,
+  [position]: "",
+}));
+
+setFilteredPlayers((prev) => ({
+  ...prev,
+  [position]: [],
+}));
 
   } else {
 
@@ -470,7 +487,10 @@ const isSeasonBest =
       }));
 
     }
-
+setFilteredPlayers((prev) => ({
+  ...prev,
+  [position]: [],
+}));
   }
 };
 
@@ -726,15 +746,124 @@ md:text-sm ${
                   <>
                     <input
                       value={inputValues[position] ?? ""}
-                      onChange={(e) =>
-                        setInputValues((prev) => ({
-                          ...prev,
-                          [position]: e.target.value,
-                        }))
-                      }
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") checkAnswer(position);
-                      }}
+                      onChange={(e) => {
+
+  const value = e.target.value;
+
+  setInputValues((prev) => ({
+    ...prev,
+    [position]: value,
+  }));
+
+  if (!value.trim()) {
+
+    setFilteredPlayers((prev) => ({
+      ...prev,
+      [position]: [],
+    }));
+
+    return;
+  }
+
+  const filtered = players
+  .filter((p) =>
+    p.name.includes(value)
+  )
+  .sort((a, b) => {
+
+    const aStarts = a.name.startsWith(value);
+    const bStarts = b.name.startsWith(value);
+
+    if (aStarts === bStarts) return 0;
+
+    return bStarts - aStarts;
+
+  })
+  .slice(0, 8);
+
+  setFilteredPlayers((prev) => ({
+    ...prev,
+    [position]: filtered,
+  }));
+
+  setSelectedIndex((prev) => ({
+    ...prev,
+    [position]: 0,
+  }));
+
+}}
+                      onKeyDown={(e)=>{
+
+  if(e.key==="ArrowDown"){
+
+    e.preventDefault();
+
+    setSelectedIndex(prev=>({
+
+      ...prev,
+
+      [position]:
+        Math.min(
+          (prev[position] ?? 0)+1,
+          (filteredPlayers[position]?.length ?? 1)-1
+        )
+
+    }));
+
+  }
+
+  else if(e.key==="ArrowUp"){
+
+    e.preventDefault();
+
+    setSelectedIndex(prev=>({
+
+      ...prev,
+
+      [position]:
+        Math.max(
+          (prev[position] ?? 0)-1,
+          0
+        )
+
+    }));
+
+  }
+
+  else if(e.key==="Enter"){
+
+    if(filteredPlayers[position]?.length){
+
+      const player =
+        filteredPlayers[position][
+          selectedIndex[position] ?? 0
+        ];
+
+      setInputValues(prev=>({
+
+        ...prev,
+
+        [position]:player.name
+
+      }));
+
+      setFilteredPlayers(prev=>({
+
+        ...prev,
+
+        [position]:[]
+
+      }));
+
+    }else{
+
+      checkAnswer(position);
+
+    }
+
+  }
+
+}}
                       className={`
                         w-full text-center rounded-lg px-2 py-1 outline-none text-xs
 md:text-sm transition-colors
@@ -745,6 +874,64 @@ md:text-sm transition-colors
                       `}
                       placeholder="???"
                     />
+                    {filteredPlayers[position]?.length > 0 && (
+  <div
+    className="
+      absolute
+      left-1/2
+      -translate-x-1/2
+      top-full
+      mt-1
+      w-full min-w-[120px]
+      rounded-xl
+      bg-zinc-900
+      border
+      border-zinc-700
+      shadow-xl
+      z-50
+      overflow-hidden
+    "
+  >
+    {filteredPlayers[position].map((player, idx) => (
+      <button
+        key={player.id ?? player.name}
+        type="button"
+        onClick={() => {
+
+  setInputValues(prev => ({
+    ...prev,
+    [position]: player.name,
+  }));
+
+  setFilteredPlayers(prev => ({
+    ...prev,
+    [position]: [],
+  }));
+
+  setTimeout(() => {
+    checkAnswer(position);
+  }, 0);
+
+}}
+        className={`
+          w-full
+          text-left
+          px-3
+          py-2
+          text-sm
+          hover:bg-sky-600
+          ${
+            idx === (selectedIndex[position] ?? 0)
+              ? "bg-sky-700"
+              : ""
+          }
+        `}
+      >
+        {player.name}
+      </button>
+    ))}
+  </div>
+)}
                     {hint.length > 0 && (
   <div className="text-[10px]
 md:text-[12px] text-yellow-300 mt-1 leading-normal">
