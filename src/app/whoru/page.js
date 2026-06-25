@@ -945,7 +945,7 @@ font-semibold
                 </div>
 
                 <div
-                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
+                  className={`${getColor(guess.position)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
                 >
 
                   {guess.player.position}
@@ -958,7 +958,7 @@ font-semibold
                 )}
 
                 <div
-                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
+                  className={`${getColor(guess.throws)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
                 >
 
                   {guess.player.throws}
@@ -966,7 +966,7 @@ font-semibold
                 </div>
 
                 <div
-                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
+                  className={`${getColor(guess.nationality)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
                 >
 
                   {guess.player.nationality}
