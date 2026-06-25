@@ -116,18 +116,20 @@ lg:p-8
 
         {/* 버튼들 */}
 
-        <div className="
-flex
-flex-col
-lg:flex-row
-items-center
-justify-center
-gap-6
-lg:gap-10
-w-full
-max-w-5xl
-mx-auto
-">
+        <div
+  className="
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    xl:grid-cols-3
+    gap-6
+    lg:gap-10
+    w-full
+    max-w-6xl
+    mx-auto
+    place-items-center
+  "
+>
 
           {/* WHO ARE YA */}
 
@@ -208,7 +210,40 @@ active:scale-95
 <div className="text-base lg:text-lg text-gray-500 mt-4 font-semibold">
   라인업 맞추기
 </div>
+<Link
+  href="/careerpath"
+  className="
+    w-full
+    max-w-[340px]
+    h-56
+    bg-white/85
+    hover:bg-white
+    transition-all
+    rounded-[32px]
+    shadow-2xl
+    backdrop-blur-md
+    border border-white/40
+    flex flex-col
+    items-center
+    justify-center
+    hover:scale-105
+    active:scale-95
+  "
+>
 
+  <div className="text-5xl mb-4">
+    🛤️
+  </div>
+
+  <div className="text-3xl font-black text-gray-900">
+    CAREER PATH
+  </div>
+
+  <div className="text-gray-500 mt-3 font-semibold">
+    커리어 보고 선수 맞추기
+  </div>
+
+</Link>
 </Link>
 
         </div>
