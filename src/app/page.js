@@ -105,7 +105,7 @@ const [showCredits, setShowCredits] = useState(false);
 
         {/* 버튼들 */}
 
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full">
 
           {/* WHO ARE YA */}
 
@@ -113,8 +113,8 @@ const [showCredits, setShowCredits] = useState(false);
   href="/whoru"
   className="
    w-full
-max-w-[340px]
-h-56
+max-w-[420px]
+h-72
     bg-white/85
     hover:bg-white
     transition-all
