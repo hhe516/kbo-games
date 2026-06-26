@@ -153,7 +153,20 @@ latest_df = (
     df.groupby("PlayerID")
     .tail(1)
 )
+ACTIVE_YEAR = 2025
 
+active_players = set(
+    df.loc[
+        df["Year"] == ACTIVE_YEAR,
+        "PlayerID"
+    ]
+)
+
+active_war3 = set(
+    career_war[
+        career_war >= 3
+    ].index
+)
 # -----------------------------
 # 투타 변환
 # -----------------------------
@@ -303,7 +316,12 @@ for _, row in latest_df.iterrows():
 
         "nationality": is_foreign_player(
             row["School"]
-        )
+        ),
+
+        "active": (
+    pid in active_players
+    and pid in active_war3
+)
 
     })
 

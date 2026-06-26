@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import os
+import random
 # --------------------------------
 # players.json
 # --------------------------------
@@ -213,15 +214,7 @@ if os.path.exists(override_path):
                 player["name"]
             ]
 
-# --------------------------------
-# 이름순 정렬
-# --------------------------------
-
-career_paths = sorted(
-    career_paths,
-    key=lambda x: x["name"]
-)
-
+random.shuffle(career_paths)
 # --------------------------------
 # 저장
 # --------------------------------
