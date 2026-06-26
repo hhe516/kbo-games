@@ -241,12 +241,12 @@ active:scale-95
   </div>
 
 </Link>
-                </div>   // 게임 카드 grid 끝
+                </div>   
 
 <div className="mt-12 flex flex-col items-center gap-2">
 
   <div className="text-xs text-zinc-300">
-    Missing9 Project
+    influencer Project
   </div>
 
   <div className="text-xs text-zinc-400">
