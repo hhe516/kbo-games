@@ -266,6 +266,38 @@ transition
 >
   ⓘ Credits
 </button>
+<div className="mt-14 flex flex-col items-center gap-2">
+
+  <div className="text-xs text-zinc-400">
+    Missing9 Project
+  </div>
+
+  <div className="text-xs text-zinc-500">
+    v1.0.0 Beta
+  </div>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSeMncbGJK3zd04feEWU7ctohNxfk5Clj_RZyBxD6zugjxZwng/viewform?usp=publish-editor"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="
+      mt-2
+      rounded-xl
+      bg-red-500
+      hover:bg-red-400
+      px-5
+      py-2
+      text-sm
+      font-bold
+      text-white
+      transition
+      shadow-lg
+    "
+  >
+    🐞 버그 제보 / 의견 보내기
+  </a>
+
+</div>
     </main>
 </>
   );  

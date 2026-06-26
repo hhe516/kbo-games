@@ -31,6 +31,9 @@ export default function Home() {
 
   const [difficulty, setDifficulty] =
     useState(null);
+    
+  const [activeOnly, setActiveOnly] =
+    useState(false);
 
   const [showRule, setShowRule] = useState(true);
 
@@ -58,13 +61,19 @@ fetch(file)
   .then((res) => res.json())
   .then((data) => {
 
+    if (activeOnly) {
+      data = data.filter(
+        (p) => p.active
+      );
+    }
+
     setPlayers(data);
 
     setCurrentIndex(0);
 
   });
 
-}, [difficulty]);
+}, [difficulty, activeOnly]);
 useEffect(() => {
 
   const hide =
@@ -112,12 +121,17 @@ if (difficulty === null) {
         <div className="flex flex-col gap-4">
 
           <button
-            onClick={() => setDifficulty("all")}
-            className="bg-blue-500 text-white py-4
-text-lg rounded-xl font-bold"
-          >
-          🟦 전체 선수
-          </button>
+  onClick={() => {
+
+    setActiveOnly(true);
+
+    setDifficulty("all");
+
+  }}
+  className="bg-blue-500 text-white py-4 text-lg rounded-xl font-bold"
+>
+🟦 현역 선수
+</button>
 
           <button
             onClick={() => setDifficulty("war5")}
@@ -555,7 +569,7 @@ drop-shadow-sm
 
 <div className="text-lg font-bold mt-2">
 
-{difficulty === "all" && "전체 선수"}
+{difficulty === "all" && "현역 선수"}
 
 {difficulty === "war5" && "WAR 5+"}
 
@@ -1075,7 +1089,7 @@ text-base md:text-lg">
 
               <ul className="list-disc ml-6 space-y-2 text-base md:text-lg">
 
-                <li>전체 선수</li>
+                <li>현역 선수</li>
 
                 <li>통산 WAR 5 이상</li>
 
