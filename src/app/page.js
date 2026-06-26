@@ -246,7 +246,7 @@ active:scale-95
 <div className="mt-12 flex flex-col items-center gap-2">
 
   <div className="text-xs text-zinc-300">
-    influencer Project
+    KBO games HUB
   </div>
 
   <div className="text-xs text-zinc-400">
