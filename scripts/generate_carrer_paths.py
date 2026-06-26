@@ -4,7 +4,7 @@ import os
 # --------------------------------
 # players.json
 # --------------------------------
-
+BASE_DIR = os.path.dirname(__file__)
 with open(
     os.path.join(
         BASE_DIR,
@@ -20,8 +20,6 @@ with open(
 # --------------------------------
 # 경로
 # --------------------------------
-
-BASE_DIR = os.path.dirname(__file__)
 
 batting = pd.read_csv(
     os.path.join(BASE_DIR, "..", "batting.csv"),
@@ -96,13 +94,7 @@ position_map = {}
 
 for p in players:
 
-    key = (
-        p["name"]
-        + "_"
-        + p["birth"]
-    )
-
-    position_map[key] = p["position"]
+    position_map[p["id"]] = p["position"]
 # --------------------------------
 # 통산 WAR 계산
 # --------------------------------
@@ -180,7 +172,9 @@ for pid, group in df.groupby("PlayerID"):
         "to": end_year
 
     })
-
+    if pid not in position_map:
+        print(pid)
+    
     career_paths.append({
 
     "id": pid,
