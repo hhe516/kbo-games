@@ -156,6 +156,7 @@ export default function Missing9() {
   const [failed, setFailed] = useState({});
   const [filteredPlayers, setFilteredPlayers] = useState({});
   const [selectedIndex, setSelectedIndex] = useState({});
+  const [selectedPlayers, setSelectedPlayers] = useState({});
   const [selectedTeam, setSelectedTeam]
   = useState(null);
   const [showRule, setShowRule] = useState(true);
@@ -170,7 +171,8 @@ const resetGame = () => {
   setWrongFlash({});
   setFailed({});
   setFilteredPlayers({});
-setSelectedIndex({});
+  setSelectedPlayers({});
+  setSelectedIndex({});
 };
 const filteredGames =
   selectedTeam === null ||
@@ -213,7 +215,7 @@ fetch("/data/games.json")
     setGames(data);
   });
 
-  fetch("/data/players_shuffled.json")
+  fetch("/data/players.json")
     .then((res) => res.json())
     .then((data) => setPlayers(data));
 
@@ -322,8 +324,10 @@ const answerMap = {};
 lineup.forEach((player) => {
 
   const info = players.find(
-    (p) => p.name === player.name
-  );
+  (p) =>
+    (player.id && p.id === player.id) ||
+    (!player.id && p.name === player.name)
+);
 
   const throwInfo = info?.throws || "";
 
@@ -416,6 +420,10 @@ const isSeasonBest =
         ...prev,
         [matchedPosition]: true,
       }));
+      setSelectedPlayers(prev => ({
+  ...prev,
+  [position]: undefined,
+}));
 
       setInputValues((prev) => ({
         ...prev,
@@ -431,28 +439,33 @@ setFilteredPlayers(prev=>({
 
   }
 
-  const correct =
-    answerMap[position].name;
+ const answer = answerMap[position];
+const selected = selectedPlayers[position];
 
-  if (
-    normalize(input) ===
-    normalize(correct)
-  ) {
+const isCorrect =
+  answer.id && selected
+    ? answer.id === selected.id
+    : normalize(input) === normalize(answer.name);
 
-    setSolved((prev) => ({
+if (isCorrect) {
+
+  setSolved(prev => ({
+    ...prev,
+    [position]: true,
+  }));
+
+  setInputValues(prev => ({
+    ...prev,
+    [position]: "",
+  }));
+  setSelectedPlayers(prev => ({
   ...prev,
-  [position]: true,
+  [position]: undefined,
 }));
-
-setInputValues((prev) => ({
-  ...prev,
-  [position]: "",
-}));
-
-setFilteredPlayers((prev) => ({
-  ...prev,
-  [position]: [],
-}));
+  setFilteredPlayers(prev => ({
+    ...prev,
+    [position]: [],
+  }));
 
   } else {
 
@@ -832,36 +845,39 @@ md:text-sm ${
 
   else if(e.key==="Enter"){
 
-    if(filteredPlayers[position]?.length){
+  if(filteredPlayers[position]?.length){
 
-      const player =
-        filteredPlayers[position][
-          selectedIndex[position] ?? 0
-        ];
+    const player =
+      filteredPlayers[position][
+        selectedIndex[position] ?? 0
+      ];
 
-      setInputValues(prev=>({
+    setInputValues(prev => ({
+      ...prev,
+      [position]: player.name
+    }));
 
-        ...prev,
+    setSelectedPlayers(prev => ({
+      ...prev,
+      [position]: player
+    }));
 
-        [position]:player.name
+    setFilteredPlayers(prev => ({
+      ...prev,
+      [position]: []
+    }));
 
-      }));
-
-      setFilteredPlayers(prev=>({
-
-        ...prev,
-
-        [position]:[]
-
-      }));
-
-    }else{
-
+    setTimeout(() => {
       checkAnswer(position);
+    }, 0);
 
-    }
+  } else {
+
+    checkAnswer(position);
 
   }
+
+}
 
 }}
                       className={`
@@ -902,6 +918,10 @@ md:text-sm transition-colors
     ...prev,
     [position]: player.name,
   }));
+  setSelectedPlayers(prev => ({
+  ...prev,
+  [position]: player,
+}));
 
   setFilteredPlayers(prev => ({
     ...prev,
@@ -927,7 +947,13 @@ md:text-sm transition-colors
           }
         `}
       >
-        {player.name}
+        <div className="flex justify-between items-center">
+  <span>{player.name}</span>
+
+  <span className="text-xs text-zinc-400">
+    ({player.birthdate.slice(0, 4)})
+  </span>
+</div>
       </button>
     ))}
   </div>
