@@ -132,6 +132,8 @@ const [jumpInput,setJumpInput]=useState("");
 
 const [suggestions,setSuggestions]=useState([]);
 
+const [wrongFlash, setWrongFlash] = useState(false);
+
 const [selectedPlayer,setSelectedPlayer]=useState(null);
 
 useEffect(()=>{
@@ -201,6 +203,7 @@ useEffect(() => {
 
 }, [filteredPlayers]);
 
+
 // -----------------------------
 // 제출
 // -----------------------------
@@ -227,6 +230,12 @@ const handleGuess = () => {
     return;
 
   }
+
+setWrongFlash(true);
+
+setTimeout(() => {
+  setWrongFlash(false);
+}, 400);  
 
   const next = attempts + 1;
 
@@ -264,14 +273,13 @@ const nextProblem = () => {
 
   setSuggestions([]);
 
-  setCurrentIndex(
+  let next;
 
-    Math.floor(
-      Math.random() *
-      players.length
-    )
+do {
+  next = Math.floor(Math.random() * players.length);
+} while (next === currentIndex && players.length > 1);
 
-  );
+setCurrentIndex(next);
 
 };
 
@@ -376,17 +384,21 @@ className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-xl font-bold"
 
 <div className="text-center">
 
-<div className="text-sm text-gray-500">
+  <div className="text-sm text-gray-500">
+    문제 번호
+  </div>
 
-남은 기회
+  <div className="text-xl font-black">
+    {currentIndex + 1} / {players.length}
+  </div>
 
-</div>
+  <div className="mt-2 text-sm text-gray-500">
+    남은 기회
+  </div>
 
-<div className="text-3xl font-black">
-
-{3-attempts}
-
-</div>
+  <div className="text-3xl font-black">
+    {3 - attempts}
+  </div>
 
 </div>
 
@@ -492,7 +504,20 @@ handleGuess();
 
 }}
 
-className="w-full rounded-xl border p-4 text-lg"
+className={`
+w-full
+rounded-xl
+border
+p-4
+text-lg
+transition-all
+duration-200
+${
+  wrongFlash
+    ? "border-red-500 bg-red-100 animate-pulse"
+    : "border-gray-300"
+}
+`}
 
 />
 
@@ -531,7 +556,13 @@ className="cursor-pointer px-4 py-3 hover:bg-sky-100"
 )}
 
 </div>
-
+{attempts >= 2 && !clear && !gameOver && (
+  <div className="mt-4 rounded-xl bg-yellow-100 border border-yellow-400 p-3 text-center">
+    <span className="font-bold text-yellow-800">
+      💡 포지션 : {answer.position}
+    </span>
+  </div>
+)}
 <button
 
 onClick={handleGuess}
