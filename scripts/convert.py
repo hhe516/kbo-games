@@ -344,16 +344,21 @@ for _, row in latest_df.iterrows():
     "goldGlove": False,
     "mvp": False,
     "rookie": False
-}
+    
+    
+    }
 
-player.update(
-    player_flags.get(
-        player["name"],
-        {}
+    player.update(
+        player_flags.get(
+            player["name"],
+            {}
+        )
     )
-)
 
-players.append(player)
+    players.append(player)
+
+
+   
 
 # -----------------------------
 # 정렬
@@ -444,3 +449,14 @@ print(players_path)
 print(war3_path)
 print(war5_path)
 print(war10_path)
+
+print(BASE_DIR)
+print(batting_path)
+print(pitching_path)
+
+print("batting:", batting_df.shape)
+print("pitching:", pitching_df.shape)
+print("concat:", df.shape)
+
+print("고유 선수:", df["PlayerID"].nunique())
+print("latest_df:", len(latest_df))
