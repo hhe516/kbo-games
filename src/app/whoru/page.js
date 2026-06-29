@@ -31,9 +31,6 @@ export default function Home() {
 
   const [difficulty, setDifficulty] =
     useState(null);
-    
-  const [activeOnly, setActiveOnly] =
-    useState(false);
 
   const [showRule, setShowRule] = useState(true);
 
@@ -49,6 +46,10 @@ useEffect(() => {
 
   let file = "/data/players.json";
 
+  if (difficulty === "all") {
+  file = "/data/players_active.json";
+  }
+
   if (difficulty === "war5") {
     file = "/data/players_war5.json";
   }
@@ -61,11 +62,6 @@ fetch(file)
   .then((res) => res.json())
   .then((data) => {
 
-    if (activeOnly) {
-      data = data.filter(
-        (p) => p.active
-      );
-    }
 
     setPlayers(data);
 
@@ -73,7 +69,7 @@ fetch(file)
 
   });
 
-}, [difficulty, activeOnly]);
+}, [difficulty]);
 useEffect(() => {
 
   const hide =
@@ -122,8 +118,6 @@ if (difficulty === null) {
 
           <button
   onClick={() => {
-
-    setActiveOnly(true);
 
     setDifficulty("all");
 
@@ -1071,14 +1065,21 @@ text-base md:text-lg">
 
                 <li>입력할 때마다 정보가 공개됩니다.</li>
 
+                <li>외국인 선수도 포함됩니다.</li>
+
                 <li>🟩 초록 = 일치</li>
 
                 <li>🟨 노랑 = 나이가 높거나 낮음</li>
 
                 <li>⬜ 흰색 = 다름</li>
 
-              </ul>
+                </ul>
 
+                <p className="mt-3 text-sm md:text-base text-zinc-500 leading-relaxed">
+                  ※ 현역 선수는 <span className="font-semibold">2025시즌 KBO 공식 기록이 있는 선수</span>를 기준으로 합니다.
+                <br />
+                  ※ 팀과 포지션은 <span className="font-semibold">가장 오래 활약한 팀과 주 포지션</span>을 기준으로 합니다.
+                </p>
             </div>
 
             <div>

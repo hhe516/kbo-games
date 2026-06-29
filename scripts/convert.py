@@ -4,6 +4,7 @@ import os
 import random
 from datetime import datetime
 
+
 current_year = datetime.now().year
 
 # -----------------------------
@@ -41,6 +42,11 @@ players_path = os.path.join(
     "players.json"
 )
 
+war3_path = os.path.join(
+    output_dir,
+    "players_active.json"
+)
+
 war5_path = os.path.join(
     output_dir,
     "players_war5.json"
@@ -51,6 +57,16 @@ war10_path = os.path.join(
     "players_war10.json"
 )
 
+flags_path = os.path.join(
+    output_dir,
+    "player_flags.json"
+)
+
+if os.path.exists(flags_path):
+    with open(flags_path, encoding="utf-8") as f:
+        player_flags = json.load(f)
+else:
+    player_flags = {}
 # -----------------------------
 # CSV 불러오기
 # -----------------------------
@@ -153,6 +169,7 @@ latest_df = (
     df.groupby("PlayerID")
     .tail(1)
 )
+latest_year = int(df["Year"].max())
 ACTIVE_YEAR = 2025
 
 active_players = set(
@@ -289,41 +306,54 @@ for _, row in latest_df.iterrows():
 
     added.add(pid)
 
-    players.append({
+    player = {
 
-        "id": pid,
+    "id": pid,
 
-        "name": row["Name"],
+    "name": row["Name"],
 
-        "birthdate": row["Birthdate"],
+    "birthdate": row["Birthdate"],
 
-        "team": team_map[pid],
+    "team": team_map[pid],
 
-        "position": position_map[pid],
+    "position": position_map[pid],
 
-        "careerWar": round(
-            float(career_war.get(pid, 0)),
-            2
-        ),
+    "careerWar": round(
+        float(career_war.get(pid, 0)),
+        2
+    ),
 
-        "age": calculate_current_age(
-            row["Birthdate"]
-        ),
+    "age": calculate_current_age(
+        row["Birthdate"]
+    ),
 
-        "throws": convert_handedness(
-            row["Handedness"]
-        ),
+    "throws": convert_handedness(
+        row["Handedness"]
+    ),
 
-        "nationality": is_foreign_player(
-            row["School"]
-        ),
+    "nationality": is_foreign_player(
+        row["School"]
+    ),
 
-        "active": (
-    pid in active_players
-    and pid in active_war3
+    "active": int(row["Year"]) == latest_year,
+
+    "mlb": False,
+    "npb": False,
+    "nationalTeam": False,
+    "allStar": False,
+    "goldGlove": False,
+    "mvp": False,
+    "rookie": False
+}
+
+player.update(
+    player_flags.get(
+        player["name"],
+        {}
+    )
 )
 
-    })
+players.append(player)
 
 # -----------------------------
 # 정렬
@@ -337,6 +367,11 @@ players = sorted(
 # -----------------------------
 # WAR별 분리
 # -----------------------------
+
+players_active = [
+    p for p in players
+    if p["active"] and p["careerWar"] >= 3
+]
 
 players_war5 = [
     p for p in players
@@ -386,6 +421,11 @@ save_json(
 )
 
 save_json(
+    war3_path,
+    shuffle_players(players_active)
+)
+
+save_json(
     war5_path,
     shuffle_players(players_war5)
 )
@@ -396,9 +436,11 @@ save_json(
 )
 
 print(f"전체 선수 : {len(players)}명")
+print(f"현역(WAR 3+) : {len(players_active)}명")
 print(f"WAR 5+ : {len(players_war5)}명")
 print(f"WAR 10+ : {len(players_war10)}명")
 
 print(players_path)
+print(war3_path)
 print(war5_path)
 print(war10_path)
