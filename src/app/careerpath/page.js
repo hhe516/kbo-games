@@ -60,7 +60,7 @@ const RuleModal = ({
           <input
             type="checkbox"
             checked={hideRule}
-            onChange={(e)=>{
+            onChange={(e) => {
 
               setHideRule(e.target.checked);
 
@@ -73,16 +73,16 @@ const RuleModal = ({
 
         <button
 
-          onClick={()=>{
+          onClick={() => {
 
-            if(hideRule){
+            if (hideRule) {
 
               localStorage.setItem(
                 "career_rule",
                 "true"
               );
 
-            }else{
+            } else {
 
               localStorage.removeItem(
                 "career_rule"
@@ -110,413 +110,413 @@ const RuleModal = ({
 
 };
 
-export default function CareerPath(){
+export default function CareerPath() {
 
-const [players,setPlayers]=useState([]);
+  const [players, setPlayers] = useState([]);
 
-const [currentIndex,setCurrentIndex]=useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-const [input,setInput]=useState("");
+  const [input, setInput] = useState("");
 
-const [attempts,setAttempts]=useState(0);
+  const [attempts, setAttempts] = useState(0);
 
-const [gameOver,setGameOver]=useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
-const [clear,setClear]=useState(false);
+  const [clear, setClear] = useState(false);
 
-const [showRule,setShowRule]=useState(true);
+  const [showRule, setShowRule] = useState(true);
 
-const [hideRule,setHideRule]=useState(false);
+  const [hideRule, setHideRule] = useState(false);
 
-const [jumpInput,setJumpInput]=useState("");
+  const [jumpInput, setJumpInput] = useState("");
 
-const [suggestions,setSuggestions]=useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
-const [wrongFlash, setWrongFlash] = useState(false);
+  const [wrongFlash, setWrongFlash] = useState(false);
 
-const [selectedPlayer,setSelectedPlayer]=useState(null);
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
 
-useEffect(()=>{
+  useEffect(() => {
 
-const hide=
+    const hide =
 
-localStorage.getItem("career_rule");
+      localStorage.getItem("career_rule");
 
-if(hide==="true"){
+    if (hide === "true") {
 
-setShowRule(false);
+      setShowRule(false);
 
-}
+    }
 
-},[]);
+  }, []);
 
-useEffect(() => {
+  useEffect(() => {
 
-  Promise.all([
-    fetch("/data/career_paths.json").then((res) => res.json()),
-    fetch("/data/career_overrides.json").then((res) => res.json())
-  ]).then(([players, overrides]) => {
+    Promise.all([
+      fetch("/data/career_paths.json").then((res) => res.json()),
+      fetch("/data/career_overrides.json").then((res) => res.json())
+    ]).then(([players, overrides]) => {
 
-    const merged = players.map((player) => {
+      const merged = players.map((player) => {
 
-      if (overrides[player.name]) {
-        return {
-          ...player,
-          career: overrides[player.name]
-        };
-      }
+        if (overrides[player.name]) {
+          return {
+            ...player,
+            career: overrides[player.name]
+          };
+        }
 
-      return player;
+        return player;
+
+      });
+
+      setPlayers(merged);
 
     });
 
-    setPlayers(merged);
+  }, []);
 
-  });
+  const answer =
 
-}, []);
+    players[currentIndex];
 
-const answer=
+  const normalize = (str) => {
 
-players[currentIndex];
+    return String(str)
 
-const normalize=(str)=>{
+      .replaceAll(" ", "")
 
-return String(str)
+      .toLowerCase()
 
-.replaceAll(" ","")
+      .trim();
 
-.toLowerCase()
+  };
+  // -----------------------------
+  // 자동완성
+  // -----------------------------
 
-.trim();
+  const filteredPlayers = useMemo(() => {
 
-};
-// -----------------------------
-// 자동완성
-// -----------------------------
+    if (!input.trim()) return [];
 
-const filteredPlayers = useMemo(() => {
-
-  if (!input.trim()) return [];
-
-  return players
-    .filter((p) =>
-      normalize(p.name).includes(
-        normalize(input)
+    return players
+      .filter((p) =>
+        normalize(p.name).includes(
+          normalize(input)
+        )
       )
-    )
-    .slice(0, 8);
+      .slice(0, 8);
 
-}, [input, players]);
+  }, [input, players]);
 
-useEffect(() => {
+  useEffect(() => {
 
-  setSuggestions(filteredPlayers);
+    setSuggestions(filteredPlayers);
 
-}, [filteredPlayers]);
+  }, [filteredPlayers]);
 
 
-// -----------------------------
-// 제출
-// -----------------------------
+  // -----------------------------
+  // 제출
+  // -----------------------------
 
-const handleGuess = () => {
+  const handleGuess = () => {
 
-  if (!answer) return;
+    if (!answer) return;
 
-  const guess = (
-    selectedPlayer?.name ||
-    input
-  ).trim();
+    const guess = (
+      selectedPlayer?.name ||
+      input
+    ).trim();
 
-  if (!guess) return;
+    if (!guess) return;
 
-  if (
-    normalize(guess) ===
-    normalize(answer.name)
-  ) {
+    if (
+      normalize(guess) ===
+      normalize(answer.name)
+    ) {
 
-    setClear(true);
+      setClear(true);
+      setSuggestions([]);
+
+      return;
+
+    }
+
+    setWrongFlash(true);
+
+    setTimeout(() => {
+      setWrongFlash(false);
+    }, 400);
+
+    const next = attempts + 1;
+
+    setAttempts(next);
+
+    setInput("");
+
+    setSelectedPlayer(null);
+
     setSuggestions([]);
 
-    return;
+    if (next >= 3) {
+
+      setGameOver(true);
+
+    }
+
+  };
+
+  // -----------------------------
+  // 다음 문제
+  // -----------------------------
+
+  const nextProblem = () => {
+
+    setAttempts(0);
+
+    setClear(false);
+
+    setGameOver(false);
+
+    setInput("");
+
+    setSelectedPlayer(null);
+
+    setSuggestions([]);
+
+    let next;
+
+    do {
+      next = Math.floor(Math.random() * players.length);
+    } while (next === currentIndex && players.length > 1);
+
+    setCurrentIndex(next);
+
+  };
+
+  // -----------------------------
+  // 문제 번호 이동
+  // -----------------------------
+
+  const jumpToProblem = () => {
+
+    const idx =
+      Number(jumpInput) - 1;
+
+    if (
+      isNaN(idx)
+    ) return;
+
+    if (
+      idx < 0 ||
+      idx >= players.length
+    ) return;
+
+    setCurrentIndex(idx);
+
+    setAttempts(0);
+
+    setClear(false);
+
+    setGameOver(false);
+
+    setInput("");
+
+    setSuggestions([]);
+
+    setSelectedPlayer(null);
+
+  };
+
+  // -----------------------------
+  // 로딩
+  // -----------------------------
+
+  if (!answer) {
+
+    return (
+
+      <div className="min-h-screen flex items-center justify-center text-3xl">
+
+        Loading...
+
+      </div>
+
+    );
 
   }
-
-setWrongFlash(true);
-
-setTimeout(() => {
-  setWrongFlash(false);
-}, 400);  
-
-  const next = attempts + 1;
-
-  setAttempts(next);
-
-  setInput("");
-
-  setSelectedPlayer(null);
-
-  setSuggestions([]);
-
-  if (next >= 3) {
-
-    setGameOver(true);
-
-  }
-
-};
-
-// -----------------------------
-// 다음 문제
-// -----------------------------
-
-const nextProblem = () => {
-
-  setAttempts(0);
-
-  setClear(false);
-
-  setGameOver(false);
-
-  setInput("");
-
-  setSelectedPlayer(null);
-
-  setSuggestions([]);
-
-  let next;
-
-do {
-  next = Math.floor(Math.random() * players.length);
-} while (next === currentIndex && players.length > 1);
-
-setCurrentIndex(next);
-
-};
-
-// -----------------------------
-// 문제 번호 이동
-// -----------------------------
-
-const jumpToProblem = () => {
-
-  const idx =
-    Number(jumpInput) - 1;
-
-  if (
-    isNaN(idx)
-  ) return;
-
-  if (
-    idx < 0 ||
-    idx >= players.length
-  ) return;
-
-  setCurrentIndex(idx);
-
-  setAttempts(0);
-
-  setClear(false);
-
-  setGameOver(false);
-
-  setInput("");
-
-  setSuggestions([]);
-
-  setSelectedPlayer(null);
-
-};
-
-// -----------------------------
-// 로딩
-// -----------------------------
-
-if (!answer) {
+  // -----------------------------
+  // 화면
+  // -----------------------------
 
   return (
 
-    <div className="min-h-screen flex items-center justify-center text-3xl">
+    <>
+      {showRule && (
 
-      Loading...
+        <RuleModal
+          hideRule={hideRule}
+          setHideRule={setHideRule}
+          setShowRule={setShowRule}
+        />
 
-    </div>
+      )}
 
-  );
+      <main
+        className="min-h-screen bg-cover bg-center p-6 flex items-center justify-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=2070&auto=format&fit=crop')",
+        }}
+      >
 
-}
-// -----------------------------
-// 화면
-// -----------------------------
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
-return (
+        <div className="relative z-10 w-full max-w-3xl">
 
-<>
-{showRule && (
+          <div className="bg-white/90 rounded-3xl shadow-2xl p-8">
 
-<RuleModal
-hideRule={hideRule}
-setHideRule={setHideRule}
-setShowRule={setShowRule}
-/>
+            <div className="flex justify-between items-center mb-8">
 
-)}
+              <Link
+                href="/"
+                className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-xl font-bold"
+              >
 
-<main
-className="min-h-screen bg-cover bg-center p-6 flex items-center justify-center"
-style={{
-backgroundImage:
-"url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=2070&auto=format&fit=crop')",
-}}
->
+                🏠 홈
 
-<div className="absolute inset-0 bg-black/50 backdrop-blur-sm"/>
+              </Link>
 
-<div className="relative z-10 w-full max-w-3xl">
+              <h1 className="text-4xl font-black">
 
-<div className="bg-white/90 rounded-3xl shadow-2xl p-8">
+                ⚾ Career Path
 
-<div className="flex justify-between items-center mb-8">
+              </h1>
 
-<Link
-href="/"
-className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-xl font-bold"
->
+              <div className="text-center">
 
-🏠 홈
+                <div className="text-sm text-gray-500">
+                  문제 번호
+                </div>
 
-</Link>
+                <div className="text-xl font-black">
+                  {currentIndex + 1} / {players.length}
+                </div>
 
-<h1 className="text-4xl font-black">
+                <div className="mt-2 text-sm text-gray-500">
+                  남은 기회
+                </div>
 
-⚾ Career Path
+                <div className="text-3xl font-black">
+                  {3 - attempts}
+                </div>
 
-</h1>
+              </div>
 
-<div className="text-center">
+            </div>
 
-  <div className="text-sm text-gray-500">
-    문제 번호
-  </div>
+            <div className="flex gap-2 mb-6">
 
-  <div className="text-xl font-black">
-    {currentIndex + 1} / {players.length}
-  </div>
+              <input
 
-  <div className="mt-2 text-sm text-gray-500">
-    남은 기회
-  </div>
+                type="number"
 
-  <div className="text-3xl font-black">
-    {3 - attempts}
-  </div>
+                value={jumpInput}
 
-</div>
+                placeholder="#"
 
-</div>
+                onChange={(e) => setJumpInput(e.target.value)}
 
-<div className="flex gap-2 mb-6">
+                onKeyDown={(e) => {
 
-<input
+                  if (e.key === "Enter") {
 
-type="number"
+                    jumpToProblem();
 
-value={jumpInput}
+                  }
 
-placeholder="#"
+                }}
 
-onChange={(e)=>setJumpInput(e.target.value)}
+                className="border rounded-xl p-2 w-24"
 
-onKeyDown={(e)=>{
+              />
 
-if(e.key==="Enter"){
+              <button
 
-jumpToProblem();
+                onClick={jumpToProblem}
 
-}
+                className="bg-yellow-400 hover:bg-yellow-300 px-4 rounded-xl font-bold"
 
-}}
+              >
 
-className="border rounded-xl p-2 w-24"
+                이동
 
-/>
+              </button>
 
-<button
+            </div>
 
-onClick={jumpToProblem}
+            <div className="space-y-3 mb-8">
 
-className="bg-yellow-400 hover:bg-yellow-300 px-4 rounded-xl font-bold"
+              {answer.career.map((row, index) => (
 
->
+                <div
 
-이동
+                  key={index}
 
-</button>
+                  className="rounded-2xl bg-slate-100 p-4 flex justify-between items-center"
 
-</div>
+                >
 
-<div className="space-y-3 mb-8">
+                  <div className="font-black text-lg">
 
-{answer.career.map((row,index)=>(
+                    {row.team}
 
-<div
+                  </div>
 
-key={index}
+                  <div className="text-gray-600">
 
-className="rounded-2xl bg-slate-100 p-4 flex justify-between items-center"
+                    {row.from}
 
->
+                    ~
 
-<div className="font-black text-lg">
+                    {row.to}
 
-{row.team}
+                  </div>
 
-</div>
+                </div>
 
-<div className="text-gray-600">
+              ))}
 
-{row.from}
+            </div>
 
-~
+            <div className="relative">
 
-{row.to}
+              <input
 
-</div>
+                value={input}
 
-</div>
+                placeholder="선수 이름 입력"
 
-))}
+                onChange={(e) => {
 
-</div>
+                  setInput(e.target.value);
 
-<div className="relative">
+                  setSelectedPlayer(null);
 
-<input
+                }}
 
-value={input}
+                onKeyDown={(e) => {
 
-placeholder="선수 이름 입력"
+                  if (e.key === "Enter") {
 
-onChange={(e)=>{
+                    handleGuess();
 
-setInput(e.target.value);
+                  }
 
-setSelectedPlayer(null);
+                }}
 
-}}
-
-onKeyDown={(e)=>{
-
-if(e.key==="Enter"){
-
-handleGuess();
-
-}
-
-}}
-
-className={`
+                className={`
 w-full
 rounded-xl
 border
@@ -524,149 +524,148 @@ p-4
 text-lg
 transition-all
 duration-200
-${
-  wrongFlash
-    ? "border-red-500 bg-red-100 animate-pulse"
-    : "border-gray-300"
-}
+${wrongFlash
+                    ? "border-red-500 bg-red-100 animate-pulse"
+                    : "border-gray-300"
+                  }
 `}
 
-/>
+              />
 
-{suggestions.length>0 && (
+              {suggestions.length > 0 && (
 
-<div className="absolute w-full bg-white border rounded-xl mt-2 shadow-xl z-50">
+                <div className="absolute w-full bg-white border rounded-xl mt-2 shadow-xl z-50">
 
-{suggestions.map((player)=>(
+                  {suggestions.map((player) => (
 
-<div
+                    <div
 
-key={player.id}
+                      key={player.id}
 
-onClick={()=>{
+                      onClick={() => {
 
-setSelectedPlayer(player);
+                        setSelectedPlayer(player);
 
-setInput(player.name);
+                        setInput(player.name);
 
-setSuggestions([]);
+                        setSuggestions([]);
 
-}}
+                      }}
 
-className="cursor-pointer px-4 py-3 hover:bg-sky-100"
+                      className="cursor-pointer px-4 py-3 hover:bg-sky-100"
 
->
+                    >
 
-{player.name}
+                      {player.name}
 
-</div>
+                    </div>
 
-))}
+                  ))}
 
-</div>
+                </div>
 
-)}
+              )}
 
-</div>
-{attempts >= 2 && !clear && !gameOver && (
-  <div className="mt-4 rounded-xl bg-yellow-100 border border-yellow-400 p-3 text-center">
-    <span className="font-bold text-yellow-800">
-      💡 포지션 : {answer.position}
-    </span>
-  </div>
-)}
-<button
+            </div>
+            {attempts >= 2 && !clear && !gameOver && (
+              <div className="mt-4 rounded-xl bg-yellow-100 border border-yellow-400 p-3 text-center">
+                <span className="font-bold text-yellow-800">
+                  💡 포지션 : {answer.position}
+                </span>
+              </div>
+            )}
+            <button
 
-onClick={handleGuess}
+              onClick={handleGuess}
 
-className="mt-5 w-full bg-blue-500 hover:bg-blue-400 text-white py-4 rounded-xl text-xl font-black"
+              className="mt-5 w-full bg-blue-500 hover:bg-blue-400 text-white py-4 rounded-xl text-xl font-black"
 
->
+            >
 
-제출
+              제출
 
-</button>
+            </button>
 
-{clear && (
+            {clear && (
 
-<div className="mt-8 text-center">
+              <div className="mt-8 text-center">
 
-<div className="text-4xl font-black text-green-600">
+                <div className="text-4xl font-black text-green-600">
 
-🎉 정답!
+                  🎉 정답!
 
-</div>
+                </div>
 
-<div className="text-2xl mt-3">
+                <div className="text-2xl mt-3">
 
-{answer.name}
+                  {answer.name}
 
-</div>
+                </div>
 
-<button
+                <button
 
-onClick={nextProblem}
+                  onClick={nextProblem}
 
-className="mt-6 bg-green-500 hover:bg-green-400 text-white px-8 py-3 rounded-xl font-black"
+                  className="mt-6 bg-green-500 hover:bg-green-400 text-white px-8 py-3 rounded-xl font-black"
 
->
+                >
 
-다음 문제
+                  다음 문제
 
-</button>
+                </button>
 
-</div>
+              </div>
 
-)}
+            )}
 
-{gameOver && !clear && (
+            {gameOver && !clear && (
 
-<div className="mt-8 text-center">
+              <div className="mt-8 text-center">
 
-<div className="text-4xl font-black text-red-600">
+                <div className="text-4xl font-black text-red-600">
 
-❌ 실패
+                  ❌ 실패
 
-</div>
+                </div>
 
-<div className="mt-4 text-xl">
+                <div className="mt-4 text-xl">
 
-정답은
+                  정답은
 
-<span className="font-black">
+                  <span className="font-black">
 
-{" "}{answer.name}
+                    {" "}{answer.name}
 
-</span>
+                  </span>
 
-입니다.
+                  입니다.
 
-</div>
+                </div>
 
-<button
+                <button
 
-onClick={nextProblem}
+                  onClick={nextProblem}
 
-className="mt-6 bg-red-500 hover:bg-red-400 text-white px-8 py-3 rounded-xl font-black"
+                  className="mt-6 bg-red-500 hover:bg-red-400 text-white px-8 py-3 rounded-xl font-black"
 
->
+                >
 
-다음 문제
+                  다음 문제
 
-</button>
+                </button>
 
-</div>
+              </div>
 
-)}
+            )}
 
-</div>
+          </div>
 
-</div>
+        </div>
 
-</main>
+      </main>
 
-</>
+    </>
 
-);
+  );
 
 }
