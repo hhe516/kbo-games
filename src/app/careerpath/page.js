@@ -150,19 +150,31 @@ setShowRule(false);
 
 },[]);
 
-useEffect(()=>{
+useEffect(() => {
 
-fetch("/data/career_paths.json")
+  Promise.all([
+    fetch("/data/career_paths.json").then((res) => res.json()),
+    fetch("/data/career_overrides.json").then((res) => res.json())
+  ]).then(([players, overrides]) => {
 
-.then(res=>res.json())
+    const merged = players.map((player) => {
 
-.then(data=>{
+      if (overrides[player.name]) {
+        return {
+          ...player,
+          career: overrides[player.name]
+        };
+      }
 
-setPlayers(data);
+      return player;
 
-});
+    });
 
-},[]);
+    setPlayers(merged);
+
+  });
+
+}, []);
 
 const answer=
 
