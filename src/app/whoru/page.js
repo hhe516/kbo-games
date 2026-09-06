@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -866,6 +867,18 @@ py-3 rounded-xl font-bold shadow-md"
 난이도 선택
 
 </button>
+
+<Link
+  href="/"
+  className="bg-gray-500 hover:bg-gray-400 text-white transition-all w-full
+md:w-auto
+px-5
+py-3 rounded-xl font-bold shadow-md text-center"
+>
+
+🏠 홈으로
+
+</Link>
           </div>
 
           {/* 자동완성 */}

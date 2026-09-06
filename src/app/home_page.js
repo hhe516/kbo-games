@@ -250,7 +250,7 @@ active:scale-95
   </div>
 
   <div className="text-xs text-zinc-400">
-    v1.0.0 Beta
+    v1.1.0 Beta
   </div>
 
   <a
