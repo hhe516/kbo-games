@@ -39,6 +39,9 @@ export default function Home() {
   const [showCorrectPopup, setShowCorrectPopup] =
     useState(false);
 
+  const [showFailPopup, setShowFailPopup] =
+    useState(false);
+
   // -----------------------------
   // 데이터 불러오기
   // -----------------------------
@@ -281,13 +284,7 @@ text-lg rounded-xl font-bold"
 
       setGameOver(true);
 
-      setTimeout(() => {
-
-        alert(
-          `게임 종료! 정답은 ${answer.name}`
-        );
-
-      }, 100);
+      setShowFailPopup(true);
 
     }
 
@@ -310,6 +307,8 @@ text-lg rounded-xl font-bold"
     setGameOver(false);
 
     setShowCorrectPopup(false);
+
+    setShowFailPopup(false);
 
   };
 
@@ -493,6 +492,33 @@ return (
         <button
           onClick={() => setShowCorrectPopup(false)}
           className="w-full bg-green-500 hover:bg-green-400 text-white py-3 rounded-xl font-bold shadow-md"
+        >
+          확인
+        </button>
+
+      </div>
+
+    </div>
+  )}
+
+  {showFailPopup && (
+    <div className="fixed inset-0 z-[999] bg-black/60 flex items-center justify-center p-4">
+
+      <div className="w-full max-w-sm rounded-3xl bg-white p-8 text-center shadow-2xl">
+
+        <div className="text-5xl mb-4">😢</div>
+
+        <div className="text-2xl md:text-3xl font-black text-red-500 mb-2">
+          아쉬워요!
+        </div>
+
+        <div className="text-lg font-bold text-gray-800 mb-8">
+          정답: {answer.name}
+        </div>
+
+        <button
+          onClick={() => setShowFailPopup(false)}
+          className="w-full bg-red-500 hover:bg-red-400 text-white py-3 rounded-xl font-bold shadow-md"
         >
           확인
         </button>
