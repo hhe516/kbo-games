@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import TeamBadge from "./components/TeamBadge";
+import TeamBadge from "../components/TeamBadge";
 
 export default function Home() {
 
