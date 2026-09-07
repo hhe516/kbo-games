@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import TeamBadge from "./components/TeamBadge";
 
 export default function Home() {
 
@@ -938,6 +939,7 @@ font-semibold
                         {player.name}
                         {" "}
                         (
+                        <TeamBadge team={player.team} size={16} className="mr-1" />
                         {player.team}
                         {" • "}
                         {player.birthdate?.slice(0, 4)}
@@ -950,6 +952,7 @@ font-semibold
                         {player.name}
                         {" "}
                         (
+                        <TeamBadge team={player.team} size={16} className="mr-1" />
                         {player.team}
                         )
                       </>
@@ -1016,9 +1019,10 @@ font-semibold
                 </div>
 
                 <div
-                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
+                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md flex items-center justify-center gap-1.5`}
                 >
 
+                  <TeamBadge team={guess.player.team} size={22} />
                   {guess.player.team}
 
                 </div>
