@@ -44,8 +44,15 @@ export const CONDITIONS = [
   { id: "war30", group: "war", label: "통산 WAR 30+", test: (p) => p.careerWar >= 30 },
   { id: "war50", group: "war", label: "통산 WAR 50+", test: (p) => p.careerWar >= 50 },
   { id: "active", group: "active", label: "현역", test: (p) => p.active },
-  { id: "born90", group: "born", label: "1990년 이후 출생", test: (p) => p.birthYear >= 1990 },
-  { id: "born60", group: "born", label: "1960년대 이전 출생", test: (p) => p.birthYear < 1970 },
+  // 1군 기록 기반 (player_stats.json, scripts/build_player_stats.py)
+  { id: "ring", group: "ring", label: "한국시리즈 우승", test: (p) => p.stats.c >= 1 },
+  { id: "ring3", group: "ring", label: "KS 우승 3회+", test: (p) => p.stats.c >= 3 },
+  { id: "s15", group: "long", label: "1군 15시즌+", test: (p) => p.stats.s >= 15 },
+  { id: "f10", group: "long", label: "한 팀 10시즌+", test: (p) => p.stats.f >= 10 },
+  { id: "hr200", group: "stat", label: "통산 200홈런+", test: (p) => p.stats.hr >= 200 },
+  { id: "h1500", group: "stat", label: "통산 1500안타+", test: (p) => p.stats.h >= 1500 },
+  { id: "w100", group: "stat", label: "통산 100승+", test: (p) => p.stats.w >= 100 },
+  { id: "sv100", group: "stat", label: "통산 100세이브+", test: (p) => p.stats.sv >= 100 },
   // 수상 (KBO 정규시즌, scripts/awards 참고)
   { id: "gg", group: "award", label: "골든글러브 수상", test: (p) => p.goldGlove > 0 },
   { id: "gg5", group: "award", label: "골든글러브 5회+", test: (p) => p.goldGlove >= 5 },
@@ -66,9 +73,10 @@ export const shuffle = (arr, rng = Math.random) => {
 // KBO 1군 기록이 있는 전체 선수 + 뛰었던 KBO 구단 → 게임용 선수 목록
 // (player_teams.json 은 scripts/build_player_teams.py 로 생성)
 export async function loadPool() {
-  const [players, teams] = await Promise.all([
+  const [players, teams, stats] = await Promise.all([
     fetch("/data/players.json").then((r) => r.json()),
     fetch("/data/player_teams.json").then((r) => r.json()),
+    fetch("/data/player_stats.json").then((r) => r.json()),
   ]);
 
   return players.map((p) => {
@@ -78,6 +86,8 @@ export async function loadPool() {
       ...p,
       birthYear: Number(String(p.birthdate).slice(0, 4)),
       kboTeams,
+      // 없는 값은 0 (s: 1군 시즌, f: 한 구단 최다 시즌, c: KS 우승, h/hr/w/sv: 통산 안타/홈런/승/세이브)
+      stats: { s: 0, f: 0, c: 0, h: 0, hr: 0, w: 0, sv: 0, ...stats[p.id] },
       franchises,
       franchiseCount: franchises.size,
     };

@@ -80,6 +80,7 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
           <div className="font-black text-xl mb-2">📝 규칙</div>
           <ul className="list-disc ml-6 space-y-2">
             <li>칸을 누르고 선수 이름을 입력합니다. 예: 가로 LG × 세로 두산 → LG와 두산에서 모두 뛴 선수</li>
+            <li>한국시리즈 우승은 우승한 해에 그 팀 소속으로 1군에 출전한 경우를 셉니다. 통산 기록·시즌 수는 KBO 1군 기준(2025년까지)입니다.</li>
             <li>한 선수는 한 칸에만 쓸 수 있습니다.</li>
             <li>틀리면 목숨이 하나 줄어듭니다. (총 {LIVES}개)</li>
             <li>구단 칸은 그 팀 소속으로 <b>1군 경기에 출전한 기록</b>이 있어야 인정됩니다. 지명·입단만 하고 2군에만 있었던 경우는 안 쳐요. 옛 이름까지 포함합니다. (예: KIA·해태)</li>
