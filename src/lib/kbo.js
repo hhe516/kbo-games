@@ -137,11 +137,15 @@ export const store = {
   },
 };
 
+// 그날 데일리를 끝냈는지 (games 는 "grid" 하나 또는 ["grid", "careerpath"] 처럼 여러 개 → 하나라도 끝냈으면 true)
+const doneOn = (games, day) =>
+  [].concat(games).some((g) => store.get(`daily_${g}_${day}`)?.done);
+
 // 연속 기록: lastDay 부터 거꾸로 데일리를 끝낸 날이 며칠 이어지는지
-export function streakUntil(game, lastDay) {
+export function streakUntil(games, lastDay) {
   let day = lastDay;
   let n = 0;
-  while (store.get(`daily_${game}_${day}`)?.done) {
+  while (doneOn(games, day)) {
     n++;
     day = addDays(day, -1);
   }
@@ -149,7 +153,7 @@ export function streakUntil(game, lastDay) {
 }
 
 // 오늘 끝냈으면 오늘까지, 아직이면 어제까지의 연속 기록
-export const dailyStreak = (game, today) =>
-  store.get(`daily_${game}_${today}`)?.done
-    ? streakUntil(game, today)
-    : streakUntil(game, addDays(today, -1));
+export const dailyStreak = (games, today) =>
+  doneOn(games, today)
+    ? streakUntil(games, today)
+    : streakUntil(games, addDays(today, -1));

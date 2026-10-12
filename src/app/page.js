@@ -7,8 +7,14 @@ import { SYNC_EVENT } from "@/lib/supabase";
 
 // 오늘의 문제 (게임 추가되면 ready: true 로)
 const DAILIES = [
-  { key: "grid", href: "/daily/grid", icon: "🔢", name: "오늘의 Grid", total: 9, ready: true },
-  { key: "careerpath", icon: "🛤️", name: "오늘의 Career Path", ready: false },
+  {
+    key: "grid", href: "/daily/grid", icon: "🔢", name: "오늘의 Grid", ready: true,
+    result: (r) => `✅ ${r.score}/9`,
+  },
+  {
+    key: "careerpath", href: "/daily/careerpath", icon: "🛤️", name: "오늘의 Career Path", ready: true,
+    result: (r) => (r.solved ? `✅ ${(r.guesses || []).length}번 만에` : "❌ 실패"),
+  },
   { key: "whoru", icon: "🤔", name: "오늘의 Who Are Ya", ready: false },
 ];
 
@@ -23,7 +29,7 @@ const [birthdays, setBirthdays] = useState(null);
 
 // 데일리 진행·연속 기록 (브라우저 저장소 기준, 로그인 시 서버와 맞춰진 값)
 function refreshDaily(d) {
-  setStreak(dailyStreak("grid", d));
+  setStreak(dailyStreak(DAILIES.filter((g) => g.ready).map((g) => g.key), d));
   setProgress(
     Object.fromEntries(DAILIES.map((g) => [g.key, store.get(`daily_${g.key}_${d}`)]))
   );
@@ -220,7 +226,7 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
               const status = !g.ready
                 ? "준비 중"
                 : rec?.done
-                  ? `✅ ${rec.score}/${g.total}`
+                  ? g.result(rec)
                   : rec
                     ? "이어서 하기"
                     : "도전하기";
