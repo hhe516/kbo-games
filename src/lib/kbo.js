@@ -28,7 +28,7 @@ export const CONDITIONS = [
   ...FRANCHISES.map((f) => ({
     id: `team_${f.key}`,
     group: "team",
-    label: `${f.label} 출신`,
+    label: `${f.label} 경력`, // 그 팀 소속 1군 출전 기록이 있으면 인정
     test: (p) => p.franchises.has(f.key),
   })),
   { id: "pos_P", group: "pos", label: "투수", test: (p) => p.position === "투수" },
@@ -51,7 +51,7 @@ export const CONDITIONS = [
   { id: "gg5", group: "award", label: "골든글러브 5회+", test: (p) => p.goldGlove >= 5 },
   { id: "mvp", group: "award", label: "정규시즌 MVP", test: (p) => p.mvp > 0 },
   { id: "roy", group: "award", label: "신인왕", test: (p) => !!p.rookie },
-  { id: "mlb", group: "abroad", label: "MLB 출신 한국인", test: (p) => !!p.mlb && p.nationality === "한국" },
+  { id: "mlb", group: "abroad", label: "MLB 뛴 한국인", test: (p) => !!p.mlb && p.nationality === "한국" },
 ];
 
 export const shuffle = (arr, rng = Math.random) => {
