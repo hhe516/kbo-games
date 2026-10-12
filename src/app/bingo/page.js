@@ -8,7 +8,7 @@ import { CONDITIONS, loadPool, shuffle } from "@/lib/kbo";
 // 설정
 // -----------------------------
 
-const DECK_SIZE = 42; // 나오는 선수 수
+const DECK_SIZE = 32; // 나오는 선수 수
 const SOLUTIONS = 2; // 덱 안에 서로 겹치지 않는 "정답 배치"를 몇 세트 넣을지
 const MIN_PER_CELL = 8; // 칸마다 해당 선수가 최소 이 정도는 있어야 출제
 const DECK_MIN_WAR = 10; // 뽑히는 선수는 통산 WAR 10+ (판단 가능한 유명 선수 위주)
