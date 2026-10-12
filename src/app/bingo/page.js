@@ -10,7 +10,6 @@ import { CONDITIONS, loadPool, shuffle } from "@/lib/kbo";
 
 const LIVES = 3;
 const SKIPS = 3;
-const DECK_SIZE = 30;
 const MIN_PER_CELL = 8; // 칸마다 해당 선수가 최소 이 정도는 있어야 출제
 const DECK_MIN_WAR = 10; // 뽑히는 선수는 통산 WAR 10+ (판단 가능한 유명 선수 위주)
 
@@ -18,12 +17,12 @@ const DECK_MIN_WAR = 10; // 뽑히는 선수는 통산 WAR 10+ (판단 가능한
 // 새 판 만들기
 // -----------------------------
 
-function makeGame(pool) {
+function tryMakeGame(pool) {
   const usable = CONDITIONS.filter(
     (c) => pool.filter((p) => c.test(p)).length >= MIN_PER_CELL
   );
 
-  // 구단 6칸 + 나머지 10칸, 같은 그룹(WAR, 출생 등)은 최대 2칸
+  // 구단 6칸 + 나머지 10칸, 같은 그룹(WAR, 우승, 통산 기록 등)은 최대 2칸
   const teams = shuffle(usable.filter((c) => c.group === "team")).slice(0, 6);
   const perGroup = {};
   const others = [];
@@ -34,11 +33,47 @@ function makeGame(pool) {
   }
   const cells = shuffle([...teams, ...others]).slice(0, 16);
 
-  // 판의 어느 칸에든 들어갈 수 있는 선수만 덱에 넣음
-  const fits = pool.filter((p) => cells.some((c) => c.test(p)));
-  const deck = shuffle(fits).slice(0, DECK_SIZE);
+  // 깰 수 있는 덱: 16칸에 한 명씩 정답 선수를 배정하고(서로 다른 선수),
+  // 넘기기 횟수만큼 여분 선수를 섞음 → 잘 판단하면 목숨 하나도 안 잃고 다 채울 수 있음
+  const answers = assignPlayers(cells, pool);
+  if (!answers) return null;
+  const used = new Set(answers.map((p) => p.id));
+  const extras = shuffle(pool.filter((p) => !used.has(p.id) && cells.some((c) => c.test(p)))).slice(0, SKIPS);
+  const deck = shuffle([...answers, ...extras]);
 
   return { cells, deck };
+}
+
+function makeGame(pool) {
+  for (let i = 0; i < 30; i++) {
+    const g = tryMakeGame(pool);
+    if (g) return g;
+  }
+  return tryMakeGame(pool);
+}
+
+// 칸마다 서로 다른 선수 한 명씩 (해당자가 적은 칸부터 무작위로 고르고, 막히면 다시)
+function assignPlayers(cells, pool) {
+  const order = [...cells.keys()].sort(
+    (a, b) => pool.filter(cells[a].test).length - pool.filter(cells[b].test).length
+  );
+  for (let tries = 0; tries < 50; tries++) {
+    const used = new Set();
+    const picked = [];
+    let ok = true;
+    for (const i of order) {
+      const cands = pool.filter((p) => !used.has(p.id) && cells[i].test(p));
+      if (cands.length === 0) {
+        ok = false;
+        break;
+      }
+      const p = cands[Math.floor(Math.random() * cands.length)];
+      used.add(p.id);
+      picked.push(p);
+    }
+    if (ok) return picked;
+  }
+  return null;
 }
 
 const LINES = [
@@ -66,6 +101,7 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
             <li>선수를 맞는 칸에 넣으면 그 칸이 채워집니다.</li>
             <li>조건에 맞지 않는 칸에 넣으면 목숨이 하나 줄어듭니다. (총 {LIVES}개)</li>
             <li>넣을 칸이 마땅치 않으면 넘기기를 쓸 수 있습니다. (총 {SKIPS}번)</li>
+            <li>선수는 16명 + 넘기기 수({SKIPS}명)만큼 나옵니다. 모든 판은 제대로 고르면 목숨을 잃지 않고 16칸을 다 채울 수 있게 만들어져요.</li>
             <li>판을 다 채우거나, 목숨이 다 떨어지거나, 선수가 다 나오면 끝납니다.</li>
             <li>구단 칸(○○ 경력)은 그 팀 소속으로 <b>1군 경기에 출전한 기록</b>이 있어야 인정됩니다. 지명·입단만 하고 2군에만 있었던 경우는 안 쳐요. 옛 이름까지 포함합니다. (예: KIA·해태)</li>
             <li>한국시리즈 우승은 우승한 해에 그 팀 소속으로 1군에 출전한 경우를 셉니다. 통산 기록·시즌 수는 KBO 1군 기준(2025년까지)입니다.</li>

@@ -12,6 +12,9 @@ export const FRANCHISES = [
   { key: "키움", label: "키움·넥센·우리", teams: ["키움", "넥센", "우리"] },
   { key: "NC", label: "NC", teams: ["NC"] },
   { key: "KT", label: "KT", teams: ["KT"] },
+  // 해체 구단: 삼미→청보→태평양→현대 는 한 구단의 이름 변경 (키움과는 별개)
+  { key: "현대", label: "현대·태평양·청보·삼미", teams: ["현대", "태평양", "청보", "삼미"] },
+  { key: "쌍방울", label: "쌍방울", teams: ["쌍방울"] },
 ];
 
 export const KBO_TEAMS = new Set([

@@ -20,7 +20,8 @@ ROOT = os.path.join(BASE_DIR, "..")
 DATA = os.path.join(ROOT, "public", "data")
 
 # 현재 구단 기준으로 옛 이름 묶기 (src/lib/kbo.js 의 FRANCHISES 와 같게)
-FRANCHISE = {"MBC": "LG", "OB": "두산", "해태": "KIA", "빙그레": "한화", "SK": "SSG", "넥센": "키움", "우리": "키움"}
+FRANCHISE = {"MBC": "LG", "OB": "두산", "해태": "KIA", "빙그레": "한화", "SK": "SSG", "넥센": "키움", "우리": "키움",
+             "삼미": "현대", "청보": "현대", "태평양": "현대"}
 fr = lambda t: FRANCHISE.get(t, t)
 
 CHAMPIONS = {
