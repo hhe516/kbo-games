@@ -22,6 +22,7 @@ import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
 const LIVES = 3; // 틀려도 되는 횟수
 const MIN_ANSWERS = 3; // 칸마다 이름 있는 선수(WAR 5+)로 풀 수 있는 답이 최소 이만큼은 있어야 출제
 const NOTABLE_WAR = 5;
+const MAX_NOTABLE = 15; // 어렵게: 칸마다 이름 있는 선수(WAR 5+) 정답이 이보다 많으면 너무 쉬운 칸이라 제외
 
 const TEAM_CONDS = CONDITIONS.filter((c) => c.group === "team");
 const OTHER_CONDS = CONDITIONS.filter((c) => c.group !== "team");
@@ -32,7 +33,7 @@ const OTHER_CONDS = CONDITIONS.filter((c) => c.group !== "team");
 
 // rng 를 넘기면(데일리) 같은 날엔 항상 같은 판이 나옴
 export function makeGrid(pool, rng = Math.random) {
-  for (let tries = 0; tries < 300; tries++) {
+  for (let tries = 0; tries < 3000; tries++) {
     const teams = shuffle(TEAM_CONDS, rng);
     const rows = teams.slice(0, 3);
 
@@ -52,7 +53,8 @@ export function makeGrid(pool, rng = Math.random) {
     for (const r of rows) {
       for (const c of colsShuffled) {
         const list = pool.filter((p) => r.test(p) && c.test(p));
-        if (list.filter((p) => p.careerWar >= NOTABLE_WAR).length < MIN_ANSWERS) ok = false;
+        const notable = list.filter((p) => p.careerWar >= NOTABLE_WAR).length;
+        if (notable < MIN_ANSWERS || notable > MAX_NOTABLE) ok = false;
         answers.push(list);
       }
     }
@@ -85,7 +87,7 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
             <li>틀리면 목숨이 하나 줄어듭니다. (총 {LIVES}개)</li>
             <li>구단 칸은 그 팀 소속으로 <b>1군 경기에 출전한 기록</b>이 있어야 인정됩니다. 지명·입단만 하고 2군에만 있었던 경우는 안 쳐요. 옛 이름까지 포함합니다. (예: KIA·해태)</li>
             <li>KBO 1군 기록이 있는 선수라면 누구든 정답으로 인정됩니다. 덜 알려진 선수로 채울수록 고수!</li>
-            <li>칸 아래 숫자는 그 칸의 정답 가능한 선수 수입니다. 적을수록 어려운 칸이에요.</li>
+            <li>칸을 채우거나 게임이 끝나면 그 칸의 정답 가능한 선수 수가 나옵니다.</li>
           </ul>
         </div>
       </div>
@@ -268,7 +270,6 @@ export default function GridGame({ daily = false }) {
     );
   }
 
-  const answersOf = (i) => grid.answers[i].filter((p) => !usedIds.has(p.id) || filled[i]?.id === p.id);
   const revealList =
     reveal !== null ? [...grid.answers[reveal]].sort((a, b) => b.careerWar - a.careerWar) : [];
 
@@ -330,7 +331,6 @@ export default function GridGame({ daily = false }) {
                       over={over}
                       reveal={reveal}
                       pickCell={pickCell}
-                      answersOf={answersOf}
                     />
                   ))}
                 </div>
@@ -493,7 +493,7 @@ export default function GridGame({ daily = false }) {
 }
 
 // 가로줄 하나: 줄 머리 + 칸 3개
-function RowCells({ r, ri, grid, filled, selected, over, reveal, pickCell, answersOf }) {
+function RowCells({ r, ri, grid, filled, selected, over, reveal, pickCell }) {
   return (
     <>
       <div className="aspect-square rounded-xl bg-slate-800 text-white flex items-center justify-center text-center p-1 text-xs md:text-base font-black leading-tight break-keep">
@@ -519,7 +519,7 @@ ${active ? "ring-4 ring-blue-400 border-blue-500" : ""}
               <span className="text-2xl text-gray-300 font-black">?</span>
             )}
             <span className={`mt-1 text-[10px] md:text-xs ${p ? "text-green-900" : "text-gray-400"}`}>
-              {over || p ? `${grid.answers[i].length}명 가능` : `${answersOf(i).length}명`}
+              {over || p ? `${grid.answers[i].length}명 가능` : ""}
             </span>
           </button>
         );
