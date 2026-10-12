@@ -13,6 +13,7 @@ import {
   streakUntil,
   todayKST,
 } from "@/lib/kbo";
+import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
 
 // -----------------------------
 // 설정
@@ -141,18 +142,35 @@ export default function GridGame({ daily = false }) {
       setGrid(makeGrid(built, seededRandom(`grid-${today}`)));
       setPrevStreak(streakUntil("grid", addDays(today, -1)));
 
-      const saved = store.get(`daily_grid_${today}`);
-      if (saved) {
-        const byId = Object.fromEntries(built.map((p) => [p.id, p]));
-        const restored = {};
-        Object.entries(saved.filled || {}).forEach(([i, id]) => {
-          if (byId[id]) restored[i] = byId[id];
-        });
-        setFilled(restored);
-        setLives(saved.lives ?? LIVES);
-        setGaveUp(!!saved.gaveUp);
-      }
+      restore(built, today);
     });
+
+    // 저장된 데일리 기록 불러오기
+    function restore(built, today) {
+      const saved = store.get(`daily_grid_${today}`);
+      if (!saved) return;
+      const byId = Object.fromEntries(built.map((p) => [p.id, p]));
+      const restored = {};
+      Object.entries(saved.filled || {}).forEach(([i, id]) => {
+        if (byId[id]) restored[i] = byId[id];
+      });
+      setFilled(restored);
+      setLives(saved.lives ?? LIVES);
+      setGaveUp(!!saved.gaveUp);
+    }
+
+    // 로그인해서 서버 기록을 받아오면, 아직 손 안 댄 판일 때만 그걸로 이어서
+    const onSync = () => {
+      if (!daily) return;
+      const today = todayKST();
+      const local = store.get(`daily_grid_${today}`);
+      loadPool().then((built) => {
+        if (!local || Object.keys(local.filled || {}).length === 0) restore(built, today);
+        setPrevStreak(streakUntil("grid", addDays(today, -1)));
+      });
+    };
+    window.addEventListener(SYNC_EVENT, onSync);
+    return () => window.removeEventListener(SYNC_EVENT, onSync);
   }, [daily]);
 
   const filledCount = Object.keys(filled).length;
@@ -161,13 +179,10 @@ export default function GridGame({ daily = false }) {
   useEffect(() => {
     if (!daily || !date || !grid) return;
     const ids = Object.fromEntries(Object.entries(filled).map(([i, p]) => [i, p.id]));
-    store.set(`daily_grid_${date}`, {
-      filled: ids,
-      lives,
-      gaveUp,
-      done: over,
-      score: filledCount,
-    });
+    const rec = { filled: ids, lives, gaveUp, done: over, score: filledCount };
+    store.set(`daily_grid_${date}`, rec);
+    // 로그인 상태면 서버에도 (칸을 채우거나 틀렸을 때만 바뀌므로 호출 수는 적음)
+    if (filledCount > 0 || lives < LIVES || gaveUp) pushDaily("grid", date, rec);
   }, [daily, date, grid, filled, lives, gaveUp, over, filledCount]);
 
   const streak = prevStreak + (over ? 1 : 0);

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GAMES } from "@/components/Sidebar";
 import { dailyNumber, dailyStreak, store, todayKST } from "@/lib/kbo";
+import { SYNC_EVENT } from "@/lib/supabase";
 
 // 오늘의 문제 (게임 추가되면 ready: true 로)
 const DAILIES = [
@@ -20,16 +21,27 @@ const [progress, setProgress] = useState({}); // key → 저장된 데일리 기
 const [streak, setStreak] = useState(0);
 const [birthdays, setBirthdays] = useState(null);
 
+// 데일리 진행·연속 기록 (브라우저 저장소 기준, 로그인 시 서버와 맞춰진 값)
+function refreshDaily(d) {
+  setStreak(dailyStreak("grid", d));
+  setProgress(
+    Object.fromEntries(DAILIES.map((g) => [g.key, store.get(`daily_${g.key}_${d}`)]))
+  );
+}
+
+useEffect(() => {
+  const onSync = () => refreshDaily(todayKST());
+  window.addEventListener(SYNC_EVENT, onSync);
+  return () => window.removeEventListener(SYNC_EVENT, onSync);
+}, []);
+
 useEffect(() => {
   fetch("/data/players.json")
     .then((r) => r.json())
     .then((players) => {
       const d = todayKST();
       setToday(d);
-      setStreak(dailyStreak("grid", d));
-      setProgress(
-        Object.fromEntries(DAILIES.map((g) => [g.key, store.get(`daily_${g.key}_${d}`)]))
-      );
+      refreshDaily(d);
 
       // 오늘 생일 (한국 시간), 통산 WAR 높은 순
       const md = `${d.slice(5, 7)}월 ${d.slice(8, 10)}일`;

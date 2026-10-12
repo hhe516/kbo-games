@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { supabase, syncDaily, SYNC_EVENT } from "@/lib/supabase";
 
 // 게임 추가할 때 여기에 한 줄만 넣으면 사이드바에 뜸
 export const GAMES = [
@@ -46,9 +47,64 @@ function NavList({ pathname, onNavigate }) {
   );
 }
 
+// 로그인 / 로그아웃 (구글). 로그인하면 데일리 기록을 서버와 맞춤
+function AuthButton() {
+  const [user, setUser] = useState(undefined); // undefined = 확인 중
+
+  useEffect(() => {
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user ?? null);
+      if (session && (event === "SIGNED_IN" || event === "INITIAL_SESSION")) {
+        // onAuthStateChange 안에서 바로 다른 supabase 호출을 하면 막힐 수 있어서 한 박자 뒤에
+        setTimeout(() => {
+          syncDaily().then((ok) => {
+            if (ok) window.dispatchEvent(new Event(SYNC_EVENT));
+          });
+        }, 0);
+      }
+    });
+    return () => data.subscription.unsubscribe();
+  }, []);
+
+  if (user === undefined) return <div className="h-10" />;
+
+  if (!user) {
+    return (
+      <button
+        onClick={() =>
+          supabase.auth.signInWithOAuth({
+            provider: "google",
+            options: { redirectTo: window.location.href },
+          })
+        }
+        className="flex w-full items-center gap-3 rounded-xl bg-white px-3 py-2 font-bold text-slate-900 hover:bg-slate-200"
+      >
+        <span className="w-7 text-center">🔑</span>
+        <span>구글로 로그인</span>
+      </button>
+    );
+  }
+
+  const name = user.user_metadata?.name || user.email;
+  return (
+    <div className="rounded-xl bg-white/5 px-3 py-2">
+      <div className="truncate text-sm font-bold text-white" title={user.email}>
+        👤 {name}
+      </div>
+      <div className="mt-0.5 flex items-center justify-between text-xs text-slate-400">
+        <span>기록 자동 저장 중</span>
+        <button onClick={() => supabase.auth.signOut()} className="underline hover:text-white">
+          로그아웃
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <div className="mt-auto pt-6 space-y-2 text-sm">
+      <AuthButton />
       <a
         href={BUG_REPORT}
         target="_blank"
