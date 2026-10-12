@@ -58,7 +58,7 @@ function Footer() {
         <span className="w-7 text-center">🐞</span>
         <span>버그 제보</span>
       </a>
-      <div className="px-3 text-xs text-slate-500">v1.0.0 Beta</div>
+      <div className="px-3 text-xs text-slate-500">v1.1.0 Beta</div>
     </div>
   );
 }

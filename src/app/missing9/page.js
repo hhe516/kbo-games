@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const POSITION_STYLE = {
@@ -579,6 +580,33 @@ mb-4
   >
     ← 이전
   </button>
+
+<Link
+  href="/"
+  className="
+md:fixed
+md:top-16
+md:left-4
+
+bg-gray-200
+text-black
+hover:bg-gray-300
+
+px-4
+py-2
+
+rounded-xl
+
+font-bold
+shadow-lg
+
+w-full
+md:w-auto
+text-center
+"
+>
+  🏠 홈
+</Link>
 
 <button
   onClick={() => {

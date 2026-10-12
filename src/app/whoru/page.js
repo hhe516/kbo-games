@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import TeamBadge from "../components/TeamBadge";
 
 export default function Home() {
 
@@ -34,7 +36,13 @@ export default function Home() {
 
   const [showRule, setShowRule] = useState(true);
 
-  const [hideRule, setHideRule] = useState(false);  
+  const [hideRule, setHideRule] = useState(false);
+
+  const [showCorrectPopup, setShowCorrectPopup] =
+    useState(false);
+
+  const [showFailPopup, setShowFailPopup] =
+    useState(false);
 
   // -----------------------------
   // 데이터 불러오기
@@ -273,6 +281,8 @@ text-lg rounded-xl font-bold"
 
       setGameOver(true);
 
+      setShowCorrectPopup(true);
+
       return;
 
     }
@@ -283,13 +293,7 @@ text-lg rounded-xl font-bold"
 
       setGameOver(true);
 
-      setTimeout(() => {
-
-        alert(
-          `게임 종료! 정답은 ${answer.name}`
-        );
-
-      }, 100);
+      setShowFailPopup(true);
 
     }
 
@@ -310,6 +314,10 @@ text-lg rounded-xl font-bold"
     setGuesses([]);
 
     setGameOver(false);
+
+    setShowCorrectPopup(false);
+
+    setShowFailPopup(false);
 
   };
 
@@ -473,6 +481,60 @@ return (
       setHideRule={setHideRule}
       setShowRule={setShowRule}
     />
+  )}
+
+  {showCorrectPopup && (
+    <div className="fixed inset-0 z-[999] bg-black/60 flex items-center justify-center p-4">
+
+      <div className="w-full max-w-sm rounded-3xl bg-white p-8 text-center shadow-2xl">
+
+        <div className="text-5xl mb-4">🎉</div>
+
+        <div className="text-2xl md:text-3xl font-black text-green-500 mb-2">
+          정답입니다!
+        </div>
+
+        <div className="text-lg font-bold text-gray-800 mb-8">
+          {answer.name}
+        </div>
+
+        <button
+          onClick={() => setShowCorrectPopup(false)}
+          className="w-full bg-green-500 hover:bg-green-400 text-white py-3 rounded-xl font-bold shadow-md"
+        >
+          확인
+        </button>
+
+      </div>
+
+    </div>
+  )}
+
+  {showFailPopup && (
+    <div className="fixed inset-0 z-[999] bg-black/60 flex items-center justify-center p-4">
+
+      <div className="w-full max-w-sm rounded-3xl bg-white p-8 text-center shadow-2xl">
+
+        <div className="text-5xl mb-4">😢</div>
+
+        <div className="text-2xl md:text-3xl font-black text-red-500 mb-2">
+          아쉬워요!
+        </div>
+
+        <div className="text-lg font-bold text-gray-800 mb-8">
+          정답: {answer.name}
+        </div>
+
+        <button
+          onClick={() => setShowFailPopup(false)}
+          className="w-full bg-red-500 hover:bg-red-400 text-white py-3 rounded-xl font-bold shadow-md"
+        >
+          확인
+        </button>
+
+      </div>
+
+    </div>
   )}
 
   <main
@@ -813,6 +875,18 @@ py-3 rounded-xl font-bold shadow-md"
 난이도 선택
 
 </button>
+
+<Link
+  href="/"
+  className="bg-gray-200 hover:bg-gray-300 text-black transition-all w-full
+md:w-auto
+px-5
+py-3 rounded-xl font-bold shadow-md text-center"
+>
+
+🏠 홈
+
+</Link>
           </div>
 
           {/* 자동완성 */}
@@ -872,6 +946,7 @@ font-semibold
                         {player.name}
                         {" "}
                         (
+                        <TeamBadge team={player.team} size={16} className="mr-1" />
                         {player.team}
                         {" • "}
                         {player.birthdate?.slice(0, 4)}
@@ -884,6 +959,7 @@ font-semibold
                         {player.name}
                         {" "}
                         (
+                        <TeamBadge team={player.team} size={16} className="mr-1" />
                         {player.team}
                         )
                       </>
@@ -938,23 +1014,22 @@ font-semibold
               <div
                 key={index}
 
-                className={`grid grid-cols-6 gap-3 transition-all hover:scale-[1.01] ${
-                  guess.correct
-                    ? "ring-4 ring-green-400 rounded-2xl"
-                    : ""
-                }`}
+                className="grid grid-cols-6 gap-3 transition-all hover:scale-[1.01]"
               >
 
-                <div className="bg-white/95 border border-gray-300 p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md">
+                <div
+                  className={`${getColor(guess.correct)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
+                >
 
                   {guess.player.name}
 
                 </div>
 
                 <div
-                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md`}
+                  className={`${getColor(guess.team)} border p-2 md:p-3 rounded-xl text-center font-bold text-black shadow-md flex items-center justify-center gap-1.5`}
                 >
 
+                  <TeamBadge team={guess.player.team} size={22} />
                   {guess.player.team}
 
                 </div>
@@ -1002,7 +1077,7 @@ font-semibold
         {gameOver && (
 
           <div className="mt-10 text-center text-3xl
-md:text-4xl font-black text-green-600 drop-shadow-lg">
+md:text-4xl font-black text-green-500 drop-shadow-lg">
 
             정답: {answer.name}
 
