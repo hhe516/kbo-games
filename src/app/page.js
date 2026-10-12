@@ -5,7 +5,7 @@ import { GAMES } from "@/components/Sidebar";
 import { dailyNumber, dailyStreak, store, todayKST } from "@/lib/kbo";
 import { SYNC_EVENT } from "@/lib/supabase";
 
-// 오늘의 문제 (게임 추가되면 ready: true 로)
+// 오늘의 문제 (result: 끝낸 기록 → 카드에 보여줄 글자)
 const DAILIES = [
   {
     key: "grid", href: "/daily/grid", icon: "🔢", name: "오늘의 Grid", ready: true,
@@ -15,7 +15,10 @@ const DAILIES = [
     key: "careerpath", href: "/daily/careerpath", icon: "🛤️", name: "오늘의 Career Path", ready: true,
     result: (r) => (r.solved ? `✅ ${(r.guesses || []).length}번 만에` : "❌ 실패"),
   },
-  { key: "whoru", icon: "🤔", name: "오늘의 Who Are Ya", ready: false },
+  {
+    key: "whoru", href: "/daily/whoru", icon: "🤔", name: "오늘의 Who Are Ya", ready: true,
+    result: (r) => (r.solved ? `✅ ${r.score}/8` : "❌ 실패"),
+  },
 ];
 
 const WEEK = ["일", "월", "화", "수", "목", "금", "토"];
