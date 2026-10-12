@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { supabase, syncDaily, SYNC_EVENT } from "@/lib/supabase";
 
 // 게임 추가할 때 여기에 한 줄만 넣으면 사이드바에 뜸
@@ -47,6 +47,65 @@ function NavList({ pathname, onNavigate }) {
   );
 }
 
+// 구글 OAuth 클라이언트 ID (공개값). 비어 있으면 예전 방식(Supabase 경유) 로그인 버튼을 씀
+const GOOGLE_CLIENT_ID = "634979022485-t5af8ln8drmiqdq15r7id7kt4tpa2rjh.apps.googleusercontent.com";
+
+// 구글 로그인 스크립트(Google Identity Services)를 한 번만 불러옴
+let gsiPromise;
+function loadGsi() {
+  if (!gsiPromise) {
+    gsiPromise = new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = "https://accounts.google.com/gsi/client";
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  return gsiPromise;
+}
+
+async function sha256Hex(text) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// kbogames.com 안에서 바로 뜨는 구글 공식 로그인 버튼 → 받은 토큰을 Supabase 에 넘김
+// (구글 창에 xxxx.supabase.co 대신 우리 사이트가 보이게)
+function GoogleButton() {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadGsi()
+      .then(async () => {
+        if (cancelled || !ref.current) return;
+        const nonce = crypto.randomUUID() + crypto.randomUUID();
+        window.google.accounts.id.initialize({
+          client_id: GOOGLE_CLIENT_ID,
+          nonce: await sha256Hex(nonce),
+          callback: ({ credential }) =>
+            supabase.auth.signInWithIdToken({ provider: "google", token: credential, nonce }),
+        });
+        window.google.accounts.id.renderButton(ref.current, {
+          theme: "outline",
+          size: "large",
+          text: "signin_with",
+          shape: "pill",
+          locale: "ko",
+          width: 192,
+        });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return <div ref={ref} className="min-h-10" />;
+}
+
 // 로그인 / 로그아웃 (구글). 로그인하면 데일리 기록을 서버와 맞춤
 function AuthButton() {
   const [user, setUser] = useState(undefined); // undefined = 확인 중
@@ -67,6 +126,8 @@ function AuthButton() {
   }, []);
 
   if (user === undefined) return <div className="h-10" />;
+
+  if (!user && GOOGLE_CLIENT_ID) return <GoogleButton />;
 
   if (!user) {
     return (
