@@ -22,10 +22,12 @@ import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
 const LIVES = 3; // 틀려도 되는 횟수
 const MIN_ANSWERS = 3; // 칸마다 이름 있는 선수(WAR 5+)로 풀 수 있는 답이 최소 이만큼은 있어야 출제
 const NOTABLE_WAR = 5;
-const MAX_NOTABLE = 15; // 어렵게: 칸마다 이름 있는 선수(WAR 5+) 정답이 이보다 많으면 너무 쉬운 칸이라 제외
+const TIMER_SECONDS = 180; // 타이머 모드 제한 시간
+const MAX_NOTABLE = 25; // 칸마다 이름 있는 선수(WAR 5+) 정답이 이보다 많으면 너무 쉬운 칸이라 제외
 
 const TEAM_CONDS = CONDITIONS.filter((c) => c.group === "team");
 const OTHER_CONDS = CONDITIONS.filter((c) => c.group !== "team");
+const YOUNG_TEAMS = ["team_KT", "team_NC", "team_SSG", "team_키움"];
 
 // -----------------------------
 // 판 만들기: 가로 3개 = 구단, 세로 3개 = 구단 또는 조건
@@ -34,11 +36,19 @@ const OTHER_CONDS = CONDITIONS.filter((c) => c.group !== "team");
 // rng 를 넘기면(데일리) 같은 날엔 항상 같은 판이 나옴
 export function makeGrid(pool, rng = Math.random) {
   for (let tries = 0; tries < 3000; tries++) {
-    const teams = shuffle(TEAM_CONDS, rng);
+    // 구단은 가로 3개 + 세로 0~1개. KT·NC·SSG·키움은 한 판에 최대 2개
+    const teamCols = rng() < 0.3 ? 1 : 0;
+    const teams = [];
+    let young = 0;
+    for (const t of shuffle(TEAM_CONDS, rng)) {
+      if (teams.length === 3 + teamCols) break;
+      const isYoung = YOUNG_TEAMS.includes(t.id);
+      if (isYoung && young >= 2) continue;
+      if (isYoung) young++;
+      teams.push(t);
+    }
     const rows = teams.slice(0, 3);
-
-    const teamCols = rng() < 0.5 ? 1 : 2;
-    const cols = [...teams.slice(3, 3 + teamCols)];
+    const cols = [...teams.slice(3)];
     const usedGroups = new Set();
     for (const c of shuffle(OTHER_CONDS, rng)) {
       if (cols.length === 3) break;
@@ -95,6 +105,7 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
             <li>한국시리즈 우승은 우승한 해에 그 팀 소속으로 1군에 출전한 경우를 셉니다. 통산 기록·시즌 수는 KBO 1군 기준(2025년까지)입니다.</li>
             <li>한 선수는 한 칸에만 쓸 수 있습니다.</li>
             <li>틀리면 목숨이 하나 줄어듭니다. (총 {LIVES}개)</li>
+            <li>자유 모드에서는 일반 / 타이머({TIMER_SECONDS / 60}분) 중에 고를 수 있어요. 시간이 끝나면 그때까지 채운 칸으로 끝납니다.</li>
             <li>구단 칸은 그 팀 소속으로 <b>1군 경기에 출전한 기록</b>이 있어야 인정됩니다. 지명·입단만 하고 2군에만 있었던 경우는 안 쳐요. 옛 이름까지 포함합니다. (예: KIA·해태)</li>
             <li>KBO 1군 기록이 있는 선수라면 누구든 정답으로 인정됩니다. 덜 알려진 선수로 채울수록 고수!</li>
             <li>칸을 채우거나 게임이 끝나면 그 칸의 정답 가능한 선수 수가 나옵니다.</li>
@@ -136,6 +147,8 @@ export default function GridGame({ daily = false }) {
   const [input, setInput] = useState("");
   const [lives, setLives] = useState(LIVES);
   const [gaveUp, setGaveUp] = useState(false);
+  const [timed, setTimed] = useState(false); // 자유 모드에서만: 타이머 모드
+  const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
   const [message, setMessage] = useState(null); // {ok, text}
   const [reveal, setReveal] = useState(null); // 끝난 뒤 정답 목록 볼 칸
   const [showRule, setShowRule] = useState(false);
@@ -192,7 +205,15 @@ export default function GridGame({ daily = false }) {
   }, [daily]);
 
   const filledCount = Object.keys(filled).length;
-  const over = !!grid && (filledCount === 9 || lives <= 0 || gaveUp);
+  const timeUp = timed && timeLeft <= 0;
+  const over = !!grid && (filledCount === 9 || lives <= 0 || gaveUp || timeUp);
+
+  // 타이머: 1초마다 줄이고, 게임이 끝나면 멈춤
+  useEffect(() => {
+    if (!timed || !grid || over) return;
+    const id = setInterval(() => setTimeLeft((t) => t - 1), 1000);
+    return () => clearInterval(id);
+  }, [timed, grid, over]);
   const cellPoints = (i) => (filled[i] ? rarityPoints(grid.answers[i], filled[i]) : 0);
   const points = grid ? Object.keys(filled).reduce((sum, i) => sum + cellPoints(i), 0) : 0;
   // 데일리 진행 상황 저장 (새로고침해도 이어서, 다시 뽑기 방지)
@@ -270,7 +291,9 @@ export default function GridGame({ daily = false }) {
     }
   };
 
-  const newGame = () => {
+  const newGame = (withTimer = timed) => {
+    setTimed(withTimer);
+    setTimeLeft(TIMER_SECONDS);
     setGrid(makeGrid(pool));
     setFilled({});
     setSelected(null);
@@ -355,6 +378,33 @@ export default function GridGame({ daily = false }) {
 
               {/* 오른쪽: 상태 · 입력 · 결과 */}
               <div className="flex flex-col gap-3 min-h-0">
+                {!daily && (
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      [false, "일반"],
+                      [true, `⏱ 타이머 ${TIMER_SECONDS / 60}분`],
+                    ].map(([t, label]) => (
+                      <button
+                        key={label}
+                        onClick={() => newGame(t)}
+                        className={`rounded-xl py-2 font-bold ${
+                          timed === t ? "bg-slate-800 text-white" : "bg-slate-100 text-gray-600 hover:bg-slate-200"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {timed && !daily && (
+                  <div
+                    className={`rounded-xl py-2 text-center text-2xl font-black tabular-nums ${
+                      timeLeft <= 30 ? "bg-red-100 text-red-600" : "bg-slate-100"
+                    }`}
+                  >
+                    ⏱ {Math.floor(Math.max(0, timeLeft) / 60)}:{String(Math.max(0, timeLeft) % 60).padStart(2, "0")}
+                  </div>
+                )}
                 <div className="grid grid-cols-3 gap-2 text-center">
                   <div className="rounded-xl bg-slate-100 py-2">
                     <div className="text-xs text-gray-500">채운 칸</div>
@@ -432,7 +482,7 @@ export default function GridGame({ daily = false }) {
                 {over && (
                   <div className="rounded-2xl bg-slate-50 border p-4 text-center">
                     <div className={`text-2xl md:text-3xl font-black ${filledCount === 9 ? "text-green-600" : "text-gray-800"}`}>
-                      {filledCount === 9 ? "🎉 올 클리어!" : lives <= 0 ? "❌ 목숨 소진" : "🏳️ 포기"}
+                      {filledCount === 9 ? "🎉 올 클리어!" : lives <= 0 ? "❌ 목숨 소진" : timeUp ? "⏰ 시간 종료" : "🏳️ 포기"}
                     </div>
                     <div className="mt-2 text-lg">
                       {filledCount}칸 채움 · <b>{points}점</b> <span className="text-sm text-gray-500">/ 900</span>
@@ -459,7 +509,7 @@ export default function GridGame({ daily = false }) {
                       </>
                     ) : (
                       <button
-                        onClick={newGame}
+                        onClick={() => newGame()}
                         className="mt-4 bg-blue-500 hover:bg-blue-400 text-white px-8 py-3 rounded-xl font-black"
                       >
                         새 게임
@@ -500,7 +550,7 @@ export default function GridGame({ daily = false }) {
                       포기하고 정답 보기
                     </button>
                     {!daily && (
-                      <button onClick={newGame} className="flex-1 text-sm text-gray-500 underline">
+                      <button onClick={() => newGame()} className="flex-1 text-sm text-gray-500 underline">
                         판 새로 만들기
                       </button>
                     )}
