@@ -114,7 +114,12 @@ function Footer() {
         <span className="w-7 text-center">🐞</span>
         <span>버그 제보</span>
       </a>
-      <div className="px-3 text-xs text-slate-500">v1.1.0 Beta</div>
+      <div className="flex items-center justify-between px-3 text-xs text-slate-500">
+        <span>v1.1.0 Beta</span>
+        <Link href="/privacy" className="underline hover:text-slate-300">
+          개인정보처리방침
+        </Link>
+      </div>
     </div>
   );
 }
