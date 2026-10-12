@@ -63,6 +63,16 @@ export function makeGrid(pool, rng = Math.random) {
   return null;
 }
 
+// 희귀도 점수: 그 칸 정답 후보를 통산 WAR 높은 순(=유명한 순)으로 줄 세웠을 때 몇 번째인지
+// 가장 유명한 선수 10점 ~ 가장 덜 알려진 선수 100점
+export function rarityPoints(answers, player) {
+  const sorted = [...answers].sort((a, b) => b.careerWar - a.careerWar);
+  const idx = sorted.findIndex((p) => p.id === player.id);
+  if (idx < 0) return 0;
+  if (sorted.length <= 1) return 100;
+  return Math.round(10 + (90 * idx) / (sorted.length - 1));
+}
+
 const cellLabel = (c) => c.label.replace(/ 경력$/, "");
 
 // -----------------------------
@@ -88,6 +98,11 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
             <li>구단 칸은 그 팀 소속으로 <b>1군 경기에 출전한 기록</b>이 있어야 인정됩니다. 지명·입단만 하고 2군에만 있었던 경우는 안 쳐요. 옛 이름까지 포함합니다. (예: KIA·해태)</li>
             <li>KBO 1군 기록이 있는 선수라면 누구든 정답으로 인정됩니다. 덜 알려진 선수로 채울수록 고수!</li>
             <li>칸을 채우거나 게임이 끝나면 그 칸의 정답 가능한 선수 수가 나옵니다.</li>
+            <li>
+              <b>희귀도 점수</b>: 칸마다 정답 후보를 통산 WAR 높은 순(유명한 순)으로 줄 세워서, 가장 유명한 선수면 10점,
+              가장 덜 알려진 선수면 100점. 9칸 합계 최대 900점.
+            </li>
+            <li>수상 칸(골든글러브·MVP·신인왕)은 KBO 정규시즌 시상 기준, 2025년 시상까지 반영돼 있습니다. MLB 칸은 MLB 정규시즌 출장 기준입니다.</li>
           </ul>
         </div>
       </div>
@@ -178,15 +193,17 @@ export default function GridGame({ daily = false }) {
 
   const filledCount = Object.keys(filled).length;
   const over = !!grid && (filledCount === 9 || lives <= 0 || gaveUp);
+  const cellPoints = (i) => (filled[i] ? rarityPoints(grid.answers[i], filled[i]) : 0);
+  const points = grid ? Object.keys(filled).reduce((sum, i) => sum + cellPoints(i), 0) : 0;
   // 데일리 진행 상황 저장 (새로고침해도 이어서, 다시 뽑기 방지)
   useEffect(() => {
     if (!daily || !date || !grid) return;
     const ids = Object.fromEntries(Object.entries(filled).map(([i, p]) => [i, p.id]));
-    const rec = { filled: ids, lives, gaveUp, done: over, score: filledCount };
+    const rec = { filled: ids, lives, gaveUp, done: over, score: filledCount, points };
     store.set(`daily_grid_${date}`, rec);
     // 로그인 상태면 서버에도 (칸을 채우거나 틀렸을 때만 바뀌므로 호출 수는 적음)
     if (filledCount > 0 || lives < LIVES || gaveUp) pushDaily("grid", date, rec);
-  }, [daily, date, grid, filled, lives, gaveUp, over, filledCount]);
+  }, [daily, date, grid, filled, lives, gaveUp, over, filledCount, points]);
 
   const streak = prevStreak + (over ? 1 : 0);
 
@@ -194,7 +211,7 @@ export default function GridGame({ daily = false }) {
     const rows = [0, 1, 2]
       .map((r) => [0, 1, 2].map((c) => (filled[r * 3 + c] ? "🟩" : "⬜")).join(""))
       .join("\n");
-    return `⚾ KBO Grid #${dailyNumber(date)} ${filledCount}/9\n${rows}\nkbogames.com`;
+    return `⚾ KBO Grid #${dailyNumber(date)} ${filledCount}/9 · ${points}점\n${rows}\nkbogames.com`;
   };
 
   const share = async () => {
@@ -338,7 +355,7 @@ export default function GridGame({ daily = false }) {
 
               {/* 오른쪽: 상태 · 입력 · 결과 */}
               <div className="flex flex-col gap-3 min-h-0">
-                <div className="grid grid-cols-2 gap-2 text-center">
+                <div className="grid grid-cols-3 gap-2 text-center">
                   <div className="rounded-xl bg-slate-100 py-2">
                     <div className="text-xs text-gray-500">채운 칸</div>
                     <div className="text-lg font-black">{filledCount}/9</div>
@@ -346,6 +363,10 @@ export default function GridGame({ daily = false }) {
                   <div className="rounded-xl bg-slate-100 py-2">
                     <div className="text-xs text-gray-500">목숨</div>
                     <div className="text-lg font-black">{"❤️".repeat(Math.max(0, lives)) || "0"}</div>
+                  </div>
+                  <div className="rounded-xl bg-slate-100 py-2">
+                    <div className="text-xs text-gray-500">희귀도 점수</div>
+                    <div className="text-lg font-black">{points}</div>
                   </div>
                 </div>
 
@@ -413,7 +434,9 @@ export default function GridGame({ daily = false }) {
                     <div className={`text-2xl md:text-3xl font-black ${filledCount === 9 ? "text-green-600" : "text-gray-800"}`}>
                       {filledCount === 9 ? "🎉 올 클리어!" : lives <= 0 ? "❌ 목숨 소진" : "🏳️ 포기"}
                     </div>
-                    <div className="mt-2 text-lg">{filledCount}칸 채움</div>
+                    <div className="mt-2 text-lg">
+                      {filledCount}칸 채움 · <b>{points}점</b> <span className="text-sm text-gray-500">/ 900</span>
+                    </div>
                     <div className="mt-1 text-sm text-gray-500">칸을 누르면 정답 가능한 선수를 볼 수 있어요.</div>
                     {daily ? (
                       <>
@@ -519,7 +542,7 @@ ${active ? "ring-4 ring-blue-400 border-blue-500" : ""}
               <span className="text-2xl text-gray-300 font-black">?</span>
             )}
             <span className={`mt-1 text-[10px] md:text-xs ${p ? "text-green-900" : "text-gray-400"}`}>
-              {over || p ? `${grid.answers[i].length}명 가능` : ""}
+              {p ? `+${rarityPoints(grid.answers[i], p)}점 · ${grid.answers[i].length}명 중` : over ? `${grid.answers[i].length}명 가능` : ""}
             </span>
           </button>
         );

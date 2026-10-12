@@ -9,7 +9,7 @@ import { SYNC_EVENT } from "@/lib/supabase";
 const DAILIES = [
   {
     key: "grid", href: "/daily/grid", icon: "🔢", name: "오늘의 Grid", ready: true,
-    result: (r) => `✅ ${r.score}/9`,
+    result: (r) => `✅ ${r.score}/9` + (r.points != null ? ` · ${r.points}점` : ""),
   },
   {
     key: "careerpath", href: "/daily/careerpath", icon: "🛤️", name: "오늘의 Career Path", ready: true,
