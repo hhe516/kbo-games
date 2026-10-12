@@ -8,8 +8,8 @@ import { CONDITIONS, loadPool, shuffle } from "@/lib/kbo";
 // 설정
 // -----------------------------
 
-const LIVES = 3;
-const SKIPS = 3;
+const DECK_SIZE = 42; // 나오는 선수 수
+const SOLUTIONS = 2; // 덱 안에 서로 겹치지 않는 "정답 배치"를 몇 세트 넣을지
 const MIN_PER_CELL = 8; // 칸마다 해당 선수가 최소 이 정도는 있어야 출제
 const DECK_MIN_WAR = 10; // 뽑히는 선수는 통산 WAR 10+ (판단 가능한 유명 선수 위주)
 
@@ -33,12 +33,20 @@ function tryMakeGame(pool) {
   }
   const cells = shuffle([...teams, ...others]).slice(0, 16);
 
-  // 깰 수 있는 덱: 16칸에 한 명씩 정답 선수를 배정하고(서로 다른 선수),
-  // 넘기기 횟수만큼 여분 선수를 섞음 → 잘 판단하면 목숨 하나도 안 잃고 다 채울 수 있음
-  const answers = assignPlayers(cells, pool);
-  if (!answers) return null;
-  const used = new Set(answers.map((p) => p.id));
-  const extras = shuffle(pool.filter((p) => !used.has(p.id) && cells.some((c) => c.test(p)))).slice(0, SKIPS);
+  // 깰 수 있는 덱: 16칸을 서로 다른 선수로 다 채우는 배치를 SOLUTIONS 세트(서로 안 겹치게) 넣고,
+  // 나머지는 판의 어느 칸에든 맞는 선수로 채워서 42명
+  const used = new Set();
+  const answers = [];
+  for (let k = 0; k < SOLUTIONS; k++) {
+    const set = assignPlayers(cells, pool, used);
+    if (!set) return null;
+    set.forEach((p) => used.add(p.id));
+    answers.push(...set);
+  }
+  const extras = shuffle(pool.filter((p) => !used.has(p.id) && cells.some((c) => c.test(p)))).slice(
+    0,
+    DECK_SIZE - answers.length
+  );
   const deck = shuffle([...answers, ...extras]);
 
   return { cells, deck };
@@ -53,12 +61,12 @@ function makeGame(pool) {
 }
 
 // 칸마다 서로 다른 선수 한 명씩 (해당자가 적은 칸부터 무작위로 고르고, 막히면 다시)
-function assignPlayers(cells, pool) {
+function assignPlayers(cells, pool, exclude = new Set()) {
   const order = [...cells.keys()].sort(
     (a, b) => pool.filter(cells[a].test).length - pool.filter(cells[b].test).length
   );
   for (let tries = 0; tries < 50; tries++) {
-    const used = new Set();
+    const used = new Set(exclude);
     const picked = [];
     let ok = true;
     for (const i of order) {
@@ -99,10 +107,10 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
           <div className="font-black text-xl mb-2">📝 규칙</div>
           <ul className="list-disc ml-6 space-y-2">
             <li>선수를 맞는 칸에 넣으면 그 칸이 채워집니다.</li>
-            <li>조건에 맞지 않는 칸에 넣으면 목숨이 하나 줄어듭니다. (총 {LIVES}개)</li>
-            <li>넣을 칸이 마땅치 않으면 넘기기를 쓸 수 있습니다. (총 {SKIPS}번)</li>
-            <li>선수는 16명 + 넘기기 수({SKIPS}명)만큼 나옵니다. 모든 판은 제대로 고르면 목숨을 잃지 않고 16칸을 다 채울 수 있게 만들어져요.</li>
-            <li>판을 다 채우거나, 목숨이 다 떨어지거나, 선수가 다 나오면 끝납니다.</li>
+            <li>선수는 총 {DECK_SIZE}명 나옵니다. 넘기기는 제한 없이 쓸 수 있어요.</li>
+            <li>조건에 맞지 않는 칸에 넣으면 <b>그 선수와 다음 선수까지</b> 함께 넘어갑니다.</li>
+            <li>{DECK_SIZE}명 안에는 16칸을 다 채울 수 있는 조합이 여러 개 들어 있어요.</li>
+            <li>판을 다 채우거나 선수가 다 나오면 끝납니다.</li>
             <li>구단 칸(○○ 경력)은 그 팀 소속으로 <b>1군 경기에 출전한 기록</b>이 있어야 인정됩니다. 지명·입단만 하고 2군에만 있었던 경우는 안 쳐요. 옛 이름까지 포함합니다. (예: KIA·해태)</li>
             <li>한국시리즈 우승은 우승한 해에 그 팀 소속으로 1군에 출전한 경우를 셉니다. 통산 기록·시즌 수는 KBO 1군 기준(2025년까지)입니다.</li>
             <li>통산 WAR 10 이상 선수가 나옵니다.</li>
@@ -141,9 +149,7 @@ export default function Bingo() {
   const [game, setGame] = useState(null);
   const [turn, setTurn] = useState(0);
   const [filled, setFilled] = useState({}); // 칸 index → 선수
-  const [lives, setLives] = useState(LIVES);
-  const [skips, setSkips] = useState(SKIPS);
-  const [log, setLog] = useState([]); // {player, cell, ok} | {player, skipped}
+  const [log, setLog] = useState([]); // {player, cell, ok} | {player, skipped} | {player, burned}
   const [flash, setFlash] = useState(null); // {idx, ok}
   const [showRule, setShowRule] = useState(false);
   const [hideRule, setHideRule] = useState(false);
@@ -165,8 +171,8 @@ export default function Bingo() {
   );
 
   const filledCount = Object.keys(filled).length;
-  const over =
-    !!game && (filledCount === 16 || lives <= 0 || turn >= game.deck.length);
+  const over = !!game && (filledCount === 16 || turn >= game.deck.length);
+  const wrongCount = log.filter((r) => r.cell && !r.ok).length;
 
   const place = (idx) => {
     if (over || !current || filled[idx] || flash) return;
@@ -174,16 +180,25 @@ export default function Bingo() {
     setFlash({ idx, ok });
     setTimeout(() => {
       setFlash(null);
-      if (ok) setFilled((f) => ({ ...f, [idx]: current }));
-      else setLives((v) => v - 1);
-      setLog((l) => [{ player: current, cell: game.cells[idx], ok }, ...l]);
-      setTurn((t) => t + 1);
+      if (ok) {
+        setFilled((f) => ({ ...f, [idx]: current }));
+        setLog((l) => [{ player: current, cell: game.cells[idx], ok }, ...l]);
+        setTurn((t) => t + 1);
+      } else {
+        // 틀리면 다음 선수까지 같이 넘어감
+        const next = game.deck[turn + 1];
+        setLog((l) => [
+          ...(next ? [{ player: next, burned: true }] : []),
+          { player: current, cell: game.cells[idx], ok },
+          ...l,
+        ]);
+        setTurn((t) => t + 2);
+      }
     }, 450);
   };
 
   const skip = () => {
-    if (over || !current || skips <= 0 || flash) return;
-    setSkips((s) => s - 1);
+    if (over || !current || flash) return;
     setLog((l) => [{ player: current, skipped: true }, ...l]);
     setTurn((t) => t + 1);
   };
@@ -192,8 +207,6 @@ export default function Bingo() {
     setGame(makeGame(pool));
     setTurn(0);
     setFilled({});
-    setLives(LIVES);
-    setSkips(SKIPS);
     setLog([]);
     setFlash(null);
   };
@@ -248,8 +261,8 @@ export default function Bingo() {
                   {[
                     ["채운 칸", `${filledCount}/16`],
                     ["빙고", lines],
-                    ["목숨", "❤️".repeat(Math.max(0, lives)) || "0"],
-                    ["넘기기", skips],
+                    ["남은 선수", Math.max(0, game.deck.length - turn)],
+                    ["틀림", wrongCount],
                   ].map(([k, v]) => (
                     <div key={k} className="rounded-xl bg-slate-100 py-2">
                       <div className="text-xs text-gray-500">{k}</div>
@@ -273,7 +286,6 @@ export default function Bingo() {
                     </div>
                     <button
                       onClick={skip}
-                      disabled={skips <= 0}
                       className="bg-gray-700 hover:bg-gray-600 disabled:opacity-40 text-white px-4 py-3 rounded-xl font-bold shrink-0"
                     >
                       넘기기
@@ -284,7 +296,7 @@ export default function Bingo() {
                 {over && (
                   <div className="rounded-2xl bg-slate-50 border p-4 text-center">
                     <div className={`text-2xl md:text-3xl font-black ${filledCount === 16 ? "text-green-600" : "text-gray-800"}`}>
-                      {filledCount === 16 ? "🎉 올 클리어!" : lives <= 0 ? "❌ 목숨 소진" : "🏁 게임 끝"}
+                      {filledCount === 16 ? "🎉 올 클리어!" : "🏁 선수 소진"}
                     </div>
                     <div className="mt-2 text-lg">
                       {filledCount}칸 채움 · 빙고 {lines}줄
@@ -340,9 +352,11 @@ ${fl === false ? "bg-red-200 border-red-500 animate-pulse" : ""}
                       {log.map((r, k) => (
                         <div key={k} className="flex justify-between gap-3 rounded-lg bg-slate-50 px-3 py-2">
                           <span className="font-bold shrink-0">{r.player.name}</span>
-                          <span className={`text-right ${r.skipped ? "text-gray-500" : r.ok ? "text-green-700" : "text-red-600"}`}>
+                          <span className={`text-right ${r.skipped || r.burned ? "text-gray-500" : r.ok ? "text-green-700" : "text-red-600"}`}>
                             {r.skipped
                               ? "넘김"
+                              : r.burned
+                                ? "앞 선수 틀려서 같이 넘어감"
                               : r.ok
                                 ? `✓ ${r.cell.label}`
                                 : `✗ ${r.cell.label} → 가능: ${fitsFor(r.player).map((i) => game.cells[i].label).join(", ") || "없음"}`}

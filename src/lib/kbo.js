@@ -2,8 +2,8 @@
 
 // 현재 구단 기준으로 옛 이름까지 묶음
 export const FRANCHISES = [
-  { key: "LG", label: "LG", teams: ["LG", "MBC"] },
-  { key: "두산", label: "두산", teams: ["두산", "OB"] },
+  { key: "LG", label: "LG·MBC", teams: ["LG", "MBC"] },
+  { key: "두산", label: "두산·OB", teams: ["두산", "OB"] },
   { key: "삼성", label: "삼성", teams: ["삼성"] },
   { key: "롯데", label: "롯데", teams: ["롯데"] },
   { key: "KIA", label: "KIA·해태", teams: ["KIA", "해태"] },
