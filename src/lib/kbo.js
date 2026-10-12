@@ -38,8 +38,8 @@ export const CONDITIONS = [
   { id: "pos_C", group: "pos", label: "포수", test: (p) => p.position === "포수" },
   { id: "pos_IF", group: "pos", label: "내야수", test: (p) => p.position === "내야" },
   { id: "pos_OF", group: "pos", label: "외야수", test: (p) => p.position === "외야" },
-  { id: "lefty", group: "hand", label: "좌투", test: (p) => p.throws.startsWith("좌투") },
-  { id: "sub", group: "hand", label: "언더·사이드", test: (p) => p.throws.startsWith("우언") },
+  { id: "lefty", group: "hand", label: "좌투", test: (p) => p.throws.startsWith("좌") }, // 좌투·좌언
+  { id: "sub", group: "hand", label: "언더·사이드", test: (p) => p.throws.includes("언") }, // 우언·좌언
   { id: "lhb", group: "hand", label: "좌타", test: (p) => p.throws.endsWith("좌타") },
   { id: "foreign", group: "nat", label: "외국인 선수", test: (p) => p.nationality === "외국" },
   { id: "oneclub", group: "career", label: "원클럽맨", test: (p) => p.franchiseCount === 1 },
@@ -73,6 +73,12 @@ export const shuffle = (arr, rng = Math.random) => {
   return a;
 };
 
+// KBO 등록 투타가 실제와 다른 선수 보정 (예: 사이드암인데 "우투"로 등록된 경우)
+// 제보 들어오면 여기에 "선수 id": "올바른 투타" 로 추가
+export const THROWS_FIX = {
+  "이강준_2001년 12월 14일": "우언우타",
+};
+
 // KBO 1군 기록이 있는 전체 선수 + 뛰었던 KBO 구단 → 게임용 선수 목록
 // (player_teams.json 은 scripts/build_player_teams.py 로 생성)
 export async function loadPool() {
@@ -87,6 +93,7 @@ export async function loadPool() {
     const franchises = new Set(kboTeams.map(franchiseOf));
     return {
       ...p,
+      throws: THROWS_FIX[p.id] || p.throws || "",
       birthYear: Number(String(p.birthdate).slice(0, 4)),
       kboTeams,
       // 없는 값은 0 (s: 1군 시즌, f: 한 구단 최다 시즌, c: KS 우승, h/hr/w/sv: 통산 안타/홈런/승/세이브)
