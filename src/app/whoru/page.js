@@ -62,8 +62,15 @@ fetch(file)
   .then((res) => res.json())
   .then((data) => {
 
+    // JSON의 age는 만든 시점 기준이라 해가 바뀌면 틀어짐 → 생년으로 다시 계산
+    const thisYear = new Date().getFullYear();
 
-    setPlayers(data);
+    setPlayers(
+      data.map((p) => ({
+        ...p,
+        age: thisYear - Number(String(p.birthdate).slice(0, 4)),
+      }))
+    );
 
     setCurrentIndex(0);
 

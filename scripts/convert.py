@@ -59,7 +59,7 @@ war10_path = os.path.join(
 
 flags_path = os.path.join(
     output_dir,
-    "player_flags.json"
+    "players_flags.json"
 )
 
 if os.path.exists(flags_path):

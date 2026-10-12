@@ -130,25 +130,11 @@ export default function CareerPath() {
 
   const [jumpInput, setJumpInput] = useState("");
 
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestOpen, setSuggestOpen] = useState(false);
 
   const [wrongFlash, setWrongFlash] = useState(false);
 
   const [selectedPlayer, setSelectedPlayer] = useState(null);
-
-  useEffect(() => {
-
-    const hide =
-
-      localStorage.getItem("career_rule");
-
-    if (hide === "true") {
-
-      setShowRule(false);
-
-    }
-
-  }, []);
 
   useEffect(() => {
 
@@ -157,20 +143,21 @@ export default function CareerPath() {
       fetch("/data/career_overrides.json").then((res) => res.json())
     ]).then(([players, overrides]) => {
 
-      const merged = players.map((player) => {
-
-        if (overrides[player.name]) {
-          return {
-            ...player,
-            career: overrides[player.name]
-          };
-        }
-
-        return player;
-
-      });
+      // career_overrides.json 은 선수 id 기준 (동명이인 오적용 방지)
+      const merged = players.map((player) =>
+        overrides[player.id]
+          ? { ...player, career: overrides[player.id] }
+          : player
+      );
 
       setPlayers(merged);
+
+      // 첫 문제도 무작위
+      setCurrentIndex(Math.floor(Math.random() * merged.length));
+
+      if (localStorage.getItem("career_rule") === "true") {
+        setShowRule(false);
+      }
 
     });
 
@@ -195,9 +182,24 @@ export default function CareerPath() {
   // 자동완성
   // -----------------------------
 
-  const filteredPlayers = useMemo(() => {
+  // 동명이인은 출생연도로 구분해서 보여줌
+  const dupNames = useMemo(() => {
 
-    if (!input.trim()) return [];
+    const count = {};
+
+    players.forEach((p) => {
+      count[p.name] = (count[p.name] || 0) + 1;
+    });
+
+    return new Set(
+      Object.keys(count).filter((n) => count[n] > 1)
+    );
+
+  }, [players]);
+
+  const suggestions = useMemo(() => {
+
+    if (!suggestOpen || !input.trim()) return [];
 
     return players
       .filter((p) =>
@@ -207,14 +209,7 @@ export default function CareerPath() {
       )
       .slice(0, 8);
 
-  }, [input, players]);
-
-  useEffect(() => {
-
-    setSuggestions(filteredPlayers);
-
-  }, [filteredPlayers]);
-
+  }, [input, players, suggestOpen]);
 
   // -----------------------------
   // 제출
@@ -222,7 +217,7 @@ export default function CareerPath() {
 
   const handleGuess = () => {
 
-    if (!answer) return;
+    if (!answer || clear || gameOver) return;
 
     const guess = (
       selectedPlayer?.name ||
@@ -237,7 +232,7 @@ export default function CareerPath() {
     ) {
 
       setClear(true);
-      setSuggestions([]);
+      setSuggestOpen(false);
 
       return;
 
@@ -257,7 +252,7 @@ export default function CareerPath() {
 
     setSelectedPlayer(null);
 
-    setSuggestions([]);
+    setSuggestOpen(false);
 
     if (next >= 3) {
 
@@ -283,7 +278,7 @@ export default function CareerPath() {
 
     setSelectedPlayer(null);
 
-    setSuggestions([]);
+    setSuggestOpen(false);
 
     let next;
 
@@ -323,7 +318,7 @@ export default function CareerPath() {
 
     setInput("");
 
-    setSuggestions([]);
+    setSuggestOpen(false);
 
     setSelectedPlayer(null);
 
@@ -504,6 +499,8 @@ export default function CareerPath() {
 
                   setSelectedPlayer(null);
 
+                  setSuggestOpen(true);
+
                 }}
 
                 onKeyDown={(e) => {
@@ -548,7 +545,7 @@ ${wrongFlash
 
                         setInput(player.name);
 
-                        setSuggestions([]);
+                        setSuggestOpen(false);
 
                       }}
 
@@ -557,6 +554,12 @@ ${wrongFlash
                     >
 
                       {player.name}
+
+                      {dupNames.has(player.name) && (
+                        <span className="ml-2 text-sm text-gray-500">
+                          ({player.id.split("_")[1]?.slice(0, 5)}생)
+                        </span>
+                      )}
 
                     </div>
 
@@ -578,7 +581,9 @@ ${wrongFlash
 
               onClick={handleGuess}
 
-              className="mt-5 w-full bg-blue-500 hover:bg-blue-400 text-white py-4 rounded-xl text-xl font-black"
+              disabled={clear || gameOver}
+
+              className="mt-5 disabled:opacity-40 w-full bg-blue-500 hover:bg-blue-400 text-white py-4 rounded-xl text-xl font-black"
 
             >
 

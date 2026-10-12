@@ -14,8 +14,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -33,8 +33,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -52,8 +52,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -71,9 +71,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "오재원_1985년 02월 09일",
@@ -90,8 +90,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -109,8 +109,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -124,12 +124,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -147,8 +147,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -166,9 +166,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "강영수_1965년 02월 10일",
@@ -185,8 +185,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -204,8 +204,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -223,8 +223,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -242,8 +242,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -261,8 +261,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -280,8 +280,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -299,9 +299,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "서정환_1955년 07월 05일",
@@ -318,8 +318,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -337,8 +337,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -356,8 +356,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -375,8 +375,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -392,10 +392,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 8,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -413,8 +413,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -432,8 +432,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 7,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -451,8 +451,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -470,8 +470,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -487,11 +487,11 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 5,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "전병호_1973년 03월 23일",
@@ -508,8 +508,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -527,8 +527,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -546,8 +546,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -565,8 +565,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -584,8 +584,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -603,8 +603,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -622,8 +622,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -637,12 +637,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -660,8 +660,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -677,10 +677,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -694,12 +694,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -714,12 +714,12 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
-    "nationalTeam": false,
+    "npb": true,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 7,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "켈리_1988년 10월 14일",
@@ -736,8 +736,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -755,8 +755,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -774,8 +774,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -793,8 +793,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -808,12 +808,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -829,10 +829,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -846,12 +846,12 @@
     "throws": "우투좌타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 5,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -869,9 +869,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 2,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "선동열_1963년 01월 10일",
@@ -885,11 +885,11 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 6,
+    "mvp": 3,
     "rookie": false
   },
   {
@@ -907,8 +907,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -926,8 +926,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -945,8 +945,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -964,8 +964,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -983,8 +983,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1002,8 +1002,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1021,8 +1021,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1036,12 +1036,12 @@
     "throws": "우언우타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1059,9 +1059,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 4,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "최준석_1983년 02월 15일",
@@ -1078,8 +1078,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1097,8 +1097,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1116,8 +1116,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1133,10 +1133,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -1154,8 +1154,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1171,10 +1171,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 6,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1192,8 +1192,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1211,8 +1211,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1227,11 +1227,11 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
-    "nationalTeam": false,
+    "npb": true,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 6,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -1249,8 +1249,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1268,8 +1268,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1283,12 +1283,12 @@
     "throws": "좌투좌타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
-    "npb": false,
-    "nationalTeam": false,
+    "mlb": true,
+    "npb": true,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -1306,8 +1306,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1325,8 +1325,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1344,8 +1344,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1363,8 +1363,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1382,8 +1382,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1401,8 +1401,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1420,8 +1420,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1439,9 +1439,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "채은성_1990년 02월 06일",
@@ -1458,8 +1458,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1477,9 +1477,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "정수빈_1990년 10월 07일",
@@ -1496,8 +1496,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1515,8 +1515,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1534,8 +1534,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1551,10 +1551,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 5,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1572,8 +1572,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1591,8 +1591,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1610,8 +1610,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1627,11 +1627,11 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 2,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "송진우_1966년 02월 16일",
@@ -1648,8 +1648,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1667,9 +1667,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "정수근_1977년 01월 20일",
@@ -1684,10 +1684,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1705,8 +1705,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1724,8 +1724,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1743,8 +1743,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1762,8 +1762,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1781,8 +1781,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1800,8 +1800,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1819,8 +1819,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1838,8 +1838,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1857,8 +1857,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1876,8 +1876,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1891,12 +1891,12 @@
     "throws": "좌투좌타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1914,8 +1914,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1933,8 +1933,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1952,8 +1952,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1971,8 +1971,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -1986,12 +1986,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 7,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -2009,8 +2009,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2026,10 +2026,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2043,12 +2043,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 6,
+    "mvp": 2,
     "rookie": false
   },
   {
@@ -2062,12 +2062,12 @@
     "throws": "우투좌타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2085,8 +2085,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2100,12 +2100,12 @@
     "throws": "우투양타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2123,8 +2123,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2138,12 +2138,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2161,8 +2161,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2180,8 +2180,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2199,8 +2199,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2218,8 +2218,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2235,10 +2235,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2256,8 +2256,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2275,8 +2275,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2294,8 +2294,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2313,8 +2313,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2332,8 +2332,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2351,9 +2351,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 4,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "김광수_1959년 01월 03일",
@@ -2370,8 +2370,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2385,13 +2385,13 @@
     "throws": "좌투우타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 2,
+    "mvp": 1,
+    "rookie": true
   },
   {
     "id": "전준우_1986년 02월 25일",
@@ -2408,8 +2408,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2423,12 +2423,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2446,9 +2446,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 2,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "최익성_1972년 02월 11일",
@@ -2465,8 +2465,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2484,9 +2484,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 2,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "이호준_1976년 02월 08일",
@@ -2503,8 +2503,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2522,8 +2522,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2541,8 +2541,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2560,8 +2560,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2579,8 +2579,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2596,10 +2596,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2617,8 +2617,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2636,8 +2636,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2655,8 +2655,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2674,8 +2674,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2693,8 +2693,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -2710,10 +2710,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2727,12 +2727,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2750,8 +2750,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2765,12 +2765,12 @@
     "throws": "좌투좌타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -2788,8 +2788,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2807,8 +2807,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2826,8 +2826,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2845,8 +2845,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2860,12 +2860,12 @@
     "throws": "좌투좌타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -2883,8 +2883,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2902,8 +2902,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2921,8 +2921,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2940,8 +2940,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2959,8 +2959,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -2978,8 +2978,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -2997,9 +2997,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 3,
+    "mvp": 1,
+    "rookie": true
   },
   {
     "id": "신동주_1972년 12월 14일",
@@ -3016,8 +3016,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3033,10 +3033,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3054,8 +3054,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3073,8 +3073,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3092,8 +3092,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3111,8 +3111,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3130,8 +3130,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3149,8 +3149,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3168,8 +3168,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3187,8 +3187,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3204,10 +3204,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3225,8 +3225,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3244,8 +3244,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3263,8 +3263,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 6,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3282,8 +3282,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3301,8 +3301,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3320,8 +3320,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3339,8 +3339,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3358,8 +3358,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3375,10 +3375,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 5,
+    "mvp": 2,
     "rookie": false
   },
   {
@@ -3394,10 +3394,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3415,9 +3415,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "한희민_1962년 07월 19일",
@@ -3434,8 +3434,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3453,8 +3453,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3472,8 +3472,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3491,8 +3491,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3510,8 +3510,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3529,9 +3529,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 6,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "김재호_1985년 03월 21일",
@@ -3548,8 +3548,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3567,8 +3567,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3586,8 +3586,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3603,10 +3603,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3622,10 +3622,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3643,8 +3643,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3662,8 +3662,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3681,8 +3681,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3700,8 +3700,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3719,8 +3719,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3738,8 +3738,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3757,8 +3757,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3776,8 +3776,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3795,8 +3795,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3814,8 +3814,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3833,8 +3833,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 5,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -3852,8 +3852,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3871,8 +3871,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3886,12 +3886,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": true,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3909,8 +3909,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3928,8 +3928,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3945,10 +3945,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3966,8 +3966,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -3985,8 +3985,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4004,8 +4004,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4023,8 +4023,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4042,8 +4042,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4061,8 +4061,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4080,8 +4080,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4099,8 +4099,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4118,8 +4118,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4137,8 +4137,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4156,8 +4156,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4175,8 +4175,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4194,8 +4194,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4213,8 +4213,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4232,8 +4232,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4251,8 +4251,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4270,9 +4270,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "홍세완_1978년 01월 16일",
@@ -4289,8 +4289,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4308,8 +4308,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4327,8 +4327,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4346,8 +4346,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4363,10 +4363,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4384,8 +4384,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4403,8 +4403,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4422,8 +4422,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4441,8 +4441,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4456,12 +4456,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4479,8 +4479,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4498,8 +4498,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4513,12 +4513,12 @@
     "throws": "좌투좌타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4532,12 +4532,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4555,8 +4555,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -4574,8 +4574,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4593,8 +4593,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4612,8 +4612,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4631,8 +4631,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4650,8 +4650,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4669,8 +4669,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4688,8 +4688,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4707,8 +4707,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4726,8 +4726,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4745,8 +4745,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4764,8 +4764,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4783,8 +4783,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -4802,8 +4802,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4821,8 +4821,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4840,8 +4840,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -4859,8 +4859,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4878,8 +4878,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4897,8 +4897,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4916,8 +4916,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4935,9 +4935,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "요키시_1989년 07월 29일",
@@ -4954,8 +4954,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4973,8 +4973,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -4992,8 +4992,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5011,8 +5011,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5030,8 +5030,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5047,11 +5047,11 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 10,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "김재박_1954년 05월 23일",
@@ -5068,8 +5068,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 5,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5085,10 +5085,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5106,8 +5106,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5125,8 +5125,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5144,8 +5144,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5163,9 +5163,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "박성한_1998년 03월 30일",
@@ -5180,10 +5180,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5201,8 +5201,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5220,8 +5220,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5239,8 +5239,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5258,9 +5258,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 8,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "조동찬_1983년 07월 27일",
@@ -5277,8 +5277,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5296,8 +5296,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5313,10 +5313,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5334,8 +5334,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5353,8 +5353,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5372,8 +5372,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5391,8 +5391,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5410,8 +5410,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5429,8 +5429,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5444,12 +5444,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -5467,8 +5467,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5486,8 +5486,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5505,8 +5505,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5524,8 +5524,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5543,8 +5543,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5562,8 +5562,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 6,
+    "mvp": 2,
     "rookie": false
   },
   {
@@ -5581,8 +5581,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5596,12 +5596,12 @@
     "throws": "좌투좌타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5619,8 +5619,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5638,8 +5638,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5654,11 +5654,11 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 10,
+    "mvp": 5,
     "rookie": false
   },
   {
@@ -5676,8 +5676,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5695,8 +5695,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5712,10 +5712,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5733,8 +5733,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5752,8 +5752,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5771,8 +5771,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5790,8 +5790,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5809,8 +5809,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 3,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5828,8 +5828,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5847,8 +5847,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5866,8 +5866,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -5882,11 +5882,11 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
-    "nationalTeam": false,
+    "npb": true,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5904,8 +5904,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5923,8 +5923,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5942,8 +5942,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5961,8 +5961,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5980,8 +5980,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -5995,12 +5995,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6018,8 +6018,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6037,8 +6037,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6056,8 +6056,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6075,8 +6075,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6094,8 +6094,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6113,8 +6113,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6132,8 +6132,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6151,8 +6151,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6170,8 +6170,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6189,9 +6189,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "원태인_2000년 04월 06일",
@@ -6208,8 +6208,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6227,8 +6227,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6246,8 +6246,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6263,10 +6263,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6284,8 +6284,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6303,8 +6303,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6322,8 +6322,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6341,8 +6341,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6360,8 +6360,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6375,13 +6375,13 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "신경식_1961년 08월 19일",
@@ -6398,8 +6398,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6417,8 +6417,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6436,8 +6436,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6455,8 +6455,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6474,8 +6474,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6493,8 +6493,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6512,8 +6512,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -6531,8 +6531,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6550,8 +6550,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6569,8 +6569,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6588,8 +6588,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6607,8 +6607,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6626,8 +6626,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6645,8 +6645,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6661,11 +6661,11 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6683,9 +6683,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 0,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "함덕주_1995년 01월 13일",
@@ -6702,8 +6702,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6719,10 +6719,10 @@
     "active": true,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6740,8 +6740,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6759,8 +6759,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6778,9 +6778,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 4,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "이태일_1967년 04월 09일",
@@ -6797,8 +6797,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6816,9 +6816,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 8,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "문승원_1989년 11월 28일",
@@ -6835,8 +6835,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6854,8 +6854,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6873,8 +6873,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6892,8 +6892,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6911,8 +6911,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6928,10 +6928,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6949,8 +6949,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6968,8 +6968,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -6987,8 +6987,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7006,8 +7006,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7025,8 +7025,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7044,8 +7044,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7063,8 +7063,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7082,8 +7082,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7101,8 +7101,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7120,8 +7120,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7139,8 +7139,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7158,8 +7158,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7177,8 +7177,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7196,8 +7196,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7212,12 +7212,12 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 3,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "정경훈_1972년 05월 22일",
@@ -7234,8 +7234,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7253,8 +7253,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7272,8 +7272,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7287,12 +7287,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7310,8 +7310,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7329,8 +7329,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7348,8 +7348,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -7365,10 +7365,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7386,8 +7386,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7403,10 +7403,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7424,8 +7424,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7439,12 +7439,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 4,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7462,8 +7462,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7481,8 +7481,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7500,8 +7500,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7519,8 +7519,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7538,8 +7538,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7557,8 +7557,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7576,8 +7576,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7591,12 +7591,12 @@
     "throws": "우투우타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7614,8 +7614,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7633,8 +7633,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7652,8 +7652,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7671,8 +7671,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7688,10 +7688,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7705,12 +7705,12 @@
     "throws": "우투우타",
     "nationality": "외국",
     "active": false,
-    "mlb": false,
-    "npb": false,
+    "mlb": true,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7728,8 +7728,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7744,11 +7744,11 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
-    "nationalTeam": false,
+    "npb": true,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 8,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7766,9 +7766,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 1,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "김응국_1966년 01월 14일",
@@ -7783,10 +7783,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7804,8 +7804,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7823,8 +7823,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -7842,8 +7842,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7861,8 +7861,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -7880,8 +7880,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -7899,8 +7899,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7918,8 +7918,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7937,8 +7937,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7956,8 +7956,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -7975,9 +7975,9 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 7,
+    "mvp": 0,
+    "rookie": true
   },
   {
     "id": "손민한_1975년 01월 02일",
@@ -7994,8 +7994,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -8013,8 +8013,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8032,8 +8032,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 5,
+    "mvp": 1,
     "rookie": false
   },
   {
@@ -8049,10 +8049,10 @@
     "active": false,
     "mlb": false,
     "npb": false,
-    "nationalTeam": false,
+    "nationalTeam": true,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8070,8 +8070,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8089,8 +8089,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8104,12 +8104,12 @@
     "throws": "우투좌타",
     "nationality": "한국",
     "active": true,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 1,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8127,8 +8127,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8143,11 +8143,11 @@
     "nationality": "한국",
     "active": false,
     "mlb": false,
-    "npb": false,
+    "npb": true,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 2,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8161,13 +8161,13 @@
     "throws": "우투좌타",
     "nationality": "한국",
     "active": false,
-    "mlb": false,
+    "mlb": true,
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
-    "rookie": false
+    "goldGlove": 5,
+    "mvp": 1,
+    "rookie": true
   },
   {
     "id": "박진만_1976년 11월 30일",
@@ -8184,8 +8184,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 5,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8203,8 +8203,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   },
   {
@@ -8222,8 +8222,8 @@
     "npb": false,
     "nationalTeam": false,
     "allStar": false,
-    "goldGlove": false,
-    "mvp": false,
+    "goldGlove": 0,
+    "mvp": 0,
     "rookie": false
   }
 ]

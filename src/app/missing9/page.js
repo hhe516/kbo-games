@@ -590,6 +590,7 @@ mb-4
 md:fixed
 md:top-16
 md:left-40
+lg:left-[17rem]
 
 bg-sky-600
 hover:bg-sky-500

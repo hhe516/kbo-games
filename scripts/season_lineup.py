@@ -1,5 +1,8 @@
 import pandas as pd
 import json
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # 만들고 싶은 시즌들
 SEASONS = [
@@ -55,12 +58,12 @@ INF_POSITIONS = [
 ]
 
 batting = pd.read_csv(
-    "batting.csv",
+    os.path.join(BASE_DIR, "..", "batting.csv"),
     encoding="cp949"
 )
 
 pitching = pd.read_csv(
-    "pitching.csv",
+    os.path.join(BASE_DIR, "..", "pitching.csv"),
     encoding="cp949"
 )
 
@@ -259,7 +262,7 @@ for team, year in SEASONS:
     })
 
 with open(
-    "season_games.json",
+    os.path.join(BASE_DIR, "season_games.json"),
     "w",
     encoding="utf-8"
 ) as f:

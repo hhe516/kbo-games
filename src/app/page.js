@@ -1,16 +1,59 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { GAMES } from "@/components/Sidebar";
+import { dailyNumber, dailyStreak, store, todayKST } from "@/lib/kbo";
+
+// 오늘의 문제 (게임 추가되면 ready: true 로)
+const DAILIES = [
+  { key: "grid", href: "/daily/grid", icon: "🔢", name: "오늘의 Grid", total: 9, ready: true },
+  { key: "careerpath", icon: "🛤️", name: "오늘의 Career Path", ready: false },
+  { key: "whoru", icon: "🤔", name: "오늘의 Who Are Ya", ready: false },
+];
+
+const WEEK = ["일", "월", "화", "수", "목", "금", "토"];
 
 export default function Home() {
 const [showCredits, setShowCredits] = useState(false);
+const [today, setToday] = useState(null);
+const [progress, setProgress] = useState({}); // key → 저장된 데일리 기록
+const [streak, setStreak] = useState(0);
+const [birthdays, setBirthdays] = useState(null);
+
+useEffect(() => {
+  fetch("/data/players.json")
+    .then((r) => r.json())
+    .then((players) => {
+      const d = todayKST();
+      setToday(d);
+      setStreak(dailyStreak("grid", d));
+      setProgress(
+        Object.fromEntries(DAILIES.map((g) => [g.key, store.get(`daily_${g.key}_${d}`)]))
+      );
+
+      // 오늘 생일 (한국 시간), 통산 WAR 높은 순
+      const md = `${d.slice(5, 7)}월 ${d.slice(8, 10)}일`;
+      const year = Number(d.slice(0, 4));
+      setBirthdays(
+        players
+          .filter((p) => String(p.birthdate).endsWith(md))
+          .sort((a, b) => b.careerWar - a.careerWar)
+          .slice(0, 6)
+          .map((p) => ({ ...p, turning: year - Number(p.birthdate.slice(0, 4)) }))
+      );
+    });
+}, []);
+
+const dateLabel = today
+  ? `${Number(today.slice(5, 7))}월 ${Number(today.slice(8, 10))}일 (${WEEK[new Date(`${today}T00:00:00Z`).getUTCDay()]})`
+  : "";
   return (
     <>
 {showCredits && (
   <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
 
     <div className="w-[92vw]
-max-w-[560px] max-w-[90%] rounded-3xl bg-white text-black p-8 shadow-2xl">
+max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 shadow-2xl">
 
       <h2 className="text-3xl font-black text-center mb-6">
         ⚾ Credits
@@ -58,6 +101,39 @@ max-w-[560px] max-w-[90%] rounded-3xl bg-white text-black p-8 shadow-2xl">
             </a>
           </li>
 
+          <li>
+            <a
+              href="https://playfootball.games/career-path-challenge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Career Path Challenge
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://playfootball.games/football-bingo/daily/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Football Bingo
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://playfootball.games/footy-tic-tac-toe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Tiki-Taka-Toe
+            </a>
+          </li>
+
         </ul>
 
         <p>
@@ -68,6 +144,20 @@ max-w-[560px] max-w-[90%] rounded-3xl bg-white text-black p-8 shadow-2xl">
         <p>
           Player names, team names and publicly available baseball records
           are used for educational and fan purposes.
+        </p>
+
+        <p>
+          Award records (Golden Glove, MVP, Rookie of the Year, Korean MLB
+          players) are compiled from{" "}
+          <a
+            href="https://ko.wikipedia.org/wiki/KBO_%EA%B3%A8%EB%93%A0%EA%B8%80%EB%9F%AC%EB%B8%8C"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Korean Wikipedia
+          </a>
+          .
         </p>
 
       </div>
@@ -85,224 +175,133 @@ max-w-[560px] max-w-[90%] rounded-3xl bg-white text-black p-8 shadow-2xl">
 )}
 
     <main
-      className="
-min-h-screen
-bg-cover
-bg-center
-flex
-items-center
-justify-center
-px-5
-py-10
-lg:p-8
-"
+      className="min-h-screen bg-cover bg-center px-4 py-8 md:px-8 md:py-10"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=2070&auto=format&fit=crop')",
       }}
     >
 
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] pointer-events-none" />
+      <div className="absolute inset-0 bg-black/55 backdrop-blur-[2px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col items-center w-full">
+      <div className="relative z-10 mx-auto w-full max-w-5xl space-y-8">
 
         {/* 제목 */}
+        <div className="text-center text-white">
+          <h1 className="text-4xl md:text-6xl font-black leading-tight">⚾ KBO GAME HUB</h1>
+          <div className="mt-3 text-lg md:text-xl font-bold text-white/80">
+            {dateLabel}
+            {today && (
+              <span className="ml-3 rounded-full bg-orange-500/90 px-3 py-1 text-sm text-white">
+                🔥 {streak}일 연속
+              </span>
+            )}
+          </div>
+        </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 md:mb-14 text-center leading-tight">
+        {/* 오늘의 문제 */}
+        <section>
+          <h2 className="mb-3 text-xl md:text-2xl font-black text-white">📅 오늘의 문제</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            {DAILIES.map((g) => {
+              const rec = progress[g.key];
+              const status = !g.ready
+                ? "준비 중"
+                : rec?.done
+                  ? `✅ ${rec.score}/${g.total}`
+                  : rec
+                    ? "이어서 하기"
+                    : "도전하기";
+              const card = (
+                <div
+                  className={`h-full rounded-3xl p-6 shadow-2xl transition-all ${
+                    g.ready ? "bg-white/90 hover:bg-white hover:scale-[1.02]" : "bg-white/40"
+                  }`}
+                >
+                  <div className="text-4xl">{g.icon}</div>
+                  <div className="mt-3 text-2xl font-black text-gray-900">{g.name}</div>
+                  {g.ready && today && (
+                    <div className="text-sm font-semibold text-gray-500">#{dailyNumber(today)}</div>
+                  )}
+                  <div
+                    className={`mt-4 inline-block rounded-xl px-4 py-2 font-black ${
+                      !g.ready
+                        ? "bg-gray-300 text-gray-600"
+                        : rec?.done
+                          ? "bg-green-100 text-green-800"
+                          : "bg-blue-500 text-white"
+                    }`}
+                  >
+                    {status}
+                  </div>
+                </div>
+              );
+              return g.ready ? (
+                <Link key={g.key} href={g.href}>
+                  {card}
+                </Link>
+              ) : (
+                <div key={g.key}>{card}</div>
+              );
+            })}
+          </div>
+          <p className="mt-2 text-sm text-white/70">매일 0시(한국 시간)에 새 문제가 열립니다. 모두 같은 문제를 풀어요.</p>
+        </section>
 
-          ⚾ KBO GAME HUB
+        {/* 오늘 생일 */}
+        <section className="rounded-3xl bg-white/90 p-6 shadow-2xl">
+          <h2 className="mb-4 text-xl md:text-2xl font-black text-gray-900">🎂 오늘 생일인 KBO 선수</h2>
+          {birthdays === null ? (
+            <div className="text-gray-500">불러오는 중...</div>
+          ) : birthdays.length === 0 ? (
+            <div className="text-gray-500">오늘 생일인 선수가 없어요.</div>
+          ) : (
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {birthdays.map((p) => (
+                <div key={p.id} className="rounded-2xl bg-slate-100 p-4">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="text-xl font-black">{p.name}</span>
+                    {p.active && (
+                      <span className="rounded-full bg-blue-500 px-2 py-0.5 text-xs font-bold text-white">현역</span>
+                    )}
+                  </div>
+                  <div className="mt-1 text-sm text-gray-600">
+                    {p.team} · {p.position} · {p.birthdate.slice(0, 4)}년생 ({p.turning}번째 생일)
+                  </div>
+                  <div className="mt-1 text-sm font-semibold text-gray-700">통산 WAR {p.careerWar}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
 
-        </h1>
+        {/* 자유 모드 */}
+        <section>
+          <h2 className="mb-3 text-xl md:text-2xl font-black text-white">🎮 자유 모드</h2>
+          <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {GAMES.map((g) => (
+              <Link
+                key={g.href}
+                href={g.href}
+                className="rounded-2xl bg-white/85 p-4 shadow-xl transition-all hover:bg-white hover:scale-[1.03]"
+              >
+                <div className="text-3xl">{g.icon}</div>
+                <div className="mt-2 font-black text-gray-900">{g.name}</div>
+                <div className="mt-1 text-xs text-gray-500">{g.desc}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-        {/* 버튼들 */}
+      </div>
 
-        <div
-  className="
-    grid
-    grid-cols-1
-    md:grid-cols-2
-    xl:grid-cols-3
-    gap-6
-    lg:gap-10
-    w-full
-    max-w-6xl
-    mx-auto
-    place-items-center
-  "
->
-
-          {/* WHO ARE YA */}
-
-          <Link
-  href="/whoru"
-  className="
-w-full
-max-w-[340px]
-h-64
-bg-white/85
-hover:bg-white
-transition-all
-rounded-[32px]
-shadow-2xl
-backdrop-blur-md
-border border-white/40
-flex
-flex-col
-items-center
-justify-center
-hover:scale-105
-active:scale-95
-"
->
-
-<div className="text-5xl lg:text-6xl mb-5">
-  🤔
-</div>
-
-<div className="text-2xl lg:text-4xl font-black text-gray-900">
-  WHO ARE YA
-</div>
-
-<div className="text-base lg:text-lg text-gray-500 mt-4 font-semibold">
-  선수 맞추기
-</div>
-
-</Link>
-
-          {/* Missing 9 */}
-
-          <Link
-  href="/missing9"
-  className="
-w-full
-max-w-[340px]
-h-64
-bg-white/85
-hover:bg-white
-transition-all
-rounded-[32px]
-shadow-2xl
-backdrop-blur-md
-border border-white/40
-flex
-flex-col
-items-center
-justify-center
-hover:scale-105
-active:scale-95
-"
->
-
-  <div className="text-5xl lg:text-6xl mb-5">
-  🧩
-</div>
-
-<div className="text-2xl lg:text-4xl font-black text-gray-900">
-  MISSING 9
-</div>
-
-<div className="text-base lg:text-lg text-gray-500 mt-4 font-semibold">
-  라인업 맞추기
-</div>
-
-</Link>
-<Link
-  href="/careerpath"
-  className="
-w-full
-max-w-[340px]
-h-64
-bg-white/85
-hover:bg-white
-transition-all
-rounded-[32px]
-shadow-2xl
-backdrop-blur-md
-border border-white/40
-flex
-flex-col
-items-center
-justify-center
-hover:scale-105
-active:scale-95
-"
->
-
-  <div className="text-5xl mb-4">
-    🛤️
-  </div>
-
-  <div className="text-3xl font-black text-gray-900">
-    CAREER PATH
-  </div>
-
-  <div className="text-gray-500 mt-3 font-semibold">
-    커리어 보고 선수 맞추기
-  </div>
-
-</Link>
-                </div>   
-
-<div className="mt-12 flex flex-col items-center gap-2">
-
-  <div className="text-xs text-zinc-300">
-    KBO games HUB
-  </div>
-
-  <div className="text-xs text-zinc-400">
-    v1.0.0 Beta
-  </div>
-
-  <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSeMncbGJK3zd04feEWU7ctohNxfk5Clj_RZyBxD6zugjxZwng/viewform?usp=publish-editor"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      mt-2
-      rounded-xl
-      bg-red-500
-      hover:bg-red-400
-      px-6
-      py-3
-      text-sm
-      font-bold
-      text-white
-      transition
-      shadow-xl
-    "
-  >
-    🐞 버그 제보 / 의견 보내기
-  </a>
-
-</div>
-
-      </div>   {/* relative z-10 끝 */}
-
-<button
-  onClick={() => setShowCredits(true)}
-      
- className="
-fixed
-bottom-5
-right-5
-lg:bottom-6
-lg:right-6
-z-40
-bg-white/90
-hover:bg-white
-text-black
-rounded-xl
-px-5
-py-3
-font-bold
-shadow-xl
-transition
-"
->
-  ⓘ Credits
-</button>
+      <button
+        onClick={() => setShowCredits(true)}
+        className="fixed bottom-5 right-5 lg:bottom-6 lg:right-6 z-30 rounded-xl bg-white/90 px-5 py-3 font-bold text-black shadow-xl transition hover:bg-white"
+      >
+        ⓘ Credits
+      </button>
     </main>
 </>
-  );  
-
+  );
 }

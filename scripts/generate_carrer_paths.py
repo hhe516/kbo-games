@@ -206,13 +206,30 @@ if os.path.exists(override_path):
 
         overrides = json.load(f)
 
+    # 키는 선수 id (동명이인 오적용 방지)
     for player in career_paths:
 
-        if player["name"] in overrides:
+        if player["id"] in overrides:
 
             player["career"] = overrides[
-                player["name"]
+                player["id"]
             ]
+
+    # WAR 기준엔 안 들지만 해외 커리어 때문에 문제로 넣고 싶은 선수
+    existing = {p["id"] for p in career_paths}
+    players_by_id = {p["id"]: p for p in players}
+
+    for pid, career in overrides.items():
+
+        if pid in existing or pid not in players_by_id:
+            continue
+
+        career_paths.append({
+            "id": pid,
+            "name": players_by_id[pid]["name"],
+            "position": players_by_id[pid]["position"],
+            "career": career
+        })
 
 random.shuffle(career_paths)
 # --------------------------------
