@@ -386,7 +386,7 @@ export default function GridGame({ daily = false }) {
                                 >
                                   <span className="font-bold">{p.name}</span>
                                   <span className="text-sm text-gray-500 text-right">
-                                    {p.birthYear}년생 · {p.kboTeams.join("·")}
+                                    {p.birthYear}년생
                                   </span>
                                 </div>
                               ))}
