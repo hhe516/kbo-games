@@ -136,12 +136,19 @@ for pid, career in load('career_overrides.json').items():
 awards = dict(sorted(awards.items()))
 save('player_awards.json', awards, indent=1)
 
+# 개명 등으로 기록 파일 이름이 현재 이름과 다른 선수 (id 는 그대로 두고 표시 이름만 바꿈)
+NAME_FIX = {
+    "변시원_1993년 04월 01일": "변진수",  # 변진수 → 변시원 → 다시 변진수
+}
+
 flags = load('players_flags.json')
 for fname in TARGETS:
     rows = load(fname)
     for p in rows:
         a = awards.get(p['id'], {})
         fl = flags.get(p['id'], {})
+        if p['id'] in NAME_FIX:
+            p['name'] = NAME_FIX[p['id']]
         p['goldGlove'] = len(a.get('gg', []))
         p['mvp'] = len(a.get('mvp', []))
         p['rookie'] = bool(a.get('roy'))
