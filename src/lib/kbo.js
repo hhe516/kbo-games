@@ -88,7 +88,7 @@ export async function loadPool() {
 // 데일리: 날짜(한국 시간)로 고정되는 난수
 // -----------------------------
 
-export const DAILY_START = "2026-10-12"; // 데일리 #1
+export const DAILY_START = "2026-10-13"; // 데일리 #1
 
 // 한국 시간 기준 오늘 날짜 "YYYY-MM-DD"
 export const todayKST = (now = Date.now()) =>
