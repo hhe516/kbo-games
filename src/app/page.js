@@ -301,32 +301,26 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
           </div>
         </section>
 
-        {/* 오늘 생일 */}
-        <section className="rounded-3xl bg-white/90 p-6 shadow-2xl">
-          <h2 className="mb-4 text-xl md:text-2xl font-black text-gray-900">🎂 오늘 생일인 KBO 선수</h2>
-          {birthdays === null ? (
-            <div className="text-gray-500">불러오는 중...</div>
-          ) : birthdays.length === 0 ? (
-            <div className="text-gray-500">오늘 생일인 선수가 없어요.</div>
-          ) : (
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* 오늘 생일: 한 줄 띠 */}
+        {birthdays?.length > 0 && (
+          <section className="rounded-2xl border border-white/15 bg-slate-950/60 px-4 py-3 backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="mr-1 text-sm font-black text-white">🎂 오늘 생일</span>
               {birthdays.map((p) => (
-                <div key={p.id} className="rounded-2xl bg-slate-100 p-4">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <span className="text-xl font-black">{p.name}</span>
-                    {p.active && (
-                      <span className="rounded-full bg-blue-500 px-2 py-0.5 text-xs font-bold text-white">현역</span>
-                    )}
-                  </div>
-                  <div className="mt-1 text-sm text-gray-600">
-                    {p.team} · {p.position} · {p.birthdate.slice(0, 4)}년생 ({p.turning}번째 생일)
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-gray-700">통산 WAR {p.careerWar}</div>
-                </div>
+                <span
+                  key={p.id}
+                  title={`${p.position} · 통산 WAR ${p.careerWar}`}
+                  className="rounded-full bg-white/10 px-3 py-1 text-sm text-white ring-1 ring-white/10"
+                >
+                  <b>{p.name}</b>
+                  <span className="ml-1.5 text-xs text-white/60">
+                    {p.team} · {p.turning}번째{p.active ? " · 현역" : ""}
+                  </span>
+                </span>
               ))}
             </div>
-          )}
-        </section>
+          </section>
+        )}
 
         {/* 자유 모드 */}
         <section>
