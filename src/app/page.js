@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GAMES } from "@/components/Sidebar";
+import TeamBadge from "@/app/components/TeamBadge";
 import { dailyNumber, dailyStreak, store, todayKST } from "@/lib/kbo";
 import { SYNC_EVENT } from "@/lib/supabase";
 
@@ -301,22 +302,34 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
           </div>
         </section>
 
-        {/* 오늘 생일: 한 줄 띠 */}
+        {/* 오늘 생일: 중간 크기 카드 (팀 로고 + 이름 + 몇 번째 생일) */}
         {birthdays?.length > 0 && (
-          <section className="rounded-2xl border border-white/15 bg-slate-950/60 px-4 py-3 backdrop-blur-md">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-sm font-black text-white">🎂 오늘 생일</span>
+          <section className="rounded-3xl border border-white/15 bg-slate-950/60 p-4 md:p-5 shadow-2xl backdrop-blur-md">
+            <h2 className="mb-3 text-lg md:text-xl font-black text-white">
+              🎂 오늘 생일인 선수 <span className="text-sm font-bold text-white/50">생일 축하해요!</span>
+            </h2>
+            <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3">
               {birthdays.map((p) => (
-                <span
+                <div
                   key={p.id}
-                  title={`${p.position} · 통산 WAR ${p.careerWar}`}
-                  className="rounded-full bg-white/10 px-3 py-1 text-sm text-white ring-1 ring-white/10"
+                  className="flex items-center gap-3 rounded-2xl bg-gradient-to-br from-white/15 to-white/5 px-3 py-3 ring-1 ring-white/10"
                 >
-                  <b>{p.name}</b>
-                  <span className="ml-1.5 text-xs text-white/60">
-                    {p.team} · {p.turning}번째{p.active ? " · 현역" : ""}
-                  </span>
-                </span>
+                  <div className="shrink-0">
+                    <TeamBadge team={p.team} size={36} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="truncate text-base font-black text-white">{p.name}</span>
+                      {p.active && (
+                        <span className="shrink-0 rounded-full bg-sky-500/80 px-1.5 text-[10px] font-bold text-white">현역</span>
+                      )}
+                    </div>
+                    <div className="truncate text-xs text-white/60">
+                      {p.team} · {p.position} · WAR {p.careerWar}
+                    </div>
+                    <div className="text-xs font-bold text-amber-300">🎉 {p.turning}번째 생일</div>
+                  </div>
+                </div>
               ))}
             </div>
           </section>
