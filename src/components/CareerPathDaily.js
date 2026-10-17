@@ -12,7 +12,7 @@ import {
   liftOnMobile,
   todayKST,
 } from "@/lib/kbo";
-import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
+import { pushDaily, rankTag, SYNC_EVENT } from "@/lib/supabase";
 import { DailyStatsBox, useDailyStats } from "@/components/DailyStats";
 
 const CHANCES = 3;
@@ -126,7 +126,7 @@ export default function CareerPathDaily() {
     const marks = guesses
       .map((g) => (normalize(g) === normalize(answer.name) ? "🟩" : "🟥"))
       .join("");
-    return `⚾ KBO Career Path #${dailyNumber(date)} ${solved ? `${guesses.length}/${CHANCES}` : `X/${CHANCES}`}\n${marks}\nkbogames.com`;
+    return `⚾ KBO Career Path #${dailyNumber(date)} ${solved ? `${guesses.length}/${CHANCES}${rankTag(stats, score)}` : `X/${CHANCES}`}\n${marks}\nkbogames.com`;
   };
 
   const share = async () => {

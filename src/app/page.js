@@ -19,6 +19,10 @@ const DAILIES = [
     key: "whoru", href: "/daily/whoru", icon: "🤔", name: "오늘의 Who Are Ya", ready: true,
     result: (r) => (r.solved ? `✅ ${r.score}/8` : "❌ 실패"),
   },
+  {
+    key: "bingo", href: "/daily/bingo", icon: "🎱", name: "오늘의 Bingo", ready: true,
+    result: (r) => `✅ 빙고 ${r.lines ?? 0}줄 · ${r.filled ?? 0}/16`,
+  },
 ];
 
 const WEEK = ["일", "월", "화", "수", "목", "금", "토"];
@@ -226,7 +230,7 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
         {/* 오늘의 문제 */}
         <section>
           <h2 className="mb-3 text-xl md:text-2xl font-black text-white">📅 오늘의 문제</h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2">
             {DAILIES.map((g) => {
               const rec = progress[g.key];
               const status = !g.ready

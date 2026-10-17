@@ -22,8 +22,8 @@ create or replace function public.submit_daily(
 ) returns void
 language sql security definer set search_path = public as $$
   insert into daily_plays (client_id, game, day, score, solved, picks)
-  select left(p_client, 64), p_game, p_day, greatest(0, least(p_score, 1000)), p_solved, p_picks
-  where p_game in ('grid', 'careerpath', 'whoru')
+  select left(p_client, 64), p_game, p_day, greatest(0, least(p_score, 100000)), p_solved, p_picks
+  where p_game in ('grid', 'careerpath', 'whoru', 'bingo')
     and p_day between (now() at time zone 'Asia/Seoul')::date - 1 and (now() at time zone 'Asia/Seoul')::date + 1
   on conflict (client_id, game, day) do nothing;
 $$;

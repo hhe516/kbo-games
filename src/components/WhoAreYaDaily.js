@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import TeamBadge from "@/app/components/TeamBadge";
 import { addDays, dailyNumber, liftOnMobile, seededRandom, store, streakUntil, todayKST } from "@/lib/kbo";
-import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
+import { pushDaily, rankTag, SYNC_EVENT } from "@/lib/supabase";
 import { DailyStatsBox, useDailyStats } from "@/components/DailyStats";
 
 const CHANCES = 8;
@@ -121,7 +121,7 @@ export default function WhoAreYaDaily() {
         (r.age === "same" ? "🟩" : r.age === "up" ? "⬆️" : "⬇️")
       )
       .join("\n");
-    return `⚾ KBO Who Are Ya #${dailyNumber(date)} ${solved ? guesses.length : "X"}/${CHANCES}\n${rows}\nkbogames.com`;
+    return `⚾ KBO Who Are Ya #${dailyNumber(date)} ${solved ? guesses.length : "X"}/${CHANCES}${solved ? rankTag(stats, statScore) : ""}\n${rows}\nkbogames.com`;
   };
 
   const share = async () => {

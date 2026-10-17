@@ -14,7 +14,7 @@ import {
   liftOnMobile,
   todayKST,
 } from "@/lib/kbo";
-import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
+import { pushDaily, rankTag, SYNC_EVENT } from "@/lib/supabase";
 import { DailyStatsBox, useDailyStats } from "@/components/DailyStats";
 
 // -----------------------------
@@ -260,7 +260,7 @@ export default function GridGame({ daily = false }) {
     const rows = [0, 1, 2]
       .map((r) => [0, 1, 2].map((c) => (filled[r * 3 + c] ? "🟩" : "⬜")).join(""))
       .join("\n");
-    return `⚾ KBO Grid #${dailyNumber(date)} ${filledCount}/9 · ${points}점\n${rows}\nkbogames.com`;
+    return `⚾ KBO Grid #${dailyNumber(date)} ${filledCount}/9 · ${points}점${rankTag(stats, points)}\n${rows}\nkbogames.com`;
   };
 
   const share = async () => {

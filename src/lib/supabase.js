@@ -134,6 +134,12 @@ export async function fetchDailyStats(game, day) {
   }
 }
 
+// 공유 문구에 붙이는 순위 " (상위 n%)" — 참여자가 너무 적으면 안 붙임
+export function rankTag(stats, myScore) {
+  if (!stats || stats.players < 5) return "";
+  return ` (상위 ${topPercent(stats, myScore)}%)`;
+}
+
 // 내 점수보다 높은 사람 비율 → "상위 n%"
 export function topPercent(stats, myScore) {
   if (!stats || !stats.players) return null;

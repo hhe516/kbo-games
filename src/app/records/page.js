@@ -41,6 +41,18 @@ const GAMES = [
     bucketLabel: (b) => (b === "X" ? "실패" : `${b}번`),
     short: (r) => (r.solved ? `${r.score}/8` : "X"),
   },
+  {
+    key: "bingo",
+    icon: "🎱",
+    name: "Bingo",
+    href: "/daily/bingo",
+    win: (r) => r.filled === 16, // 올 클리어
+    // 분포: 빙고 줄 수
+    buckets: ["5", "4", "3", "2", "1", "0"],
+    bucket: (r) => String(Math.min(5, r.lines ?? 0)),
+    bucketLabel: (b) => (b === "5" ? "5줄+" : `${b}줄`),
+    short: (r) => `${r.lines ?? 0}줄 ${r.filled ?? 0}/16`,
+  },
 ];
 
 // days: 오래된 날 → 오늘 순서. 끝낸 날이 이어지는 최장/현재 연속
@@ -189,7 +201,7 @@ export default function RecordsPage() {
           ))}
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {GAMES.map((g) => (
             <GameCard key={g.key} g={g} days={days} recs={recs} />
           ))}
