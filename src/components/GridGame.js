@@ -23,7 +23,17 @@ const LIVES = 3; // 틀려도 되는 횟수
 const MIN_ANSWERS = 3; // 칸마다 이름 있는 선수(WAR 5+)로 풀 수 있는 답이 최소 이만큼은 있어야 출제
 const NOTABLE_WAR = 5;
 const TIMER_SECONDS = 180; // 타이머 모드 제한 시간
-const MAX_NOTABLE = 25; // 칸마다 이름 있는 선수(WAR 5+) 정답이 이보다 많으면 너무 쉬운 칸이라 제외
+// 난이도: 칸마다 이름 있는 선수(WAR 5+) 정답 수 상한 + 쓰지 않을 조건
+//  - 어려움: 정답 25명 이하 (데일리도 이 기준)
+//  - 쉬움: 정답 넉넉하게(50명 이하) 대신 너무 뻔한 조건(투수·내야·외야·좌타·우승 등)은 빼기
+const LEVELS = {
+  hard: { label: "어려움", max: 25, exclude: [] },
+  easy: {
+    label: "쉬움",
+    max: 50,
+    exclude: ["pos_P", "pos_IF", "pos_OF", "lhb", "ring", "journey", "oneclub", "f10"],
+  },
+};
 
 const TEAM_CONDS = CONDITIONS.filter((c) => c.group === "team");
 const OTHER_CONDS = CONDITIONS.filter((c) => c.group !== "team");
@@ -34,7 +44,8 @@ const YOUNG_TEAMS = ["team_KT", "team_NC", "team_SSG", "team_키움"];
 // -----------------------------
 
 // rng 를 넘기면(데일리) 같은 날엔 항상 같은 판이 나옴
-export function makeGrid(pool, rng = Math.random) {
+export function makeGrid(pool, rng = Math.random, level = "hard") {
+  const { max, exclude } = LEVELS[level];
   for (let tries = 0; tries < 3000; tries++) {
     // 구단은 가로 3개 + 세로 0~1개. KT·NC·SSG·키움은 한 판에 최대 2개
     const teamCols = rng() < 0.3 ? 1 : 0;
@@ -50,7 +61,7 @@ export function makeGrid(pool, rng = Math.random) {
     const rows = teams.slice(0, 3);
     const cols = [...teams.slice(3)];
     const usedGroups = new Set();
-    for (const c of shuffle(OTHER_CONDS, rng)) {
+    for (const c of shuffle(OTHER_CONDS.filter((c) => !exclude.includes(c.id)), rng)) {
       if (cols.length === 3) break;
       if (usedGroups.has(c.group)) continue;
       usedGroups.add(c.group);
@@ -64,7 +75,7 @@ export function makeGrid(pool, rng = Math.random) {
       for (const c of colsShuffled) {
         const list = pool.filter((p) => r.test(p) && c.test(p));
         const notable = list.filter((p) => p.careerWar >= NOTABLE_WAR).length;
-        if (notable < MIN_ANSWERS || notable > MAX_NOTABLE) ok = false;
+        if (notable < MIN_ANSWERS || notable > max) ok = false;
         answers.push(list);
       }
     }
@@ -105,7 +116,7 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
             <li>한국시리즈 우승은 우승한 해에 그 팀 소속으로 1군에 출전한 경우를 셉니다. 통산 기록·시즌 수는 KBO 1군 기준(2025년까지)입니다.</li>
             <li>한 선수는 한 칸에만 쓸 수 있습니다.</li>
             <li>틀리면 목숨이 하나 줄어듭니다. (총 {LIVES}개)</li>
-            <li>자유 모드에서는 일반 / 타이머({TIMER_SECONDS / 60}분) 중에 고를 수 있어요. 시간이 끝나면 그때까지 채운 칸으로 끝납니다.</li>
+            <li>자유 모드에서는 난이도(쉬움 / 어려움)와 일반 / 타이머({TIMER_SECONDS / 60}분)를 고를 수 있어요. 쉬움은 칸마다 정답이 넉넉하고, 투수·내야수 같은 뻔한 조건은 안 나와요. 오늘의 Grid는 어려움 기준입니다.</li>
             <li>구단 칸은 그 팀 소속으로 <b>1군 경기에 출전한 기록</b>이 있어야 인정됩니다. 지명·입단만 하고 2군에만 있었던 경우는 안 쳐요. 옛 이름까지 포함합니다. (예: KIA·해태)</li>
             <li>KBO 1군 기록이 있는 선수라면 누구든 정답으로 인정됩니다. 덜 알려진 선수로 채울수록 고수!</li>
             <li>칸을 채우거나 게임이 끝나면 그 칸의 정답 가능한 선수 수가 나옵니다.</li>
@@ -147,6 +158,7 @@ export default function GridGame({ daily = false }) {
   const [input, setInput] = useState("");
   const [lives, setLives] = useState(LIVES);
   const [gaveUp, setGaveUp] = useState(false);
+  const [level, setLevel] = useState("hard"); // 자유 모드 난이도
   const [timed, setTimed] = useState(false); // 자유 모드에서만: 타이머 모드
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
   const [message, setMessage] = useState(null); // {ok, text}
@@ -291,10 +303,11 @@ export default function GridGame({ daily = false }) {
     }
   };
 
-  const newGame = (withTimer = timed) => {
+  const newGame = (withTimer = timed, lv = level) => {
+    setLevel(lv);
     setTimed(withTimer);
     setTimeLeft(TIMER_SECONDS);
-    setGrid(makeGrid(pool));
+    setGrid(makeGrid(pool, Math.random, lv));
     setFilled({});
     setSelected(null);
     setInput("");
@@ -378,6 +391,21 @@ export default function GridGame({ daily = false }) {
 
               {/* 오른쪽: 상태 · 입력 · 결과 */}
               <div className="flex flex-col gap-3 min-h-0">
+                {!daily && (
+                  <div className="grid grid-cols-2 gap-2">
+                    {Object.entries(LEVELS).reverse().map(([key, lv]) => (
+                      <button
+                        key={key}
+                        onClick={() => newGame(timed, key)}
+                        className={`rounded-xl py-2 font-bold ${
+                          level === key ? "bg-blue-600 text-white" : "bg-slate-100 text-gray-600 hover:bg-slate-200"
+                        }`}
+                      >
+                        {lv.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
                 {!daily && (
                   <div className="grid grid-cols-2 gap-2">
                     {[
