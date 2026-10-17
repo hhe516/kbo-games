@@ -29,6 +29,10 @@ function NavList({ pathname, onNavigate }) {
         <span className="text-xl w-7 text-center">🏠</span>
         <span>홈</span>
       </Link>
+      <Link href="/records" onClick={onNavigate} className={item(pathname.startsWith("/records"))}>
+        <span className="text-xl w-7 text-center">📈</span>
+        <span>내 기록</span>
+      </Link>
 
       <div className="mt-4 mb-1 px-3 text-xs font-bold tracking-widest text-slate-500">GAMES</div>
 

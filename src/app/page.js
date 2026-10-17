@@ -213,9 +213,12 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
           <div className="mt-3 text-lg md:text-xl font-bold text-white/80">
             {dateLabel}
             {today && (
-              <span className="ml-3 rounded-full bg-orange-500/90 px-3 py-1 text-sm text-white">
-                🔥 {streak}일 연속
-              </span>
+              <Link
+                href="/records"
+                className="ml-3 rounded-full bg-orange-500/90 px-3 py-1 text-sm text-white hover:bg-orange-400"
+              >
+                🔥 {streak}일 연속 · 내 기록 →
+              </Link>
             )}
           </div>
         </div>
