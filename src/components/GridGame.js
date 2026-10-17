@@ -15,6 +15,7 @@ import {
   todayKST,
 } from "@/lib/kbo";
 import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
+import { DailyStatsBox, useDailyStats } from "@/components/DailyStats";
 
 // -----------------------------
 // 설정
@@ -239,6 +240,20 @@ export default function GridGame({ daily = false }) {
     if (filledCount > 0 || lives < LIVES || gaveUp) pushDaily("grid", date, rec);
   }, [daily, date, grid, filled, lives, gaveUp, over, filledCount, points]);
 
+  // 데일리 통계: 점수 = 희귀도 점수 합, picks = 칸별로 고른 선수
+  const pickIds = useMemo(
+    () => Object.fromEntries(Object.entries(filled).map(([i, p]) => [i, p.id])),
+    [filled]
+  );
+  const stats = useDailyStats("grid", date, daily && over, { score: points, solved: filledCount === 9, picks: pickIds });
+  // 이 칸에서 이 선수를 고른 비율 (그 칸을 채운 사람 중)
+  const pickRate = (i, id) => {
+    const cell = stats?.picks?.[i];
+    if (!cell) return null;
+    const total = Object.values(cell).reduce((a, c) => a + c, 0);
+    return total ? Math.round(((cell[id] || 0) / total) * 100) : null;
+  };
+
   const streak = prevStreak + (over ? 1 : 0);
 
   const shareText = () => {
@@ -325,7 +340,11 @@ export default function GridGame({ daily = false }) {
   }
 
   const revealList =
-    reveal !== null ? [...grid.answers[reveal]].sort((a, b) => b.careerWar - a.careerWar) : [];
+    reveal !== null
+      ? [...grid.answers[reveal]].sort(
+          (a, b) => (pickRate(reveal, b.id) ?? 0) - (pickRate(reveal, a.id) ?? 0) || b.careerWar - a.careerWar
+        )
+      : [];
 
   return (
     <>
@@ -385,6 +404,7 @@ export default function GridGame({ daily = false }) {
                       over={over}
                       reveal={reveal}
                       pickCell={pickCell}
+                      pickRate={daily ? pickRate : () => null}
                     />
                   ))}
                 </div>
@@ -521,6 +541,15 @@ export default function GridGame({ daily = false }) {
                     {daily ? (
                       <>
                         <div className="mt-2 text-sm font-bold text-orange-600">🔥 {streak}일 연속</div>
+                        <DailyStatsBox
+                          stats={stats}
+                          myScore={points}
+                          lines={
+                            stats?.players
+                              ? [`평균 ${stats.avg}점 · 올 클리어 ${Math.round((stats.solved / stats.players) * 100)}%`]
+                              : []
+                          }
+                        />
                         <div className="mt-4 flex gap-2 justify-center">
                           <button
                             onClick={share}
@@ -562,6 +591,9 @@ export default function GridGame({ daily = false }) {
                           }`}
                         >
                           {p.name}
+                          {daily && pickRate(reveal, p.id) ? (
+                            <span className="ml-1 text-xs text-gray-500">{pickRate(reveal, p.id)}%</span>
+                          ) : null}
                         </span>
                       ))}
                     </div>
@@ -596,7 +628,7 @@ export default function GridGame({ daily = false }) {
 }
 
 // 가로줄 하나: 줄 머리 + 칸 3개
-function RowCells({ r, ri, grid, filled, selected, over, reveal, pickCell }) {
+function RowCells({ r, ri, grid, filled, selected, over, reveal, pickCell, pickRate }) {
   return (
     <>
       <div className="aspect-square rounded-xl bg-slate-800 text-white flex items-center justify-center text-center p-1 text-xs md:text-base font-black leading-tight break-keep">
@@ -606,6 +638,7 @@ function RowCells({ r, ri, grid, filled, selected, over, reveal, pickCell }) {
         const i = ri * 3 + ci;
         const p = filled[i];
         const active = selected === i || (over && reveal === i);
+        const rate = p && over ? pickRate(i, p.id) : null;
         return (
           <button
             key={c.id}
@@ -624,6 +657,7 @@ ${active ? "ring-4 ring-blue-400 border-blue-500" : ""}
             <span className={`mt-1 text-[10px] md:text-xs ${p ? "text-green-900" : "text-gray-400"}`}>
               {p ? `+${rarityPoints(grid.answers[i], p)}점 · ${grid.answers[i].length}명 중` : over ? `${grid.answers[i].length}명 가능` : ""}
             </span>
+            {rate != null && <span className="text-[10px] md:text-xs font-bold text-green-950">선택률 {rate}%</span>}
           </button>
         );
       })}

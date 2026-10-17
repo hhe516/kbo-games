@@ -91,3 +91,55 @@ export async function syncDaily() {
     return false;
   }
 }
+
+// -----------------------------
+// 오늘의 문제 통계 (scripts/supabase/stats.sql)
+// -----------------------------
+
+// 브라우저마다 랜덤 id 하나 (익명 집계용, 개인정보 아님)
+function clientId() {
+  let id = store.get("kbo_client_id");
+  if (!id) {
+    id = crypto.randomUUID();
+    store.set("kbo_client_id", id);
+  }
+  return id;
+}
+
+// 끝낸 데일리 결과를 통계에 한 번만 제출
+export async function submitDaily(game, day, { score, solved, picks = null }) {
+  const key = `daily_submitted_${game}_${day}`;
+  if (store.get(key)) return;
+  try {
+    const { error } = await supabase.rpc("submit_daily", {
+      p_client: clientId(),
+      p_game: game,
+      p_day: day,
+      p_score: Math.round(score),
+      p_solved: !!solved,
+      p_picks: picks,
+    });
+    if (!error) store.set(key, true);
+  } catch {
+    // 통계 제출 실패는 게임에 영향 없음
+  }
+}
+
+export async function fetchDailyStats(game, day) {
+  try {
+    const { data, error } = await supabase.rpc("daily_stats", { p_game: game, p_day: day });
+    return error ? null : data;
+  } catch {
+    return null;
+  }
+}
+
+// 내 점수보다 높은 사람 비율 → "상위 n%"
+export function topPercent(stats, myScore) {
+  if (!stats || !stats.players) return null;
+  const better = Object.entries(stats.dist || {}).reduce(
+    (sum, [s, c]) => sum + (Number(s) > myScore ? c : 0),
+    0
+  );
+  return Math.max(1, Math.round(((better + 1) / stats.players) * 100));
+}

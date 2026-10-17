@@ -13,6 +13,7 @@ import {
   todayKST,
 } from "@/lib/kbo";
 import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
+import { DailyStatsBox, useDailyStats } from "@/components/DailyStats";
 
 const CHANCES = 3;
 const GAME = "careerpath";
@@ -83,6 +84,7 @@ export default function CareerPathDaily() {
   const over = solved || wrongCount >= CHANCES;
   const score = solved ? CHANCES - wrongCount : 0; // 첫 시도에 맞히면 3점
   const streak = prevStreak + (over ? 1 : 0);
+  const stats = useDailyStats(GAME, date, over, { score, solved });
 
   // 진행 저장 (브라우저 + 로그인 시 서버)
   useEffect(() => {
@@ -259,6 +261,20 @@ export default function CareerPathDaily() {
                 정답: <span className="font-black">{answer.name}</span>
               </div>
               <div className="mt-2 text-sm font-bold text-orange-600">🔥 {streak}일 연속</div>
+              <DailyStatsBox
+                stats={stats}
+                myScore={score}
+                lines={
+                  stats?.players
+                    ? [
+                        [1, 2, 3]
+                          .map((t) => `${t}번 만에 ${Math.round(((stats.dist?.[CHANCES + 1 - t] || 0) / stats.players) * 100)}%`)
+                          .concat(`실패 ${Math.round(((stats.players - stats.solved) / stats.players) * 100)}%`)
+                          .join(" · "),
+                      ]
+                    : []
+                }
+              />
               <div className="mt-4 flex gap-2 justify-center">
                 <button onClick={share} className="bg-green-500 hover:bg-green-400 text-white px-6 py-3 rounded-xl font-black">
                   {copied ? "복사됨!" : "결과 공유"}

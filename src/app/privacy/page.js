@@ -20,7 +20,7 @@ export default function PrivacyPage() {
       <div className="mx-auto max-w-3xl rounded-3xl bg-white p-6 md:p-10 shadow-xl space-y-8">
         <div>
           <h1 className="text-3xl font-black">개인정보처리방침</h1>
-          <p className="mt-2 text-sm text-gray-500">시행일: 2026년 10월 12일</p>
+          <p className="mt-2 text-sm text-gray-500">시행일: 2026년 10월 17일</p>
         </div>
 
         <p className="text-gray-700 leading-7">
@@ -41,12 +41,18 @@ export default function PrivacyPage() {
             <li>구글 계정 고유 식별자</li>
           </ul>
           <p>또한 이용자가 플레이한 데일리 문제의 결과(날짜, 게임 종류, 점수, 진행 상황)를 저장합니다.</p>
+          <p>
+            <strong>오늘의 문제 통계</strong>: 데일리 문제를 끝내면 로그인 여부와 관계없이 결과(날짜, 게임 종류, 점수, 정답
+            여부, 그리드에서 고른 선수)가 브라우저마다 임의로 만든 식별값과 함께 익명으로 저장됩니다. 이 값으로는 이용자가 누구인지
+            알 수 없으며, 참여 인원·평균·순위·선택률 같은 전체 통계를 보여주는 데만 씁니다.
+          </p>
         </Section>
 
         <Section title="2. 이용 목적">
           <ul className="list-disc ml-6">
             <li>로그인 및 이용자 식별</li>
             <li>데일리 문제 기록과 연속 기록을 여러 기기에서 이어서 볼 수 있도록 저장</li>
+            <li>오늘의 문제 참여자 통계(평균, 순위, 선택률) 제공</li>
           </ul>
           <p>광고, 마케팅, 판매 등 다른 목적으로는 사용하지 않습니다.</p>
         </Section>

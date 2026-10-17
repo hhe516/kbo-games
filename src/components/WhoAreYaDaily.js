@@ -5,9 +5,18 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import TeamBadge from "@/app/components/TeamBadge";
 import { addDays, dailyNumber, liftOnMobile, seededRandom, store, streakUntil, todayKST } from "@/lib/kbo";
 import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
+import { DailyStatsBox, useDailyStats } from "@/components/DailyStats";
 
 const CHANCES = 8;
 const GAME = "whoru";
+
+// 정답자들의 평균 시도 횟수 (통계 점수 → 시도 횟수로 되돌려서)
+function avgTries(stats, toTries) {
+  const rows = Object.entries(stats?.dist || {}).filter(([s]) => Number(s) > 0);
+  const n = rows.reduce((a, [, c]) => a + c, 0);
+  if (!n) return null;
+  return (rows.reduce((a, [s, c]) => a + toTries(Number(s)) * c, 0) / n).toFixed(1);
+}
 
 // 같은 날엔 같은 선수 (데이터 파일 순서가 바뀌어도 id 순으로 정렬해서 고름)
 function pickAnswer(players, today) {
@@ -80,6 +89,9 @@ export default function WhoAreYaDaily() {
   const over = solved || guesses.length >= CHANCES;
   const score = solved ? guesses.length : 0;
   const streak = prevStreak + (over ? 1 : 0);
+  // 통계용 점수는 클수록 잘한 것: 1번 만에 맞히면 8점, 8번이면 1점, 실패 0점
+  const statScore = solved ? CHANCES + 1 - guesses.length : 0;
+  const stats = useDailyStats(GAME, date, over, { score: statScore, solved });
 
   useEffect(() => {
     if (!date || !answer || guessIds.length === 0) return;
@@ -204,6 +216,20 @@ export default function WhoAreYaDaily() {
                 </span>
               </div>
               <div className="mt-2 text-sm font-bold text-orange-600">🔥 {streak}일 연속</div>
+              <DailyStatsBox
+                stats={stats}
+                myScore={statScore}
+                lines={
+                  stats?.players
+                    ? [
+                        `정답률 ${Math.round((stats.solved / stats.players) * 100)}%` +
+                          (avgTries(stats, (s) => CHANCES + 1 - s)
+                            ? ` · 정답자 평균 ${avgTries(stats, (s) => CHANCES + 1 - s)}번 만에`
+                            : ""),
+                      ]
+                    : []
+                }
+              />
               <div className="mt-4 flex gap-2 justify-center">
                 <button onClick={share} className="bg-green-500 hover:bg-green-400 text-white px-6 py-3 rounded-xl font-black">
                   {copied ? "복사됨!" : "결과 공유"}
