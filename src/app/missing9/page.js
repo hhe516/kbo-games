@@ -11,9 +11,11 @@ import { liftOnMobile, store } from "@/lib/kbo";
 const MAX_WRONG = 6; // 한 칸에서 6번 틀리면 그 칸은 실패
 const HINT_AT = { season: 1, school: 3, initials: 5 }; // 몇 번째 오답부터 힌트 공개
 
-const TEAMS = ["전체", "골든글러브", "대한민국", "삼성", "두산", "LG", "롯데", "KIA", "한화", "SSG", "KT", "키움", "NC"];
+const TEAMS = ["골든글러브", "대한민국", "삼성", "두산", "LG", "롯데", "KIA", "한화", "SSG", "KT", "키움", "NC", "현대", "전체"];
 // 옛 이름까지 같은 팀으로
-const TEAM_GROUP = { SSG: ["SSG", "SK"], 키움: ["키움", "넥센", "우리"] };
+const TEAM_GROUP = { SSG: ["SSG", "SK"], 키움: ["키움", "넥센", "우리"], KIA: ["KIA", "해태"] };
+// 목록 화면에서 묶어 보여줄 순서
+const CATEGORIES = ["골든글러브", "국제대회", "한국시리즈", "포스트시즌", "시즌 베스트"];
 
 // 야구장 위 카드 위치 (가로 %, 세로 %)
 const SPOT = {
@@ -83,7 +85,7 @@ function RuleModal({ onClose }) {
               <li>골든글러브: 그해 골든글러브 수상자 10명. 외야 3명은 아무 외야 칸에 넣어도 됩니다.</li>
               <li>
                 시즌 베스트: 그 시즌 포지션별로 <b>타석이 가장 많았던 주전</b>, 지명타자는 그다음으로 많이 나온 타자, 투수는
-                선발 등판이 가장 많은 투수. 외야 3명은 순서 상관없이 아무 외야 칸에 넣어도 됩니다.
+                이닝을 가장 많이 던진 투수. 2000년부터 모든 팀·시즌이 있어요. 외야 3명은 순서 상관없이 아무 외야 칸에 넣어도 됩니다.
               </li>
             </ul>
           </div>
@@ -249,6 +251,7 @@ export default function Missing9() {
   const [games, setGames] = useState([]);
   const [players, setPlayers] = useState([]);
   const [team, setTeam] = useState(null);
+  const [playing, setPlaying] = useState(false); // false = 그 팀 문제 목록, true = 문제 푸는 중
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState({}); // 포지션 → {solved, failed, wrong}
   const [gaveUp, setGaveUp] = useState(false);
@@ -370,9 +373,8 @@ export default function Missing9() {
                   <button
                     key={t}
                     onClick={() => {
-                      const l = t === "전체" ? games : mine;
                       setTeam(t);
-                      openGame(0, l);
+                      setPlaying(false);
                     }}
                     className="rounded-xl bg-white text-black hover:bg-zinc-200 py-3 font-black shadow-lg"
                   >
@@ -390,6 +392,77 @@ export default function Missing9() {
           </div>
         </div>
       </>
+    );
+  }
+
+  // -----------------------------
+  // 그 팀 문제 목록 (종류별로 묶고, 푼 문제는 표시)
+  // -----------------------------
+  if (!playing) {
+    const short = (g) =>
+      g.category === "시즌 베스트" || g.category === "골든글러브"
+        ? g.title.slice(0, 4) + (team === "전체" && g.category === "시즌 베스트" ? ` ${g.team}` : "")
+        : g.title;
+    return (
+      <div
+        className="min-h-screen text-white relative px-3 py-6 md:px-6"
+        style={{ backgroundImage: "url('/stadium_bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        {showRule && <RuleModal onClose={() => setShowRule(false)} />}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 mx-auto w-full max-w-4xl">
+          <div className="flex items-center justify-between gap-2 mb-4">
+            <button onClick={() => setTeam(null)} className="bg-sky-600 hover:bg-sky-500 px-3 py-2 rounded-xl font-bold text-sm">
+              ← 팀 선택
+            </button>
+            <h1 className="text-2xl md:text-3xl font-black">{team}</h1>
+            <button onClick={() => setShowRule(true)} className="bg-white text-black hover:bg-zinc-200 px-3 py-2 rounded-xl font-bold text-sm">
+              📖 규칙
+            </button>
+          </div>
+
+          <div className="space-y-4">
+            {CATEGORIES.map((cat) => {
+              const items = list.map((g, i) => ({ g, i })).filter(({ g }) => g.category === cat);
+              if (!items.length) return null;
+              return (
+                <section key={cat} className="rounded-3xl border border-white/15 bg-slate-950/60 p-4 backdrop-blur-md">
+                  <h2 className="mb-3 font-black">
+                    {cat} <span className="text-sm text-white/50">{items.length}문제</span>
+                  </h2>
+                  <div className="flex flex-wrap gap-2">
+                    {items.map(({ g, i }) => {
+                      const rec = store.get(saveKey(g));
+                      const clear = rec?.over && rec.solved === rec.total;
+                      return (
+                        <button
+                          key={g.title}
+                          onClick={() => {
+                            openGame(i);
+                            setPlaying(true);
+                          }}
+                          className={`rounded-xl px-3 py-2 text-sm font-bold transition ${
+                            clear
+                              ? "bg-emerald-500/25 text-emerald-200 ring-1 ring-emerald-400/50"
+                              : rec?.over
+                                ? "bg-white/15 text-white ring-1 ring-white/20"
+                                : rec
+                                  ? "bg-orange-500/20 text-orange-200 ring-1 ring-orange-400/40"
+                                  : "bg-white text-slate-900 hover:bg-zinc-200"
+                          }`}
+                        >
+                          {short(g)}
+                          {clear ? " ✅" : rec?.over ? ` ${rec.solved}/${rec.total}` : rec ? " …" : ""}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     );
   }
 
@@ -421,8 +494,8 @@ export default function Missing9() {
             <Link href="/" className="bg-gray-200 text-black hover:bg-gray-300 px-3 py-2 rounded-xl font-bold text-sm">
               🏠 홈
             </Link>
-            <button onClick={() => setTeam(null)} className="bg-sky-600 hover:bg-sky-500 px-3 py-2 rounded-xl font-bold text-sm">
-              팀 선택
+            <button onClick={() => setPlaying(false)} className="bg-sky-600 hover:bg-sky-500 px-3 py-2 rounded-xl font-bold text-sm">
+              목록
             </button>
           </div>
           <button onClick={() => setShowRule(true)} className="bg-white text-black hover:bg-zinc-200 px-3 py-2 rounded-xl font-bold text-sm">

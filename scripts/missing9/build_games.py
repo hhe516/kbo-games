@@ -6,7 +6,7 @@ Missing 9 문제 데이터(public/data/games.json) 정리
      (예전엔 WAR 순이라 백업 선수가 주전 대신 뽑히는 경우가 많았음)
    - 외야 3명: LF/CF/RF/OF 중 타석 많은 순
    - 지명타자: 남은 타자 중 타석 가장 많은 선수 (지명 전문이 아니어도 10번째 주전)
-   - 투수: 선발 등판(GS) → 이닝 순
+   - 투수: 그 시즌 이닝 가장 많은 투수(에이스)
 2) 실제 경기 라인업: 이름만 있던 선수에 id 를 붙임 (동명이인 힌트가 엉뚱하게 나오던 문제)
    - 그해 그 팀(국제대회는 아무 팀)에서 1군 기록이 있는 선수 중에서 고르고,
      그래도 여럿이면 그 경기 포지션과 기록상 포지션이 맞는 쪽
@@ -67,7 +67,7 @@ def season_best(team, year):
     used = set()
     lineup = []
 
-    ace = pit.sort_values(["GS", "IP"], ascending=False).iloc[0]
+    ace = pit.sort_values(["IP", "GS"], ascending=False).iloc[0]
     lineup.append({"position": "P", "id": ace["pid"], "name": ace["Name"]})
 
     def take(pos_list, label):
@@ -75,13 +75,17 @@ def season_best(team, year):
             if r["pid"] not in used and r["Pos."] in pos_list:
                 used.add(r["pid"])
                 lineup.append({"position": label, "id": r["pid"], "name": r["Name"]})
-                return
-        sys.exit(f"{year} {team} {label} 못 찾음")
+                return True
+        return False
 
+    # 그 포지션 주전이 없으면(주 포지션이 다른 칸으로 잡힌 경우) 내야 전체(IF) → 지명(DH)·1루 자원 순으로
+    FALLBACK = {"1B": ["IF", "DH", "3B"], "2B": ["IF", "SS"], "SS": ["IF", "2B"], "3B": ["IF", "1B"], "C": []}
     for pos in ["C", "1B", "2B", "SS", "3B"]:
-        take([pos], pos)
+        if not take([pos], pos) and not take(FALLBACK[pos], pos):
+            sys.exit(f"{year} {team} {pos} 못 찾음")
     for i in range(3):
-        take(OF, f"OF{i + 1}")
+        if not take(OF, f"OF{i + 1}"):
+            sys.exit(f"{year} {team} 외야 못 찾음")
     take(list(bat["Pos."].unique()), "DH")
     return lineup
 
@@ -218,9 +222,23 @@ def add_hints(g):
         l["hint"] = hint
 
 
+# 시즌 베스트를 만들 시즌: 2000~마지막 시즌, 그해 1군에 있던 모든 팀
+SEASON_FROM = 2000
+
+
+def season_list():
+    last = int(batting["Year"].max())
+    pairs = batting[batting["Year"] >= SEASON_FROM][["Team", "Year"]].drop_duplicates()
+    return sorted(((t, int(y)) for t, y in pairs.itertuples(index=False)), key=lambda x: (-x[1], x[0]))
+
+
 games = json.load(open(GAMES, encoding="utf-8"))
-# 다시 돌려도 되게: 예전에 만든 골든글러브 문제는 빼고 새로 만듦
-games = [g for g in games if g["category"] != "골든글러브"]
+# 다시 돌려도 되게: 골든글러브·시즌 베스트는 매번 새로 만들고, 실제 경기만 그대로 둠
+games = [g for g in games if g["category"] not in ("골든글러브", "시즌 베스트")]
+games += [
+    {"title": f"{y} {t} 베스트", "team": t, "opponent": "-", "category": "시즌 베스트", "lineup": []}
+    for t, y in season_list()
+]
 out = []
 problems = []
 for g in games:
