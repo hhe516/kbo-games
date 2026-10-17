@@ -359,7 +359,7 @@ export default function CareerPath() {
       )}
 
       <main
-        className="min-h-screen bg-cover bg-center p-6 flex items-center justify-center"
+        className="min-h-screen bg-cover bg-center p-3 md:p-6 flex items-center justify-center"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?q=80&w=2070&auto=format&fit=crop')",
@@ -370,20 +370,20 @@ export default function CareerPath() {
 
         <div className="relative z-10 w-full max-w-3xl">
 
-          <div className="bg-white/90 rounded-3xl shadow-2xl p-8">
+          <div className="bg-white/90 rounded-3xl shadow-2xl p-5 md:p-8">
 
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex justify-between items-center gap-2 mb-6 md:mb-8">
 
               <Link
                 href="/"
-                className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-xl font-bold"
+                className="bg-gray-200 hover:bg-gray-300 px-3 md:px-4 py-2 rounded-xl font-bold shrink-0 whitespace-nowrap"
               >
 
                 🏠 홈
 
               </Link>
 
-              <h1 className="text-4xl font-black">
+              <h1 className="text-2xl md:text-4xl font-black text-center whitespace-nowrap">
 
                 ⚾ Career Path
 
@@ -395,7 +395,7 @@ export default function CareerPath() {
                   문제 번호
                 </div>
 
-                <div className="text-xl font-black">
+                <div className="text-base md:text-xl font-black whitespace-nowrap">
                   {currentIndex + 1} / {players.length}
                 </div>
 
@@ -403,7 +403,7 @@ export default function CareerPath() {
                   남은 기회
                 </div>
 
-                <div className="text-3xl font-black">
+                <div className="text-2xl md:text-3xl font-black">
                   {3 - attempts}
                 </div>
 
