@@ -2,473 +2,1512 @@
   {
     "title": "2008 베이징 올림픽 결승",
     "category": "국제대회",
-      "team": "대한민국",
-  "opponent": "쿠바",
+    "team": "대한민국",
+    "opponent": "쿠바",
     "lineup": [
-      { "position": "CF", "name": "이종욱", "throws": "", "bats": "" },
-      { "position": "2B", "name": "고영민", "throws": "", "bats": "" },
-      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
-      { "position": "1B", "name": "이승엽", "throws": "", "bats": "" },
-      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
-      { "position": "RF", "name": "이용규", "throws": "", "bats": "" },
-      { "position": "3B", "name": "김동주", "throws": "", "bats": "" },
-      { "position": "SS", "name": "박진만", "throws": "", "bats": "" },
-      { "position": "C", "name": "강민호", "throws": "", "bats": "" },
-      { "position": "P", "name": "류현진", "throws": "", "bats": "" }
+      {
+        "position": "CF",
+        "id": "이종욱_1980년 06월 18일",
+        "name": "이종욱"
+      },
+      {
+        "position": "2B",
+        "id": "고영민_1984년 02월 08일",
+        "name": "고영민"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "1B",
+        "id": "이승엽_1976년 08월 18일",
+        "name": "이승엽"
+      },
+      {
+        "position": "DH",
+        "id": "이대호_1982년 06월 21일",
+        "name": "이대호"
+      },
+      {
+        "position": "RF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "3B",
+        "id": "김동주_1976년 02월 03일",
+        "name": "김동주"
+      },
+      {
+        "position": "SS",
+        "id": "박진만_1976년 11월 30일",
+        "name": "박진만"
+      },
+      {
+        "position": "C",
+        "id": "강민호_1985년 08월 18일",
+        "name": "강민호"
+      },
+      {
+        "position": "P",
+        "id": "류현진_1987년 03월 25일",
+        "name": "류현진"
+      }
     ]
   },
-
   {
     "title": "2009 WBC 결승",
     "category": "국제대회",
-      "team": "대한민국",
-  "opponent": "일본",
+    "team": "대한민국",
+    "opponent": "일본",
     "lineup": [
-      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
-      { "position": "2B", "name": "고영민", "throws": "", "bats": "" },
-      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
-      { "position": "RF", "name": "추신수", "throws": "", "bats": "" },
-      { "position": "1B", "name": "김태균", "throws": "", "bats": "" },
-      { "position": "DH", "name": "이진영", "throws": "", "bats": "" },
-      { "position": "3B", "name": "이범호", "throws": "", "bats": "" },
-      { "position": "SS", "name": "박기혁", "throws": "", "bats": "" },
-      { "position": "C", "name": "박경완", "throws": "", "bats": "" },
-      { "position": "P", "name": "봉중근", "throws": "", "bats": "" }
+      {
+        "position": "CF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "2B",
+        "id": "고영민_1984년 02월 08일",
+        "name": "고영민"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "RF",
+        "id": "추신수_1982년 07월 13일",
+        "name": "추신수"
+      },
+      {
+        "position": "1B",
+        "id": "김태균_1982년 05월 29일",
+        "name": "김태균"
+      },
+      {
+        "position": "DH",
+        "id": "이진영_1980년 06월 15일",
+        "name": "이진영"
+      },
+      {
+        "position": "3B",
+        "id": "이범호_1981년 11월 25일",
+        "name": "이범호"
+      },
+      {
+        "position": "SS",
+        "id": "박기혁_1981년 06월 04일",
+        "name": "박기혁"
+      },
+      {
+        "position": "C",
+        "id": "박경완_1972년 07월 11일",
+        "name": "박경완"
+      },
+      {
+        "position": "P",
+        "id": "봉중근_1980년 07월 15일",
+        "name": "봉중근"
+      }
     ]
   },
-
   {
     "title": "2015 프리미어12 준결승",
     "category": "국제대회",
-      "team": "대한민국",
-  "opponent": "일본",
+    "team": "대한민국",
+    "opponent": "일본",
     "lineup": [
-      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
-      { "position": "2B", "name": "정근우", "throws": "", "bats": "" },
-      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
-      { "position": "1B", "name": "박병호", "throws": "", "bats": "" },
-      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
-      { "position": "RF", "name": "민병헌", "throws": "", "bats": "" },
-      { "position": "3B", "name": "황재균", "throws": "", "bats": "" },
-      { "position": "SS", "name": "김재호", "throws": "", "bats": "" },
-      { "position": "C", "name": "양의지", "throws": "", "bats": "" },
-      { "position": "P", "name": "이대은", "throws": "", "bats": "" }
+      {
+        "position": "CF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "2B",
+        "id": "정근우_1982년 10월 02일",
+        "name": "정근우"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "1B",
+        "id": "박병호_1986년 07월 10일",
+        "name": "박병호"
+      },
+      {
+        "position": "DH",
+        "id": "이대호_1982년 06월 21일",
+        "name": "이대호"
+      },
+      {
+        "position": "RF",
+        "id": "민병헌_1987년 03월 10일",
+        "name": "민병헌"
+      },
+      {
+        "position": "3B",
+        "id": "황재균_1987년 07월 28일",
+        "name": "황재균"
+      },
+      {
+        "position": "SS",
+        "id": "김재호_1985년 03월 21일",
+        "name": "김재호"
+      },
+      {
+        "position": "C",
+        "id": "양의지_1987년 06월 05일",
+        "name": "양의지"
+      },
+      {
+        "position": "P",
+        "id": "이대은_1989년 03월 23일",
+        "name": "이대은"
+      }
     ]
   },
-
   {
     "title": "2015 프리미어12 결승",
     "category": "국제대회",
-      "team": "대한민국",
-  "opponent": "미국",
+    "team": "대한민국",
+    "opponent": "미국",
     "lineup": [
-      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
-      { "position": "2B", "name": "정근우", "throws": "", "bats": "" },
-      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
-      { "position": "1B", "name": "박병호", "throws": "", "bats": "" },
-      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
-      { "position": "RF", "name": "손아섭", "throws": "", "bats": "" },
-      { "position": "3B", "name": "황재균", "throws": "", "bats": "" },
-      { "position": "SS", "name": "김재호", "throws": "", "bats": "" },
-      { "position": "C", "name": "양의지", "throws": "", "bats": "" },
-      { "position": "P", "name": "김광현", "throws": "", "bats": "" }
+      {
+        "position": "CF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "2B",
+        "id": "정근우_1982년 10월 02일",
+        "name": "정근우"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "1B",
+        "id": "박병호_1986년 07월 10일",
+        "name": "박병호"
+      },
+      {
+        "position": "DH",
+        "id": "이대호_1982년 06월 21일",
+        "name": "이대호"
+      },
+      {
+        "position": "RF",
+        "id": "손아섭_1988년 03월 18일",
+        "name": "손아섭"
+      },
+      {
+        "position": "3B",
+        "id": "황재균_1987년 07월 28일",
+        "name": "황재균"
+      },
+      {
+        "position": "SS",
+        "id": "김재호_1985년 03월 21일",
+        "name": "김재호"
+      },
+      {
+        "position": "C",
+        "id": "양의지_1987년 06월 05일",
+        "name": "양의지"
+      },
+      {
+        "position": "P",
+        "id": "김광현_1988년 07월 22일",
+        "name": "김광현"
+      }
     ]
   },
-
   {
     "title": "2010 광저우 아시안게임 결승",
     "category": "국제대회",
     "team": "대한민국",
-  "opponent": "대만",
+    "opponent": "대만",
     "lineup": [
-      { "position": "CF", "name": "이용규", "throws": "", "bats": "" },
-      { "position": "2B", "name": "정근우", "throws": "", "bats": "" },
-      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
-      { "position": "DH", "name": "이대호", "throws": "", "bats": "" },
-      { "position": "1B", "name": "김태균", "throws": "", "bats": "" },
-      { "position": "RF", "name": "추신수", "throws": "", "bats": "" },
-      { "position": "3B", "name": "강정호", "throws": "", "bats": "" },
-      { "position": "SS", "name": "손시헌", "throws": "", "bats": "" },
-      { "position": "C", "name": "박경완", "throws": "", "bats": "" },
-      { "position": "P", "name": "류현진", "throws": "", "bats": "" }
+      {
+        "position": "CF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "2B",
+        "id": "정근우_1982년 10월 02일",
+        "name": "정근우"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "DH",
+        "id": "이대호_1982년 06월 21일",
+        "name": "이대호"
+      },
+      {
+        "position": "1B",
+        "id": "김태균_1982년 05월 29일",
+        "name": "김태균"
+      },
+      {
+        "position": "RF",
+        "id": "추신수_1982년 07월 13일",
+        "name": "추신수"
+      },
+      {
+        "position": "3B",
+        "id": "강정호_1987년 04월 05일",
+        "name": "강정호"
+      },
+      {
+        "position": "SS",
+        "id": "손시헌_1980년 10월 19일",
+        "name": "손시헌"
+      },
+      {
+        "position": "C",
+        "id": "박경완_1972년 07월 11일",
+        "name": "박경완"
+      },
+      {
+        "position": "P",
+        "id": "류현진_1987년 03월 25일",
+        "name": "류현진"
+      }
     ]
   },
-
   {
     "title": "2014 인천 아시안게임 결승 vs 대만",
     "category": "국제대회",
+    "team": "대한민국",
+    "opponent": "대만",
     "lineup": [
-      { "position": "CF", "name": "나성범", "throws": "", "bats": "" },
-      { "position": "2B", "name": "오재원", "throws": "", "bats": "" },
-      { "position": "LF", "name": "김현수", "throws": "", "bats": "" },
-      { "position": "1B", "name": "박병호", "throws": "", "bats": "" },
-      { "position": "DH", "name": "손아섭", "throws": "", "bats": "" },
-      { "position": "RF", "name": "민병헌", "throws": "", "bats": "" },
-      { "position": "3B", "name": "김민성", "throws": "", "bats": "" },
-      { "position": "SS", "name": "강정호", "throws": "", "bats": "" },
-      { "position": "C", "name": "강민호", "throws": "", "bats": "" },
-      { "position": "P", "name": "김광현", "throws": "", "bats": "" }
+      {
+        "position": "CF",
+        "id": "나성범_1989년 10월 03일",
+        "name": "나성범"
+      },
+      {
+        "position": "2B",
+        "id": "오재원_1985년 02월 09일",
+        "name": "오재원"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "1B",
+        "id": "박병호_1986년 07월 10일",
+        "name": "박병호"
+      },
+      {
+        "position": "DH",
+        "id": "손아섭_1988년 03월 18일",
+        "name": "손아섭"
+      },
+      {
+        "position": "RF",
+        "id": "민병헌_1987년 03월 10일",
+        "name": "민병헌"
+      },
+      {
+        "position": "3B",
+        "id": "김민성_1988년 12월 17일",
+        "name": "김민성"
+      },
+      {
+        "position": "SS",
+        "id": "강정호_1987년 04월 05일",
+        "name": "강정호"
+      },
+      {
+        "position": "C",
+        "id": "강민호_1985년 08월 18일",
+        "name": "강민호"
+      },
+      {
+        "position": "P",
+        "id": "김광현_1988년 07월 22일",
+        "name": "김광현"
+      }
     ]
   },
   {
-  "title": "2020 도쿄올림픽 준결승",
-  "category": "국제대회",
+    "title": "2020 도쿄올림픽 준결승",
+    "category": "국제대회",
     "team": "대한민국",
-  "opponent": "일본",
-  "lineup": [
-    {"position":"P","name":"고영표"},
-    {"position":"C","name":"양의지"},
-    {"position":"1B","name":"오재일"},
-    {"position":"2B","name":"황재균"},
-    {"position":"3B","name":"허경민"},
-    {"position":"SS","name":"오지환"},
-    {"position":"LF","name":"김현수"},
-    {"position":"CF","name":"박해민"},
-    {"position":"RF","name":"이정후"},
-    {"position":"DH","name":"강백호"}
-  ]
-},
-{
-  "title": "2017 WBC 1라운드",
-  "category": "국제대회",
+    "opponent": "일본",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "고영표_1991년 09월 16일",
+        "name": "고영표"
+      },
+      {
+        "position": "C",
+        "id": "양의지_1987년 06월 05일",
+        "name": "양의지"
+      },
+      {
+        "position": "1B",
+        "id": "오재일_1986년 10월 29일",
+        "name": "오재일"
+      },
+      {
+        "position": "2B",
+        "id": "황재균_1987년 07월 28일",
+        "name": "황재균"
+      },
+      {
+        "position": "3B",
+        "id": "허경민_1990년 08월 26일",
+        "name": "허경민"
+      },
+      {
+        "position": "SS",
+        "id": "오지환_1990년 03월 12일",
+        "name": "오지환"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "CF",
+        "id": "박해민_1990년 02월 24일",
+        "name": "박해민"
+      },
+      {
+        "position": "RF",
+        "id": "이정후_1998년 08월 20일",
+        "name": "이정후"
+      },
+      {
+        "position": "DH",
+        "id": "강백호_1999년 07월 29일",
+        "name": "강백호"
+      }
+    ]
+  },
+  {
+    "title": "2017 WBC 1라운드",
+    "category": "국제대회",
     "team": "대한민국",
-  "opponent": "네덜란드",
-  "lineup": [
-    {"position":"P","name":"우규민"},
-    {"position":"C","name":"김태군"},
-    {"position":"1B","name":"이대호"},
-    {"position":"2B","name":"서건창"},
-    {"position":"3B","name":"박석민"},
-    {"position":"SS","name":"김하성"},
-    {"position":"LF","name":"민병헌"},
-    {"position":"CF","name":"이용규"},
-    {"position":"RF","name":"손아섭"},
-    {"position":"DH","name":"김태균"}
-  ]
-},
-{
-  "title": "2011 한국시리즈 4차전",
-  "category": "한국시리즈",
+    "opponent": "네덜란드",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "우규민_1985년 01월 21일",
+        "name": "우규민"
+      },
+      {
+        "position": "C",
+        "id": "김태군_1989년 12월 30일",
+        "name": "김태군"
+      },
+      {
+        "position": "1B",
+        "id": "이대호_1982년 06월 21일",
+        "name": "이대호"
+      },
+      {
+        "position": "2B",
+        "id": "서건창_1989년 08월 22일",
+        "name": "서건창"
+      },
+      {
+        "position": "3B",
+        "id": "박석민_1985년 06월 22일",
+        "name": "박석민"
+      },
+      {
+        "position": "SS",
+        "id": "김하성_1995년 10월 17일",
+        "name": "김하성"
+      },
+      {
+        "position": "LF",
+        "id": "민병헌_1987년 03월 10일",
+        "name": "민병헌"
+      },
+      {
+        "position": "CF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "RF",
+        "id": "손아섭_1988년 03월 18일",
+        "name": "손아섭"
+      },
+      {
+        "position": "DH",
+        "id": "김태균_1982년 05월 29일",
+        "name": "김태균"
+      }
+    ]
+  },
+  {
+    "title": "2011 한국시리즈 4차전",
+    "category": "한국시리즈",
     "team": "삼성",
-  "opponent": "SK",
-  "lineup": [
-    {"position":"P","name":"윤성환"},
-    {"position":"C","name":"진갑용"},
-    {"position":"1B","name":"채태인"},
-    {"position":"2B","name":"신명철"},
-    {"position":"3B","name":"조동찬"},
-    {"position":"SS","name":"김상수"},
-    {"position":"LF","name":"최형우"},
-    {"position":"CF","name":"배영섭"},
-    {"position":"RF","name":"강봉규"},
-    {"position":"DH","name":"박석민"}
-  ]
-},
-{
-  "title": "2008 한국시리즈 5차전",
-  "category": "한국시리즈",
-      "team": "두산",
-  "opponent": "SK",
-  "lineup": [
-    {"position":"P","name":"김선우"},
-    {"position":"C","name":"최승환"},
-    {"position":"1B","name":"최준석"},
-    {"position":"2B","name":"고영민"},
-    {"position":"3B","name":"김동주"},
-    {"position":"SS","name":"김재호"},
-    {"position":"LF","name":"김현수"},
-    {"position":"CF","name":"이종욱"},
-    {"position":"RF","name":"유재웅"},
-    {"position":"DH","name":"홍성흔"}
-  ]
-},
-{
-  "title": "2014 한국시리즈 5차전",
-  "category": "한국시리즈",
-  "team": "삼성",
-  "opponent": "넥센",
-  "lineup": [
-    {"position":"P","name":"밴덴헐크"},
-    {"position":"C","name":"이지영"},
-    {"position":"1B","name":"채태인"},
-    {"position":"2B","name":"나바로"},
-    {"position":"3B","name":"박석민"},
-    {"position":"SS","name":"김상수"},
-    {"position":"LF","name":"최형우"},
-    {"position":"CF","name":"박해민"},
-    {"position":"RF","name":"박한이"},
-    {"position":"DH","name":"이승엽"}
-  ]
-},
-{
-  "title": "2015 한국시리즈 5차전",
-  "category": "한국시리즈",
-  "team": "두산",
-  "opponent": "삼성",
-  "lineup": [
-    {"position":"P","name":"유희관"},
-    {"position":"C","name":"양의지"},
-    {"position":"1B","name":"고영민"},
-    {"position":"2B","name":"오재원"},
-    {"position":"3B","name":"허경민"},
-    {"position":"SS","name":"김재호"},
-    {"position":"LF","name":"김현수"},
-    {"position":"CF","name":"민병헌"},
-    {"position":"RF","name":"박건우"},
-    {"position":"DH","name":"정수빈"}
-  ]
-},
-{
-  "title": "2018 한국시리즈 6차전",
-  "category": "한국시리즈",
-  "team": "SK",
-  "opponent": "두산",
-  "lineup": [
-    {"position":"P","name":"켈리"},
-    {"position":"C","name":"이재원"},
-    {"position":"1B","name":"로맥"},
-    {"position":"2B","name":"강승호"},
-    {"position":"3B","name":"최정"},
-    {"position":"SS","name":"김성현"},
-    {"position":"LF","name":"정의윤"},
-    {"position":"CF","name":"김강민"},
-    {"position":"RF","name":"한동민"},
-    {"position":"DH","name":"박정권"}
-  ]
-},
-{
-  "title": "2019 한국시리즈 4차전",
-  "category": "한국시리즈",
-  "team": "키움",
-  "opponent": "두산",
-  "lineup": [
-    {"position":"P","name":"최원태"},
-    {"position":"C","name":"이지영"},
-    {"position":"1B","name":"박병호"},
-    {"position":"2B","name":"김혜성"},
-    {"position":"3B","name":"송성문"},
-    {"position":"SS","name":"김하성"},
-    {"position":"LF","name":"박정음"},
-    {"position":"CF","name":"이정후"},
-    {"position":"RF","name":"샌즈"},
-    {"position":"DH","name":"서건창"}
-  ]
-},
-{
-  "title": "2020 한국시리즈 6차전",
-  "category": "한국시리즈",
-  "team": "NC",
-  "opponent": "두산",
-  "lineup": [
-    {"position":"P","name":"루친스키"},
-    {"position":"C","name":"양의지"},
-    {"position":"1B","name":"강진성"},
-    {"position":"2B","name":"박민우"},
-    {"position":"3B","name":"박석민"},
-    {"position":"SS","name":"노진혁"},
-    {"position":"LF","name":"권희동"},
-    {"position":"CF","name":"알테어"},
-    {"position":"RF","name":"나성범"},
-    {"position":"DH","name":"이명기"}
-  ]
-},
-{
-  "title": "2017 한국시리즈 1차전",
-  "category": "한국시리즈",
-  "team": "KIA",
-  "opponent": "두산",
-  "lineup": [
-    {"position":"P","name":"헥터"},
-    {"position":"C","name":"김민식"},
-    {"position":"1B","name":"김주찬"},
-    {"position":"2B","name":"안치홍"},
-    {"position":"3B","name":"이범호"},
-    {"position":"SS","name":"김선빈"},
-    {"position":"LF","name":"최형우"},
-    {"position":"CF","name":"버나디나"},
-    {"position":"RF","name":"이명기"},
-    {"position":"DH","name":"나지완"}
-  ]
-},
-{
-  "title": "2021 한국시리즈 4차전",
-  "category": "한국시리즈",
-  "team": "KT",
-  "opponent": "두산",
-  "lineup": [
-    {"position":"P","name":"배제성"},
-    {"position":"C","name":"장성우"},
-    {"position":"1B","name":"강백호"},
-    {"position":"2B","name":"신본기"},
-    {"position":"3B","name":"황재균"},
-    {"position":"SS","name":"심우준"},
-    {"position":"LF","name":"조용호"},
-    {"position":"CF","name":"배정대"},
-    {"position":"RF","name":"호잉"},
-    {"position":"DH","name":"유한준"}
-  ]
-},
-{
-  "title": "2023 한국시리즈 5차전",
-  "category": "한국시리즈",
-  "team": "LG",
-  "opponent": "KT",
-  "lineup": [
-    {"position":"P","name":"켈리"},
-    {"position":"C","name":"박동원"},
-    {"position":"1B","name":"오스틴"},
-    {"position":"2B","name":"신민재"},
-    {"position":"3B","name":"문보경"},
-    {"position":"SS","name":"오지환"},
-    {"position":"LF","name":"문성주"},
-    {"position":"CF","name":"박해민"},
-    {"position":"RF","name":"홍창기"},
-    {"position":"DH","name":"김현수"}
-  ]
-},
-{
-  "title": "2022 준플레이오프 5차전",
-  "category": "포스트시즌",
-  "team": "키움",
-  "opponent": "KT",
-  "lineup": [
-    {"position":"P","name":"안우진"},
-    {"position":"C","name":"이지영"},
-    {"position":"1B","name":"전병우"},
-    {"position":"2B","name":"김혜성"},
-    {"position":"3B","name":"송성문"},
-    {"position":"SS","name":"김휘집"},
-    {"position":"LF","name":"김준완"},
-    {"position":"CF","name":"이정후"},
-    {"position":"RF","name":"푸이그"},
-    {"position":"DH","name":"이용규"}
-  ]
-},{
-  "title": "2021 플레이오프 2차전",
-  "category": "포스트시즌",
-  "team": "두산",
-  "opponent": "삼성",
-  "lineup": [
-    {"position":"P","name":"김민규"},
-    {"position":"C","name":"박세혁"},
-    {"position":"1B","name":"양석환"},
-    {"position":"2B","name":"강승호"},
-    {"position":"3B","name":"허경민"},
-    {"position":"SS","name":"김재호"},
-    {"position":"LF","name":"김재환"},
-    {"position":"CF","name":"정수빈"},
-    {"position":"RF","name":"박건우"},
-    {"position":"DH","name":"페르난데스"}
-  ]
-},
-{
-  "title": "2018 준플레이오프 1차전",
-  "category": "포스트시즌",
-  "team": "한화",
-  "opponent": "넥센",
-  "lineup": [
-    {"position":"P","name":"헤일"},
-    {"position":"C","name":"최재훈"},
-    {"position":"1B","name":"정근우"},
-    {"position":"2B","name":"정은원"},
-    {"position":"3B","name":"김회성"},
-    {"position":"SS","name":"하주석"},
-    {"position":"LF","name":"최진행"},
-    {"position":"CF","name":"이용규"},
-    {"position":"RF","name":"호잉"},
-    {"position":"DH","name":"이성열"}
-  ]
-},
-{
-  "title": "2022 한국시리즈 6차전",
-  "category": "한국시리즈",
-  "team": "SSG",
-  "opponent": "키움",
-  "lineup": [
-    {"position":"P","name":"폰트"},
-    {"position":"C","name":"이재원"},
-    {"position":"1B","name":"최주환"},
-    {"position":"2B","name":"김성현"},
-    {"position":"3B","name":"최정"},
-    {"position":"SS","name":"박성한"},
-    {"position":"LF","name":"라가레스"},
-    {"position":"CF","name":"최지훈"},
-    {"position":"RF","name":"한유섬"},
-    {"position":"DH","name":"추신수"}
-  ]
-},
-{
-  "title": "2010 준플레이오프 5차전",
-  "category": "포스트시즌",
-  "team": "롯데",
-  "opponent": "두산",
-  "lineup": [
-    {"position":"P","name":"송승준"},
-    {"position":"C","name":"강민호"},
-    {"position":"1B","name":"김주찬"},
-    {"position":"2B","name":"조성환"},
-    {"position":"3B","name":"이대호"},
-    {"position":"SS","name":"황재균"},
-    {"position":"LF","name":"손아섭"},
-    {"position":"CF","name":"전준우"},
-    {"position":"RF","name":"가르시아"},
-    {"position":"DH","name":"홍성흔"}
-  ]
-},
-{
-  "title": "2009 한국시리즈 7차전",
-  "category": "한국시리즈",
-  "team": "KIA",
-  "opponent": "SK",
-  "lineup": [
-    {"position":"P","name":"구톰슨"},
-    {"position":"C","name":"김상훈"},
-    {"position":"1B","name":"최희섭"},
-    {"position":"2B","name":"안치홍"},
-    {"position":"3B","name":"김상현"},
-    {"position":"SS","name":"이현곤"},
-    {"position":"LF","name":"김원섭"},
-    {"position":"CF","name":"이용규"},
-    {"position":"RF","name":"이종범"},
-    {"position":"DH","name":"나지완"}
-  ]
-},
-{
-  "title": "2023 플레이오프 5차전",
-  "category": "포스트시즌",
-  "team": "KT",
-  "opponent": "NC",
-  "lineup": [
-    {"position":"P","name":"벤자민"},
-    {"position":"C","name":"장성우"},
-    {"position":"1B","name":"박병호"},
-    {"position":"2B","name":"오윤석"},
-    {"position":"3B","name":"황재균"},
-    {"position":"SS","name":"김상수"},
-    {"position":"LF","name":"알포드"},
-    {"position":"CF","name":"배정대"},
-    {"position":"RF","name":"조용호"},
-    {"position":"DH","name":"문상철"}
-  ]
-},
-{
-  "title": "2013 플레이오프 1차전",
-  "category": "포스트시즌",
-  "team": "LG",
-  "opponent": "두산",
-  "lineup": [
-    {"position":"P","name":"류제국"},
-    {"position":"C","name":"윤요섭"},
-    {"position":"1B","name":"김용의"},
-    {"position":"2B","name":"손주인"},
-    {"position":"3B","name":"정성훈"},
-    {"position":"SS","name":"오지환"},
-    {"position":"LF","name":"이병규"},
-    {"position":"CF","name":"박용택"},
-    {"position":"RF","name":"이진영"},
-    {"position":"DH","name":"이병규"}
-  ]
-},
+    "opponent": "SK",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "윤성환_1981년 10월 08일",
+        "name": "윤성환"
+      },
+      {
+        "position": "C",
+        "id": "진갑용_1974년 05월 08일",
+        "name": "진갑용"
+      },
+      {
+        "position": "1B",
+        "id": "채태인_1982년 10월 11일",
+        "name": "채태인"
+      },
+      {
+        "position": "2B",
+        "id": "신명철_1978년 08월 06일",
+        "name": "신명철"
+      },
+      {
+        "position": "3B",
+        "id": "조동찬_1983년 07월 27일",
+        "name": "조동찬"
+      },
+      {
+        "position": "SS",
+        "id": "김상수_1990년 03월 23일",
+        "name": "김상수"
+      },
+      {
+        "position": "LF",
+        "id": "최형우_1983년 12월 16일",
+        "name": "최형우"
+      },
+      {
+        "position": "CF",
+        "id": "배영섭_1986년 06월 27일",
+        "name": "배영섭"
+      },
+      {
+        "position": "RF",
+        "id": "강봉규_1978년 01월 12일",
+        "name": "강봉규"
+      },
+      {
+        "position": "DH",
+        "id": "박석민_1985년 06월 22일",
+        "name": "박석민"
+      }
+    ]
+  },
+  {
+    "title": "2008 한국시리즈 5차전",
+    "category": "한국시리즈",
+    "team": "두산",
+    "opponent": "SK",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "김선우_1977년 09월 04일",
+        "name": "김선우"
+      },
+      {
+        "position": "C",
+        "id": "최승환_1978년 02월 25일",
+        "name": "최승환"
+      },
+      {
+        "position": "1B",
+        "id": "최준석_1983년 02월 15일",
+        "name": "최준석"
+      },
+      {
+        "position": "2B",
+        "id": "고영민_1984년 02월 08일",
+        "name": "고영민"
+      },
+      {
+        "position": "3B",
+        "id": "김동주_1976년 02월 03일",
+        "name": "김동주"
+      },
+      {
+        "position": "SS",
+        "id": "김재호_1985년 03월 21일",
+        "name": "김재호"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "CF",
+        "id": "이종욱_1980년 06월 18일",
+        "name": "이종욱"
+      },
+      {
+        "position": "RF",
+        "id": "유재웅_1979년 05월 20일",
+        "name": "유재웅"
+      },
+      {
+        "position": "DH",
+        "id": "홍성흔_1977년 02월 28일",
+        "name": "홍성흔"
+      }
+    ]
+  },
+  {
+    "title": "2014 한국시리즈 5차전",
+    "category": "한국시리즈",
+    "team": "삼성",
+    "opponent": "넥센",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "밴덴헐크_1985년 05월 22일",
+        "name": "밴덴헐크"
+      },
+      {
+        "position": "C",
+        "id": "이지영_1986년 02월 27일",
+        "name": "이지영"
+      },
+      {
+        "position": "1B",
+        "id": "채태인_1982년 10월 11일",
+        "name": "채태인"
+      },
+      {
+        "position": "2B",
+        "id": "나바로_1987년 10월 31일",
+        "name": "나바로"
+      },
+      {
+        "position": "3B",
+        "id": "박석민_1985년 06월 22일",
+        "name": "박석민"
+      },
+      {
+        "position": "SS",
+        "id": "김상수_1990년 03월 23일",
+        "name": "김상수"
+      },
+      {
+        "position": "LF",
+        "id": "최형우_1983년 12월 16일",
+        "name": "최형우"
+      },
+      {
+        "position": "CF",
+        "id": "박해민_1990년 02월 24일",
+        "name": "박해민"
+      },
+      {
+        "position": "RF",
+        "id": "박한이_1979년 01월 28일",
+        "name": "박한이"
+      },
+      {
+        "position": "DH",
+        "id": "이승엽_1976년 08월 18일",
+        "name": "이승엽"
+      }
+    ]
+  },
+  {
+    "title": "2015 한국시리즈 5차전",
+    "category": "한국시리즈",
+    "team": "두산",
+    "opponent": "삼성",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "유희관_1986년 06월 01일",
+        "name": "유희관"
+      },
+      {
+        "position": "C",
+        "id": "양의지_1987년 06월 05일",
+        "name": "양의지"
+      },
+      {
+        "position": "1B",
+        "id": "고영민_1984년 02월 08일",
+        "name": "고영민"
+      },
+      {
+        "position": "2B",
+        "id": "오재원_1985년 02월 09일",
+        "name": "오재원"
+      },
+      {
+        "position": "3B",
+        "id": "허경민_1990년 08월 26일",
+        "name": "허경민"
+      },
+      {
+        "position": "SS",
+        "id": "김재호_1985년 03월 21일",
+        "name": "김재호"
+      },
+      {
+        "position": "LF",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      },
+      {
+        "position": "CF",
+        "id": "민병헌_1987년 03월 10일",
+        "name": "민병헌"
+      },
+      {
+        "position": "RF",
+        "id": "박건우_1990년 09월 08일",
+        "name": "박건우"
+      },
+      {
+        "position": "DH",
+        "id": "정수빈_1990년 10월 07일",
+        "name": "정수빈"
+      }
+    ]
+  },
+  {
+    "title": "2018 한국시리즈 6차전",
+    "category": "한국시리즈",
+    "team": "SK",
+    "opponent": "두산",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "켈리_1988년 10월 14일",
+        "name": "켈리"
+      },
+      {
+        "position": "C",
+        "id": "이재원_1988년 02월 24일",
+        "name": "이재원"
+      },
+      {
+        "position": "1B",
+        "id": "로맥_1985년 09월 30일",
+        "name": "로맥"
+      },
+      {
+        "position": "2B",
+        "id": "강승호_1994년 02월 09일",
+        "name": "강승호"
+      },
+      {
+        "position": "3B",
+        "id": "최정_1987년 02월 28일",
+        "name": "최정"
+      },
+      {
+        "position": "SS",
+        "id": "김성현_1987년 03월 09일",
+        "name": "김성현"
+      },
+      {
+        "position": "LF",
+        "id": "정의윤_1986년 07월 25일",
+        "name": "정의윤"
+      },
+      {
+        "position": "CF",
+        "id": "김강민_1982년 09월 13일",
+        "name": "김강민"
+      },
+      {
+        "position": "RF",
+        "id": "한유섬_1989년 08월 09일",
+        "name": "한유섬",
+        "oldName": "한동민"
+      },
+      {
+        "position": "DH",
+        "id": "박정권_1981년 07월 21일",
+        "name": "박정권"
+      }
+    ]
+  },
+  {
+    "title": "2019 한국시리즈 4차전",
+    "category": "한국시리즈",
+    "team": "키움",
+    "opponent": "두산",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "최원태_1997년 01월 07일",
+        "name": "최원태"
+      },
+      {
+        "position": "C",
+        "id": "이지영_1986년 02월 27일",
+        "name": "이지영"
+      },
+      {
+        "position": "1B",
+        "id": "박병호_1986년 07월 10일",
+        "name": "박병호"
+      },
+      {
+        "position": "2B",
+        "id": "김혜성_1999년 01월 27일",
+        "name": "김혜성"
+      },
+      {
+        "position": "3B",
+        "id": "송성문_1996년 08월 29일",
+        "name": "송성문"
+      },
+      {
+        "position": "SS",
+        "id": "김하성_1995년 10월 17일",
+        "name": "김하성"
+      },
+      {
+        "position": "LF",
+        "id": "박정음_1989년 04월 15일",
+        "name": "박정음"
+      },
+      {
+        "position": "CF",
+        "id": "이정후_1998년 08월 20일",
+        "name": "이정후"
+      },
+      {
+        "position": "RF",
+        "id": "샌즈_1987년 09월 28일",
+        "name": "샌즈"
+      },
+      {
+        "position": "DH",
+        "id": "서건창_1989년 08월 22일",
+        "name": "서건창"
+      }
+    ]
+  },
+  {
+    "title": "2020 한국시리즈 6차전",
+    "category": "한국시리즈",
+    "team": "NC",
+    "opponent": "두산",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "루친스키_1988년 12월 30일",
+        "name": "루친스키"
+      },
+      {
+        "position": "C",
+        "id": "양의지_1987년 06월 05일",
+        "name": "양의지"
+      },
+      {
+        "position": "1B",
+        "id": "강진성_1993년 10월 19일",
+        "name": "강진성"
+      },
+      {
+        "position": "2B",
+        "id": "박민우_1993년 02월 06일",
+        "name": "박민우"
+      },
+      {
+        "position": "3B",
+        "id": "박석민_1985년 06월 22일",
+        "name": "박석민"
+      },
+      {
+        "position": "SS",
+        "id": "노진혁_1989년 07월 15일",
+        "name": "노진혁"
+      },
+      {
+        "position": "LF",
+        "id": "권희동_1990년 12월 30일",
+        "name": "권희동"
+      },
+      {
+        "position": "CF",
+        "id": "알테어_1991년 01월 14일",
+        "name": "알테어"
+      },
+      {
+        "position": "RF",
+        "id": "나성범_1989년 10월 03일",
+        "name": "나성범"
+      },
+      {
+        "position": "DH",
+        "id": "이명기_1987년 12월 26일",
+        "name": "이명기"
+      }
+    ]
+  },
+  {
+    "title": "2017 한국시리즈 1차전",
+    "category": "한국시리즈",
+    "team": "KIA",
+    "opponent": "두산",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "헥터_1987년 01월 26일",
+        "name": "헥터"
+      },
+      {
+        "position": "C",
+        "id": "김민식_1989년 06월 28일",
+        "name": "김민식"
+      },
+      {
+        "position": "1B",
+        "id": "김주찬_1981년 03월 25일",
+        "name": "김주찬"
+      },
+      {
+        "position": "2B",
+        "id": "안치홍_1990년 07월 02일",
+        "name": "안치홍"
+      },
+      {
+        "position": "3B",
+        "id": "이범호_1981년 11월 25일",
+        "name": "이범호"
+      },
+      {
+        "position": "SS",
+        "id": "김선빈_1989년 12월 18일",
+        "name": "김선빈"
+      },
+      {
+        "position": "LF",
+        "id": "최형우_1983년 12월 16일",
+        "name": "최형우"
+      },
+      {
+        "position": "CF",
+        "id": "버나디나_1984년 06월 12일",
+        "name": "버나디나"
+      },
+      {
+        "position": "RF",
+        "id": "이명기_1987년 12월 26일",
+        "name": "이명기"
+      },
+      {
+        "position": "DH",
+        "id": "나지완_1985년 05월 19일",
+        "name": "나지완"
+      }
+    ]
+  },
+  {
+    "title": "2021 한국시리즈 4차전",
+    "category": "한국시리즈",
+    "team": "KT",
+    "opponent": "두산",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "배제성_1996년 09월 29일",
+        "name": "배제성"
+      },
+      {
+        "position": "C",
+        "id": "장성우_1990년 01월 17일",
+        "name": "장성우"
+      },
+      {
+        "position": "1B",
+        "id": "강백호_1999년 07월 29일",
+        "name": "강백호"
+      },
+      {
+        "position": "2B",
+        "id": "신본기_1989년 03월 21일",
+        "name": "신본기"
+      },
+      {
+        "position": "3B",
+        "id": "황재균_1987년 07월 28일",
+        "name": "황재균"
+      },
+      {
+        "position": "SS",
+        "id": "심우준_1995년 04월 28일",
+        "name": "심우준"
+      },
+      {
+        "position": "LF",
+        "id": "조용호_1989년 09월 09일",
+        "name": "조용호"
+      },
+      {
+        "position": "CF",
+        "id": "배정대_1995년 06월 12일",
+        "name": "배정대"
+      },
+      {
+        "position": "RF",
+        "id": "호잉_1989년 05월 18일",
+        "name": "호잉"
+      },
+      {
+        "position": "DH",
+        "id": "유한준_1981년 07월 01일",
+        "name": "유한준"
+      }
+    ]
+  },
+  {
+    "title": "2023 한국시리즈 5차전",
+    "category": "한국시리즈",
+    "team": "LG",
+    "opponent": "KT",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "켈리_1989년 10월 04일",
+        "name": "켈리"
+      },
+      {
+        "position": "C",
+        "id": "박동원_1990년 04월 07일",
+        "name": "박동원"
+      },
+      {
+        "position": "1B",
+        "id": "오스틴_1993년 10월 14일",
+        "name": "오스틴"
+      },
+      {
+        "position": "2B",
+        "id": "신민재_1996년 01월 21일",
+        "name": "신민재"
+      },
+      {
+        "position": "3B",
+        "id": "문보경_2000년 07월 19일",
+        "name": "문보경"
+      },
+      {
+        "position": "SS",
+        "id": "오지환_1990년 03월 12일",
+        "name": "오지환"
+      },
+      {
+        "position": "LF",
+        "id": "문성주_1997년 02월 20일",
+        "name": "문성주"
+      },
+      {
+        "position": "CF",
+        "id": "박해민_1990년 02월 24일",
+        "name": "박해민"
+      },
+      {
+        "position": "RF",
+        "id": "홍창기_1993년 11월 21일",
+        "name": "홍창기"
+      },
+      {
+        "position": "DH",
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
+      }
+    ]
+  },
+  {
+    "title": "2022 준플레이오프 5차전",
+    "category": "포스트시즌",
+    "team": "키움",
+    "opponent": "KT",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "안우진_1999년 08월 30일",
+        "name": "안우진"
+      },
+      {
+        "position": "C",
+        "id": "이지영_1986년 02월 27일",
+        "name": "이지영"
+      },
+      {
+        "position": "1B",
+        "id": "전병우_1992년 10월 24일",
+        "name": "전병우"
+      },
+      {
+        "position": "2B",
+        "id": "김혜성_1999년 01월 27일",
+        "name": "김혜성"
+      },
+      {
+        "position": "3B",
+        "id": "송성문_1996년 08월 29일",
+        "name": "송성문"
+      },
+      {
+        "position": "SS",
+        "id": "김휘집_2002년 01월 01일",
+        "name": "김휘집"
+      },
+      {
+        "position": "LF",
+        "id": "김준완_1991년 01월 20일",
+        "name": "김준완"
+      },
+      {
+        "position": "CF",
+        "id": "이정후_1998년 08월 20일",
+        "name": "이정후"
+      },
+      {
+        "position": "RF",
+        "id": "푸이그_1990년 12월 07일",
+        "name": "푸이그"
+      },
+      {
+        "position": "DH",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      }
+    ]
+  },
+  {
+    "title": "2021 플레이오프 2차전",
+    "category": "포스트시즌",
+    "team": "두산",
+    "opponent": "삼성",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "김민규_1999년 05월 07일",
+        "name": "김민규"
+      },
+      {
+        "position": "C",
+        "id": "박세혁_1990년 01월 09일",
+        "name": "박세혁"
+      },
+      {
+        "position": "1B",
+        "id": "양석환_1991년 07월 15일",
+        "name": "양석환"
+      },
+      {
+        "position": "2B",
+        "id": "강승호_1994년 02월 09일",
+        "name": "강승호"
+      },
+      {
+        "position": "3B",
+        "id": "허경민_1990년 08월 26일",
+        "name": "허경민"
+      },
+      {
+        "position": "SS",
+        "id": "김재호_1985년 03월 21일",
+        "name": "김재호"
+      },
+      {
+        "position": "LF",
+        "id": "김재환_1988년 09월 22일",
+        "name": "김재환"
+      },
+      {
+        "position": "CF",
+        "id": "정수빈_1990년 10월 07일",
+        "name": "정수빈"
+      },
+      {
+        "position": "RF",
+        "id": "박건우_1990년 09월 08일",
+        "name": "박건우"
+      },
+      {
+        "position": "DH",
+        "id": "페르난데스_1988년 04월 27일",
+        "name": "페르난데스"
+      }
+    ]
+  },
+  {
+    "title": "2018 준플레이오프 1차전",
+    "category": "포스트시즌",
+    "team": "한화",
+    "opponent": "넥센",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "헤일_1987년 09월 27일",
+        "name": "헤일"
+      },
+      {
+        "position": "C",
+        "id": "최재훈_1989년 08월 27일",
+        "name": "최재훈"
+      },
+      {
+        "position": "1B",
+        "id": "정근우_1982년 10월 02일",
+        "name": "정근우"
+      },
+      {
+        "position": "2B",
+        "id": "정은원_2000년 01월 17일",
+        "name": "정은원"
+      },
+      {
+        "position": "3B",
+        "id": "김회성_1985년 12월 04일",
+        "name": "김회성"
+      },
+      {
+        "position": "SS",
+        "id": "하주석_1994년 02월 25일",
+        "name": "하주석"
+      },
+      {
+        "position": "LF",
+        "id": "최진행_1985년 08월 17일",
+        "name": "최진행"
+      },
+      {
+        "position": "CF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "RF",
+        "id": "호잉_1989년 05월 18일",
+        "name": "호잉"
+      },
+      {
+        "position": "DH",
+        "id": "이성열_1984년 07월 13일",
+        "name": "이성열"
+      }
+    ]
+  },
+  {
+    "title": "2022 한국시리즈 6차전",
+    "category": "한국시리즈",
+    "team": "SSG",
+    "opponent": "키움",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "폰트_1990년 05월 24일",
+        "name": "폰트"
+      },
+      {
+        "position": "C",
+        "id": "이재원_1988년 02월 24일",
+        "name": "이재원"
+      },
+      {
+        "position": "1B",
+        "id": "최주환_1988년 02월 28일",
+        "name": "최주환"
+      },
+      {
+        "position": "2B",
+        "id": "김성현_1987년 03월 09일",
+        "name": "김성현"
+      },
+      {
+        "position": "3B",
+        "id": "최정_1987년 02월 28일",
+        "name": "최정"
+      },
+      {
+        "position": "SS",
+        "id": "박성한_1998년 03월 30일",
+        "name": "박성한"
+      },
+      {
+        "position": "LF",
+        "id": "라가레스_1989년 03월 17일",
+        "name": "라가레스"
+      },
+      {
+        "position": "CF",
+        "id": "최지훈_1997년 07월 23일",
+        "name": "최지훈"
+      },
+      {
+        "position": "RF",
+        "id": "한유섬_1989년 08월 09일",
+        "name": "한유섬"
+      },
+      {
+        "position": "DH",
+        "id": "추신수_1982년 07월 13일",
+        "name": "추신수"
+      }
+    ]
+  },
+  {
+    "title": "2010 준플레이오프 5차전",
+    "category": "포스트시즌",
+    "team": "롯데",
+    "opponent": "두산",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "송승준_1980년 06월 29일",
+        "name": "송승준"
+      },
+      {
+        "position": "C",
+        "id": "강민호_1985년 08월 18일",
+        "name": "강민호"
+      },
+      {
+        "position": "1B",
+        "id": "김주찬_1981년 03월 25일",
+        "name": "김주찬"
+      },
+      {
+        "position": "2B",
+        "id": "조성환_1976년 12월 23일",
+        "name": "조성환"
+      },
+      {
+        "position": "3B",
+        "id": "이대호_1982년 06월 21일",
+        "name": "이대호"
+      },
+      {
+        "position": "SS",
+        "id": "황재균_1987년 07월 28일",
+        "name": "황재균"
+      },
+      {
+        "position": "LF",
+        "id": "손아섭_1988년 03월 18일",
+        "name": "손아섭"
+      },
+      {
+        "position": "CF",
+        "id": "전준우_1986년 02월 25일",
+        "name": "전준우"
+      },
+      {
+        "position": "RF",
+        "id": "가르시아_1975년 10월 29일",
+        "name": "가르시아"
+      },
+      {
+        "position": "DH",
+        "id": "홍성흔_1977년 02월 28일",
+        "name": "홍성흔"
+      }
+    ]
+  },
+  {
+    "title": "2009 한국시리즈 7차전",
+    "category": "한국시리즈",
+    "team": "KIA",
+    "opponent": "SK",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "구톰슨_1977년 01월 11일",
+        "name": "구톰슨"
+      },
+      {
+        "position": "C",
+        "id": "김상훈_1977년 10월 27일",
+        "name": "김상훈"
+      },
+      {
+        "position": "1B",
+        "id": "최희섭_1979년 03월 16일",
+        "name": "최희섭"
+      },
+      {
+        "position": "2B",
+        "id": "안치홍_1990년 07월 02일",
+        "name": "안치홍"
+      },
+      {
+        "position": "3B",
+        "id": "김상현_1980년 11월 12일",
+        "name": "김상현"
+      },
+      {
+        "position": "SS",
+        "id": "이현곤_1980년 02월 21일",
+        "name": "이현곤"
+      },
+      {
+        "position": "LF",
+        "id": "김원섭_1978년 12월 18일",
+        "name": "김원섭"
+      },
+      {
+        "position": "CF",
+        "id": "이용규_1985년 08월 26일",
+        "name": "이용규"
+      },
+      {
+        "position": "RF",
+        "id": "이종범_1970년 08월 15일",
+        "name": "이종범"
+      },
+      {
+        "position": "DH",
+        "id": "나지완_1985년 05월 19일",
+        "name": "나지완"
+      }
+    ]
+  },
+  {
+    "title": "2023 플레이오프 5차전",
+    "category": "포스트시즌",
+    "team": "KT",
+    "opponent": "NC",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "벤자민_1993년 07월 26일",
+        "name": "벤자민"
+      },
+      {
+        "position": "C",
+        "id": "장성우_1990년 01월 17일",
+        "name": "장성우"
+      },
+      {
+        "position": "1B",
+        "id": "박병호_1986년 07월 10일",
+        "name": "박병호"
+      },
+      {
+        "position": "2B",
+        "id": "오윤석_1992년 02월 24일",
+        "name": "오윤석"
+      },
+      {
+        "position": "3B",
+        "id": "황재균_1987년 07월 28일",
+        "name": "황재균"
+      },
+      {
+        "position": "SS",
+        "id": "김상수_1990년 03월 23일",
+        "name": "김상수"
+      },
+      {
+        "position": "LF",
+        "id": "알포드_1994년 07월 20일",
+        "name": "알포드"
+      },
+      {
+        "position": "CF",
+        "id": "배정대_1995년 06월 12일",
+        "name": "배정대"
+      },
+      {
+        "position": "RF",
+        "id": "조용호_1989년 09월 09일",
+        "name": "조용호"
+      },
+      {
+        "position": "DH",
+        "id": "문상철_1991년 04월 06일",
+        "name": "문상철"
+      }
+    ]
+  },
+  {
+    "title": "2013 플레이오프 1차전",
+    "category": "포스트시즌",
+    "team": "LG",
+    "opponent": "두산",
+    "lineup": [
+      {
+        "position": "P",
+        "id": "류제국_1983년 05월 30일",
+        "name": "류제국"
+      },
+      {
+        "position": "C",
+        "id": "윤요섭_1982년 03월 30일",
+        "name": "윤요섭"
+      },
+      {
+        "position": "1B",
+        "id": "김용의_1985년 08월 20일",
+        "name": "김용의"
+      },
+      {
+        "position": "2B",
+        "id": "손주인_1983년 12월 01일",
+        "name": "손주인"
+      },
+      {
+        "position": "3B",
+        "id": "정성훈_1980년 06월 27일",
+        "name": "정성훈"
+      },
+      {
+        "position": "SS",
+        "id": "오지환_1990년 03월 12일",
+        "name": "오지환"
+      },
+      {
+        "position": "LF",
+        "id": "이병규_1983년 10월 09일",
+        "name": "이병규"
+      },
+      {
+        "position": "CF",
+        "id": "박용택_1979년 04월 21일",
+        "name": "박용택"
+      },
+      {
+        "position": "RF",
+        "id": "이진영_1980년 06월 15일",
+        "name": "이진영"
+      },
+      {
+        "position": "DH",
+        "id": "이병규_1974년 10월 25일",
+        "name": "이병규"
+      }
+    ]
+  },
   {
     "title": "2005 삼성 베스트",
     "team": "삼성",
@@ -507,13 +1546,13 @@
       },
       {
         "position": "OF1",
-        "id": "심정수_1975년 05월 05일",
-        "name": "심정수"
+        "id": "박한이_1979년 01월 28일",
+        "name": "박한이"
       },
       {
         "position": "OF2",
-        "id": "박한이_1979년 01월 28일",
-        "name": "박한이"
+        "id": "심정수_1975년 05월 05일",
+        "name": "심정수"
       },
       {
         "position": "OF3",
@@ -550,8 +1589,8 @@
       },
       {
         "position": "2B",
-        "id": "강명구_1980년 10월 25일",
-        "name": "강명구"
+        "id": "신명철_1978년 08월 06일",
+        "name": "신명철"
       },
       {
         "position": "SS",
@@ -580,8 +1619,8 @@
       },
       {
         "position": "DH",
-        "id": "가코_1981년 01월 02일",
-        "name": "가코"
+        "id": "조동찬_1983년 07월 27일",
+        "name": "조동찬"
       }
     ]
   },
@@ -623,23 +1662,23 @@
       },
       {
         "position": "OF1",
-        "id": "박한이_1979년 01월 28일",
-        "name": "박한이"
-      },
-      {
-        "position": "OF2",
         "id": "최형우_1983년 12월 16일",
         "name": "최형우"
       },
       {
-        "position": "OF3",
+        "position": "OF2",
         "id": "배영섭_1986년 06월 27일",
         "name": "배영섭"
       },
       {
+        "position": "OF3",
+        "id": "박한이_1979년 01월 28일",
+        "name": "박한이"
+      },
+      {
         "position": "DH",
-        "id": "조동찬_1983년 07월 27일",
-        "name": "조동찬"
+        "id": "정형식_1991년 01월 28일",
+        "name": "정형식"
       }
     ]
   },
@@ -686,13 +1725,13 @@
       },
       {
         "position": "OF2",
-        "id": "박한이_1979년 01월 28일",
-        "name": "박한이"
+        "id": "배영섭_1986년 06월 27일",
+        "name": "배영섭"
       },
       {
         "position": "OF3",
-        "id": "정형식_1991년 01월 28일",
-        "name": "정형식"
+        "id": "박한이_1979년 01월 28일",
+        "name": "박한이"
       },
       {
         "position": "DH",
@@ -739,13 +1778,13 @@
       },
       {
         "position": "OF1",
-        "id": "최형우_1983년 12월 16일",
-        "name": "최형우"
+        "id": "박한이_1979년 01월 28일",
+        "name": "박한이"
       },
       {
         "position": "OF2",
-        "id": "박한이_1979년 01월 28일",
-        "name": "박한이"
+        "id": "최형우_1983년 12월 16일",
+        "name": "최형우"
       },
       {
         "position": "OF3",
@@ -772,8 +1811,8 @@
       },
       {
         "position": "C",
-        "id": "최승환_1978년 02월 25일",
-        "name": "최승환"
+        "id": "채상병_1979년 12월 18일",
+        "name": "채상병"
       },
       {
         "position": "1B",
@@ -787,8 +1826,8 @@
       },
       {
         "position": "SS",
-        "id": "이대수_1981년 08월 21일",
-        "name": "이대수"
+        "id": "김재호_1985년 03월 21일",
+        "name": "김재호"
       },
       {
         "position": "3B",
@@ -835,8 +1874,8 @@
       },
       {
         "position": "1B",
-        "id": "오재일_1986년 10월 29일",
-        "name": "오재일"
+        "id": "로메로_1986년 09월 24일",
+        "name": "로메로"
       },
       {
         "position": "2B",
@@ -860,13 +1899,13 @@
       },
       {
         "position": "OF2",
-        "id": "민병헌_1987년 03월 10일",
-        "name": "민병헌"
+        "id": "정수빈_1990년 10월 07일",
+        "name": "정수빈"
       },
       {
         "position": "OF3",
-        "id": "정수빈_1990년 10월 07일",
-        "name": "정수빈"
+        "id": "민병헌_1987년 03월 10일",
+        "name": "민병헌"
       },
       {
         "position": "DH",
@@ -893,8 +1932,8 @@
       },
       {
         "position": "1B",
-        "id": "오재일_1986년 10월 29일",
-        "name": "오재일"
+        "id": "에반스_1986년 01월 30일",
+        "name": "에반스"
       },
       {
         "position": "2B",
@@ -913,23 +1952,23 @@
       },
       {
         "position": "OF1",
-        "id": "김재환_1988년 09월 22일",
-        "name": "김재환"
-      },
-      {
-        "position": "OF2",
-        "id": "박건우_1990년 09월 08일",
-        "name": "박건우"
-      },
-      {
-        "position": "OF3",
         "id": "민병헌_1987년 03월 10일",
         "name": "민병헌"
       },
       {
+        "position": "OF2",
+        "id": "김재환_1988년 09월 22일",
+        "name": "김재환"
+      },
+      {
+        "position": "OF3",
+        "id": "박건우_1990년 09월 08일",
+        "name": "박건우"
+      },
+      {
         "position": "DH",
-        "id": "홍성흔_1977년 02월 28일",
-        "name": "홍성흔"
+        "id": "오재일_1986년 10월 29일",
+        "name": "오재일"
       }
     ]
   },
@@ -981,8 +2020,8 @@
       },
       {
         "position": "OF3",
-        "id": "정수빈_1990년 10월 07일",
-        "name": "정수빈"
+        "id": "정진호_1988년 10월 02일",
+        "name": "정진호"
       },
       {
         "position": "DH",
@@ -1029,13 +2068,13 @@
       },
       {
         "position": "OF1",
-        "id": "박건우_1990년 09월 08일",
-        "name": "박건우"
+        "id": "김재환_1988년 09월 22일",
+        "name": "김재환"
       },
       {
         "position": "OF2",
-        "id": "김재환_1988년 09월 22일",
-        "name": "김재환"
+        "id": "박건우_1990년 09월 08일",
+        "name": "박건우"
       },
       {
         "position": "OF3",
@@ -1062,8 +2101,8 @@
       },
       {
         "position": "C",
-        "id": "현재윤_1979년 07월 08일",
-        "name": "현재윤"
+        "id": "윤요섭_1982년 03월 30일",
+        "name": "윤요섭"
       },
       {
         "position": "1B",
@@ -1087,18 +2126,18 @@
       },
       {
         "position": "OF1",
-        "id": "이진영_1980년 06월 15일",
-        "name": "이진영"
-      },
-      {
-        "position": "OF2",
         "id": "박용택_1979년 04월 21일",
         "name": "박용택"
       },
       {
+        "position": "OF2",
+        "id": "이진영_1980년 06월 15일",
+        "name": "이진영"
+      },
+      {
         "position": "OF3",
-        "id": "김용의_1985년 08월 20일",
-        "name": "김용의"
+        "id": "정의윤_1986년 07월 25일",
+        "name": "정의윤"
       },
       {
         "position": "DH",
@@ -1150,8 +2189,8 @@
       },
       {
         "position": "OF2",
-        "id": "문선재_1990년 05월 20일",
-        "name": "문선재"
+        "id": "이병규_1983년 10월 09일",
+        "name": "이병규"
       },
       {
         "position": "OF3",
@@ -1188,8 +2227,8 @@
       },
       {
         "position": "2B",
-        "id": "송찬의_1999년 02월 20일",
-        "name": "송찬의"
+        "id": "서건창_1989년 08월 22일",
+        "name": "서건창"
       },
       {
         "position": "SS",
@@ -1203,13 +2242,13 @@
       },
       {
         "position": "OF1",
-        "id": "김현수_1988년 01월 12일",
-        "name": "김현수"
+        "id": "박해민_1990년 02월 24일",
+        "name": "박해민"
       },
       {
         "position": "OF2",
-        "id": "박해민_1990년 02월 24일",
-        "name": "박해민"
+        "id": "김현수_1988년 01월 12일",
+        "name": "김현수"
       },
       {
         "position": "OF3",
@@ -1246,8 +2285,8 @@
       },
       {
         "position": "2B",
-        "id": "김민성_1988년 12월 17일",
-        "name": "김민성"
+        "id": "신민재_1996년 01월 21일",
+        "name": "신민재"
       },
       {
         "position": "SS",
@@ -1266,13 +2305,13 @@
       },
       {
         "position": "OF2",
-        "id": "문성주_1997년 02월 20일",
-        "name": "문성주"
+        "id": "박해민_1990년 02월 24일",
+        "name": "박해민"
       },
       {
         "position": "OF3",
-        "id": "박해민_1990년 02월 24일",
-        "name": "박해민"
+        "id": "문성주_1997년 02월 20일",
+        "name": "문성주"
       },
       {
         "position": "DH",
@@ -1299,8 +2338,8 @@
       },
       {
         "position": "1B",
-        "id": "박종윤_1982년 04월 11일",
-        "name": "박종윤"
+        "id": "마해영_1970년 08월 14일",
+        "name": "마해영"
       },
       {
         "position": "2B",
@@ -1377,18 +2416,18 @@
       },
       {
         "position": "OF1",
+        "id": "김주찬_1981년 03월 25일",
+        "name": "김주찬"
+      },
+      {
+        "position": "OF2",
         "id": "손아섭_1988년 03월 18일",
         "name": "손아섭"
       },
       {
-        "position": "OF2",
+        "position": "OF3",
         "id": "가르시아_1975년 10월 29일",
         "name": "가르시아"
-      },
-      {
-        "position": "OF3",
-        "id": "전준우_1986년 02월 25일",
-        "name": "전준우"
       },
       {
         "position": "DH",
@@ -1420,8 +2459,8 @@
       },
       {
         "position": "2B",
-        "id": "정훈_1987년 07월 18일",
-        "name": "정훈"
+        "id": "조성환_1976년 12월 23일",
+        "name": "조성환"
       },
       {
         "position": "SS",
@@ -1435,13 +2474,13 @@
       },
       {
         "position": "OF1",
-        "id": "손아섭_1988년 03월 18일",
-        "name": "손아섭"
+        "id": "전준우_1986년 02월 25일",
+        "name": "전준우"
       },
       {
         "position": "OF2",
-        "id": "전준우_1986년 02월 25일",
-        "name": "전준우"
+        "id": "손아섭_1988년 03월 18일",
+        "name": "손아섭"
       },
       {
         "position": "OF3",
@@ -1488,8 +2527,8 @@
       },
       {
         "position": "3B",
-        "id": "황진수_1989년 02월 15일",
-        "name": "황진수"
+        "id": "김동한_1988년 06월 24일",
+        "name": "김동한"
       },
       {
         "position": "OF1",
@@ -1551,23 +2590,23 @@
       },
       {
         "position": "OF1",
-        "id": "김원섭_1978년 12월 18일",
-        "name": "김원섭"
-      },
-      {
-        "position": "OF2",
         "id": "나지완_1985년 05월 19일",
         "name": "나지완"
       },
       {
-        "position": "OF3",
+        "position": "OF2",
         "id": "이종범_1970년 08월 15일",
         "name": "이종범"
       },
       {
+        "position": "OF3",
+        "id": "김원섭_1978년 12월 18일",
+        "name": "김원섭"
+      },
+      {
         "position": "DH",
-        "id": "홍세완_1978년 01월 16일",
-        "name": "홍세완"
+        "id": "이현곤_1980년 02월 21일",
+        "name": "이현곤"
       }
     ]
   },
@@ -1589,8 +2628,8 @@
       },
       {
         "position": "1B",
-        "id": "최희섭_1979년 03월 16일",
-        "name": "최희섭"
+        "id": "김주형_1985년 12월 15일",
+        "name": "김주형"
       },
       {
         "position": "2B",
@@ -1604,8 +2643,8 @@
       },
       {
         "position": "3B",
-        "id": "이범호_1981년 11월 25일",
-        "name": "이범호"
+        "id": "김상현_1980년 11월 12일",
+        "name": "김상현"
       },
       {
         "position": "OF1",
@@ -1624,8 +2663,8 @@
       },
       {
         "position": "DH",
-        "id": "이현곤_1980년 02월 21일",
-        "name": "이현곤"
+        "id": "이범호_1981년 11월 25일",
+        "name": "이범호"
       }
     ]
   },
@@ -1642,8 +2681,8 @@
       },
       {
         "position": "C",
-        "id": "한승택_1994년 06월 21일",
-        "name": "한승택"
+        "id": "김민식_1989년 06월 28일",
+        "name": "김민식"
       },
       {
         "position": "1B",
@@ -1705,8 +2744,8 @@
       },
       {
         "position": "1B",
-        "id": "서건창_1989년 08월 22일",
-        "name": "서건창"
+        "id": "이우성_1994년 07월 17일",
+        "name": "이우성"
       },
       {
         "position": "2B",
@@ -1773,8 +2812,8 @@
       },
       {
         "position": "SS",
-        "id": "김성현_1987년 03월 09일",
-        "name": "김성현"
+        "id": "나주환_1984년 06월 14일",
+        "name": "나주환"
       },
       {
         "position": "3B",
@@ -1788,13 +2827,13 @@
       },
       {
         "position": "OF2",
-        "id": "이진영_1980년 06월 15일",
-        "name": "이진영"
+        "id": "박재상_1982년 07월 20일",
+        "name": "박재상"
       },
       {
         "position": "OF3",
-        "id": "박재상_1982년 07월 20일",
-        "name": "박재상"
+        "id": "이진영_1980년 06월 15일",
+        "name": "이진영"
       },
       {
         "position": "DH",
@@ -1879,8 +2918,8 @@
       },
       {
         "position": "1B",
-        "id": "이호준_1976년 02월 08일",
-        "name": "이호준"
+        "id": "박정권_1981년 07월 21일",
+        "name": "박정권"
       },
       {
         "position": "2B",
@@ -1899,23 +2938,23 @@
       },
       {
         "position": "OF1",
-        "id": "안치용_1979년 02월 23일",
-        "name": "안치용"
+        "id": "박재상_1982년 07월 20일",
+        "name": "박재상"
       },
       {
         "position": "OF2",
+        "id": "조동화_1981년 03월 22일",
+        "name": "조동화"
+      },
+      {
+        "position": "OF3",
         "id": "김강민_1982년 09월 13일",
         "name": "김강민"
       },
       {
-        "position": "OF3",
-        "id": "임훈_1985년 07월 17일",
-        "name": "임훈"
-      },
-      {
         "position": "DH",
-        "id": "박재홍_1973년 09월 07일",
-        "name": "박재홍"
+        "id": "이호준_1976년 02월 08일",
+        "name": "이호준"
       }
     ]
   },
@@ -1932,8 +2971,8 @@
       },
       {
         "position": "C",
-        "id": "김민식_1989년 06월 28일",
-        "name": "김민식"
+        "id": "이재원_1988년 02월 24일",
+        "name": "이재원"
       },
       {
         "position": "1B",
@@ -1942,8 +2981,8 @@
       },
       {
         "position": "2B",
-        "id": "안상현_1997년 01월 27일",
-        "name": "안상현"
+        "id": "김성현_1987년 03월 09일",
+        "name": "김성현"
       },
       {
         "position": "SS",
@@ -1967,8 +3006,8 @@
       },
       {
         "position": "OF3",
-        "id": "김강민_1982년 09월 13일",
-        "name": "김강민"
+        "id": "오태곤_1991년 11월 18일",
+        "name": "오태곤"
       },
       {
         "position": "DH",
@@ -1990,8 +3029,8 @@
       },
       {
         "position": "C",
-        "id": "김동수_1968년 10월 27일",
-        "name": "김동수"
+        "id": "강귀태_1979년 08월 12일",
+        "name": "강귀태"
       },
       {
         "position": "1B",
@@ -2015,23 +3054,23 @@
       },
       {
         "position": "OF1",
+        "id": "송지만_1973년 03월 02일",
+        "name": "송지만"
+      },
+      {
+        "position": "OF2",
         "id": "이택근_1980년 07월 10일",
         "name": "이택근"
       },
       {
-        "position": "OF2",
+        "position": "OF3",
         "id": "브룸바_1974년 04월 21일",
         "name": "브룸바"
       },
       {
-        "position": "OF3",
+        "position": "DH",
         "id": "전준호_1969년 02월 15일",
         "name": "전준호"
-      },
-      {
-        "position": "DH",
-        "id": "송지만_1973년 03월 02일",
-        "name": "송지만"
       }
     ]
   },
@@ -2048,8 +3087,8 @@
       },
       {
         "position": "C",
-        "id": "박동원_1990년 04월 07일",
-        "name": "박동원"
+        "id": "허도환_1984년 07월 31일",
+        "name": "허도환"
       },
       {
         "position": "1B",
@@ -2083,13 +3122,13 @@
       },
       {
         "position": "OF3",
-        "id": "로티노_1980년 04월 07일",
-        "name": "로티노"
+        "id": "문우람_1992년 03월 08일",
+        "name": "문우람"
       },
       {
         "position": "DH",
-        "id": "이성열_1984년 07월 13일",
-        "name": "이성열"
+        "id": "윤석민_1985년 09월 04일",
+        "name": "윤석민"
       }
     ]
   },
@@ -2131,18 +3170,18 @@
       },
       {
         "position": "OF1",
-        "id": "대니돈_1984년 07월 20일",
-        "name": "대니돈"
-      },
-      {
-        "position": "OF2",
         "id": "고종욱_1989년 01월 11일",
         "name": "고종욱"
       },
       {
+        "position": "OF2",
+        "id": "대니돈_1984년 07월 20일",
+        "name": "대니돈"
+      },
+      {
         "position": "OF3",
-        "id": "박정음_1989년 04월 15일",
-        "name": "박정음"
+        "id": "이택근_1980년 07월 10일",
+        "name": "이택근"
       },
       {
         "position": "DH",
@@ -2164,8 +3203,8 @@
       },
       {
         "position": "C",
-        "id": "박동원_1990년 04월 07일",
-        "name": "박동원"
+        "id": "김재현_1993년 03월 18일",
+        "name": "김재현"
       },
       {
         "position": "1B",
@@ -2184,8 +3223,8 @@
       },
       {
         "position": "3B",
-        "id": "송성문_1996년 08월 29일",
-        "name": "송성문"
+        "id": "김민성_1988년 12월 17일",
+        "name": "김민성"
       },
       {
         "position": "OF1",
@@ -2199,13 +3238,13 @@
       },
       {
         "position": "OF3",
-        "id": "샌즈_1987년 09월 28일",
-        "name": "샌즈"
+        "id": "초이스_1989년 11월 10일",
+        "name": "초이스"
       },
       {
         "position": "DH",
-        "id": "김태완_1984년 01월 27일",
-        "name": "김태완"
+        "id": "이택근_1980년 07월 10일",
+        "name": "이택근"
       }
     ]
   },
@@ -2232,8 +3271,8 @@
       },
       {
         "position": "2B",
-        "id": "김혜성_1999년 01월 27일",
-        "name": "김혜성"
+        "id": "서건창_1989년 08월 22일",
+        "name": "서건창"
       },
       {
         "position": "SS",
@@ -2242,28 +3281,28 @@
       },
       {
         "position": "3B",
-        "id": "김웅빈_1996년 02월 09일",
-        "name": "김웅빈"
+        "id": "장영석_1990년 05월 14일",
+        "name": "장영석"
       },
       {
         "position": "OF1",
-        "id": "샌즈_1987년 09월 28일",
-        "name": "샌즈"
-      },
-      {
-        "position": "OF2",
         "id": "이정후_1998년 08월 20일",
         "name": "이정후"
       },
       {
+        "position": "OF2",
+        "id": "샌즈_1987년 09월 28일",
+        "name": "샌즈"
+      },
+      {
         "position": "OF3",
-        "id": "김규민_1993년 01월 26일",
-        "name": "김규민"
+        "id": "임병욱_1995년 09월 30일",
+        "name": "임병욱"
       },
       {
         "position": "DH",
-        "id": "서건창_1989년 08월 22일",
-        "name": "서건창"
+        "id": "김혜성_1999년 01월 27일",
+        "name": "김혜성"
       }
     ]
   },
@@ -2310,13 +3349,13 @@
       },
       {
         "position": "OF2",
-        "id": "김종호_1984년 05월 31일",
-        "name": "김종호"
+        "id": "이종욱_1980년 06월 18일",
+        "name": "이종욱"
       },
       {
         "position": "OF3",
-        "id": "이종욱_1980년 06월 18일",
-        "name": "이종욱"
+        "id": "김종호_1984년 05월 31일",
+        "name": "김종호"
       },
       {
         "position": "DH",
@@ -2338,8 +3377,8 @@
       },
       {
         "position": "C",
-        "id": "박세웅_1993년 08월 12일",
-        "name": "박세웅"
+        "id": "김태군_1989년 12월 30일",
+        "name": "김태군"
       },
       {
         "position": "1B",
@@ -2426,13 +3465,13 @@
       },
       {
         "position": "OF2",
-        "id": "권희동_1990년 12월 30일",
-        "name": "권희동"
+        "id": "이명기_1987년 12월 26일",
+        "name": "이명기"
       },
       {
         "position": "OF3",
-        "id": "이명기_1987년 12월 26일",
-        "name": "이명기"
+        "id": "권희동_1990년 12월 30일",
+        "name": "권희동"
       },
       {
         "position": "DH",
@@ -2459,8 +3498,8 @@
       },
       {
         "position": "1B",
-        "id": "윤형준_1994년 01월 31일",
-        "name": "윤형준"
+        "id": "오영수_2000년 01월 30일",
+        "name": "오영수"
       },
       {
         "position": "2B",
@@ -2580,8 +3619,8 @@
       },
       {
         "position": "2B",
-        "id": "오윤석_1992년 02월 24일",
-        "name": "오윤석"
+        "id": "박경수_1984년 03월 31일",
+        "name": "박경수"
       },
       {
         "position": "SS",
@@ -2600,18 +3639,18 @@
       },
       {
         "position": "OF2",
+        "id": "조용호_1989년 09월 09일",
+        "name": "조용호"
+      },
+      {
+        "position": "OF3",
         "id": "유한준_1981년 07월 01일",
         "name": "유한준"
       },
       {
-        "position": "OF3",
-        "id": "김민혁_1995년 11월 21일",
-        "name": "김민혁"
-      },
-      {
         "position": "DH",
-        "id": "송민섭_1991년 08월 02일",
-        "name": "송민섭"
+        "id": "호잉_1989년 05월 18일",
+        "name": "호잉"
       }
     ]
   },
@@ -2716,13 +3755,13 @@
       },
       {
         "position": "OF2",
-        "id": "조원우_1971년 04월 08일",
-        "name": "조원우"
+        "id": "고동진_1980년 04월 01일",
+        "name": "고동진"
       },
       {
         "position": "OF3",
-        "id": "고동진_1980년 04월 01일",
-        "name": "고동진"
+        "id": "조원우_1971년 04월 08일",
+        "name": "조원우"
       },
       {
         "position": "DH",
@@ -2769,13 +3808,13 @@
       },
       {
         "position": "OF1",
-        "id": "조원우_1971년 04월 08일",
-        "name": "조원우"
+        "id": "고동진_1980년 04월 01일",
+        "name": "고동진"
       },
       {
         "position": "OF2",
-        "id": "고동진_1980년 04월 01일",
-        "name": "고동진"
+        "id": "조원우_1971년 04월 08일",
+        "name": "조원우"
       },
       {
         "position": "OF3",
@@ -2817,8 +3856,8 @@
       },
       {
         "position": "SS",
-        "id": "강경학_1992년 08월 11일",
-        "name": "강경학"
+        "id": "하주석_1994년 02월 25일",
+        "name": "하주석"
       },
       {
         "position": "3B",
@@ -2837,8 +3876,8 @@
       },
       {
         "position": "OF3",
-        "id": "박준혁_1991년 01월 09일",
-        "name": "박준혁"
+        "id": "양성우_1989년 05월 02일",
+        "name": "양성우"
       },
       {
         "position": "DH",

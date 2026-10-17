@@ -180,7 +180,7 @@ function Footer() {
         <span>버그 제보</span>
       </a>
       <div className="flex items-center justify-between px-3 text-xs text-slate-500">
-        <span>v1.2.3 Beta</span>
+        <span>v1.2.4 Beta</span>
         <Link href="/privacy" className="underline hover:text-slate-300">
           개인정보처리방침
         </Link>

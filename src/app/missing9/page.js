@@ -1,1026 +1,500 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { liftOnMobile, store } from "@/lib/kbo";
 
-const POSITION_STYLE = {
-  P:   "top-[60%] left-[50%]",
+// -----------------------------
+// 설정
+// -----------------------------
 
-  "1B":"top-[60%] left-[72%]",
-  "2B":"top-[40%] left-[62%]",
-  SS:  "top-[40%] left-[38%]",
-  "3B":"top-[60%] left-[28%]",
+const MAX_WRONG = 6; // 한 칸에서 6번 틀리면 그 칸은 실패
+const HINT_AT = { throw: 1, bat: 3, birth: 5 }; // 몇 번째 오답부터 힌트 공개
 
-  C:   "top-[88%] left-[50%]",
+const TEAMS = ["전체", "대한민국", "삼성", "두산", "LG", "롯데", "KIA", "한화", "SSG", "KT", "키움", "NC"];
+// 옛 이름까지 같은 팀으로
+const TEAM_GROUP = { SSG: ["SSG", "SK"], 키움: ["키움", "넥센", "우리"] };
 
-  LF:  "top-[28%] left-[22%]",
-  CF:  "top-[18%] left-[50%]",
-  RF:  "top-[28%] left-[78%]",
-
-  OF1: "top-[28%] left-[22%]",
-  OF2: "top-[18%] left-[50%]",
-  OF3: "top-[28%] left-[78%]",
-
-  DH:  "top-[86%] left-[72%]",
+// 야구장 위 카드 위치 (가로 %, 세로 %)
+const SPOT = {
+  P: [50, 60],
+  "1B": [72, 60],
+  "2B": [62, 40],
+  SS: [38, 40],
+  "3B": [28, 60],
+  C: [50, 88],
+  LF: [22, 28],
+  CF: [50, 18],
+  RF: [78, 28],
+  OF1: [22, 28],
+  OF2: [50, 18],
+  OF3: [78, 28],
+  DH: [72, 86],
 };
-function RuleModal({ hideRule, setHideRule, setShowRule }) {
+// 모바일 목록 순서
+const ORDER = ["P", "C", "1B", "2B", "SS", "3B", "LF", "CF", "RF", "OF1", "OF2", "OF3", "DH"];
+
+const posLabel = (pos) => (pos.startsWith("OF") ? "OF" : pos);
+const normalize = (s) => String(s ?? "").replace(/\s+/g, "");
+const saveKey = (game) => `missing9_${game.title}`;
+
+// -----------------------------
+// 규칙 창
+// -----------------------------
+
+function RuleModal({ onClose }) {
+  const [hide, setHide] = useState(false);
   return (
     <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center p-4 overflow-y-auto">
-      <div className="w-full max-w-[520px] rounded-3xl bg-white text-black p-8 shadow-2xl">
-
-        <h2 className="text-3xl font-black text-center mb-6">
-          ⚾ Missing9
-        </h2>
-
-        <div className="space-y-5 text-[15px] leading-7">
-
+      <div className="w-full max-w-[520px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-7 shadow-2xl">
+        <h2 className="text-3xl font-black text-center mb-6">⚾ Missing 9</h2>
+        <div className="space-y-5 text-[15px] leading-7 text-zinc-700">
           <div>
-            <div className="font-bold text-lg">
-              🎯 목표
-            </div>
-
-            <div className="text-zinc-700">
-              숨겨진 9명의 선수를 모두 맞히세요.
-            </div>
+            <div className="font-black text-lg text-black">🎯 목표</div>
+            그 경기(또는 그 시즌) 라인업의 선수를 포지션마다 맞히세요. 투수와 지명타자까지 10명입니다.
           </div>
-
           <div>
-            <div className="font-bold text-lg">
-              🎮 게임 방법
-            </div>
-
-            <ul className="list-disc ml-6 text-zinc-700">
-              <li>각 포지션의 선수를 입력합니다.</li>
-              <li>Enter를 누르면 정답 여부를 확인합니다.</li>
-              <li>정답이면 해당 칸이 고정됩니다.</li>
-              <li>오답이면 힌트가 순서대로 공개됩니다.</li>
+            <div className="font-black text-lg text-black">🎮 방법</div>
+            <ul className="list-disc ml-6">
+              <li>칸에 이름을 입력하고 목록에서 고르거나 Enter.</li>
+              <li>틀릴 때마다 힌트가 열립니다. {HINT_AT.throw}번째 오답: 던지는 손 · {HINT_AT.bat}번째: 치는 손 · {HINT_AT.birth}번째: 출생연도</li>
+              <li>한 칸에서 {MAX_WRONG}번 틀리면 그 칸은 실패하고 정답이 공개됩니다.</li>
+              <li>막히면 &quot;포기하고 정답 보기&quot;로 끝낼 수 있어요. 푼 기록은 저장돼서 목록에 표시됩니다.</li>
             </ul>
           </div>
-
           <div>
-            <div className="font-bold text-lg">
-              💡 힌트
-            </div>
-
-            <ul className="list-disc ml-6 text-zinc-700">
-              <li>1번째 오답 : 던지는 손</li>
-              <li>3번째 오답 : 치는 손</li>
-              <li>5번째 오답 : 출생연도</li>
-              <li>6번째 오답 : 실패 및 정답 공개</li>
+            <div className="font-black text-lg text-black">📂 문제 종류</div>
+            <ul className="list-disc ml-6">
+              <li>국제대회 · 한국시리즈 · 포스트시즌: 실제 경기 선발 라인업</li>
+              <li>
+                시즌 베스트: 그 시즌 포지션별로 <b>타석이 가장 많았던 주전</b>, 지명타자는 그다음으로 많이 나온 타자, 투수는
+                선발 등판이 가장 많은 투수. 외야 3명은 순서 상관없이 아무 외야 칸에 넣어도 됩니다.
+              </li>
             </ul>
           </div>
-
-          <div>
-            <div className="font-bold text-lg">
-              ⭐ 시즌 베스트
-            </div>
-
-            <div className="text-zinc-700">
-              시즌 베스트 문제에서는 외야수(LF/CF/RF)를 구분하지 않습니다.
-              <br />
-              외야수 3명 중 누구를 입력해도 자동으로 정답 처리됩니다.
-            </div>
+          <div className="text-xs text-zinc-500">
+            ※ SK·SSG, 우리·넥센·키움은 같은 팀으로 묶었습니다. 그 뒤로 이름을 바꾼 선수는 지금 이름으로도, 당시 이름으로도 맞힐 수
+            있어요.
           </div>
-
-          <div>
-            <div className="font-bold text-lg">
-              📂 문제 종류
-            </div>
-
-            <div className="text-zinc-700">
-              • 국가대표
-              <br />
-              • 정규시즌
-              <br />
-              • 포스트시즌
-              <br />
-              • 시즌 베스트
-            </div>
-          </div>
-
-          <div className="text-xs
-md:text-sm text-zinc-500">
-            ※ SK·SSG는 같은 팀으로 취급됩니다.
-            <br />
-            ※ 우리·넥센·키움은 같은 팀으로 취급됩니다.
-          </div>
-<p className="mt-6 text-center text-xs text-zinc-500">
-  최적 환경: PC 및 스마트폰 브라우저
-  <br />
-  일부 태블릿 브라우저에서는 기능이 정상 동작하지 않을 수 있습니다.
-</p>
         </div>
-
-        <label className="flex items-center gap-2 mt-6 text-xs
-md:text-sm">
-          <input
-            type="checkbox"
-            checked={hideRule}
-            onChange={(e) =>
-              setHideRule(e.target.checked)
-            }
-          />
+        <label className="flex items-center gap-2 mt-6 text-sm">
+          <input type="checkbox" checked={hide} onChange={(e) => setHide(e.target.checked)} />
           다음부터 보지 않기
         </label>
-
         <button
           onClick={() => {
-
-            if (hideRule) {
-              localStorage.setItem(
-                "missing9_rule",
-                "true"
-              );
-            }
-
-            setShowRule(false);
-
+            if (hide) store.set("missing9_rule", true);
+            onClose();
           }}
-          className="mt-6 w-full bg-sky-600 hover:bg-sky-500 text-white py-3 rounded-xl font-bold"
+          className="mt-4 w-full bg-sky-600 hover:bg-sky-500 text-white py-3 rounded-xl font-bold"
         >
           확인
         </button>
-
       </div>
     </div>
   );
 }
+
+// -----------------------------
+// 칸 하나 (야구장 카드 / 모바일 목록 공용)
+// -----------------------------
+
+function Slot({ pos, answer, state, over, players, onSubmit, compact }) {
+  const [text, setText] = useState("");
+  const [idx, setIdx] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [flash, setFlash] = useState(false);
+
+  const wrong = state?.wrong || 0;
+  const done = state?.solved || state?.failed || over;
+
+  const list = useMemo(() => {
+    const q = normalize(text);
+    if (!open || !q) return [];
+    return players
+      .filter((p) => p.name.includes(q))
+      .sort((a, b) => b.name.startsWith(q) - a.name.startsWith(q) || b.careerWar - a.careerWar)
+      .slice(0, 8);
+  }, [text, open, players]);
+
+  const submit = (picked) => {
+    const value = picked ? picked.name : text;
+    if (!normalize(value)) return;
+    setOpen(false);
+    setText("");
+    const ok = onSubmit(pos, value, picked);
+    if (!ok) {
+      setFlash(true);
+      setTimeout(() => setFlash(false), 500);
+    }
+  };
+
+  const hints = [];
+  if (!done && answer.info) {
+    const hand = answer.info.throws || "";
+    if (wrong >= HINT_AT.throw) hints.push(`던지는 손: ${hand.slice(0, 2)}`);
+    if (wrong >= HINT_AT.bat) hints.push(`치는 손: ${hand.slice(2)}`);
+    if (wrong >= HINT_AT.birth) hints.push(`${answer.info.birthdate?.slice(0, 4)}년생`);
+  }
+
+  const shownName = answer.oldName ? `${answer.name} (당시 ${answer.oldName})` : answer.name;
+
+  return (
+    <div
+      className={`rounded-2xl text-center backdrop-blur-md transition-all ${
+        compact ? "flex items-center gap-3 px-3 py-2 text-left" : "px-2 py-2 w-[110px] min-h-[92px]"
+      } ${
+        state?.solved
+          ? "bg-emerald-900/70 border border-emerald-500/60"
+          : flash
+            ? "bg-red-900/70 border border-red-500/70"
+            : done
+              ? "bg-black/80 border border-red-400/40"
+              : "bg-black/85 border-2 border-white/30"
+      }`}
+    >
+      <div className={`text-[11px] font-black tracking-widest text-zinc-200 ${compact ? "w-8 shrink-0" : "mb-1"}`}>
+        {posLabel(pos)}
+      </div>
+
+      <div className={compact ? "flex-1 min-w-0" : ""}>
+        {done ? (
+          <div className={`font-black text-sm ${state?.solved ? "text-emerald-300" : "text-red-300"}`}>{shownName}</div>
+        ) : (
+          <div className="relative">
+            <input
+              value={text}
+              placeholder="???"
+              onFocus={liftOnMobile}
+              onChange={(e) => {
+                setText(e.target.value);
+                setOpen(true);
+                setIdx(0);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowDown") {
+                  e.preventDefault();
+                  setIdx((i) => Math.min(i + 1, list.length - 1));
+                } else if (e.key === "ArrowUp") {
+                  e.preventDefault();
+                  setIdx((i) => Math.max(i - 1, 0));
+                } else if (e.key === "Enter") {
+                  submit(list[idx]);
+                }
+              }}
+              className="w-full rounded-lg bg-zinc-700 border border-zinc-500 px-2 py-1 text-sm text-white text-center outline-none focus:bg-zinc-600"
+            />
+            {list.length > 0 && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-full min-w-[150px] rounded-xl bg-zinc-900 border border-zinc-700 shadow-xl z-50 overflow-hidden">
+                {list.map((p, i) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => submit(p)}
+                    className={`w-full flex justify-between gap-2 px-3 py-2 text-sm text-white hover:bg-sky-600 ${i === idx ? "bg-sky-700" : ""}`}
+                  >
+                    <span>{p.name}</span>
+                    <span className="text-xs text-zinc-400">{p.birthdate?.slice(0, 4)}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+        {hints.length > 0 && (
+          <div className="mt-1 text-[11px] leading-snug text-yellow-300">
+            {hints.join(compact ? " · " : "\n")
+              .split("\n")
+              .map((h) => (
+                <div key={h}>{h}</div>
+              ))}
+          </div>
+        )}
+        {!done && wrong > 0 && (
+          <div className="text-[10px] text-zinc-400">
+            {wrong}/{MAX_WRONG} 오답
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// -----------------------------
+// 페이지
+// -----------------------------
+
 export default function Missing9() {
   const [games, setGames] = useState([]);
   const [players, setPlayers] = useState([]);
-  const [currentGameIndex, setCurrentGameIndex] = useState(0);
-  const [inputValues, setInputValues] = useState({});
-  const [solved, setSolved] = useState({});
-  const [attempts, setAttempts] = useState({});
-  const [showAnswers, setShowAnswers] = useState(false);
-  const [wrongFlash, setWrongFlash] = useState({});
-  const [failed, setFailed] = useState({});
-  const [filteredPlayers, setFilteredPlayers] = useState({});
-  const [selectedIndex, setSelectedIndex] = useState({});
-  const [selectedPlayers, setSelectedPlayers] = useState({});
-  const [selectedTeam, setSelectedTeam]
-  = useState(null);
-  const [showRule, setShowRule] = useState(true);
-const [hideRule, setHideRule] = useState(false);
+  const [team, setTeam] = useState(null);
+  const [index, setIndex] = useState(0);
+  const [progress, setProgress] = useState({}); // 포지션 → {solved, failed, wrong}
+  const [gaveUp, setGaveUp] = useState(false);
+  const [showRule, setShowRule] = useState(false);
 
- // 게임 전환 시 상태 초기화
-const resetGame = () => {
-  setSolved({});
-  setInputValues({});
-  setAttempts({});
-  setShowAnswers(false);
-  setWrongFlash({});
-  setFailed({});
-  setFilteredPlayers({});
-  setSelectedPlayers({});
-  setSelectedIndex({});
-};
-const filteredGames =
-  selectedTeam === null ||
-  selectedTeam === "전체"
-    ? games
-    : games.filter((game) => {
+  useEffect(() => {
+    Promise.all([
+      fetch("/data/games.json").then((r) => r.json()),
+      fetch("/data/players.json").then((r) => r.json()),
+    ]).then(([g, p]) => {
+      setGames(g);
+      setPlayers(p);
+      setShowRule(!store.get("missing9_rule"));
+    });
+  }, []);
 
-        if (selectedTeam === "SSG") {
-          return ["SSG", "SK"].includes(
-            game.team
-          );
-        }
+  const byId = useMemo(() => Object.fromEntries(players.map((p) => [p.id, p])), [players]);
 
-        if (selectedTeam === "키움") {
-          return ["키움", "넥센", "우리"].includes(
-            game.team
-          );
-        }
+  const list = useMemo(() => {
+    if (!team || team === "전체") return games;
+    const names = TEAM_GROUP[team] || [team];
+    return games.filter((g) => names.includes(g.team));
+  }, [games, team]);
 
-        return game.team === selectedTeam;
+  const game = list[index];
+  const isSeasonBest = game?.category === "시즌 베스트";
 
-      });
-      useEffect(() => {
+  // 정답표: 포지션 → {name, id, oldName, info(선수 정보)}
+  const answers = useMemo(() => {
+    if (!game) return {};
+    return Object.fromEntries(game.lineup.map((l) => [l.position, { ...l, info: byId[l.id] }]));
+  }, [game, byId]);
+  const positions = ORDER.filter((p) => answers[p]);
 
-  const hide =
-    localStorage.getItem("missing9_rule");
+  // 문제 열 때 저장된 기록 불러오기
+  const openGame = (i, l = list) => {
+    const g = l[i];
+    setIndex(i);
+    const saved = g && store.get(saveKey(g));
+    setProgress(saved?.progress || {});
+    setGaveUp(!!saved?.gaveUp);
+  };
 
-  if (hide === "true") {
+  const solvedCount = positions.filter((p) => progress[p]?.solved).length;
+  const allDone = positions.length > 0 && positions.every((p) => progress[p]?.solved || progress[p]?.failed);
+  const over = gaveUp || allDone;
 
-    setShowRule(false);
+  // 진행 저장 (팀 선택 화면의 "푼 문제 수"도 이걸 읽음)
+  useEffect(() => {
+    if (!game || (Object.keys(progress).length === 0 && !gaveUp)) return;
+    store.set(saveKey(game), { progress, gaveUp, over, solved: solvedCount, total: positions.length });
+  }, [game, progress, gaveUp, over, solvedCount, positions.length]);
 
+  // 시즌 베스트 외야는 칸과 선수가 고정이 아님: 맞힌 칸은 맞힌 선수, 나머지 칸엔 남은 선수를 순서대로
+  const OFS = ["OF1", "OF2", "OF3"];
+  const answerFor = (pr, pos) => {
+    if (!(isSeasonBest && pos.startsWith("OF"))) return answers[pos];
+    if (pr[pos]?.as) return answers[pr[pos].as];
+    const taken = OFS.map((p) => pr[p]?.as).filter(Boolean);
+    const restAnswers = OFS.filter((p) => !taken.includes(p));
+    const restSlots = OFS.filter((p) => !pr[p]?.as);
+    return answers[restAnswers[restSlots.indexOf(pos)]];
+  };
+  const answerAt = (pos) => answerFor(progress, pos);
+
+  // 맞으면 true
+  const submit = (pos, value, picked) => {
+    const matches = (a) =>
+      a &&
+      (picked && a.id
+        ? picked.id === a.id
+        : normalize(value) === normalize(a.name) || (a.oldName && normalize(value) === normalize(a.oldName)));
+
+    // 시즌 베스트 외야는 아직 안 맞힌 외야 선수 중 누구든
+    let as = null;
+    if (isSeasonBest && pos.startsWith("OF")) {
+      const taken = OFS.map((p) => progress[p]?.as).filter(Boolean);
+      as = OFS.find((p) => !taken.includes(p) && matches(answers[p]));
+    } else if (matches(answers[pos])) {
+      as = pos;
+    }
+
+    if (as) {
+      setProgress((pr) => ({ ...pr, [pos]: { ...pr[pos], solved: true, as } }));
+      return true;
+    }
+    setProgress((pr) => {
+      const wrong = (pr[pos]?.wrong || 0) + 1;
+      const failed = wrong >= MAX_WRONG;
+      // 실패한 외야 칸은 그때 보이던 선수로 고정
+      const fixed = failed && pos.startsWith("OF") ? { as: OFS.find((p) => answers[p] === answerFor(pr, pos)) } : {};
+      return { ...pr, [pos]: { ...pr[pos], wrong, failed, ...fixed } };
+    });
+    return false;
+  };
+
+  // -----------------------------
+  // 팀 고르기 화면
+  // -----------------------------
+  if (team === null) {
+    return (
+      <>
+        {showRule && <RuleModal onClose={() => setShowRule(false)} />}
+        <div
+          className="min-h-screen flex flex-col items-center justify-center text-white relative px-4 py-10"
+          style={{ backgroundImage: "url('/stadium_bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+        >
+          <div className="absolute inset-0 bg-black/45" />
+          <div className="relative z-10 w-full max-w-xl flex flex-col items-center">
+            <h1 className="text-5xl md:text-7xl font-black mb-3 drop-shadow-lg">Missing 9</h1>
+            <p className="mb-8 text-white/80 text-center">그날의 라인업, 그 시즌의 주전을 맞혀 보세요.</p>
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 w-full">
+              {TEAMS.map((t) => {
+                const names = TEAM_GROUP[t] || [t];
+                const mine = t === "전체" ? games : games.filter((g) => names.includes(g.team));
+                const cleared = mine.filter((g) => store.get(saveKey(g))?.over).length;
+                return (
+                  <button
+                    key={t}
+                    onClick={() => {
+                      const l = t === "전체" ? games : mine;
+                      setTeam(t);
+                      openGame(0, l);
+                    }}
+                    className="rounded-xl bg-white text-black hover:bg-zinc-200 py-3 font-black shadow-lg"
+                  >
+                    {t}
+                    <div className="text-[11px] font-semibold text-zinc-500">
+                      {cleared}/{mine.length}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+            <button onClick={() => setShowRule(true)} className="mt-6 text-sm underline text-white/70 hover:text-white">
+              규칙 보기
+            </button>
+          </div>
+        </div>
+      </>
+    );
   }
 
-}, []);
-useEffect(() => {
+  if (!game) {
+    return <div className="min-h-screen flex items-center justify-center text-3xl">Loading...</div>;
+  }
 
-fetch("/data/games.json")
-  .then((res) => res.json())
-  .then((data) => {
-    setGames(data);
+  const slotProps = (pos) => ({
+    pos,
+    answer: answerAt(pos),
+    state: progress[pos],
+    over,
+    players,
+    onSubmit: submit,
   });
 
-  fetch("/data/players.json")
-    .then((res) => res.json())
-    .then((data) => setPlayers(data));
-
-}, []);
-if (selectedTeam === null) {
   return (
-  <>  
-  {showRule && (
-  <RuleModal
-    hideRule={hideRule}
-    setHideRule={setHideRule}
-    setShowRule={setShowRule}
-  />
-)}
     <div
-  className="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden"
-  style={{
-    backgroundImage: "url('/stadium_bg.webp')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  <div className="absolute inset-0 bg-black/35" />
-
-<div className="relative z-10 flex flex-col items-center">
-  
-
-  <h1 className="
-text-4xl
-md:text-7xl
-font-black
-mb-8
-md:mb-12
-text-center
-drop-shadow-lg
-">
-    Missing9
-  </h1>
-
-  <div className="grid grid-cols-4 gap-4">
-
-    {[
-      "전체",
-      "대한민국",
-      "삼성",
-      "두산",
-      "LG",
-      "롯데",
-      "KIA",
-      "한화",
-      "SSG",
-      "KT",
-      "키움",
-      "NC"
-    ].map((team) => (
-
-      <button
-        key={team}
-        onClick={() => {
-          resetGame();
-          setSelectedTeam(team);
-          setCurrentGameIndex(0);
-        }}
-        className="
-          w-full
-h-12
-md:w-24
-          bg-white
-          text-black
-          hover:bg-zinc-200
-          rounded-xl
-          font-bold
-          shadow-lg
-          transition
-        "
-      >
-        {team}
-      </button>
-
-    ))}
-
-  </div>
-</div>
-    </div>
-    </>
-  );
-}
-
-if (games.length === 0) {
-  return (
-    <div className="min-h-screen flex items-center justify-center text-white">
-      로딩중...
-    </div>
-  );
-}
-const game = filteredGames[currentGameIndex];
-
-if (!game) {
-  return null;
-}
-
-const lineup = game.lineup;
-const answerMap = {};
-
-lineup.forEach((player) => {
-
-  const info = players.find(
-  (p) =>
-    (player.id && p.id === player.id) ||
-    (!player.id && p.name === player.name)
-);
-
-  const throwInfo = info?.throws || "";
-
-  answerMap[player.position] = {
-
-    ...player,
-
-    throws: throwInfo,
-
-      birthYear:
-    info?.birthdate
-      ?.slice(0, 4) ?? ""
-
-  };
-
-});
-
-  const totalPlayers = Object.keys(answerMap).length;
-  const solvedCount = Object.keys(solved).length;
-  const isClear = solvedCount === totalPlayers;
-
-
-  const goToPrev = () => {
-    if (currentGameIndex > 0) {
-      setCurrentGameIndex((i) => i - 1);
-      resetGame();
-    }
-  };
-
-  const goToNext = () => {
-    if (currentGameIndex < filteredGames.length - 1) {
-      setCurrentGameIndex((i) => i + 1);
-      resetGame();
-    }
-  };
-
-  const normalize = (str) =>
-    str.trim().replace(/\s+/g, "");
-const isSeasonBest =
-  game.category === "시즌 베스트";
-
-  const checkAnswer = (position) => {
-
-  const input =
-    inputValues[position] ?? "";
-
-  if (!normalize(input))
-    return;
-
-  if (failed[position])
-    return;
- // 자동완성 목록 닫기
-  setFilteredPlayers(prev => ({
-    ...prev,
-    [position]: [],
-  }));
-  // --------------------
-  // 시즌 베스트 외야 처리
-  // --------------------
-
-  if (
-    isSeasonBest &&
-    position.startsWith("OF")
-  ) {
-
-    const ofPositions =
-      ["OF1", "OF2", "OF3"];
-
-    const matchedPosition =
-      ofPositions.find((pos) => {
-
-        if (
-          solved[pos] ||
-          failed[pos]
-        ) {
-          return false;
-        }
-
-        return (
-          normalize(
-            answerMap[pos]?.name || ""
-          ) === normalize(input)
-        );
-
-      });
-
-    if (matchedPosition) {
-
-      setSolved((prev) => ({
-        ...prev,
-        [matchedPosition]: true,
-      }));
-      setSelectedPlayers(prev => ({
-  ...prev,
-  [position]: undefined,
-}));
-
-      setInputValues((prev) => ({
-        ...prev,
-        [position]: "",
-      }));
-setFilteredPlayers(prev=>({
-  ...prev,
-  [position]:[],
-}));
-      return;
-
-    }
-
-  }
-
- const answer = answerMap[position];
-const selected = selectedPlayers[position];
-
-const isCorrect =
-  answer.id && selected
-    ? answer.id === selected.id
-    : normalize(input) === normalize(answer.name);
-
-if (isCorrect) {
-
-  setSolved(prev => ({
-    ...prev,
-    [position]: true,
-  }));
-
-  setInputValues(prev => ({
-    ...prev,
-    [position]: "",
-  }));
-  setSelectedPlayers(prev => ({
-  ...prev,
-  [position]: undefined,
-}));
-  setFilteredPlayers(prev => ({
-    ...prev,
-    [position]: [],
-  }));
-
-  } else {
-
-    const nextCount =
-      (attempts[position] || 0) + 1;
-
-    setAttempts((prev) => ({
-      ...prev,
-      [position]: nextCount,
-    }));
-
-    setWrongFlash((prev) => ({
-      ...prev,
-      [position]: true,
-    }));
-
-    setTimeout(() => {
-
-      setWrongFlash((prev) => ({
-        ...prev,
-        [position]: false,
-      }));
-
-    }, 600);
-
-    if (nextCount >= 6) {
-
-      setFailed((prev) => ({
-        ...prev,
-        [position]: true,
-      }));
-
-    }
-setFilteredPlayers((prev) => ({
-  ...prev,
-  [position]: [],
-}));
-  }
-};
-
-const getHint = (position) => {
-
-  const player =
-    answerMap[position];
-
-  if (!player)
-    return "";
-
-  const count =
-    attempts[position] || 0;
-
-  const hand = player.throws || "";
-
-const throwHand = hand.slice(0, 2);
-const batHand = hand.slice(2);
-  const hints = [];
-
-  if (count >= 1)
-    hints.push(
-      `던지는 손: ${throwHand}`
-    );
-
-  if (count >= 3)
-    hints.push(
-      `치는 손: ${batHand}`
-    );
-
-  if (count >= 5)
-    hints.push(
-      `나이: ${player.birthYear}년생`
-    );
-
-  return hints;
-};
-  return (
-  <div
-    className="min-h-screen text-white flex flex-col items-center py-10 px-4 relative overflow-hidden"
-    style={{
-      backgroundImage: "url('/stadium_bg.webp')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    }}
-  >
-<div className="absolute inset-0 bg-black/25" />
-<div className="relative z-10 w-full flex flex-col items-center">
-
-  {showRule && (
-    <RuleModal
-      hideRule={hideRule}
-      setHideRule={setHideRule}
-      setShowRule={setShowRule}
-    />
-  )}
-{/* 헤더 */}
-<div
-className="
-flex
-flex-col
-md:flex-row
-items-center
-gap-3
-mb-4
-"
->
-
-  <button
-    onClick={goToPrev}
-    disabled={currentGameIndex === 0}
-    className="bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded-xl"
-  >
-    ← 이전
-  </button>
-
-<Link
-  href="/"
-  className="
-md:fixed
-md:top-16
-md:left-4
-
-bg-gray-200
-text-black
-hover:bg-gray-300
-
-px-4
-py-2
-
-rounded-xl
-
-font-bold
-shadow-lg
-
-w-full
-md:w-auto
-text-center
-"
->
-  🏠 홈
-</Link>
-
-<button
-  onClick={() => {
-    setSelectedTeam(null);
-    setCurrentGameIndex(0);
-    resetGame();
-  }}
-  className="
-md:fixed
-md:top-16
-md:left-40
-lg:left-[17rem]
-
-bg-sky-600
-hover:bg-sky-500
-
-px-4
-py-2
-
-rounded-xl
-
-font-bold
-shadow-lg
-
-w-full
-md:w-auto
-"
->
-  팀 선택
-</button>
-
-  <div className="text-center">
-  <div className="text-2xl font-black tracking-tight">
-    {currentGameIndex + 1}. {game.title}
-  </div>
-
-  <div className="text-xs
-md:text-sm font-bold text-sky-300 mt-1">
-    {game.team} 라인업 맞추기
-  </div>
-
-  <div className="text-xs text-zinc-300">
-    vs {game.opponent}
-  </div>
-
-  <div className="text-xs text-zinc-500 mt-1">
-    {currentGameIndex + 1} / {filteredGames.length}
-  </div>
-
-</div>
-  <button
-  onClick={() => setShowRule(true)}
-  className="
-md:fixed
-md:top-16
-md:right-10
-
-bg-white
-text-black
-
-hover:bg-zinc-200
-
-px-4
-py-2
-
-rounded-xl
-
-font-bold
-shadow-lg
-
-w-full
-md:w-auto
-"
->
-  📖 규칙
-</button>
-
-        <button
-          onClick={goToNext}
-          disabled={currentGameIndex === filteredGames.length - 1}
-          className="bg-zinc-800 hover:bg-zinc-700 disabled:opacity-25 disabled:cursor-not-allowed px-4 py-2 rounded-xl font-bold transition-colors text-xs
-md:text-sm"
+      className="min-h-screen text-white relative px-3 py-6 md:px-6"
+      style={{ backgroundImage: "url('/stadium_bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      {showRule && <RuleModal onClose={() => setShowRule(false)} />}
+      <div className="absolute inset-0 bg-black/40" />
+
+      <div className="relative z-10 mx-auto w-full max-w-[900px]">
+        {/* 상단 */}
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <div className="flex gap-2">
+            <Link href="/" className="bg-gray-200 text-black hover:bg-gray-300 px-3 py-2 rounded-xl font-bold text-sm">
+              🏠 홈
+            </Link>
+            <button onClick={() => setTeam(null)} className="bg-sky-600 hover:bg-sky-500 px-3 py-2 rounded-xl font-bold text-sm">
+              팀 선택
+            </button>
+          </div>
+          <button onClick={() => setShowRule(true)} className="bg-white text-black hover:bg-zinc-200 px-3 py-2 rounded-xl font-bold text-sm">
+            📖 규칙
+          </button>
+        </div>
+
+        {/* 문제 제목 + 이동 */}
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <button
+            onClick={() => openGame(index - 1)}
+            disabled={index === 0}
+            className="bg-zinc-800 hover:bg-zinc-700 disabled:opacity-30 px-3 py-2 rounded-xl font-bold text-sm shrink-0"
+          >
+            ← 이전
+          </button>
+          <div className="text-center min-w-0">
+            <div className="text-xl md:text-2xl font-black">{game.title}</div>
+            <div className="text-xs md:text-sm font-bold text-sky-300">
+              {game.team} 라인업{game.opponent && game.opponent !== "-" ? ` · vs ${game.opponent}` : ""} · {game.category}
+            </div>
+            <div className="text-xs text-zinc-300">
+              {index + 1} / {list.length} · {solvedCount}/{positions.length} 정답
+            </div>
+          </div>
+          <button
+            onClick={() => openGame(index + 1)}
+            disabled={index === list.length - 1}
+            className="bg-zinc-800 hover:bg-zinc-700 disabled:opacity-30 px-3 py-2 rounded-xl font-bold text-sm shrink-0"
+          >
+            다음 →
+          </button>
+        </div>
+
+        {/* 데스크톱·태블릿: 야구장 */}
+        <div
+          className="hidden md:block relative w-full aspect-[9/7] rounded-3xl border border-white/20 bg-black/20 shadow-2xl"
+          style={{ backgroundImage: "url('/baseball_field.png')", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}
         >
-          다음 →
-        </button>
-      </div>
-
-      {/* 카테고리 + 난이도 뱃지 */}
-      <div className="flex items-center gap-2 mb-5">
-        <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded-full">
-          {game.category}
-        </span>
-        <span className="text-xs
-md:text-sm text-zinc-100 font-semibold">
-          {solvedCount} / {totalPlayers} 정답
-        </span>
-      </div>
-<div className="md:hidden text-center text-xs text-zinc-300 mb-2">
-
-← 좌우로 밀어서 야구장 보기 →
-
-</div>
-      {/* 야구장 */}
-
-<div className="w-full overflow-x-auto pb-4">
-
-  <div
-    className="
-      relative
-      mx-auto
-      w-full
-      min-w-[700px]
-      max-w-[900px]
-      aspect-[9/7]
-      rounded-3xl
-      overflow-hidden
-      border
-      border-white/20
-      bg-black/20
-      backdrop-blur-sm
-      shadow-2xl
-    "
-    style={{
-      backgroundImage: "url('/baseball_field.png')",
-      backgroundSize: "contain",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-    }}
-  >
-        {/* 딤 오버레이 */}
-        <div className="absolute inset-0 bg-black/15" />
-
-        {Object.keys(POSITION_STYLE).map((position) => {
-          const player = answerMap[position];
-          if (!player) return null;
-
-          const isSolved = solved[position];
-          const isWrong = wrongFlash[position];
-          const hint = getHint(position);
-
-          return (
+          {positions.map((pos) => (
             <div
-              key={position}
-              className={`absolute -translate-x-1/2 -translate-y-1/2 ${POSITION_STYLE[position]}`}
+              key={`${game.title}-${pos}`}
+              className="absolute -translate-x-1/2 -translate-y-1/2 focus-within:z-40"
+              style={{ left: `${SPOT[pos][0]}%`, top: `${SPOT[pos][1]}%` }}
             >
-              <div
-                className={`
-                  rounded-2xl px-3 py-2 w-[70px]
-md:w-[110px] min-h-[85px]
-md:min-h-[95px] text-center
-                  backdrop-blur-md transition-all duration-300
-                  ${isSolved
-                    ? "bg-emerald-900/60 border border-emerald-500/50 shadow-emerald-500/20 shadow-lg"
-                    : isWrong
-                    ? "bg-red-900/60 border border-red-500/60"
-                    : "bg-black/85 border-2 border-white/30 shadow-[0_0_20px_rgba(255,255,255,0.08)]"
-                  }
-                `}
-              >
-                {/* 포지션 레이블 */}
-                <div className="text-[11px] text-zinc-200 mb-1 font-black tracking-widest">
-  {position.startsWith("OF") ? "OF" : position}
-</div>
+              <Slot {...slotProps(pos)} />
+            </div>
+          ))}
+        </div>
 
-                {isSolved || showAnswers || failed[position] ? (
-                  <div
-  className={`font-black text-xs
-md:text-sm ${
-    isSolved
-      ? "text-emerald-400"
-      : failed[position]
-      ? "text-red-400"
-      : "text-zinc-300"
-  }`}
->
-                    {player.name}
-                  </div>
-                ) : (
-                  <>
-                    <input
-                      value={inputValues[position] ?? ""}
-                      onChange={(e) => {
+        {/* 모바일: 목록 */}
+        <div className="md:hidden space-y-1.5">
+          {positions.map((pos) => (
+            <div key={`${game.title}-${pos}`} className="focus-within:relative focus-within:z-40">
+              <Slot {...slotProps(pos)} compact />
+            </div>
+          ))}
+        </div>
 
-  const value = e.target.value;
-
-  setInputValues((prev) => ({
-    ...prev,
-    [position]: value,
-  }));
-
-  if (!value.trim()) {
-
-    setFilteredPlayers((prev) => ({
-      ...prev,
-      [position]: [],
-    }));
-
-    return;
-  }
-
-  const filtered = players
-  .filter((p) =>
-    p.name.includes(value)
-  )
-  .sort((a, b) => {
-
-    const aStarts = a.name.startsWith(value);
-    const bStarts = b.name.startsWith(value);
-
-    if (aStarts === bStarts) return 0;
-
-    return bStarts - aStarts;
-
-  })
-  .slice(0, 8);
-
-  setFilteredPlayers((prev) => ({
-    ...prev,
-    [position]: filtered,
-  }));
-
-  setSelectedIndex((prev) => ({
-    ...prev,
-    [position]: 0,
-  }));
-
-}}
-                      onKeyDown={(e)=>{
-
-  if(e.key==="ArrowDown"){
-
-    e.preventDefault();
-
-    setSelectedIndex(prev=>({
-
-      ...prev,
-
-      [position]:
-        Math.min(
-          (prev[position] ?? 0)+1,
-          (filteredPlayers[position]?.length ?? 1)-1
-        )
-
-    }));
-
-  }
-
-  else if(e.key==="ArrowUp"){
-
-    e.preventDefault();
-
-    setSelectedIndex(prev=>({
-
-      ...prev,
-
-      [position]:
-        Math.max(
-          (prev[position] ?? 0)-1,
-          0
-        )
-
-    }));
-
-  }
-
-  else if(e.key==="Enter"){
-
-  if(filteredPlayers[position]?.length){
-
-    const player =
-      filteredPlayers[position][
-        selectedIndex[position] ?? 0
-      ];
-
-    setInputValues(prev => ({
-      ...prev,
-      [position]: player.name
-    }));
-
-    setSelectedPlayers(prev => ({
-      ...prev,
-      [position]: player
-    }));
-
-    setFilteredPlayers(prev => ({
-      ...prev,
-      [position]: []
-    }));
-
-    setTimeout(() => {
-      checkAnswer(position);
-    }, 0);
-
-  } else {
-
-    checkAnswer(position);
-
-  }
-
-}
-
-}}
-                      className={`
-                        w-full text-center rounded-lg px-2 py-1 outline-none text-xs
-md:text-sm transition-colors
-                        ${isWrong
-                          ? "bg-red-900/40 text-red-200"
-                          : "bg-zinc-700 text-white border border-zinc-500 focus:bg-zinc-600"
-                        }
-                      `}
-                      placeholder="???"
-                    />
-                    {filteredPlayers[position]?.length > 0 && (
-  <div
-    className="
-      absolute
-      left-1/2
-      -translate-x-1/2
-      top-full
-      mt-1
-      w-full min-w-[120px]
-      rounded-xl
-      bg-zinc-900
-      border
-      border-zinc-700
-      shadow-xl
-      z-50
-      overflow-hidden
-    "
-  >
-    {filteredPlayers[position].map((player, idx) => (
-      <button
-        key={player.id ?? player.name}
-        type="button"
-        onClick={() => {
-
-  setInputValues(prev => ({
-    ...prev,
-    [position]: player.name,
-  }));
-  setSelectedPlayers(prev => ({
-  ...prev,
-  [position]: player,
-}));
-
-  setFilteredPlayers(prev => ({
-    ...prev,
-    [position]: [],
-  }));
-
-  setTimeout(() => {
-    checkAnswer(position);
-  }, 0);
-
-}}
-        className={`
-          w-full
-          text-left
-          px-3
-          py-2
-          text-sm
-          hover:bg-sky-600
-          ${
-            idx === (selectedIndex[position] ?? 0)
-              ? "bg-sky-700"
-              : ""
-          }
-        `}
-      >
-        <div className="flex justify-between items-center">
-  <span>{player.name}</span>
-
-  <span className="text-xs text-zinc-400">
-    ({player.birthdate.slice(0, 4)})
-  </span>
-</div>
-      </button>
-    ))}
-  </div>
-)}
-                    {hint.length > 0 && (
-  <div className="text-[10px]
-md:text-[12px] text-yellow-300 mt-1 leading-normal">
-    {hint.map((h, idx) => (
-      <div key={idx}>
-        {h}
-      </div>
-    ))}
-  </div>
-)}
-                  </>
+        {/* 결과 / 포기 */}
+        <div className="mt-4 text-center">
+          {over ? (
+            <div className="rounded-2xl bg-black/70 border border-white/20 p-4">
+              <div className={`text-3xl font-black ${solvedCount === positions.length ? "text-emerald-400" : "text-white"}`}>
+                {solvedCount === positions.length ? "🎉 CLEAR" : `${solvedCount}/${positions.length} 맞힘`}
+              </div>
+              <div className="mt-3 flex justify-center gap-2">
+                <button
+                  onClick={() => {
+                    store.set(saveKey(game), null);
+                    openGame(index);
+                  }}
+                  className="bg-zinc-700 hover:bg-zinc-600 px-5 py-2.5 rounded-xl font-bold"
+                >
+                  다시 풀기
+                </button>
+                {index < list.length - 1 && (
+                  <button onClick={() => openGame(index + 1)} className="bg-sky-600 hover:bg-sky-500 px-5 py-2.5 rounded-xl font-black">
+                    다음 문제 →
+                  </button>
                 )}
               </div>
             </div>
-          );
-        })}
-      </div>
-</div>
-        {/* CLEAR 연출 */}
-      {isClear && (
-        <div className="mt-8 text-center animate-bounce">
-          <div className="text-5xl font-black text-emerald-400 drop-shadow-lg">
-            🎉 CLEAR
-            
-          </div>
-          
-          <div className="mt-2 text-zinc-400 text-xs
-md:text-sm">
-            모든 선수를 맞췄습니다!
-          </div>
+          ) : (
+            <button
+              onClick={() => setGaveUp(true)}
+              className="bg-zinc-800/90 hover:bg-zinc-700 px-5 py-2.5 rounded-xl font-bold text-zinc-200"
+            >
+              포기하고 정답 보기
+            </button>
+          )}
         </div>
-      )}
+      </div>
     </div>
-    </div>
-    
   );
 }
