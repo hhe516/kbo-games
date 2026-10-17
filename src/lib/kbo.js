@@ -176,3 +176,11 @@ export const dailyStreak = (games, today) =>
   doneOn(games, today)
     ? streakUntil(games, today)
     : streakUntil(games, addDays(today, -1));
+
+// 폰에서 입력칸을 누르면 키보드에 가려지지 않게 입력칸을 화면 위쪽으로 올림
+// (아래로 펼쳐지는 자동완성 목록이 키보드 위에 보이도록)
+export function liftOnMobile(e) {
+  if (typeof window === "undefined" || window.innerWidth >= 768) return;
+  const el = e.currentTarget;
+  setTimeout(() => el.scrollIntoView({ block: "start", behavior: "smooth" }), 300);
+}

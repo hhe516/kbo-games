@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import TeamBadge from "@/app/components/TeamBadge";
-import { addDays, dailyNumber, seededRandom, store, streakUntil, todayKST } from "@/lib/kbo";
+import { addDays, dailyNumber, liftOnMobile, seededRandom, store, streakUntil, todayKST } from "@/lib/kbo";
 import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
 
 const CHANCES = 8;
@@ -164,6 +164,7 @@ export default function WhoAreYaDaily() {
                 value={input}
                 autoFocus
                 placeholder="선수 이름 입력"
+                onFocus={liftOnMobile}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && suggestions.length > 0) guess(suggestions[0]);

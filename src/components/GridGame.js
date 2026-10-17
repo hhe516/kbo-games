@@ -11,6 +11,7 @@ import {
   shuffle,
   store,
   streakUntil,
+  liftOnMobile,
   todayKST,
 } from "@/lib/kbo";
 import { pushDaily, SYNC_EVENT } from "@/lib/supabase";
@@ -468,6 +469,7 @@ export default function GridGame({ daily = false }) {
                             autoFocus
                             value={input}
                             placeholder="선수 이름 입력"
+                onFocus={liftOnMobile}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={(e) => {
                               if (e.key === "Enter" && suggestions.length > 0) guess(suggestions[0]);
