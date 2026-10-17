@@ -227,53 +227,78 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
           </div>
         </div>
 
-        {/* 오늘의 문제 */}
-        <section>
-          <h2 className="mb-3 text-xl md:text-2xl font-black text-white">📅 오늘의 문제</h2>
-          <div className="grid gap-4 md:grid-cols-2">
+        {/* 오늘의 문제: 한 판에 4개 작은 타일 */}
+        <section className="rounded-3xl border border-white/15 bg-slate-950/60 p-4 md:p-5 shadow-2xl backdrop-blur-md">
+          {(() => {
+            const ready = DAILIES.filter((g) => g.ready);
+            const doneCount = ready.filter((g) => progress[g.key]?.done).length;
+            return (
+              <div className="mb-3 flex items-end justify-between gap-3">
+                <div>
+                  <h2 className="text-lg md:text-xl font-black text-white">
+                    📅 오늘의 문제 {today && <span className="text-white/50">#{dailyNumber(today)}</span>}
+                  </h2>
+                  <p className="text-xs text-white/50">매일 0시 새 문제 · 모두 같은 문제</p>
+                </div>
+                <div className="w-28 shrink-0 text-right">
+                  <div className="text-xs font-bold text-white/70">
+                    {doneCount === ready.length ? "🎉 오늘 다 풀었어요" : `${doneCount}/${ready.length} 완료`}
+                  </div>
+                  <div className="mt-1 h-1.5 rounded-full bg-white/15">
+                    <div
+                      className="h-1.5 rounded-full bg-emerald-400 transition-all"
+                      style={{ width: `${(doneCount / ready.length) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+
+          <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
             {DAILIES.map((g) => {
               const rec = progress[g.key];
-              const status = !g.ready
-                ? "준비 중"
-                : rec?.done
-                  ? g.result(rec)
-                  : rec
-                    ? "이어서 하기"
-                    : "도전하기";
-              const card = (
+              const done = !!rec?.done;
+              const tile = (
                 <div
-                  className={`h-full rounded-3xl p-6 shadow-2xl transition-all ${
-                    g.ready ? "bg-white/90 hover:bg-white hover:scale-[1.02]" : "bg-white/40"
+                  className={`group flex h-full items-center gap-3 rounded-2xl px-3 py-3 transition-all ${
+                    done
+                      ? "bg-emerald-500/15 ring-1 ring-emerald-400/40 hover:bg-emerald-500/25"
+                      : "bg-white/95 hover:-translate-y-0.5 hover:bg-white"
                   }`}
                 >
-                  <div className="text-4xl">{g.icon}</div>
-                  <div className="mt-3 text-2xl font-black text-gray-900">{g.name}</div>
-                  {g.ready && today && (
-                    <div className="text-sm font-semibold text-gray-500">#{dailyNumber(today)}</div>
-                  )}
                   <div
-                    className={`mt-4 inline-block rounded-xl px-4 py-2 font-black ${
-                      !g.ready
-                        ? "bg-gray-300 text-gray-600"
-                        : rec?.done
-                          ? "bg-green-100 text-green-800"
-                          : "bg-blue-500 text-white"
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-2xl ${
+                      done ? "bg-emerald-400/20" : "bg-slate-100"
                     }`}
                   >
-                    {status}
+                    {g.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <div className={`truncate text-sm md:text-base font-black ${done ? "text-white" : "text-slate-900"}`}>
+                      {g.name.replace("오늘의 ", "")}
+                    </div>
+                    <div
+                      className={`truncate text-xs font-bold ${
+                        done ? "text-emerald-300" : rec ? "text-orange-500" : "text-blue-600"
+                      }`}
+                    >
+                      {!g.ready ? "준비 중" : done ? g.result(rec).replace("✅ ", "") : rec ? "이어서 하기 →" : "도전하기 →"}
+                    </div>
                   </div>
                 </div>
               );
               return g.ready ? (
                 <Link key={g.key} href={g.href}>
-                  {card}
+                  {tile}
                 </Link>
               ) : (
-                <div key={g.key}>{card}</div>
+                <div key={g.key} className="opacity-50">
+                  {tile}
+                </div>
               );
             })}
           </div>
-          <p className="mt-2 text-sm text-white/70">매일 0시(한국 시간)에 새 문제가 열립니다. 모두 같은 문제를 풀어요.</p>
         </section>
 
         {/* 오늘 생일 */}

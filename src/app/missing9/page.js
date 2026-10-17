@@ -442,7 +442,7 @@ export default function Missing9() {
           <div className="text-center min-w-0">
             <div className="text-xl md:text-2xl font-black">{game.title}</div>
             <div className="text-xs md:text-sm font-bold text-sky-300">
-              {game.team === "골든글러브" ? "수상자" : `${game.team} 라인업`}{game.opponent && game.opponent !== "-" ? ` · vs ${game.opponent}` : ""} · {game.category}
+              {game.team === "골든글러브" ? "수상자 맞히기" : `${game.team} 라인업`}{game.opponent && game.opponent !== "-" ? ` · vs ${game.opponent}` : ""} · {game.category}
             </div>
             <div className="text-xs text-zinc-300">
               {index + 1} / {list.length} · {solvedCount}/{positions.length} 정답
@@ -459,7 +459,7 @@ export default function Missing9() {
 
         {/* 데스크톱·태블릿: 야구장 */}
         <div
-          className="hidden md:block relative w-full aspect-[9/7] rounded-3xl border border-white/20 bg-black/20 shadow-2xl"
+          className="hidden md:block relative w-full mb-24 aspect-[9/7] rounded-3xl border border-white/20 bg-black/20 shadow-2xl"
           style={{ backgroundImage: "url('/baseball_field.png')", backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}
         >
           {positions.map((pos) => (
