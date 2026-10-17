@@ -9,9 +9,9 @@ import { liftOnMobile, store } from "@/lib/kbo";
 // -----------------------------
 
 const MAX_WRONG = 6; // 한 칸에서 6번 틀리면 그 칸은 실패
-const HINT_AT = { throw: 1, bat: 3, birth: 5 }; // 몇 번째 오답부터 힌트 공개
+const HINT_AT = { season: 1, school: 3, initials: 5 }; // 몇 번째 오답부터 힌트 공개
 
-const TEAMS = ["전체", "대한민국", "삼성", "두산", "LG", "롯데", "KIA", "한화", "SSG", "KT", "키움", "NC"];
+const TEAMS = ["전체", "골든글러브", "대한민국", "삼성", "두산", "LG", "롯데", "KIA", "한화", "SSG", "KT", "키움", "NC"];
 // 옛 이름까지 같은 팀으로
 const TEAM_GROUP = { SSG: ["SSG", "SK"], 키움: ["키움", "넥센", "우리"] };
 
@@ -38,6 +38,16 @@ const posLabel = (pos) => (pos.startsWith("OF") ? "OF" : pos);
 const normalize = (s) => String(s ?? "").replace(/\s+/g, "");
 const saveKey = (game) => `missing9_${game.title}`;
 
+// 이름 초성 (류현진 → ㄹㅎㅈ). 한글 아닌 글자는 그대로
+const CHO = "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ";
+const initials = (name) =>
+  [...name]
+    .map((ch) => {
+      const c = ch.charCodeAt(0) - 0xac00;
+      return c >= 0 && c < 11172 ? CHO[Math.floor(c / 588)] : ch;
+    })
+    .join("");
+
 // -----------------------------
 // 규칙 창
 // -----------------------------
@@ -57,7 +67,11 @@ function RuleModal({ onClose }) {
             <div className="font-black text-lg text-black">🎮 방법</div>
             <ul className="list-disc ml-6">
               <li>칸에 이름을 입력하고 목록에서 고르거나 Enter.</li>
-              <li>틀릴 때마다 힌트가 열립니다. {HINT_AT.throw}번째 오답: 던지는 손 · {HINT_AT.bat}번째: 치는 손 · {HINT_AT.birth}번째: 출생연도</li>
+              <li>
+                틀릴 때마다 힌트가 열립니다. {HINT_AT.season}번째 오답: <b>그 시즌 기록</b> · {HINT_AT.school}번째: 출신 학교·출생연도 ·{" "}
+                {HINT_AT.initials}번째: 이름 초성
+              </li>
+              <li>시즌 기록은 정규시즌 1군 기준입니다. 경기·시즌 베스트는 그 팀 기록, 국제대회·골든글러브는 그해 전체 기록이에요. (3월 WBC는 직전 시즌)</li>
               <li>한 칸에서 {MAX_WRONG}번 틀리면 그 칸은 실패하고 정답이 공개됩니다.</li>
               <li>막히면 &quot;포기하고 정답 보기&quot;로 끝낼 수 있어요. 푼 기록은 저장돼서 목록에 표시됩니다.</li>
             </ul>
@@ -66,6 +80,7 @@ function RuleModal({ onClose }) {
             <div className="font-black text-lg text-black">📂 문제 종류</div>
             <ul className="list-disc ml-6">
               <li>국제대회 · 한국시리즈 · 포스트시즌: 실제 경기 선발 라인업</li>
+              <li>골든글러브: 그해 골든글러브 수상자 10명. 외야 3명은 아무 외야 칸에 넣어도 됩니다.</li>
               <li>
                 시즌 베스트: 그 시즌 포지션별로 <b>타석이 가장 많았던 주전</b>, 지명타자는 그다음으로 많이 나온 타자, 투수는
                 선발 등판이 가장 많은 투수. 외야 3명은 순서 상관없이 아무 외야 칸에 넣어도 됩니다.
@@ -129,12 +144,16 @@ function Slot({ pos, answer, state, over, players, onSubmit, compact }) {
     }
   };
 
+  // 힌트: 그 시즌 기록 → 출신 학교·출생연도 → 초성
+  // (그해 KBO 기록이 없으면 첫 힌트는 투타·출생연도)
   const hints = [];
-  if (!done && answer.info) {
-    const hand = answer.info.throws || "";
-    if (wrong >= HINT_AT.throw) hints.push(`던지는 손: ${hand.slice(0, 2)}`);
-    if (wrong >= HINT_AT.bat) hints.push(`치는 손: ${hand.slice(2)}`);
-    if (wrong >= HINT_AT.birth) hints.push(`${answer.info.birthdate?.slice(0, 4)}년생`);
+  if (!done) {
+    const h = answer.hint || {};
+    const born = answer.info?.birthdate ? `${answer.info.birthdate.slice(0, 4)}년생` : "";
+    const hand = answer.info?.throws || "";
+    if (wrong >= HINT_AT.season) hints.push(h.season || [hand, born].filter(Boolean).join(" · "));
+    if (wrong >= HINT_AT.school) hints.push(h.season ? [h.school, born].filter(Boolean).join(" · ") : h.school || hand);
+    if (wrong >= HINT_AT.initials) hints.push(`초성 ${initials(answer.name)}`);
   }
 
   const shownName = answer.oldName ? `${answer.name} (당시 ${answer.oldName})` : answer.name;
@@ -142,7 +161,7 @@ function Slot({ pos, answer, state, over, players, onSubmit, compact }) {
   return (
     <div
       className={`rounded-2xl text-center backdrop-blur-md transition-all ${
-        compact ? "flex items-center gap-3 px-3 py-2 text-left" : "px-2 py-2 w-[110px] min-h-[92px]"
+        compact ? "flex items-center gap-3 px-3 py-2 text-left" : "px-2 py-2 w-[140px] min-h-[92px]"
       } ${
         state?.solved
           ? "bg-emerald-900/70 border border-emerald-500/60"
@@ -203,12 +222,13 @@ function Slot({ pos, answer, state, over, players, onSubmit, compact }) {
           </div>
         )}
         {hints.length > 0 && (
-          <div className="mt-1 text-[11px] leading-snug text-yellow-300">
-            {hints.join(compact ? " · " : "\n")
-              .split("\n")
-              .map((h) => (
-                <div key={h}>{h}</div>
-              ))}
+          <div className="mt-1 text-[11px] leading-snug text-yellow-300 break-keep">
+            {hints.filter(Boolean).map((h) => (
+              // 야구장 카드는 좁아서 " · " 마다 줄바꿈
+              <div key={h} className={compact ? "" : "mb-0.5"}>
+                {compact ? h : h.split(" · ").map((x) => <div key={x}>{x}</div>)}
+              </div>
+            ))}
           </div>
         )}
         {!done && wrong > 0 && (
@@ -254,7 +274,8 @@ export default function Missing9() {
   }, [games, team]);
 
   const game = list[index];
-  const isSeasonBest = game?.category === "시즌 베스트";
+  // 외야가 OF1~3 으로 들어온 문제(시즌 베스트·골든글러브)는 외야 칸 순서 상관없음
+  const ofFree = !!game?.lineup.some((l) => l.position === "OF1");
 
   // 정답표: 포지션 → {name, id, oldName, info(선수 정보)}
   const answers = useMemo(() => {
@@ -285,7 +306,7 @@ export default function Missing9() {
   // 시즌 베스트 외야는 칸과 선수가 고정이 아님: 맞힌 칸은 맞힌 선수, 나머지 칸엔 남은 선수를 순서대로
   const OFS = ["OF1", "OF2", "OF3"];
   const answerFor = (pr, pos) => {
-    if (!(isSeasonBest && pos.startsWith("OF"))) return answers[pos];
+    if (!(ofFree && pos.startsWith("OF"))) return answers[pos];
     if (pr[pos]?.as) return answers[pr[pos].as];
     const taken = OFS.map((p) => pr[p]?.as).filter(Boolean);
     const restAnswers = OFS.filter((p) => !taken.includes(p));
@@ -304,7 +325,7 @@ export default function Missing9() {
 
     // 시즌 베스트 외야는 아직 안 맞힌 외야 선수 중 누구든
     let as = null;
-    if (isSeasonBest && pos.startsWith("OF")) {
+    if (ofFree && pos.startsWith("OF")) {
       const taken = OFS.map((p) => progress[p]?.as).filter(Boolean);
       as = OFS.find((p) => !taken.includes(p) && matches(answers[p]));
     } else if (matches(answers[pos])) {
@@ -421,7 +442,7 @@ export default function Missing9() {
           <div className="text-center min-w-0">
             <div className="text-xl md:text-2xl font-black">{game.title}</div>
             <div className="text-xs md:text-sm font-bold text-sky-300">
-              {game.team} 라인업{game.opponent && game.opponent !== "-" ? ` · vs ${game.opponent}` : ""} · {game.category}
+              {game.team === "골든글러브" ? "수상자" : `${game.team} 라인업`}{game.opponent && game.opponent !== "-" ? ` · vs ${game.opponent}` : ""} · {game.category}
             </div>
             <div className="text-xs text-zinc-300">
               {index + 1} / {list.length} · {solvedCount}/{positions.length} 정답
