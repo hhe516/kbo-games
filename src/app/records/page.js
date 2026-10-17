@@ -119,14 +119,18 @@ function GameCard({ g, days, recs }) {
           <div key={b} className="flex items-center gap-2 text-sm">
             <div className="w-10 shrink-0 text-right text-gray-500">{g.bucketLabel(b)}</div>
             <div className="flex-1">
-              <div
-                className={`h-5 rounded-md px-1.5 text-right text-xs font-bold leading-5 text-white ${
-                  b === "X" || b === "0" ? "bg-gray-400" : "bg-green-500"
-                }`}
-                style={{ width: `${Math.max(8, (counts[b] / max) * 100)}%` }}
-              >
-                {counts[b]}
-              </div>
+              {counts[b] > 0 ? (
+                <div
+                  className={`h-5 min-w-6 rounded-md px-1.5 text-right text-xs font-bold leading-5 text-white ${
+                    b === "X" || b === "0" ? "bg-gray-400" : "bg-green-500"
+                  }`}
+                  style={{ width: `${(counts[b] / max) * 100}%` }}
+                >
+                  {counts[b]}
+                </div>
+              ) : (
+                <div className="h-5 text-xs leading-5 text-gray-300">0</div>
+              )}
             </div>
           </div>
         ))}
