@@ -63,9 +63,11 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  fetch("/data/players.json")
-    .then((r) => r.json())
-    .then((players) => {
+  Promise.all([
+    fetch("/data/players.json").then((r) => r.json()),
+    fetch("/data/current_teams.json").then((r) => r.json()),
+  ])
+    .then(([players, current]) => {
       const d = todayKST();
       setToday(d);
       refreshDaily(d);
@@ -84,7 +86,13 @@ useEffect(() => {
           .filter((p) => String(p.birthdate).endsWith(md))
           .sort((a, b) => b.careerWar - a.careerWar)
           .slice(0, 6)
-          .map((p) => ({ ...p, turning: year - Number(p.birthdate.slice(0, 4)) }))
+          // 지금 KBO에 등록된 선수는 현재 팀·현역으로
+          .map((p) => ({
+            ...p,
+            team: current[p.id] || p.team,
+            active: !!current[p.id],
+            turning: year - Number(p.birthdate.slice(0, 4)),
+          }))
       );
     });
 }, []);
