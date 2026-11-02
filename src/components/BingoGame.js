@@ -115,6 +115,15 @@ const RuleModal = ({ hideRule, setHideRule, setShowRule }) => (
   <div className="fixed inset-0 bg-black/70 z-[999] flex items-center justify-center">
     <div className="w-[720px] max-w-[92%] max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-8 shadow-2xl">
       <h2 className="text-4xl font-black text-center mb-8">⚾ KBO Bingo</h2>
+      <div className="mb-6 rounded-2xl bg-amber-50 border border-amber-200 p-4">
+        <div className="font-black text-amber-800 mb-1">⏱ 30초 요약</div>
+        <ol className="list-decimal ml-5 space-y-1 text-gray-800 font-semibold">
+          <li>선수가 한 명씩 나와요. 그 선수에 맞는 칸을 누르세요.</li>
+          <li>모르겠으면 <b>넘기기</b> (횟수 제한 없음). 틀리면 다음 선수까지 날아가요.</li>
+          <li>가로·세로·대각선 한 줄을 채우면 빙고!</li>
+        </ol>
+        <div className="mt-2 text-xs text-gray-500">아래는 자세한 규칙이에요. 몰라도 바로 시작해도 돼요!</div>
+      </div>
       <div className="space-y-5 text-gray-800">
         <div>
           <div className="font-black text-xl mb-2">🎯 목표</div>
