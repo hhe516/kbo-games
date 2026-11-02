@@ -19,8 +19,12 @@ function avgTries(stats, toTries) {
 }
 
 // 같은 날엔 같은 선수 (데이터 파일 순서가 바뀌어도 id 순으로 정렬해서 고름)
+// 2026-11-03 부터는 정답을 1980년생 이후(최근 15년 안팎에 뛴 선수) 중에서만 → 처음 하는 사람도 아는 선수 위주
+// (그 전 날짜는 예전 방식 그대로 둬서 이미 푼 기록과 정답이 바뀌지 않게)
+const RECENT_FROM = "2026-11-03";
 function pickAnswer(players, today) {
-  const pool = [...players].sort((a, b) => (a.id < b.id ? -1 : 1));
+  const base = today >= RECENT_FROM ? players.filter((p) => Number(p.birthdate.slice(0, 4)) >= 1980) : players;
+  const pool = [...base].sort((a, b) => (a.id < b.id ? -1 : 1));
   const rng = seededRandom(`${GAME}-${today}`);
   return pool[Math.floor(rng() * pool.length)];
 }

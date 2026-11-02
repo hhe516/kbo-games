@@ -33,7 +33,7 @@ const DAILIES = [
 
 const LEVELS = { 1: ["입문", "bg-emerald-100 text-emerald-700"], 2: ["보통", "bg-sky-100 text-sky-700"], 3: ["고수", "bg-rose-100 text-rose-700"] };
 // 자유 모드 카드 난이도 (Sidebar 의 GAMES href 기준)
-const FREE_LEVEL = { "/whoru": 1, "/careerpath": 2, "/bingo": 2, "/missing9": 3, "/grid": 3 };
+const FREE_LEVEL = { "/quiz": 1, "/whoru": 1, "/careerpath": 2, "/bingo": 2, "/missing9": 3, "/grid": 3 };
 const LevelChip = ({ level }) => (
   <span className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-black ${LEVELS[level][1]}`}>{LEVELS[level][0]}</span>
 );
@@ -263,14 +263,20 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
             <div className="text-xl md:text-2xl font-black">처음 오셨나요? ⚾</div>
             <p className="mt-1 text-sm md:text-base font-semibold text-slate-800">
               KBO 선수를 맞히는 게임 모음이에요. 매일 0시에 모두에게 같은 문제가 열려요.
-              <br className="hidden md:block" /> 처음이면 제일 쉬운 <b>Who Are Ya</b>부터 해보세요. 1분이면 끝나요!
+              <br className="hidden md:block" /> 처음이면 4지선다 <b>팀 맞히기</b>로 몸풀고, 오늘의 <b>Who Are Ya</b>부터 해보세요!
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <Link
-                href="/daily/whoru"
+                href="/quiz"
                 className="rounded-xl bg-slate-900 px-5 py-2.5 font-black text-white hover:bg-slate-700"
               >
-                🤔 Who Are Ya 시작하기 →
+                ⚡ 1분 팀 맞히기로 몸풀기 →
+              </Link>
+              <Link
+                href="/daily/whoru"
+                className="rounded-xl bg-white/80 px-5 py-2.5 font-black text-slate-900 hover:bg-white"
+              >
+                🤔 오늘의 Who Are Ya
               </Link>
               <span className="self-center text-xs font-bold text-slate-800/70">
                 쉬운 순서: Who Are Ya → Career Path → Bingo → Grid

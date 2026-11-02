@@ -7,6 +7,7 @@ import { supabase, syncDaily, SYNC_EVENT } from "@/lib/supabase";
 
 // 게임 추가할 때 여기에 한 줄만 넣으면 사이드바에 뜸
 export const GAMES = [
+  { href: "/quiz", icon: "⚡", name: "팀 맞히기", desc: "선수 보고 소속팀 고르기 (10문제)" },
   { href: "/whoru", icon: "🤔", name: "Who Are Ya", desc: "힌트로 선수 맞히기" },
   { href: "/missing9", icon: "🧩", name: "Missing 9", desc: "라인업 맞추기" },
   { href: "/careerpath", icon: "🛤️", name: "Career Path", desc: "커리어 보고 선수 맞히기" },
@@ -180,7 +181,7 @@ function Footer() {
         <span>버그 제보</span>
       </a>
       <div className="flex items-center justify-between px-3 text-xs text-slate-500">
-        <span>v1.2.7 Beta</span>
+        <span>v1.3.0 Beta</span>
         <Link href="/privacy" className="underline hover:text-slate-300">
           개인정보처리방침
         </Link>
