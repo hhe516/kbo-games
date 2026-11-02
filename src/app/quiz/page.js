@@ -18,13 +18,15 @@ const BEST_KEY = "quiz_best";
 // 맞히면 100점 + 남은 시간 1초당 10점, 3연속부터 콤보 보너스
 const pointsFor = (left, streak) => 100 + left * 10 + (streak >= 3 ? 50 : 0);
 
+// 이적생은 이적 전 팀을 오답 보기에 꼭 넣어서 헷갈리게
 function makeRound(pool) {
   return shuffle(pool)
     .slice(0, ROUNDS)
-    .map((p) => ({
-      player: p,
-      choices: shuffle([p.team, ...shuffle(TEAMS.filter((t) => t !== p.team)).slice(0, 3)]),
-    }));
+    .map((p) => {
+      const others = shuffle(TEAMS.filter((t) => t !== p.team && t !== p.prevTeam));
+      const wrong = p.prevTeam ? [p.prevTeam, ...others.slice(0, 2)] : others.slice(0, 3);
+      return { player: p, choices: shuffle([p.team, ...wrong]) };
+    });
 }
 
 export default function TeamQuiz() {
@@ -45,12 +47,23 @@ export default function TeamQuiz() {
     Promise.all([
       fetch("/data/players.json").then((r) => r.json()),
       fetch("/data/current_teams.json").then((r) => r.json()),
+      fetch("/data/last_teams.json").then((r) => r.json()),
     ])
-      .then(([all, current]) => {
+      .then(([all, current, last]) => {
         // 지금 KBO에 등록된 선수만, 팀은 현재 등록 팀 (scripts/roster: KBO 선수 조회 기준)
         const p = all
           .filter((x) => current[x.id] && (x.careerWar || 0) >= MIN_WAR)
-          .map((x) => ({ ...x, team: current[x.id] }));
+          .map((x) => {
+            // 기록상 마지막 소속(last_teams.json)과 지금 팀이 다르면 이적생
+            const before = last[x.id];
+            const moved = before && TEAMS.includes(before.team) && before.team !== current[x.id];
+            return {
+              ...x,
+              team: current[x.id],
+              prevTeam: moved ? before.team : null,
+              prevYear: moved ? before.year : null,
+            };
+          });
         setPool(p);
         setRounds(makeRound(p));
         setBest(store.get(BEST_KEY) || 0);
@@ -219,6 +232,11 @@ export default function TeamQuiz() {
               })}
             </div>
             {picked === "" && <div className="mt-3 text-center text-sm font-bold text-rose-500">⏰ 시간 초과!</div>}
+            {picked !== null && q.player.prevTeam && (
+              <div className="mt-3 text-center text-sm font-bold text-amber-600">
+                🔄 이적생! {q.player.prevYear} {q.player.prevTeam} → 지금 {q.player.team}
+              </div>
+            )}
           </div>
         ) : (
           <div className="rounded-3xl bg-white/95 p-6 text-center shadow-2xl">

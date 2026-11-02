@@ -9,3 +9,7 @@ players.json 의 선수(이름 + 생년월일)와 맞춰서 만든 파일.
 
 쓰는 곳: 팀 맞히기(/quiz, 이 파일에 있는 선수만 출제), Who Are Ya(팀 비교).
 이적·FA 시즌에는 다시 받아서 갱신할 것. (players.json 을 새로 만들면 순번이 바뀌니 txt 가 아니라 json 을 다시 생성)
+
+## 이적 전 팀 (last_teams.json)
+`python scripts/roster/build_last_teams.py` — current_teams.json 의 선수마다 CSV 기록상 마지막 소속팀(+연도).
+팀 맞히기에서 이적생은 이적 전 팀이 오답 보기에 꼭 들어감. current_teams.json 을 갱신하면 이것도 다시 실행.

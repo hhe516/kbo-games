@@ -46,7 +46,8 @@ const [today, setToday] = useState(null);
 const [progress, setProgress] = useState({}); // key → 저장된 데일리 기록
 const [streak, setStreak] = useState(0);
 const [birthdays, setBirthdays] = useState(null);
-const [newbie, setNewbie] = useState(false); // 데일리를 한 번도 안 해본 첫 방문자
+const [newbie, setNewbie] = useState(false);
+const [news, setNews] = useState([]); // 스토브리그 뉴스 (/api/news) // 데일리를 한 번도 안 해본 첫 방문자
 
 // 데일리 진행·연속 기록 (브라우저 저장소 기준, 로그인 시 서버와 맞춰진 값)
 function refreshDaily(d) {
@@ -55,6 +56,16 @@ function refreshDaily(d) {
     Object.fromEntries(DAILIES.map((g) => [g.key, store.get(`daily_${g.key}_${d}`)]))
   );
 }
+
+useEffect(() => {
+  fetch("/api/news")
+    .then((r) => r.json())
+    .then((j) => {
+      const now = Date.now();
+      setNews((j.items || []).map((n) => ({ ...n, hours: n.time ? Math.max(0, Math.round((now - n.time) / 3600000)) : null })));
+    })
+    .catch(() => {});
+}, []);
 
 useEffect(() => {
   const onSync = () => refreshDaily(todayKST());
@@ -370,6 +381,39 @@ max-w-[560px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white text-black p-8 s
             })}
           </div>
         </section>
+
+        {/* 스토브리그 뉴스: 구글 뉴스 검색에서 FA·트레이드 기사 제목만, 누르면 언론사 원문 */}
+        {news.length > 0 && (
+          <section className="rounded-3xl border border-white/15 bg-slate-950/60 p-4 md:p-5 shadow-2xl backdrop-blur-md">
+            <div className="mb-3 flex items-end justify-between gap-2">
+              <h2 className="text-lg md:text-xl font-black text-white">🔥 스토브리그 소식</h2>
+              <span className="text-[11px] text-white/40">FA·트레이드 최신 기사 · 자동 업데이트</span>
+            </div>
+            <ul className="divide-y divide-white/10">
+              {news.map((n) => {
+                const hours = n.hours;
+                return (
+                  <li key={n.link}>
+                    <a
+                      href={n.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-baseline justify-between gap-3 py-2.5 group"
+                    >
+                      <span className="line-clamp-2 text-sm md:text-[15px] font-semibold text-white group-hover:text-amber-300">
+                        {n.title}
+                      </span>
+                      <span className="shrink-0 text-[11px] text-white/50">
+                        {n.source}
+                        {hours != null ? ` · ${hours < 24 ? `${hours}시간 전` : `${Math.round(hours / 24)}일 전`}` : ""}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
 
         {/* 오늘 생일: 중간 크기 카드 (팀 로고 + 이름 + 몇 번째 생일) */}
         {birthdays?.length > 0 && (
