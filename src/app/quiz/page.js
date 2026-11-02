@@ -42,10 +42,15 @@ export default function TeamQuiz() {
   const timer = useRef(null);
 
   useEffect(() => {
-    fetch("/data/players.json")
-      .then((r) => r.json())
-      .then((all) => {
-        const p = all.filter((x) => x.active && TEAMS.includes(x.team) && (x.careerWar || 0) >= MIN_WAR);
+    Promise.all([
+      fetch("/data/players.json").then((r) => r.json()),
+      fetch("/data/current_teams.json").then((r) => r.json()),
+    ])
+      .then(([all, current]) => {
+        // 지금 KBO에 등록된 선수만, 팀은 현재 등록 팀 (scripts/roster: KBO 선수 조회 기준)
+        const p = all
+          .filter((x) => current[x.id] && (x.careerWar || 0) >= MIN_WAR)
+          .map((x) => ({ ...x, team: current[x.id] }));
         setPool(p);
         setRounds(makeRound(p));
         setBest(store.get(BEST_KEY) || 0);
@@ -180,7 +185,7 @@ export default function TeamQuiz() {
 
             {/* 선수 */}
             <div className="mt-6 text-center">
-              <div className="text-xs font-bold text-slate-400">이 선수의 소속팀은? (2025 시즌 기준)</div>
+              <div className="text-xs font-bold text-slate-400">이 선수의 지금 소속팀은?</div>
               <div className="mt-2 text-4xl font-black text-slate-900">{q.player.name}</div>
               <div className="mt-1 text-sm text-slate-500">
                 {q.player.position} · {q.player.birthdate.slice(0, 4)}년생 · {q.player.throws}

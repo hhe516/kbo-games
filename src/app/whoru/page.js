@@ -66,9 +66,11 @@ useEffect(() => {
     file = "/data/players_war10.json";
   }
 
-fetch(file)
-  .then((res) => res.json())
-  .then((data) => {
+Promise.all([
+  fetch(file).then((res) => res.json()),
+  fetch("/data/current_teams.json").then((res) => res.json()),
+])
+  .then(([data, current]) => {
 
     // JSON의 age는 만든 시점 기준이라 해가 바뀌면 틀어짐 → 생년으로 다시 계산
     const thisYear = new Date().getFullYear();
@@ -76,6 +78,8 @@ fetch(file)
     setPlayers(
       data.map((p) => ({
         ...p,
+        // 지금 KBO에 등록된 선수는 현재 소속팀으로 (scripts/roster 참고)
+        team: current[p.id] || p.team,
         age: thisYear - Number(String(p.birthdate).slice(0, 4)),
       }))
     );

@@ -60,13 +60,19 @@ export default function WhoAreYaDaily() {
       if (saved?.guesses) setGuessIds(saved.guesses);
     };
 
-    fetch("/data/players_war10.json")
-      .then((r) => r.json())
-      .then((data) => {
+    Promise.all([
+      fetch("/data/players_war10.json").then((r) => r.json()),
+      fetch("/data/current_teams.json").then((r) => r.json()),
+    ])
+      .then(([data, current]) => {
         const today = todayKST();
         const year = Number(today.slice(0, 4));
-        // 나이는 생년으로 다시 계산 (JSON 값은 만든 시점 기준)
-        const list = data.map((p) => ({ ...p, age: year - Number(String(p.birthdate).slice(0, 4)) }));
+        // 나이는 생년으로 다시 계산 (JSON 값은 만든 시점 기준), 팀은 지금 KBO 등록 팀이 있으면 그걸로
+        const list = data.map((p) => ({
+          ...p,
+          team: current[p.id] || p.team,
+          age: year - Number(String(p.birthdate).slice(0, 4)),
+        }));
         setPlayers(list);
         setDate(today);
         setAnswer(pickAnswer(list, today));
